@@ -10,6 +10,7 @@ export const GlobalStyles = createGlobalStyle`
         overflow: hidden;
         font-size: 32px;
         letter-spacing: 1px;
+        background: #1D1C21;
     }
 `;
 
