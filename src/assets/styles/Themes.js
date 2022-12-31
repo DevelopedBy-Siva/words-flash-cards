@@ -13,6 +13,7 @@ export const dark = {
     error: "#E24339",
     light: "#FFFFFF",
     dull: "#686868",
+    wru: "#C0DEDD",
     json: {
       key: "#4EC9E4",
       value: "#FFA7A7",
@@ -30,5 +31,9 @@ export const dark = {
     green: "#2D9D41",
     red: "#E24339",
   },
-  border: "#999999",
+  border: {
+    default: "#999999",
+    error: "#E24339",
+    light: "#FFFFFF",
+  },
 };

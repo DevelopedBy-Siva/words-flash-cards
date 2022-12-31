@@ -2,7 +2,7 @@ import React, { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 const ProtectedRoutes = lazy(() => import("./protected"));
-const Header = lazy(() => import("../components/home/header"));
+const Header = lazy(() => import("../components/container/header"));
 const Home = lazy(() => import("../components/home"));
 const Words = lazy(() => import("../components/words"));
 const Quiz = lazy(() => import("../components/quiz"));

@@ -1,16 +1,17 @@
 import { createGlobalStyle } from "styled-components";
+import { dark } from "./Themes";
+import FontSize from "./FontSizes.json";
 
 export const GlobalStyles = createGlobalStyle`
     * {
         margin: 0;
         padding: 0;
-        box-sizing: border-box;		
+        box-sizing: border-box;
     }
-    body {
-        overflow: hidden;
-        font-size: 32px;
-        letter-spacing: 1px;
-        background: #1D1C21;
+    html, body, #root {
+        height: 100%;
+        background: ${dark.background.application};
+        font-size: ${FontSize.ROOT};
         font-family: 'Ubuntu', sans-serif;
     }
 `;
