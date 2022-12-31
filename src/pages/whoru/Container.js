@@ -3,9 +3,10 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import FontSize from "../../assets/styles/FontSizes.json";
-import ContainerWrapper from "../container/ContainerWrapper";
+import ContainerWrapper from "../../components/wrapper/Wrapper";
 import { isUsernameValid } from "../../utils/Validate";
 import { createUser } from "../../utils/User";
+import Spinner from "../../components/loader/Spinner";
 
 export default function Container() {
   const inputRef = useRef(null);
@@ -13,6 +14,7 @@ export default function Container() {
     value: "",
     error: null,
     status: false,
+    loading: false,
   });
 
   const navigate = useNavigate();
@@ -21,12 +23,20 @@ export default function Container() {
     inputRef.current.focus();
   }, []);
 
-  async function handleSubmit(e) {
+  function handleSubmit(e) {
     e.preventDefault();
     if (!name.status) return;
+
+    setName({ ...name, loading: true });
     inputRef.current.disabled = true;
-    await createUser(name.value);
-    return navigate("/");
+
+    try {
+      createUser(name.value);
+      return navigate("/");
+    } catch (ex) {
+      inputRef.current.disabled = false;
+      setName({ ...name, loading: false });
+    }
   }
 
   function handleInputChange(e) {
@@ -61,6 +71,7 @@ export default function Container() {
             {name.error && <Error>{name.error}</Error>}
           </InputContainer>
         </Content>
+        {name.loading && <Spinner top="20px" left="50%" size={2} />}
       </ContentBox>
     </ContainerWrapper>
   );
@@ -72,6 +83,7 @@ const ContentBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  position: relative;
 `;
 
 const Content = styled.div`

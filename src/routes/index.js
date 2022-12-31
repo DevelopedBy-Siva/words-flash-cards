@@ -1,19 +1,19 @@
 import React, { lazy } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
-const ProtectedRoutes = lazy(() => import("./protected"));
-const Header = lazy(() => import("../components/container/header"));
-const Home = lazy(() => import("../components/home"));
-const Words = lazy(() => import("../components/words"));
-const Quiz = lazy(() => import("../components/quiz"));
-const History = lazy(() => import("../components/history"));
-const Whoru = lazy(() => import("../components/whoru"));
+const Protected = lazy(() => import("./protected"));
+const Wrapper = lazy(() => import("../components/wrapper"));
+const Home = lazy(() => import("../pages/home"));
+const Words = lazy(() => import("../pages/words"));
+const Quiz = lazy(() => import("../pages/quiz"));
+const History = lazy(() => import("../pages/history"));
+const Whoru = lazy(() => import("../pages/whoru"));
 
 export default function RouteContainer() {
   return (
     <Routes>
-      <Route path="/" element={<ProtectedRoutes />}>
-        <Route path="/" element={<Header />}>
+      <Route element={<Protected />}>
+        <Route element={<Wrapper />}>
           <Route path="/" element={<Home />} />
           <Route path="/words" element={<Words />} />
           <Route path="/quiz" element={<Quiz />} />

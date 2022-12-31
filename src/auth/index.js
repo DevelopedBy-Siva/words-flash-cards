@@ -1,4 +1,4 @@
-import { STORAGE_KEY } from "../assets/contants";
+import { STORAGE_KEY } from "../assets/constants";
 
 export function isUserPresent() {
   const item = localStorage.getItem(STORAGE_KEY);
