@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import FontSize from "../../assets/styles/FontSizes.json";
-import ContainerWrapper from "../../components/wrapper/Wrapper";
 import { isUsernameValid } from "../../utils/Validate";
 import { createUser } from "../../utils/User";
 import Spinner from "../../components/loader/Spinner";
+import Wrapper from "../../components/wrapper";
 
 export default function Container() {
   const inputRef = useRef(null);
@@ -55,36 +55,25 @@ export default function Container() {
   }
 
   return (
-    <ContainerWrapper isBox={false}>
-      <ContentBox>
-        <Content>
-          <Prefix>I'm</Prefix>
-          <InputContainer user={name} onSubmit={handleSubmit}>
-            <Input
-              value={name.value}
-              onChange={handleInputChange}
-              spellCheck="false"
-              type="text"
-              ref={inputRef}
-              user={name}
-            />
-            {name.error && <Error>{name.error}</Error>}
-          </InputContainer>
-        </Content>
-        {name.loading && <Spinner top="20px" left="50%" size={2} />}
-      </ContentBox>
-    </ContainerWrapper>
+    <Wrapper center isBox={false}>
+      <Content>
+        <Prefix>I'm</Prefix>
+        <InputContainer user={name} onSubmit={handleSubmit}>
+          <Input
+            value={name.value}
+            onChange={handleInputChange}
+            spellCheck="false"
+            type="text"
+            ref={inputRef}
+            user={name}
+          />
+          {name.error && <Error>{name.error}</Error>}
+        </InputContainer>
+      </Content>
+      {name.loading && <Spinner top="20px" left="50%" size={2} />}
+    </Wrapper>
   );
 }
-
-const ContentBox = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-`;
 
 const Content = styled.div`
   width: 80%;
