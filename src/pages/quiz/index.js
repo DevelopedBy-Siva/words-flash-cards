@@ -1,5 +1,8 @@
 import React from "react";
+import { Navigate, useLocation } from "react-router-dom";
 
 export default function Quiz() {
-  return <div>Quiz</div>;
+  const { state } = useLocation();
+
+  return state ? <div>Quiz: {state}</div> : <Navigate to="/" replace />;
 }

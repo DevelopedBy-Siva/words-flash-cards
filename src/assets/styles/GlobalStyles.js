@@ -8,11 +8,12 @@ export const GlobalStyles = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
-    html, body, #root {
-        height: 100%;
+    html, body {
         background: ${dark.background.application};
         font-size: ${FontSize.ROOT};
         font-family: 'Ubuntu', sans-serif;
+        line-height: 1.15;
+        -webkit-text-size-adjust: 100%;
     }
 `;
 

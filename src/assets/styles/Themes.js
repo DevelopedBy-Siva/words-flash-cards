@@ -35,5 +35,7 @@ export const dark = {
     default: "#999999",
     error: "#E24339",
     light: "#FFFFFF",
+    blue: "#017bfe",
+    dark: "#2E2E2E",
   },
 };

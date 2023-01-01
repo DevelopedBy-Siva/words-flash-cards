@@ -5,7 +5,17 @@
     "PRF": "4vw",
     "VAL": "5.6vw",
 
-    "PRF_500": "2rem",
-    "VAL_500": "2.8rem"
+    "PRF_800": "2rem",
+    "VAL_800": "2.8rem"
+  },
+  "HOME": {
+    "NAME": "2.2rem",
+    "NAME_800": "1.6rem",
+    "WLCM": "0.8rem",
+    "WLCM_800": "0.7rem",
+    "BOX": "0.8rem",
+    "BOX_SUB": "0.6rem",
+    "BOX_ICON": "1.1rem",
+    "BOX_INPUT": "0.7rem"
   }
 }

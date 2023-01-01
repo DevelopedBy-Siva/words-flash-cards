@@ -101,7 +101,7 @@ const Prefix = styled.span`
   letter-spacing: 4px;
   font-size: ${FontSize.WRU.PRF};
   @media screen and (max-width: 800px) {
-    font-size: ${FontSize.WRU.PRF_500};
+    font-size: ${FontSize.WRU.PRF_800};
   }
 `;
 
@@ -135,6 +135,6 @@ const Input = styled.input`
   width: 100%;
   letter-spacing: 2px;
   @media screen and (max-width: 500px) {
-    font-size: ${FontSize.WRU.VAL_500};
+    font-size: ${FontSize.WRU.VAL_800};
   }
 `;
