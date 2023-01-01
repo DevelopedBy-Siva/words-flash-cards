@@ -22,5 +22,9 @@
     "TITLE": "1.2rem",
     "SUB_HEAD": "0.8rem",
     "BACK_ICON": "1.4rem"
+  },
+  "QUIZ": {
+    "QN_BTN": "0.8rem",
+    "QN_COUNT": "1rem"
   }
 }

@@ -1,16 +1,13 @@
 import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
 
-import Wrapper from "../../components/wrapper";
-import Header from "../../components/header";
+import QuizContainer from "./Container";
 
 export default function Quiz() {
   const { state } = useLocation();
 
   return state ? (
-    <Wrapper>
-      <Header name="Quiz" />
-    </Wrapper>
+    <QuizContainer wordCount={state} />
   ) : (
     <Navigate to="/" replace />
   );

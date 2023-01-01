@@ -28,10 +28,12 @@ const Heading = styled.h1`
   text-transform: uppercase;
   font-size: ${FontSize.HEADER.TITLE};
   margin-left: 10px;
+  letter-spacing: 1px;
 `;
 
 const SubHeading = styled.span`
   font-size: ${FontSize.HEADER.SUB_HEAD};
+  letter-spacing: 1px;
 `;
 
 const BackLink = styled(Link)`

@@ -6,17 +6,18 @@ export default function ContainerWrapper({
   contentBreak = false,
   center = false,
   children,
+  cover = false,
 }) {
   return (
     <Wrapper isBox={isBox} contentBreak={contentBreak}>
-      <Container as={center && CenterContainer} isBox={isBox}>
+      <Container cover={cover} as={center && CenterContainer} isBox={isBox}>
         {children}
       </Container>
     </Wrapper>
   );
 }
 
-const Wrapper = styled.main`
+const Wrapper = styled.div`
   width: 100%;
   min-height: ${(props) => (props.isBox ? "auto" : "100vh")};
   border-bottom: ${(props) =>
@@ -30,8 +31,8 @@ const Container = styled.div`
   width: 100%;
   flex: ${(props) => (props.isBox ? "none" : 1)};
   min-height: 0;
-  max-width: 1440px;
-  padding: 1.2rem;
+  max-width: ${(props) => (props.cover ? "100%" : "1440px")};
+  padding: ${(props) => (props.cover ? "0" : "1.2rem")};
   position: relative;
 `;
 
