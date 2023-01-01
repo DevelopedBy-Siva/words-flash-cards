@@ -55,7 +55,7 @@ export default function Container() {
   }
 
   return (
-    <Wrapper center isBox={false}>
+    <Wrapper pos="center" isBox={false}>
       <Content>
         <Prefix>I'm</Prefix>
         <InputContainer user={name} onSubmit={handleSubmit}>

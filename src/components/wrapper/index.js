@@ -4,13 +4,24 @@ import styled from "styled-components";
 export default function ContainerWrapper({
   isBox = true,
   contentBreak = false,
-  center = false,
+  pos = null,
   children,
   cover = false,
 }) {
+  function fluidPosition() {
+    const positions = ["center", "left", "right"];
+    if (!positions.includes(pos)) return "";
+    return `fluid-pos ${pos}`;
+  }
+
   return (
     <Wrapper isBox={isBox} contentBreak={contentBreak}>
-      <Container cover={cover} as={center && CenterContainer} isBox={isBox}>
+      <Container
+        contentBreak={contentBreak}
+        className={fluidPosition()}
+        cover={cover}
+        isBox={isBox}
+      >
         {children}
       </Container>
     </Wrapper>
@@ -32,12 +43,24 @@ const Container = styled.div`
   flex: ${(props) => (props.isBox ? "none" : 1)};
   min-height: 0;
   max-width: ${(props) => (props.cover ? "100%" : "1440px")};
-  padding: ${(props) => (props.cover ? "0" : "1.2rem")};
+  padding: ${(props) =>
+    props.cover ? "0" : `${props.contentBreak ? "0.4rem 1.2rem" : "1.2rem"}`};
   position: relative;
-`;
 
-const CenterContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  &.fluid-pos {
+    display: flex;
+    align-items: center;
+
+    &.center {
+      justify-content: center;
+    }
+
+    &.right {
+      justify-content: flex-end;
+    }
+
+    &.left {
+      justify-content: flex-start;
+    }
+  }
 `;
