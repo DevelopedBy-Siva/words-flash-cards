@@ -6,7 +6,7 @@ export function createUser(userName) {
     user,
   };
   localStorage.setItem(STORAGE_KEY, JSON.stringify(obj));
-  sessionStorage.setItem(STORAGE_KEY, crypto.randomUUID());
+  sessionStorage.setItem(STORAGE_KEY, "user_created");
 }
 
 export function isUserPresent() {
