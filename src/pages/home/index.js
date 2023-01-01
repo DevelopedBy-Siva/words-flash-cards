@@ -3,14 +3,18 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import FontSize from "../../assets/styles/FontSizes.json";
+import { getUser } from "../../utils/User";
 import QuizBox from "./QuizBox";
 
+const { user, isNewUser } = getUser();
 export default function Home() {
   return (
     <Wrapper>
       <Container>
-        <User>Hello Sivasanker</User>
-        <WelcomeBackMsg>Welcome Back !</WelcomeBackMsg>
+        <User>Hello {user}</User>
+        <WelcomeBackMsg>
+          {isNewUser ? "Welcome !" : "Welcome Back !"}
+        </WelcomeBackMsg>
         <BoxContainer>
           <BoxLink to="/words">Words</BoxLink>
           <QuizBox />
@@ -40,6 +44,7 @@ const User = styled.h2`
   font-size: ${FontSize.HOME.NAME};
   font-weight: 400;
   margin-bottom: 6px;
+  text-transform: capitalize;
 
   @media screen and (max-width: 864px) {
     font-size: ${FontSize.HOME.NAME_800};

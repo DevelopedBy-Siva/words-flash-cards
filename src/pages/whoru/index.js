@@ -1,7 +1,7 @@
 import React, { lazy } from "react";
 import { Navigate } from "react-router-dom";
 
-import { isUserPresent } from "../../auth";
+import { isUserPresent } from "../../utils/User";
 
 const Container = lazy(() => import("./Container"));
 
