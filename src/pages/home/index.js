@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 import FontSize from "../../assets/styles/FontSizes.json";
 import { getUser } from "../../utils/User";
-import QuizBox from "./QuizBox";
 
 const { user, isNewUser } = getUser();
 export default function Home() {
@@ -17,7 +16,7 @@ export default function Home() {
         </WelcomeBackMsg>
         <BoxContainer>
           <BoxLink to="/words">Words</BoxLink>
-          <QuizBox />
+          <BoxLink to="/quiz">Take quiz</BoxLink>
           <BoxLink to="/history">History</BoxLink>
         </BoxContainer>
       </Container>
@@ -93,6 +92,10 @@ const BoxLink = styled(Link)`
 
   &:nth-child(1) {
     background: ${(props) => props.theme.boxes.home_box_1};
+  }
+
+  &:nth-child(2) {
+    background: ${(props) => props.theme.boxes.home_box_2};
   }
 
   &:nth-child(3) {
