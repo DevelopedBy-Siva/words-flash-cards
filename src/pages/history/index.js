@@ -1,5 +1,12 @@
 import React from "react";
 
+import Wrapper from "../../components/wrapper";
+import Header from "../../components/header";
+
 export default function History() {
-  return <div>History</div>;
+  return (
+    <Wrapper>
+      <Header name="History" />
+    </Wrapper>
+  );
 }

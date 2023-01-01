@@ -1,16 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 
 import FontSize from "../../assets/styles/FontSizes.json";
 
-export default function Header({ name }) {
+export default function Header({ name, sub }) {
   return (
     <Container>
-      <BackBtn>
+      <BackLink to="/" replace>
         <BiArrowBack />
-      </BackBtn>
-      <Heading>{name}</Heading>
+      </BackLink>
+      <Heading>
+        {name} {sub && <SubHeading>&#40;{sub}&#41;</SubHeading>}
+      </Heading>
     </Container>
   );
 }
@@ -27,7 +30,11 @@ const Heading = styled.h1`
   margin-left: 10px;
 `;
 
-const BackBtn = styled.button`
+const SubHeading = styled.span`
+  font-size: ${FontSize.HEADER.SUB_HEAD};
+`;
+
+const BackLink = styled(Link)`
   border: none;
   outline: none;
   background: none;

@@ -20,6 +20,7 @@
   },
   "HEADER": {
     "TITLE": "1.2rem",
+    "SUB_HEAD": "0.8rem",
     "BACK_ICON": "1.4rem"
   }
 }
