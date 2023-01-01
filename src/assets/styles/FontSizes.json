@@ -17,5 +17,9 @@
     "BOX_SUB": "0.6rem",
     "BOX_ICON": "1.1rem",
     "BOX_INPUT": "0.7rem"
+  },
+  "HEADER": {
+    "TITLE": "1.2rem",
+    "BACK_ICON": "1.4rem"
   }
 }
