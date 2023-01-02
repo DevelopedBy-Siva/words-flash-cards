@@ -55,7 +55,7 @@ export default function Container() {
   }
 
   return (
-    <Wrapper pos="center" isBox={false}>
+    <Wrapper stretch contain spaceAround>
       <Content>
         <Prefix>I'm</Prefix>
         <InputContainer user={name} onSubmit={handleSubmit}>

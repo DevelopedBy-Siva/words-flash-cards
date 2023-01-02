@@ -4,11 +4,12 @@ import styled from "styled-components";
 
 import FontSize from "../../assets/styles/FontSizes.json";
 import { getUser } from "../../utils/User";
+import Wrapper from "../../components/wrapper";
 
 const { user, isNewUser } = getUser();
 export default function Home() {
   return (
-    <Wrapper>
+    <Wrapper stretch center contain spaceAround>
       <Container>
         <User>Hello {user}</User>
         <WelcomeBackMsg>
@@ -24,18 +25,12 @@ export default function Home() {
   );
 }
 
-const Wrapper = styled.div`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  letter-spacing: 2px;
-  padding: 1.2rem;
-`;
-
 const Container = styled.div`
   padding: 0.8rem;
+  width: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
 `;
 
 const User = styled.h2`
@@ -63,8 +58,9 @@ const WelcomeBackMsg = styled.h3`
 const BoxContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  width: fit-content;
   margin-top: 32px;
 `;
 

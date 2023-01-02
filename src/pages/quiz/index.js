@@ -7,11 +7,11 @@ import FontSize from "../../assets/styles/FontSizes.json";
 
 export default function Quiz() {
   return (
-    <Wrapper cover isBox={false}>
-      <Wrapper>
+    <Wrapper stretch>
+      <Wrapper contain spaceAround>
         <Header name="Quiz" />
       </Wrapper>
-      <Wrapper pos="right" contentBreak>
+      <Wrapper contain spaceAround border right>
         <AvailableWordsContainer>
           <AvailableWordsHead>Available Words:</AvailableWordsHead>
           <AvailableWords>500</AvailableWords>

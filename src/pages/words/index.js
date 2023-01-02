@@ -5,8 +5,10 @@ import Header from "../../components/header";
 
 export default function Words() {
   return (
-    <Wrapper>
-      <Header name="Words" sub="5499" />
+    <Wrapper stretch>
+      <Wrapper contain spaceAround>
+        <Header name="Words" sub="599" />
+      </Wrapper>
     </Wrapper>
   );
 }

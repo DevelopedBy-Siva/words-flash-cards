@@ -5,8 +5,10 @@ import Header from "../../components/header";
 
 export default function History() {
   return (
-    <Wrapper>
-      <Header name="History" />
+    <Wrapper stretch>
+      <Wrapper contain spaceAround>
+        <Header name="History" />
+      </Wrapper>
     </Wrapper>
   );
 }

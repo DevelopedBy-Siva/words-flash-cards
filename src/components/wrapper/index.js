@@ -1,66 +1,68 @@
 import React from "react";
 import styled from "styled-components";
 
-export default function ContainerWrapper({
-  isBox = true,
-  contentBreak = false,
-  pos = null,
+export default function WrapperContainer({
+  stretch = false,
+  border = false,
+  center = false,
+  right = false,
+  contain = false,
+  spaceAround = false,
   children,
-  cover = false,
 }) {
-  function fluidPosition() {
-    const positions = ["center", "left", "right"];
-    if (!positions.includes(pos)) return "";
-    return `fluid-pos ${pos}`;
-  }
-
   return (
-    <Wrapper isBox={isBox} contentBreak={contentBreak}>
-      <Container
-        contentBreak={contentBreak}
-        className={fluidPosition()}
-        cover={cover}
-        isBox={isBox}
+    <Wrapper
+      className={`${stretch ? "stretch" : ""} ${
+        border ? "content-border" : ""
+      }`}
+    >
+      <SubWrapper
+        border={border}
+        className={`${spaceAround ? "space-around" : ""} ${
+          center ? "center" : ""
+        } ${contain ? "contain" : ""} ${right ? "item-right" : ""}`}
       >
         {children}
-      </Container>
+      </SubWrapper>
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
   width: 100%;
-  min-height: ${(props) => (props.isBox ? "auto" : "100vh")};
-  border-bottom: ${(props) =>
-    props.contentBreak ? `1px solid ${props.theme.border.default}` : "none"};
+  height: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+
+  &.stretch {
+    min-height: 100vh;
+  }
+
+  &.content-border {
+    border-bottom: ${(props) => `1px solid ${props.theme.border.default}`};
+  }
 `;
 
-const Container = styled.div`
+const SubWrapper = styled.div`
   width: 100%;
-  flex: ${(props) => (props.isBox ? "none" : 1)};
-  min-height: 0;
-  max-width: ${(props) => (props.cover ? "100%" : "1440px")};
-  padding: ${(props) =>
-    props.cover ? "0" : `${props.contentBreak ? "0.4rem 1.2rem" : "1.2rem"}`};
-  position: relative;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
 
-  &.fluid-pos {
-    display: flex;
-    align-items: center;
+  &.space-around {
+    padding: ${(props) => (props.border ? "0.2rem 1.2rem" : "0.6rem 1.2rem")};
+  }
 
-    &.center {
-      justify-content: center;
-    }
+  &.contain {
+    max-width: 1440px;
+  }
 
-    &.right {
-      justify-content: flex-end;
-    }
+  &.center {
+    justify-content: center;
+  }
 
-    &.left {
-      justify-content: flex-start;
-    }
+  &.item-right {
+    align-items: flex-end;
   }
 `;
