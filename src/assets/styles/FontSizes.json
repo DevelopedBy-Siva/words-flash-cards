@@ -24,8 +24,12 @@
     "BACK_ICON": "1.4rem"
   },
   "QUIZ": {
-    "HM_HEAD_SM": "0.8rem",
-    "HM_HEAD_LG": "1.4rem",
+    "QZ_HEAD_SM": "0.8rem",
+    "QZ_HEAD_LG": "1.4rem",
+    "QZ_FORM_LB_INP": "1rem",
+    "QZ_FORM_INP": "1.6rem",
+    "QZ_FORM_LB_CB": "0.8rem",
+    "QZ_FORM_BTN": "0.8rem",
     "QN_BTN": "0.8rem",
     "QN_COUNT": "1rem"
   }

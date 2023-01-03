@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export default function WrapperContainer({
   stretch = false,
+  grow = false,
   border = false,
   center = false,
   right = false,
@@ -14,7 +15,7 @@ export default function WrapperContainer({
     <Wrapper
       className={`${stretch ? "stretch" : ""} ${
         border ? "content-border" : ""
-      }`}
+      } ${grow ? "grow" : ""}`}
     >
       <SubWrapper
         border={border}
@@ -36,6 +37,10 @@ const Wrapper = styled.div`
 
   &.stretch {
     min-height: 100vh;
+  }
+
+  &.grow {
+    flex: 1 1 auto;
   }
 
   &.content-border {
