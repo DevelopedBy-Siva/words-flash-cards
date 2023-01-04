@@ -10,25 +10,38 @@ const TOTAL_WORDS = words.length;
 export default function Quiz() {
   const inputRef = useRef(null);
 
+  const [proceed, setProceed] = useState(false);
   const [count, setCount] = useState("");
 
   useEffect(() => {
-    inputRef.current.focus();
+    if (inputRef.current) inputRef.current.focus();
   }, []);
+
+  function validateCount(val) {
+    if (val <= 0 || val > TOTAL_WORDS) {
+      inputRef.current.style.borderColor = "#E24339";
+      inputRef.current.style.color = "#E24339";
+      return false;
+    }
+    inputRef.current.style.borderColor = "#2E2E2E";
+    inputRef.current.style.color = "#2E2E2E";
+    return true;
+  }
 
   function handleWordCount(e) {
     const val = e.target.value;
     let parsedVal = parseInt(val).toString();
     if (isNaN(parsedVal)) parsedVal = "";
+    validateCount(parsedVal);
     setCount(parsedVal);
   }
 
   function startQuiz(e) {
     e.preventDefault();
-    if (count <= 0 || count > TOTAL_WORDS) {
+    if (!validateCount(count)) {
       return;
     }
-    alert("SUCCESS...");
+    setProceed(true);
   }
 
   return (
@@ -42,26 +55,37 @@ export default function Quiz() {
           <AvailableWords>{TOTAL_WORDS}</AvailableWords>
         </AvailableWordsContainer>
       </Wrapper>
-      <Wrapper contain spaceAround grow center>
-        <QuizForm onSubmit={startQuiz}>
-          <InputLabel>Enter the number of words for the test</InputLabel>
-          <InputBox
-            ref={inputRef}
-            value={count}
-            onChange={handleWordCount}
-            placeholder="0"
-            inputMode="numeric"
-            spellCheck="false"
-            type="text"
-          />
-          <CheckBoxContainer>
-            <CheckBox type="checkbox" />
-            <CheckBoxLabel>Includes words that are added lately</CheckBoxLabel>
-          </CheckBoxContainer>
+      {!proceed ? (
+        <Wrapper contain spaceAround grow center>
+          <QuizForm onSubmit={startQuiz}>
+            <InputLabel>Enter the number of words for the test</InputLabel>
+            <InputBox
+              ref={inputRef}
+              value={count}
+              onChange={handleWordCount}
+              placeholder="0"
+              inputMode="numeric"
+              spellCheck="false"
+              type="text"
+              disabled={proceed}
+            />
+            <CheckBoxContainer>
+              <CheckBox type="checkbox" disabled={proceed} />
+              <CheckBoxLabel>
+                Includes words that are added lately
+              </CheckBoxLabel>
+            </CheckBoxContainer>
 
-          <StartBtn type="submit">Start</StartBtn>
-        </QuizForm>
-      </Wrapper>
+            <StartBtn type="submit" disabled={proceed}>
+              Start
+            </StartBtn>
+          </QuizForm>
+        </Wrapper>
+      ) : (
+        <Wrapper contain spaceAround grow>
+          Hello
+        </Wrapper>
+      )}
     </Wrapper>
   );
 }
@@ -110,8 +134,8 @@ const InputBox = styled.input`
   max-width: 260px;
   font-weight: 600;
   letter-spacing: 2px;
-  border: 1px solid none;
-  color: ${(props) => props.theme.text.default};
+  border: ${(props) => `2px solid ${props.theme.text.default}`};
+  color: ${(props) => props.theme.text.dark};
 `;
 
 const CheckBoxContainer = styled.div`
