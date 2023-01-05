@@ -17,17 +17,6 @@ export default function Quiz() {
     latestWords: false,
   });
 
-  const [question, setQuestion] = useState({
-    currentQuestion: 1,
-    questions: [
-      {
-        options: [],
-        correctAnswer: "",
-        myAnswer: "",
-      },
-    ],
-  });
-
   return (
     <Wrapper stretch>
       <Wrapper contain spaceAround>
@@ -44,11 +33,7 @@ export default function Quiz() {
         />
       ) : (
         <Suspense>
-          <QnAnsContainer
-            formInput={formInput}
-            question={question}
-            setQuestion={setQuestion}
-          />
+          <QnAnsContainer formInput={formInput} />
         </Suspense>
       )}
     </Wrapper>
