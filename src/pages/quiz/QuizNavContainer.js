@@ -3,11 +3,28 @@ import styled from "styled-components";
 
 import Wrapper from "../../components/wrapper";
 import FontSize from "../../assets/styles/FontSizes.json";
+import { useDispatch, useSelector } from "react-redux";
+import { generateNextQuestion } from "../../redux/actions";
 
 export default function QuizNavContainer({ totalWords, proceed }) {
+  const dispatch = useDispatch();
+
+  const { question } = useSelector((state) => state.questions);
+
+  function isBtnDisabled() {
+    if (question[question.length].myChoice === null) return true;
+    return false;
+  }
+
+  function nextQuestion() {
+    dispatch(generateNextQuestion());
+  }
+
   return (
     <Wrapper contain spaceAround border right={!proceed}>
-      {!proceed ? QuizFormNavContainer(totalWords) : QnAnsNavContainer()}
+      {!proceed
+        ? QuizFormNavContainer(totalWords)
+        : QnAnsNavContainer(nextQuestion, isBtnDisabled)}
     </Wrapper>
   );
 }
@@ -21,11 +38,13 @@ function QuizFormNavContainer(totalWords) {
   );
 }
 
-function QnAnsNavContainer() {
+function QnAnsNavContainer(nextQuestion, isBtnDisabled) {
   return (
     <QnAnsNav>
       <QnAnsNavQnTrack>2 &#47; 20</QnAnsNavQnTrack>
-      <QnAnsNavBtn>Next</QnAnsNavBtn>
+      <QnAnsNavBtn disabled={isBtnDisabled()} onClick={nextQuestion}>
+        Next
+      </QnAnsNavBtn>
     </QnAnsNav>
   );
 }
@@ -50,7 +69,8 @@ const AvailableWords = styled.span`
 const QnAnsNav = styled.div`
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: flex-end;
+  position: relative;
 `;
 
 const QnAnsNavBtn = styled.button`
@@ -64,10 +84,16 @@ const QnAnsNavBtn = styled.button`
   letter-spacing: 1px;
   font-size: ${FontSize.QUIZ.QN_NAV_BTN};
   cursor: pointer;
+  margin-left: auto;
 `;
 
 const QnAnsNavQnTrack = styled.span`
   display: inline-block;
   font-size: ${FontSize.QUIZ.QN_NAV_COUNT};
   color: ${(props) => props.theme.text.light};
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  user-select: none;
 `;
