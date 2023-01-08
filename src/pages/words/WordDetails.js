@@ -27,7 +27,7 @@ export default function WordDetails({ close, details }) {
 
 const Container = styled(motion.div)`
   width: 100%;
-  min-height: 200px;
+  min-height: 130px;
 `;
 
 const WordBox = styled(motion.div)`
@@ -60,7 +60,7 @@ const Word = styled(motion.h1)`
 `;
 
 const Details = styled(motion.div)`
-  margin-top: 50px;
+  margin-top: 40px;
 `;
 
 const WordMeaning = styled(motion.h2)`
