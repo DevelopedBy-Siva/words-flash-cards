@@ -46,6 +46,7 @@ const SpeaketBtn = styled.button`
   justify-content: center;
   margin-right: 10px;
   background: none;
+  outline: none;
   color: ${(props) => props.theme.button.blue};
   border: 1px solid ${(props) => props.theme.border.default};
   cursor: pointer;
