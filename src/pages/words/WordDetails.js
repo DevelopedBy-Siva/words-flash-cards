@@ -45,6 +45,7 @@ const WordBox = styled(motion.div)`
 const SpeaketBtn = styled.button`
   height: 30px;
   width: 30px;
+  flex-shrink: 0;
   font-size: ${FontSize.WORD.DETAILS_SPEAK};
   border-radius: 50%;
   display: flex;
@@ -64,6 +65,9 @@ const Word = styled(motion.h1)`
   letter-spacing: 1px;
   font-weight: 700;
   text-transform: uppercase;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
 
 const Details = styled(motion.div)`
