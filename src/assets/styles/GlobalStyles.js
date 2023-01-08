@@ -11,10 +11,14 @@ export const GlobalStyles = createGlobalStyle`
     html, body {
         background: ${dark.background.application};
         font-size: ${FontSize.ROOT};
-        font-family: 'Ubuntu', sans-serif;
         line-height: 1.15;
+        font-family: 'Roboto', sans-serif;
         -webkit-text-size-adjust: 100%;
     }
+    button {
+        font-family: inherit;
+    }
+
 `;
 
 export default GlobalStyles;

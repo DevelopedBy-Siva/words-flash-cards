@@ -32,5 +32,11 @@
     "QZ_FORM_BTN": "0.8rem",
     "QN_NAV_BTN": "0.8rem",
     "QN_NAV_COUNT": "1rem"
+  },
+  "WORD": {
+    "DETAILS_WD": "1.4rem",
+    "DETAILS_SPEAK": "1.4rem",
+    "DETAILS_MEAN": "1rem",
+    "DETAILS_EX": "0.9rem"
   }
 }

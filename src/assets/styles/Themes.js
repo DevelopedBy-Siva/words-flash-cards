@@ -30,6 +30,7 @@ export const dark = {
     dark: "#2E2E2E",
     green: "#2D9D41",
     red: "#E24339",
+    blue: "#0083FD",
   },
   border: {
     default: "#999999",

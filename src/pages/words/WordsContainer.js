@@ -9,8 +9,6 @@ export default function WordsContainer() {
 
   const toggleModal = (id = null) => setSelected(id);
 
-  console.log(selected);
-
   return (
     <Container>
       {words.map((wd, index) => (
@@ -50,7 +48,7 @@ const Box = styled(motion.div)`
   margin: 20px;
   cursor: pointer;
   user-select: none;
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 10px;
 `;
 
