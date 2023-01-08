@@ -1,17 +1,23 @@
-import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { HiSpeakerWave } from "react-icons/hi2";
+import { motion } from "framer-motion";
 
 import FontSize from "../../assets/styles/FontSizes.json";
 import Modal from "../../components/modal";
 
+const msg = new SpeechSynthesisUtterance();
 export default function WordDetails({ close, details }) {
+  function toSpeech(text) {
+    msg.text = text;
+    window.speechSynthesis.speak(msg);
+  }
+
   return (
     <Modal id={details.word} close={close}>
       <Container>
         <WordBox>
-          <SpeaketBtn>
+          <SpeaketBtn onClick={() => toSpeech(details.word)}>
             <HiSpeakerWave />
           </SpeaketBtn>
           <Word>{details.word}</Word>
