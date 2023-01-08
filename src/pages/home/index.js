@@ -68,6 +68,8 @@ const BoxLink = styled(Link)`
   width: 250px;
   height: 180px;
   font-size: ${FontSize.HOME.BOX};
+  font-weight: 500;
+  letter-spacing: 1px;
   border-radius: 10px;
   margin: 0 10px 10px 0;
   text-decoration: none;
