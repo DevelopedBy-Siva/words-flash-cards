@@ -4,7 +4,7 @@ import {
   GENERATE_NEXT_QN,
   GENERATE_RANDOM_QN_INDEXES,
   SET_CHOICE,
-} from "../actions/ActionTypes";
+} from "../actions/Questions_ActionTypes";
 
 const question = {
   indexes: [],

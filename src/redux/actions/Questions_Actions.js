@@ -2,7 +2,7 @@ import {
   GENERATE_NEXT_QN,
   GENERATE_RANDOM_QN_INDEXES,
   SET_CHOICE,
-} from "./ActionTypes";
+} from "./Questions_ActionTypes";
 
 export function generateInitialQuestion(payload) {
   return {

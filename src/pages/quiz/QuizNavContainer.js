@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Wrapper from "../../components/wrapper";
 import FontSize from "../../assets/styles/FontSizes.json";
 import { useDispatch, useSelector } from "react-redux";
-import { generateNextQuestion } from "../../redux/actions";
+import { generateNextQuestion } from "../../redux/actions/Questions_Actions";
 
 export default function QuizNavContainer({ totalWords, proceed }) {
   const dispatch = useDispatch();

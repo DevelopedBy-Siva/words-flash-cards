@@ -1,14 +1,21 @@
-import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { AnimatePresence, motion } from "framer-motion";
+
 import words from "../../assets/data/words.json";
+import { getWords } from "../../redux/reducer/Words";
 import WordDetails from "./WordDetails";
 
 export default function WordsContainer() {
   const [selected, setSelected] = useState(null);
-
   const toggleModal = (id = null) => setSelected(id);
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getWords("procrastination"));
+  }, [dispatch]);
   return (
     <Container>
       {words.map((wd, index) => (

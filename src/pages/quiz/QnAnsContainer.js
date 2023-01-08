@@ -3,7 +3,10 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 
 import Wrapper from "../../components/wrapper";
-import { generateInitialQuestion, setChoice } from "../../redux/actions";
+import {
+  generateInitialQuestion,
+  setChoice,
+} from "../../redux/actions/Questions_Actions";
 import { optionNumber } from "../../utils/QuizGenerator";
 
 export default function QnAnsContainer({ formInput }) {

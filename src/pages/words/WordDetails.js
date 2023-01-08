@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import { HiSpeakerWave } from "react-icons/hi2";
 import { motion } from "framer-motion";
