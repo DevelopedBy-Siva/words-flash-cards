@@ -4,9 +4,9 @@ import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 
 import Modal from "../../components/modal";
-import axios from "../../api";
 import LoadingSpinner from "../../components/loader/";
 import dictionary from "../..//assets/data/words.json";
+import { searchDictionary } from "../../api/WordsApi";
 
 export default function NewWord({ close }) {
   const wordInputRef = useRef(null);
@@ -18,7 +18,7 @@ export default function NewWord({ close }) {
   });
 
   useEffect(() => {
-    wordInputRef.current.focus();
+    // wordInputRef.current.focus();
   }, []);
 
   function handleWordInputChange(e) {
@@ -33,24 +33,11 @@ export default function NewWord({ close }) {
   async function searchWord(e) {
     e.preventDefault();
     if (wordInput.length === 0) return;
-    toast.dismiss();
-    setWord({ data: null, loading: true });
-    await axios
-      .get(wordInput)
-      .then(({ data }) => {
-        const meaning = data[0].meanings[0].definitions[0].definition;
-        const name = data[0].word;
-        const example = data[0].meanings[0].definitions[0].example;
-        setWord({ data: { name, meaning, example }, loading: false });
-      })
-      .catch((err) => {
-        const { response } = err;
-        if (response && response.status === 404)
-          toast.info("Sorry, word not found");
-        else toast.error("Sorry, something went wrong. Please try again later");
 
-        setWord({ data: null, loading: false });
-      });
+    setWord({ data: null, loading: true });
+    await searchDictionary(wordInput)
+      .then((data) => setWord({ data, loading: false }))
+      .catch(() => setWord({ data: null, loading: false }));
   }
 
   function addNewWord() {
@@ -66,7 +53,7 @@ export default function NewWord({ close }) {
   }
 
   return (
-    <Modal close={close}>
+    <Modal layoutAnimation={ContainerAnimation} close={close}>
       <Container>
         <Title>Add New Word</Title>
         <Form onSubmit={searchWord}>
@@ -98,7 +85,9 @@ export default function NewWord({ close }) {
   );
 }
 
-const Container = styled(motion.div)``;
+const Container = styled(motion.div)`
+  width: 100%;
+`;
 
 const Title = styled.h1`
   text-align: center;
@@ -141,7 +130,7 @@ const InputSearchBtn = styled.button`
   height: 35px;
 `;
 
-const DetailsContainer = styled.div`
+const DetailsContainer = styled(motion.div)`
   margin-top: 30px;
   display: flex;
   align-items: center;
@@ -192,3 +181,15 @@ const FoundWordMeaning = styled.h4`
   font-size: 0.9rem;
   font-style: italic;
 `;
+
+const ContainerAnimation = {
+  initial: {
+    y: "100vh",
+  },
+  animate: {
+    y: 0,
+  },
+  exit: {
+    y: "100vh",
+  },
+};

@@ -1,21 +1,16 @@
-import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
 import FocusTrap from "focus-trap-react";
+import { motion } from "framer-motion";
 import { AiFillCloseCircle } from "react-icons/ai";
 
-export default function Modal({ id, close, children }) {
+export default function Modal({ id, close, layoutAnimation = {}, children }) {
   return (
     <FocusTrap>
       <Container>
-        <Overlay
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          onClick={() => close()}
-        />
-        <ContentWrapper layoutId={id}>
-          <Content>{children}</Content>
+        <Overlay {...OverlayAnimation} onClick={() => close()} />
+        <ContentWrapper layoutId={id} {...layoutAnimation}>
+          <Content {...ContentAnimation}>{children}</Content>
           <CloseBtn onClick={() => close()}>
             <AiFillCloseCircle />
           </CloseBtn>
@@ -72,3 +67,19 @@ const CloseBtn = styled.button`
   cursor: pointer;
   color: red;
 `;
+
+const OverlayAnimation = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+  transition: {
+    duration: 0.3,
+  },
+};
+
+const ContentAnimation = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+  transition: { duration: 0.1 },
+};

@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { BsPlusLg } from "react-icons/bs";
@@ -18,7 +19,9 @@ export default function WordNavBar() {
         <BsPlusLg />
         <NewBtnLabel>New</NewBtnLabel>
       </NewBtn>
-      {addBtnActive && <NewWord close={toggleAddWord} />}
+      <AnimatePresence>
+        {addBtnActive && <NewWord close={toggleAddWord} />}
+      </AnimatePresence>
     </Container>
   );
 }

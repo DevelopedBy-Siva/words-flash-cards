@@ -8,7 +8,7 @@ export default function Toast() {
   return (
     <CustomToast
       position="top-center"
-      autoClose={50000}
+      autoClose={5000}
       hideProgressBar
       newestOnTop={false}
       closeOnClick
@@ -17,8 +17,6 @@ export default function Toast() {
       limit={1}
       pauseOnFocusLoss={false}
       closeButton={false}
-      bodyClassName="toastBody"
-      progressClassName="toastProgress"
     />
   );
 }
