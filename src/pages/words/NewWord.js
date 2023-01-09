@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
@@ -7,19 +7,17 @@ import Modal from "../../components/modal";
 import LoadingSpinner from "../../components/loader/";
 import dictionary from "../..//assets/data/words.json";
 import { searchDictionary } from "../../api/WordsApi";
+import { addWordToDb } from "../../db";
 
 export default function NewWord({ close }) {
   const wordInputRef = useRef(null);
+  const addBtnRef = useRef(null);
 
   const [wordInput, setWordInput] = useState("");
   const [word, setWord] = useState({
     data: null,
     loading: false,
   });
-
-  useEffect(() => {
-    // wordInputRef.current.focus();
-  }, []);
 
   function handleWordInputChange(e) {
     const value = e.target.value;
@@ -40,16 +38,30 @@ export default function NewWord({ close }) {
       .catch(() => setWord({ data: null, loading: false }));
   }
 
-  function addNewWord() {
+  async function addNewWord() {
+    addBtnRef.current.disabled = true;
+
     const { data } = word;
     const found = dictionary.filter(
       (wd) => wd.word.toLowerCase() === data.name.toLowerCase()
     );
     toast.dismiss();
     if (found.length) {
+      addBtnRef.current.disabled = false;
       toast.warn("Word already added. Try another word");
       return;
     }
+
+    addBtnRef.current.disabled = true;
+    await addWordToDb({ ...data, createdAt: Date.now() })
+      .then(() => {
+        toast.success("Word successfully saved to Local Database");
+        close();
+      })
+      .catch(() => {
+        addBtnRef.current.disabled = false;
+        toast.error("Something went wrong. Failed to save the word");
+      });
   }
 
   return (
@@ -75,7 +87,9 @@ export default function NewWord({ close }) {
               <FoundWord>{word.data.name}</FoundWord>
               <FoundWordMeaning>{word.data.meaning}</FoundWordMeaning>
             </Details>
-            <AddBtn onClick={addNewWord}>Add</AddBtn>
+            <AddBtn ref={addBtnRef} onClick={addNewWord}>
+              Add
+            </AddBtn>
           </DetailsContainer>
         ) : (
           ""
@@ -157,9 +171,14 @@ const AddBtn = styled.button`
   cursor: pointer;
   font-size: 0.7rem;
   flex-shrink: 0;
+  color: ${(props) => props.theme.text.default};
   transition: color 0.2s ease-in-out, background 0.25s ease-in-out;
 
-  &:hover {
+  &:disabled {
+    cursor: wait;
+  }
+
+  &:hover:enabled {
     color: ${(props) => props.theme.text.light};
     background: ${(props) => props.theme.button.dark};
   }

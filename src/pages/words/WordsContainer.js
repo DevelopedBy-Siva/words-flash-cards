@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import words from "../../assets/data/words.json";
 import WordDetails from "./WordDetails";
+import FontSize from "../../assets/styles/FontSizes.json";
 
 export default function WordsContainer() {
   const [selected, setSelected] = useState(null);
@@ -62,7 +63,7 @@ const Content = styled(motion.div)`
 `;
 
 const Word = styled.h2`
-  font-size: 1.2rem;
+  font-size: ${FontSize.WORD.HOME_MAIN};
   font-weight: 500;
   letter-spacing: 1px;
   overflow: hidden;

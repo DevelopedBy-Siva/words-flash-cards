@@ -8,6 +8,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.2",
+    "dexie": "^3.2.2",
     "focus-trap-react": "^10.0.2",
     "framer-motion": "^8.2.4",
     "react": "^18.2.0",

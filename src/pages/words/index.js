@@ -9,7 +9,7 @@ export default function Words() {
   return (
     <Wrapper stretch>
       <Wrapper contain spaceAround>
-        <Header name="Words" sub="599" />
+        <Header name="Words" />
       </Wrapper>
       <Wrapper contain spaceAround border right>
         <WordNavBar />
