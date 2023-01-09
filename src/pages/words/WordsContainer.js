@@ -44,8 +44,9 @@ const Container = styled.div`
 const Box = styled(motion.div)`
   width: 100%;
   max-width: 350px;
-  height: 150px;
-  background-color: white;
+  height: 160px;
+  background-color: ${(props) => props.theme.button.dull};
+  border: 1px solid ${(props) => props.theme.border.default};
   margin: 20px;
   cursor: pointer;
   user-select: none;
@@ -64,9 +65,10 @@ const Content = styled(motion.div)`
 
 const Word = styled.h2`
   font-size: ${FontSize.WORD.HOME_MAIN};
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 1px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  color: ${(props) => props.theme.text.light};
 `;

@@ -99,10 +99,11 @@ const InputBox = styled.input`
   font-size: ${FontSize.QUIZ.QZ_FORM_INP};
   width: 100%;
   max-width: 260px;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 2px;
-  border: ${(props) => `2px solid ${props.theme.text.default}`};
-  color: ${(props) => props.theme.text.dark};
+  background: none;
+  border: ${(props) => `1px solid ${props.theme.text.default}`};
+  color: ${(props) => props.theme.text.dull};
 `;
 
 const CheckBoxContainer = styled.div`

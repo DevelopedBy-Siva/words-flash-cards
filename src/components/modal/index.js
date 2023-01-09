@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import FocusTrap from "focus-trap-react";
 import { motion } from "framer-motion";
-import { AiFillCloseCircle } from "react-icons/ai";
+import { IoMdClose } from "react-icons/io";
 
 export default function Modal({ id, close, layoutAnimation = {}, children }) {
   return (
@@ -12,7 +12,7 @@ export default function Modal({ id, close, layoutAnimation = {}, children }) {
         <ContentWrapper layoutId={id} {...layoutAnimation}>
           <Content {...ContentAnimation}>{children}</Content>
           <CloseBtn onClick={() => close()}>
-            <AiFillCloseCircle />
+            <IoMdCloseCustom />
           </CloseBtn>
         </ContentWrapper>
       </Container>
@@ -37,14 +37,14 @@ const Overlay = styled(motion.div)`
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(19, 19, 19, 0.72);
+  background-color: ${(props) => props.theme.background.overlay};
 `;
 
 const ContentWrapper = styled(motion.div)`
   width: 95%;
   max-width: 700px;
   position: absolute;
-  background: ${(props) => props.theme.boxes.default};
+  background: ${(props) => props.theme.button.dull};
   margin: auto;
   border-radius: 15px;
 `;
@@ -58,14 +58,21 @@ const CloseBtn = styled.button`
   position: absolute;
   top: 10px;
   right: 10px;
-  width: 19px;
-  height: 19px;
+  width: 17px;
+  height: 17px;
   outline: none;
   border: none;
-  font-size: 1.2rem;
   border-radius: 50%;
   cursor: pointer;
-  color: red;
+  background: ${(props) => props.theme.button.red};
+`;
+
+const IoMdCloseCustom = styled(IoMdClose)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white !important;
 `;
 
 const OverlayAnimation = {

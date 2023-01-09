@@ -63,7 +63,7 @@ const AvailableWords = styled.span`
   font-size: ${FontSize.QUIZ.QZ_HEAD_LG};
   letter-spacing: 2px;
   margin-left: 8px;
-  font-weight: 700;
+  font-weight: 500;
 `;
 
 const QnAnsNav = styled.div`

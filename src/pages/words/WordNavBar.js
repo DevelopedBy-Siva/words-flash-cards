@@ -1,8 +1,9 @@
-import { AnimatePresence } from "framer-motion";
 import React, { useState } from "react";
+import styled from "styled-components";
+import { AnimatePresence } from "framer-motion";
 import { BiSearch } from "react-icons/bi";
 import { BsPlusLg } from "react-icons/bs";
-import styled from "styled-components";
+
 import NewWord from "./NewWord";
 
 export default function WordNavBar() {
@@ -32,11 +33,11 @@ const Container = styled.div`
 `;
 
 const SearchBtn = styled.button`
-  color: ${(props) => props.theme.text.light};
+  color: ${(props) => props.theme.text.dull};
   border: none;
   outline: none;
   background: none;
-  font-size: 1.3rem;
+  font-size: 1.6rem;
   display: flex;
   align-items: center;
   padding: 0px;
@@ -54,8 +55,8 @@ const NewBtn = styled.button`
   outline: none;
   margin-left: 10px;
   font-size: 0.7rem;
-  padding: 5px 16px;
-  border-radius: 4px;
+  padding: 7px 18px;
+  border-radius: 5px;
   cursor: pointer;
 `;
 

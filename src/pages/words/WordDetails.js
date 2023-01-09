@@ -33,7 +33,8 @@ export default function WordDetails({ close, details }) {
 
 const Container = styled(motion.div)`
   width: 100%;
-  min-height: 130px;
+  min-height: 134px;
+  color: white;
 `;
 
 const WordBox = styled(motion.div)`
@@ -43,15 +44,15 @@ const WordBox = styled(motion.div)`
 `;
 
 const SpeaketBtn = styled.button`
-  height: 30px;
-  width: 30px;
+  height: 36px;
+  width: 36px;
   flex-shrink: 0;
   font-size: ${FontSize.WORD.DETAILS_SPEAK};
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 10px;
+  margin-right: 15px;
   background: none;
   outline: none;
   color: ${(props) => props.theme.button.blue};
@@ -63,7 +64,7 @@ const Word = styled(motion.h1)`
   text-align: center;
   font-size: ${FontSize.WORD.DETAILS_WD};
   letter-spacing: 1px;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -77,11 +78,12 @@ const Details = styled(motion.div)`
 const WordMeaning = styled(motion.h2)`
   font-size: ${FontSize.WORD.DETAILS_MEAN};
   margin-bottom: 12px;
-  font-weight: 500;
+  font-weight: 400;
 `;
 
 const WordExample = styled(motion.h3)`
   font-size: ${FontSize.WORD.DETAILS_EX};
   font-weight: 300;
   font-style: italic;
+  color: ${(props) => props.theme.text.dull};
 `;

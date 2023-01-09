@@ -29,11 +29,13 @@ const Heading = styled.h1`
   font-size: ${FontSize.HEADER.TITLE};
   margin-left: 10px;
   letter-spacing: 1px;
+  font-weight: 400;
 `;
 
 const SubHeading = styled.span`
   font-size: ${FontSize.HEADER.SUB_HEAD};
   letter-spacing: 1px;
+  font-weight: 300;
 `;
 
 const BackLink = styled(Link)`

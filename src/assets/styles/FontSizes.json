@@ -18,22 +18,22 @@
     "BOX_INPUT": "0.7rem"
   },
   "HEADER": {
-    "TITLE": "1.2rem",
+    "TITLE": "1.1rem",
     "SUB_HEAD": "0.8rem",
-    "BACK_ICON": "1.4rem"
+    "BACK_ICON": "1.3rem"
   },
   "QUIZ": {
     "QZ_HEAD_SM": "0.8rem",
-    "QZ_HEAD_LG": "1.4rem",
-    "QZ_FORM_LB_INP": "1rem",
+    "QZ_HEAD_LG": "1.2rem",
+    "QZ_FORM_LB_INP": "0.9rem",
     "QZ_FORM_INP": "1.6rem",
-    "QZ_FORM_LB_CB": "0.8rem",
+    "QZ_FORM_LB_CB": "0.75rem",
     "QZ_FORM_BTN": "0.8rem",
     "QN_NAV_BTN": "0.8rem",
     "QN_NAV_COUNT": "1rem"
   },
   "WORD": {
-    "HOME_MAIN": "1.1rem",
+    "HOME_MAIN": "1rem",
     "DETAILS_WD": "1.4rem",
     "DETAILS_SPEAK": "1.4rem",
     "DETAILS_MEAN": "1rem",

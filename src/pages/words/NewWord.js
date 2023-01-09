@@ -76,8 +76,9 @@ export default function NewWord({ close }) {
             type="text"
             spellCheck="false"
             inputMode="search"
+            disabled={word.loading}
           />
-          <InputSearchBtn type="submit">
+          <InputSearchBtn type="submit" disabled={word.loading}>
             {word.loading ? <LoadingSpinner size="25" center /> : "Search"}
           </InputSearchBtn>
         </Form>
@@ -107,6 +108,8 @@ const Title = styled.h1`
   text-align: center;
   font-size: 1.4rem;
   letter-spacing: 1px;
+  font-weight: 400;
+  color: ${(props) => props.theme.text.light};
 `;
 
 const Form = styled.form`
@@ -124,9 +127,11 @@ const WordInput = styled.input`
   border: 1px solid ${(props) => props.theme.border.default};
   border-radius: 5px;
   padding: 5px 10px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 1px;
   font-size: 1rem;
+  background: none;
+  color: ${(props) => props.theme.text.dull};
 `;
 
 const InputSearchBtn = styled.button`
@@ -140,8 +145,8 @@ const InputSearchBtn = styled.button`
   color: ${(props) => props.theme.text.light};
   cursor: pointer;
   position: relative;
-  width: 65px;
-  height: 35px;
+  width: 80px;
+  height: 32px;
 `;
 
 const DetailsContainer = styled(motion.div)`
@@ -150,9 +155,10 @@ const DetailsContainer = styled(motion.div)`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  background-color: ${(props) => props.theme.background.grey};
+  border: 1px solid ${(props) => props.theme.border.default};
   padding: 25px 15px;
   border-radius: 8px;
+  color: ${(props) => props.theme.text.light};
 `;
 
 const Details = styled.div`
@@ -166,12 +172,13 @@ const AddBtn = styled.button`
   border-radius: 4px;
   border: none;
   outline: none;
-  background: ${(props) => props.theme.button.default};
+  background: ${(props) => props.theme.button.dull};
   letter-spacing: 1px;
   cursor: pointer;
   font-size: 0.7rem;
   flex-shrink: 0;
-  color: ${(props) => props.theme.text.default};
+  color: ${(props) => props.theme.text.dull};
+  border: 1px solid ${(props) => props.theme.border.default};
   transition: color 0.2s ease-in-out, background 0.25s ease-in-out;
 
   &:disabled {
@@ -185,7 +192,7 @@ const AddBtn = styled.button`
 `;
 
 const FoundWord = styled.h3`
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 1px;
   overflow: hidden;
   white-space: nowrap;
@@ -195,10 +202,11 @@ const FoundWord = styled.h3`
 `;
 
 const FoundWordMeaning = styled.h4`
-  font-weight: 300;
+  font-weight: 200;
   margin-top: 12px;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-style: italic;
+  color: ${(props) => props.theme.text.dull};
 `;
 
 const ContainerAnimation = {

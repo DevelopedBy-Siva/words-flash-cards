@@ -1,9 +1,9 @@
 export const dark = {
   background: {
-    application: "#1D1C21",
+    application: "#0D1117",
     light: "#2E2E2E",
     grey: "#e7e7e7",
-    overlay: "rgba(29,28,33,0.72)",
+    overlay: "rgba(13, 17, 23, 0.9)",
     quiz: {
       selected: "#FFB11A",
       default: "#FFFFFF",
@@ -13,7 +13,7 @@ export const dark = {
     default: "#2E2E2E",
     error: "#E24339",
     light: "#FFFFFF",
-    dull: "#686868",
+    dull: "#c9d1d9",
     wru: "#C0DEDD",
     json: {
       key: "#4EC9E4",
@@ -29,12 +29,13 @@ export const dark = {
   button: {
     default: "#FFFFFF",
     dark: "#2E2E2E",
+    dull: "#21262d",
     green: "#2D9D41",
     red: "#E24339",
     blue: "#0083FD",
   },
   border: {
-    default: "#999999",
+    default: "rgba(240,246,252,0.1)",
     error: "#E24339",
     light: "#FFFFFF",
     blue: "#017bfe",

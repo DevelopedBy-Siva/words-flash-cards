@@ -44,6 +44,7 @@ const Wrapper = styled.div`
   }
 
   &.content-border {
+    padding-bottom: 8px;
     border-bottom: ${(props) => `1px solid ${props.theme.border.default}`};
   }
 `;
