@@ -1,6 +1,6 @@
 import { toast } from "react-toastify";
 
-import axios from ".";
+import axios from "./axios";
 
 export async function searchDictionary(word) {
   toast.dismiss();
