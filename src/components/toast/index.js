@@ -7,8 +7,8 @@ import FontSize from "../../assets/styles/FontSizes.json";
 export default function Toast() {
   return (
     <CustomToast
-      position="bottom-center"
-      autoClose={5000}
+      position="top-center"
+      autoClose={50000}
       hideProgressBar
       newestOnTop={false}
       closeOnClick
@@ -32,6 +32,7 @@ const CustomToast = styled(ToastContainer)`
       sans-serif;
     border-radius: 8px;
     margin: auto;
-    margin-bottom: 10px;
+    margin-top: 10px;
+    justify-content: center !important;
   }
 `;

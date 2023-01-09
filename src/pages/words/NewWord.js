@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import Modal from "../../components/modal";
 import axios from "../../api";
 import LoadingSpinner from "../../components/loader/";
+import dictionary from "../..//assets/data/words.json";
 
 export default function NewWord({ close }) {
   const wordInputRef = useRef(null);
@@ -52,6 +53,18 @@ export default function NewWord({ close }) {
       });
   }
 
+  function addNewWord() {
+    const { data } = word;
+    const found = dictionary.filter(
+      (wd) => wd.word.toLowerCase() === data.name.toLowerCase()
+    );
+    toast.dismiss();
+    if (found.length) {
+      toast.warn("Word already added. Try another word");
+      return;
+    }
+  }
+
   return (
     <Modal close={close}>
       <Container>
@@ -75,7 +88,7 @@ export default function NewWord({ close }) {
               <FoundWord>{word.data.name}</FoundWord>
               <FoundWordMeaning>{word.data.meaning}</FoundWordMeaning>
             </Details>
-            <AddBtn>Add</AddBtn>
+            <AddBtn onClick={addNewWord}>Add</AddBtn>
           </DetailsContainer>
         ) : (
           ""
