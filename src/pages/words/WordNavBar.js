@@ -1,18 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { BsPlusLg } from "react-icons/bs";
 import styled from "styled-components";
+import NewWord from "./NewWord";
 
 export default function WordNavBar() {
+  const [addBtnActive, setAddBtnActive] = useState(null);
+
+  const toggleAddWord = (opt = null) => setAddBtnActive(opt);
+
   return (
     <Container>
       <SearchBtn>
         <BiSearch />
       </SearchBtn>
-      <NewBtn>
+      <NewBtn onClick={() => toggleAddWord(true)}>
         <BsPlusLg />
         <NewBtnLabel>New</NewBtnLabel>
       </NewBtn>
+      {addBtnActive && <NewWord close={toggleAddWord} />}
     </Container>
   );
 }

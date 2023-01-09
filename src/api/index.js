@@ -1,14 +1,10 @@
 import _ from "axios";
 
-// const baseURL = process.env.REACT_APP_DICTIONARY_API_URL;
+const baseURL = process.env.REACT_APP_DICTIONARY_API_URL;
 const apiTimeout = process.env.REACT_APP_DICTIONARY_API_TIMEOUT;
 
 const axios = _.create({
-  baseURL: "https://od-api.oxforddictionaries.com/api/v2/en",
-  headers: {
-    app_id: "3f203c25",
-    app_key: "127c439e10eda233218e9252b916e2b1",
-  },
+  baseURL,
 });
 axios.defaults.timeout = apiTimeout;
 

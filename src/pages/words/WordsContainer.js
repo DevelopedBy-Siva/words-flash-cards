@@ -1,21 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
 
 import words from "../../assets/data/words.json";
-import { getWords } from "../../redux/reducer/Words";
 import WordDetails from "./WordDetails";
 
 export default function WordsContainer() {
   const [selected, setSelected] = useState(null);
   const toggleModal = (id = null) => setSelected(id);
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getWords("procrastination"));
-  }, [dispatch]);
   return (
     <Container>
       {words.map((wd, index) => (
@@ -55,7 +48,7 @@ const Box = styled(motion.div)`
   margin: 20px;
   cursor: pointer;
   user-select: none;
-  border-radius: 5px;
+  border-radius: 8px;
   padding: 10px;
 `;
 
@@ -70,7 +63,7 @@ const Content = styled(motion.div)`
 
 const Word = styled.h2`
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 1px;
   overflow: hidden;
   text-overflow: ellipsis;

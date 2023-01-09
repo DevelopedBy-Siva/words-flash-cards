@@ -2,6 +2,7 @@ export const dark = {
   background: {
     application: "#1D1C21",
     light: "#2E2E2E",
+    grey: "#e7e7e7",
     overlay: "rgba(29,28,33,0.72)",
     quiz: {
       selected: "#FFB11A",
