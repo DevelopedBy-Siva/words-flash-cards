@@ -33,6 +33,7 @@ export const dark = {
     green: "#2D9D41",
     red: "#E24339",
     blue: "#0083FD",
+    app: "#0D1117",
   },
   border: {
     default: "rgba(240,246,252,0.1)",
