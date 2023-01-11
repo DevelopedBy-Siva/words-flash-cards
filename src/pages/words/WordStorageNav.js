@@ -1,21 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 
 import { IoFilterSharp } from "react-icons/io5";
 import { BiSort } from "react-icons/bi";
 import { MdArrowDropDown } from "react-icons/md";
+import { TiTick } from "react-icons/ti";
 
 const navs = [
   {
     title: "filter",
     icons: <IoFilterSharp />,
+    defaultParam: "ALL",
     items: [
       {
         item: "all",
+        param: "ALL",
         link: "/",
       },
       {
         item: "local storage",
+        param: "LOCAL",
         link: "/",
       },
     ],
@@ -23,21 +28,26 @@ const navs = [
   {
     title: "sort",
     icons: <BiSort />,
+    defaultParam: "A_Z",
     items: [
       {
         item: "By Word (A-Z)",
+        param: "A_Z",
         link: "/",
       },
       {
         item: "By Word (Z-A)",
+        param: "Z_A",
         link: "/",
       },
       {
         item: "By Date (Oldest - Newest)",
+        param: "DATE_ASC",
         link: "/",
       },
       {
         item: "By Date (Newest - Oldest)",
+        param: "DATE_DESC",
         link: "/",
       },
     ],
@@ -74,6 +84,20 @@ export default function WordStorageNav() {
     setActive(title);
   }
 
+  const [searchParams, setSearchParam] = useSearchParams();
+
+  function activeNav() {
+    const index = navs.findIndex((i) => i.title === active);
+    const param = searchParams.get(active);
+    if (param) {
+      const found = navs[index].items.findIndex(
+        (i) => i.param === param.toUpperCase()
+      );
+      if (found) return param.toUpperCase();
+    }
+    return navs[index].defaultParam;
+  }
+
   return (
     <Conatiner>
       {navs.map((nav, index) => (
@@ -81,13 +105,23 @@ export default function WordStorageNav() {
           ref={(ele) => (dropdownRef.current[index] = ele)}
           key={index}
         >
-          <NavBtns onClick={() => toggleDropdown(nav.title)}>
+          <NavBtns
+            className={active === nav.title ? "words-nav-active" : ""}
+            onClick={() => toggleDropdown(nav.title)}
+          >
             {nav.icons}
             <NavTitle>{nav.title}</NavTitle>
             <MdArrowDropDown />
           </NavBtns>
-          {active && active === nav.title && (
-            <DropDown items={nav.items} toggleDropdown={toggleDropdown} />
+          {active === nav.title && (
+            <DropDown
+              active={active}
+              items={nav.items}
+              activeParam={activeNav()}
+              toggleDropdown={toggleDropdown}
+              updateParams={setSearchParam}
+              searchParams={searchParams}
+            />
           )}
         </BtnContainer>
       ))}
@@ -95,11 +129,26 @@ export default function WordStorageNav() {
   );
 }
 
-function DropDown({ items = [], toggleDropdown }) {
+function DropDown({
+  active,
+  items = [],
+  toggleDropdown,
+  activeParam,
+  updateParams,
+  searchParams,
+}) {
+  function updateSearchParam(param) {
+    searchParams.set(active, param);
+    updateParams(searchParams);
+  }
+
   return (
     <DropdownContainer onClick={() => toggleDropdown(null)}>
       {items.map((i, index) => (
-        <DropdownItem key={index}>{i.item}</DropdownItem>
+        <DropdownItem onClick={() => updateSearchParam(i.param)} key={index}>
+          <DropdownItemName>{i.item}</DropdownItemName>
+          {i.param === activeParam ? <TiTickCustom /> : ""}
+        </DropdownItem>
       ))}
     </DropdownContainer>
   );
@@ -132,11 +181,13 @@ const NavBtns = styled.button`
   cursor: pointer;
   user-select: none;
 
-  &:hover {
+  &.words-nav-active {
     border: 1px solid ${(props) => props.theme.border.grey};
     color: ${(props) => props.theme.text.light};
   }
-  &:active {
+
+  &:hover {
+    border: 1px solid ${(props) => props.theme.border.grey};
     color: ${(props) => props.theme.text.light};
   }
 `;
@@ -148,7 +199,7 @@ const NavTitle = styled.span`
 
 const DropdownContainer = styled.ul`
   position: absolute;
-  width: 140px;
+  width: max-content;
   border: 1px solid ${(props) => props.theme.border.default};
   background: ${(props) => props.theme.button.app};
   outline: none;
@@ -157,6 +208,13 @@ const DropdownContainer = styled.ul`
   border-radius: 6px;
   z-index: 1;
   overflow: hidden;
+`;
+
+const TiTickCustom = styled(TiTick)`
+  flex-shrink: 0;
+  margin-left: 15px;
+  color: ${(props) => props.theme.button.green};
+  font-size: 0.9rem;
 `;
 
 const DropdownItem = styled.li`
@@ -168,6 +226,9 @@ const DropdownItem = styled.li`
   font-size: 0.75rem;
   cursor: pointer;
   text-transform: capitalize;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   &:last-child {
     border: none;
@@ -177,4 +238,12 @@ const DropdownItem = styled.li`
     background-color: ${(props) => props.theme.button.blue};
     color: ${(props) => props.theme.text.light};
   }
+
+  &:hover ${TiTickCustom} {
+    color: ${(props) => props.theme.button.default};
+  }
+`;
+
+const DropdownItemName = styled.span`
+  flex: 1;
 `;
