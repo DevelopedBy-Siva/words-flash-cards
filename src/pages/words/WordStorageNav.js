@@ -9,25 +9,59 @@ const navs = [
   {
     title: "filter",
     icons: <IoFilterSharp />,
+    items: [
+      {
+        item: "all",
+        link: "/",
+      },
+      {
+        item: "local storage",
+        link: "/",
+      },
+    ],
   },
   {
     title: "sort",
     icons: <BiSort />,
+    items: [
+      {
+        item: "By Word (A-Z)",
+        link: "/",
+      },
+      {
+        item: "By Word (Z-A)",
+        link: "/",
+      },
+      {
+        item: "By Date (Oldest - Newest)",
+        link: "/",
+      },
+      {
+        item: "By Date (Newest - Oldest)",
+        link: "/",
+      },
+    ],
   },
 ];
 
 export default function WordStorageNav() {
-  const [active, setActive] = useState(null);
-
   const dropdownRef = useRef([]);
+
+  const [active, setActive] = useState(null);
 
   useEffect(() => {
     if (!active) return document.removeEventListener("click", handleClick);
 
     function handleClick(e) {
-      console.log(active);
-      if (active && !dropdownRef.current[active.index].contains(e.target))
-        toggleDropdown();
+      let isInside = false;
+      dropdownRef.current.forEach((ref) => {
+        if (ref.contains(e.target)) {
+          isInside = true;
+          return;
+        }
+      });
+
+      if (!isInside) setActive(null);
     }
     document.addEventListener("click", handleClick);
     return () => {
@@ -35,8 +69,9 @@ export default function WordStorageNav() {
     };
   }, [active]);
 
-  function toggleDropdown(obj = null) {
-    setActive(obj);
+  function toggleDropdown(title = null) {
+    if (active === title) title = null;
+    setActive(title);
   }
 
   return (
@@ -46,13 +81,13 @@ export default function WordStorageNav() {
           ref={(ele) => (dropdownRef.current[index] = ele)}
           key={index}
         >
-          <NavBtns onClick={() => toggleDropdown({ title: nav.title, index })}>
+          <NavBtns onClick={() => toggleDropdown(nav.title)}>
             {nav.icons}
             <NavTitle>{nav.title}</NavTitle>
             <MdArrowDropDown />
           </NavBtns>
-          {active && active.title === nav.title && (
-            <DropDown toggleDropdown={toggleDropdown} />
+          {active && active === nav.title && (
+            <DropDown items={nav.items} toggleDropdown={toggleDropdown} />
           )}
         </BtnContainer>
       ))}
@@ -60,11 +95,12 @@ export default function WordStorageNav() {
   );
 }
 
-function DropDown({ toggleDropdown }) {
+function DropDown({ items = [], toggleDropdown }) {
   return (
     <DropdownContainer onClick={() => toggleDropdown(null)}>
-      <DropdownList>All</DropdownList>
-      <DropdownList>Local Database</DropdownList>
+      {items.map((i, index) => (
+        <DropdownItem key={index}>{i.item}</DropdownItem>
+      ))}
     </DropdownContainer>
   );
 }
@@ -95,6 +131,14 @@ const NavBtns = styled.button`
   border-radius: 6px;
   cursor: pointer;
   user-select: none;
+
+  &:hover {
+    border: 1px solid ${(props) => props.theme.border.grey};
+    color: ${(props) => props.theme.text.light};
+  }
+  &:active {
+    color: ${(props) => props.theme.text.light};
+  }
 `;
 
 const NavTitle = styled.span`
@@ -112,17 +156,25 @@ const DropdownContainer = styled.ul`
   right: 0;
   border-radius: 6px;
   z-index: 1;
+  overflow: hidden;
 `;
 
-const DropdownList = styled.li`
+const DropdownItem = styled.li`
   list-style: none;
   text-align: left;
-  padding: 15px;
+  padding: 10px 15px;
   border-bottom: 1px solid ${(props) => props.theme.border.default};
   color: ${(props) => props.theme.text.dull};
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+  text-transform: capitalize;
 
   &:last-child {
     border: none;
+  }
+
+  &:hover {
+    background-color: ${(props) => props.theme.button.blue};
+    color: ${(props) => props.theme.text.light};
   }
 `;

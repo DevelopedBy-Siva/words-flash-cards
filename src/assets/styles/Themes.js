@@ -37,6 +37,7 @@ export const dark = {
   },
   border: {
     default: "rgba(240,246,252,0.1)",
+    grey: "#f0f6fc",
     error: "#E24339",
     light: "#FFFFFF",
     blue: "#017bfe",
