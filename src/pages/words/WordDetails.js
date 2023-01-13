@@ -9,18 +9,19 @@ import Modal from "../../components/modal";
 const msg = new SpeechSynthesisUtterance();
 export default function WordDetails({ close, details }) {
   function toSpeech(text) {
+    window.speechSynthesis.cancel();
     msg.text = text;
     window.speechSynthesis.speak(msg);
   }
 
   return (
-    <Modal id={details.word} close={close}>
+    <Modal id={details.name} close={close}>
       <Container>
         <WordBox>
-          <SpeaketBtn onClick={() => toSpeech(details.word)}>
+          <SpeaketBtn onClick={() => toSpeech(details.name)}>
             <HiSpeakerWave />
           </SpeaketBtn>
-          <Word>{details.word}</Word>
+          <Word>{details.name}</Word>
         </WordBox>
         <Details>
           <WordMeaning>{details.meaning}</WordMeaning>

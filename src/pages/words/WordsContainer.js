@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
 
-import words from "../../assets/data/words.json";
 import WordDetails from "./WordDetails";
 import FontSize from "../../assets/styles/FontSizes.json";
+import { useDispatch, useSelector } from "react-redux";
+import { getWords } from "../../redux/reducer/Words";
 
 export default function WordsContainer() {
   const [selected, setSelected] = useState(null);
   const toggleModal = (id = null) => setSelected(id);
+
+  const { words } = useSelector((state) => state.words);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getWords());
+  }, [dispatch]);
 
   return (
     <Container>
@@ -19,11 +27,11 @@ export default function WordsContainer() {
             transition: { duration: 0.5 },
           }}
           onClick={() => toggleModal(wd)}
-          layoutId={wd.word}
+          layoutId={wd.name}
           key={index}
         >
           <Content>
-            <Word>{wd.word}</Word>
+            <Word>{wd.name}</Word>
           </Content>
         </Box>
       ))}

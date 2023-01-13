@@ -2,12 +2,13 @@ import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
+import { useDispatch, useSelector } from "react-redux";
 
 import Modal from "../../components/modal";
 import LoadingSpinner from "../../components/loader/";
-import dictionary from "../..//assets/data/words.json";
 import { searchDictionary } from "../../api/WordsApi";
 import { addWordToDb } from "../../db";
+import { addWord } from "../../redux/actions/Words_Actions";
 
 export default function NewWord({ close }) {
   const wordInputRef = useRef(null);
@@ -18,6 +19,9 @@ export default function NewWord({ close }) {
     data: null,
     loading: false,
   });
+
+  const { words } = useSelector((state) => state.words);
+  const dispatch = useDispatch();
 
   function handleWordInputChange(e) {
     const value = e.target.value;
@@ -39,22 +43,25 @@ export default function NewWord({ close }) {
   }
 
   async function addNewWord() {
+    toast.dismiss();
     addBtnRef.current.disabled = true;
 
     const { data } = word;
-    const found = dictionary.filter(
-      (wd) => wd.word.toLowerCase() === data.name.toLowerCase()
+    const isFound = words.findIndex(
+      (item) => item.name.toLowerCase() === data.name.toLowerCase()
     );
-    toast.dismiss();
-    if (found.length) {
+    if (isFound !== -1) {
       addBtnRef.current.disabled = false;
       toast.warn("Word already added. Try another word");
       return;
     }
 
     addBtnRef.current.disabled = true;
-    await addWordToDb({ ...data, createdAt: Date.now() })
+    data["createdAt"] = Date.now();
+    data["indexedDB"] = true;
+    await addWordToDb(data)
       .then(() => {
+        dispatch(addWord(data));
         toast.success("Word successfully saved to Local Database");
         close();
       })
