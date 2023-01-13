@@ -143,7 +143,10 @@ function DropDown({
   }
 
   return (
-    <DropdownContainer onClick={() => toggleDropdown(null)}>
+    <DropdownContainer
+      className={`dropdown-${active}`}
+      onClick={() => toggleDropdown(null)}
+    >
       {items.map((i, index) => (
         <DropdownItem onClick={() => updateSearchParam(i.param)} key={index}>
           <DropdownItemName>{i.item}</DropdownItemName>
@@ -200,6 +203,7 @@ const NavTitle = styled.span`
 const DropdownContainer = styled.ul`
   position: absolute;
   width: max-content;
+  min-width: 135px;
   border: 1px solid ${(props) => props.theme.border.default};
   background: ${(props) => props.theme.button.app};
   outline: none;
@@ -208,6 +212,10 @@ const DropdownContainer = styled.ul`
   border-radius: 6px;
   z-index: 1;
   overflow: hidden;
+
+  &.dropdown-sort {
+    min-width: 198px;
+  }
 `;
 
 const TiTickCustom = styled(TiTick)`
