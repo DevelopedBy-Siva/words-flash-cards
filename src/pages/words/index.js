@@ -4,7 +4,7 @@ import Wrapper from "../../components/wrapper";
 import Header from "../../components/header";
 import WordsContainer from "./WordsContainer";
 import WordNavBar from "./WordNavBar";
-import WordStorageNav from "./WordStorageNav";
+import WordFilterSortNav from "./WordFilterSortNav";
 
 export default function Words() {
   return (
@@ -16,7 +16,7 @@ export default function Words() {
         <WordNavBar />
       </Wrapper>
       <Wrapper contain spaceAround>
-        <WordStorageNav />
+        <WordFilterSortNav />
       </Wrapper>
       <Wrapper contain spaceAround grow>
         <WordsContainer />

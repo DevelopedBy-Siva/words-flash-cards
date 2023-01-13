@@ -54,7 +54,7 @@ const navs = [
   },
 ];
 
-export default function WordStorageNav() {
+export default function WordFilterSortNav() {
   const dropdownRef = useRef([]);
 
   const [active, setActive] = useState(null);
