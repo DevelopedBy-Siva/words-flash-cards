@@ -1,63 +1,27 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
-
-import { IoFilterSharp } from "react-icons/io5";
-import { BiSort } from "react-icons/bi";
+import { useSearchParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { MdArrowDropDown } from "react-icons/md";
 import { TiTick } from "react-icons/ti";
 
-const navs = [
-  {
-    title: "filter",
-    icons: <IoFilterSharp />,
-    defaultParam: "ALL",
-    items: [
-      {
-        item: "all",
-        param: "ALL",
-        link: "/",
-      },
-      {
-        item: "local storage",
-        param: "LOCAL",
-        link: "/",
-      },
-    ],
-  },
-  {
-    title: "sort",
-    icons: <BiSort />,
-    defaultParam: "A_Z",
-    items: [
-      {
-        item: "By Word (A-Z)",
-        param: "A_Z",
-        link: "/",
-      },
-      {
-        item: "By Word (Z-A)",
-        param: "Z_A",
-        link: "/",
-      },
-      {
-        item: "By Date (Oldest - Newest)",
-        param: "DATE_ASC",
-        link: "/",
-      },
-      {
-        item: "By Date (Newest - Oldest)",
-        param: "DATE_DESC",
-        link: "/",
-      },
-    ],
-  },
-];
+import { filterLocal } from "../../redux/actions/Words_Actions";
+import { SORT_FILTER_NAV } from "../../utils/Words";
 
 export default function WordFilterSortNav() {
   const dropdownRef = useRef([]);
 
   const [active, setActive] = useState(null);
+
+  const [searchParams, setSearchParam] = useSearchParams();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (searchParams.get("filter").toLowerCase() === "local") {
+      dispatch(filterLocal());
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     if (!active) return document.removeEventListener("click", handleClick);
@@ -84,23 +48,21 @@ export default function WordFilterSortNav() {
     setActive(title);
   }
 
-  const [searchParams, setSearchParam] = useSearchParams();
-
   function activeNav() {
-    const index = navs.findIndex((i) => i.title === active);
+    const index = SORT_FILTER_NAV.findIndex((i) => i.title === active);
     const param = searchParams.get(active);
     if (param) {
-      const found = navs[index].items.findIndex(
+      const found = SORT_FILTER_NAV[index].items.findIndex(
         (i) => i.param === param.toUpperCase()
       );
       if (found) return param.toUpperCase();
     }
-    return navs[index].defaultParam;
+    return SORT_FILTER_NAV[index].defaultParam;
   }
 
   return (
     <Conatiner>
-      {navs.map((nav, index) => (
+      {SORT_FILTER_NAV.map((nav, index) => (
         <BtnContainer
           ref={(ele) => (dropdownRef.current[index] = ele)}
           key={index}

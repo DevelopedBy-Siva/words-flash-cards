@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
+import { HiComputerDesktop } from "react-icons/hi2";
 
 import WordDetails from "./WordDetails";
 import FontSize from "../../assets/styles/FontSizes.json";
-import { useDispatch, useSelector } from "react-redux";
 import { getWords } from "../../redux/reducer/Words";
 
 export default function WordsContainer() {
@@ -31,6 +32,7 @@ export default function WordsContainer() {
           key={index}
         >
           <Content>
+            {wd.indexedDB ? <LocalIconCustom /> : ""}
             <Word>{wd.name}</Word>
           </Content>
         </Box>
@@ -69,6 +71,15 @@ const Content = styled(motion.div)`
   justify-content: center;
   align-items: center;
   text-transform: uppercase;
+  position: relative;
+`;
+
+const LocalIconCustom = styled(HiComputerDesktop)`
+  position: absolute;
+  color: ${(props) => props.theme.text.light};
+  top: 0;
+  right: 0;
+  font-size: 0.9rem;
 `;
 
 const Word = styled.h2`
