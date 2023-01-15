@@ -34,8 +34,8 @@ export default function WordsContainer() {
             scale: 1.05,
             transition: { duration: 0.5 },
           }}
-          onClick={() => toggleModal(wd)}
-          layoutId={wd.name}
+          onClick={() => toggleModal({ ...wd, id: `box_${index}` })}
+          layoutId={`box_${index}`}
           key={index}
         >
           <Content>

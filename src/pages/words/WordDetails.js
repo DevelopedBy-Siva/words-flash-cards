@@ -15,7 +15,7 @@ export default function WordDetails({ close, details }) {
   }
 
   return (
-    <Modal id={details.name} close={close}>
+    <Modal id={details.id} close={close}>
       <Container>
         <WordBox>
           <SpeaketBtn onClick={() => toSpeech(details.name)}>
