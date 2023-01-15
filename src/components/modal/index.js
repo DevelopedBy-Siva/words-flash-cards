@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import FocusTrap from "focus-trap-react";
+import FocusLock from "react-focus-lock";
 import { motion } from "framer-motion";
 import { IoMdClose } from "react-icons/io";
 
 export default function Modal({ id, close, layoutAnimation = {}, children }) {
   return (
-    <FocusTrap>
+    <FocusLock>
       <Container>
         <Overlay {...OverlayAnimation} onClick={() => close()} />
         <ContentWrapper layoutId={id} {...layoutAnimation}>
@@ -16,7 +16,7 @@ export default function Modal({ id, close, layoutAnimation = {}, children }) {
           </CloseBtn>
         </ContentWrapper>
       </Container>
-    </FocusTrap>
+    </FocusLock>
   );
 }
 
@@ -30,6 +30,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 999;
+  overflow: hidden;
 `;
 const Overlay = styled(motion.div)`
   position: absolute;
@@ -43,6 +44,7 @@ const Overlay = styled(motion.div)`
 const ContentWrapper = styled(motion.div)`
   width: 95%;
   max-width: 700px;
+  max-height: 98%;
   position: absolute;
   background: ${(props) => props.theme.button.dull};
   margin: auto;
@@ -60,7 +62,6 @@ const CloseBtn = styled.button`
   right: 10px;
   width: 17px;
   height: 17px;
-  outline: none;
   border: none;
   border-radius: 50%;
   cursor: pointer;

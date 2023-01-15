@@ -78,6 +78,7 @@ export default function WordDetails({ close, details }) {
             value={data.meaning}
             placeholder="# Sorry! No meaning found. Please add it."
             onKeyDown={disableEnter}
+            maxLength={200}
           />
           <WordExample
             active={edit}
@@ -86,6 +87,7 @@ export default function WordDetails({ close, details }) {
             value={data.example}
             placeholder="## Sorry! No meaning found. Please add it."
             onKeyDown={disableEnter}
+            maxLength={200}
           />
         </Details>
         {details.indexedDB ? (
@@ -133,7 +135,6 @@ const SpeaketBtn = styled.button`
   justify-content: center;
   margin-right: 15px;
   background: none;
-  outline: none;
   color: ${(props) => props.theme.button.blue};
   border: 1px solid ${(props) => props.theme.border.default};
   cursor: pointer;
@@ -214,7 +215,6 @@ const LocalBtn = styled.button`
   border-radius: 3px;
   padding: 3px 6px;
   cursor: pointer;
-  outline: none;
 `;
 
 const EditBtn = styled(LocalBtn)`
