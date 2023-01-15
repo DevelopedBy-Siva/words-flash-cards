@@ -1,3 +1,4 @@
+import _ from "lodash";
 import { IoFilterSharp } from "react-icons/io5";
 import { BiSort } from "react-icons/bi";
 
@@ -79,38 +80,14 @@ export function sortWord(type, words) {
   }
 }
 
-export function sortByAsc(data) {
-  const words = [...data].sort((a, b) => {
-    const first = a.name.toLowerCase();
-    const second = b.name.toLowerCase();
-    return first > second ? 1 : -1;
-  });
-  return words;
-}
+const sortByAsc = (data) =>
+  _.orderBy(data, [(val) => val.name.toLowerCase()], ["asc"]);
 
-export function sortByDesc(data) {
-  const words = [...data].sort((a, b) => {
-    const first = a.name.toLowerCase();
-    const second = b.name.toLowerCase();
-    return first > second ? -1 : 1;
-  });
-  return words;
-}
+const sortByDesc = (data) =>
+  _.orderBy(data, [(val) => val.name.toLowerCase()], ["desc"]);
 
-export function sortByDateAsc(data) {
-  const words = [...data].sort((a, b) => {
-    const first = a.createdBy ? a.createdBy : 0;
-    const last = b.createdBy ? b.createdBy : 0;
-    return first - last;
-  });
-  return words;
-}
+const sortByDateAsc = (data) =>
+  _.orderBy(data, [(val) => val.createdAt], ["asc"]);
 
-export function sortByDateDesc(data) {
-  const words = [...data].sort((a, b) => {
-    const first = a.createdBy ? a.createdBy : 0;
-    const last = b.createdBy ? b.createdBy : 0;
-    return last - first;
-  });
-  return words;
-}
+const sortByDateDesc = (data) =>
+  _.orderBy(data, [(val) => val.createdAt], ["desc"]);
