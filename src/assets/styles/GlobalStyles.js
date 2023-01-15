@@ -15,7 +15,7 @@ export const GlobalStyles = createGlobalStyle`
         font-family: 'Roboto', sans-serif;
         -webkit-text-size-adjust: 100%;
     }
-    button, input {
+    button, input, textarea {
         font-family: inherit;
     }
 

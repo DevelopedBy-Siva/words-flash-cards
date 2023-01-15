@@ -1,5 +1,9 @@
 import { getWordsFromDb } from "../../db";
-import { ADD_NEW_WORD, FETCH_WORDS } from "../actions/Words_ActionTypes";
+import {
+  ADD_NEW_WORD,
+  FETCH_WORDS,
+  UPDATE_WORD,
+} from "../actions/Words_ActionTypes";
 import { fetchWords } from "../actions/Words_Actions";
 
 const initialState = {
@@ -15,6 +19,16 @@ const reducer = (state = initialState, action) => {
     case ADD_NEW_WORD:
       const newWords = [...state.words, payload];
       return { ...state, words: newWords };
+    case UPDATE_WORD:
+      const updateWords = [...state.words].map((wd) => {
+        if (wd.name === payload.name) {
+          wd.meaning = payload.meaning;
+          wd.example = payload.example;
+          wd.createdAt = Date.now();
+        }
+        return wd;
+      });
+      return { ...state, words: updateWords };
     default:
       return state;
   }
