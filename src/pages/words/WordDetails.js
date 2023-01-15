@@ -38,7 +38,7 @@ export default function WordDetails({ close, details }) {
   };
 
   const disableEnter = (e) => {
-    if (e.key == "Enter") e.preventDefault();
+    if (e.key === "Enter") e.preventDefault();
   };
 
   const saveWord = async () => {

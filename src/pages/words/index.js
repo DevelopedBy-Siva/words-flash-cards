@@ -5,6 +5,7 @@ import Header from "../../components/header";
 import WordsContainer from "./WordsContainer";
 import WordNavBar from "./WordNavBar";
 import WordFilterSortNav from "./WordFilterSortNav";
+import IndexedDbWarning from "./IndexedDbWarning";
 
 export default function Words() {
   return (
@@ -18,6 +19,7 @@ export default function Words() {
       <Wrapper contain spaceAround>
         <WordFilterSortNav />
       </Wrapper>
+      <IndexedDbWarning />
       <Wrapper contain spaceAround grow>
         <WordsContainer />
       </Wrapper>

@@ -9,6 +9,7 @@ import LoadingSpinner from "../../components/loader/";
 import { searchDictionary } from "../../api/WordsApi";
 import { addWordToDb } from "../../db";
 import { addWord } from "../../redux/actions/Words_Actions";
+import IndexedDbWarning from "./IndexedDbWarning";
 
 export default function NewWord({ close }) {
   const wordInputRef = useRef(null);
@@ -75,6 +76,10 @@ export default function NewWord({ close }) {
     <Modal layoutAnimation={ContainerAnimation} close={close}>
       <Container>
         <Title>Add New Word</Title>
+        <IndexedDbWarning
+          sub={false}
+          msg="New words will be stored in the browser database. So, clearing the browser data will remove the words permanently."
+        />
         <Form onSubmit={searchWord}>
           <WordInput
             ref={wordInputRef}
