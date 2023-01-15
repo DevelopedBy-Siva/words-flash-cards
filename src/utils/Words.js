@@ -1,13 +1,5 @@
 import { IoFilterSharp } from "react-icons/io5";
 import { BiSort } from "react-icons/bi";
-import {
-  FILTER_ALL,
-  FILTER_LOCAL,
-  SORT_A_Z,
-  SORT_DATE_ASC,
-  SORT_DATE_DESC,
-  SORT_Z_A,
-} from "../redux/actions/Words_ActionTypes";
 
 export const SORT_FILTER_NAV = [
   {
@@ -56,39 +48,69 @@ export const SORT_FILTER_NAV = [
   },
 ];
 
-export const getQueryParamType = (filterParam = "", sortParam = "") => {
-  const actionType = {
-    filterType: null,
-    sortType: null,
-  };
-
-  switch (filterParam.toLowerCase()) {
-    case "all":
-      actionType.filterType = FILTER_ALL;
-      break;
-    case "local":
-      actionType.filterType = FILTER_LOCAL;
-      break;
-    default:
-      actionType.filterType = FILTER_ALL;
-  }
-
-  switch (sortParam.toLowerCase()) {
-    case "a_z":
-      actionType.sortType = SORT_A_Z;
-      break;
-    case "z_a":
-      actionType.sortType = SORT_Z_A;
-      break;
-    case "date_asc":
-      actionType.sortType = SORT_DATE_ASC;
-      break;
-    case "date_desc":
-      actionType.sortType = SORT_DATE_DESC;
-      break;
-    default:
-      actionType.sortType = SORT_A_Z;
-  }
-
-  return actionType;
+export const getSortFilterType = (type, inputParam) => {
+  const index = SORT_FILTER_NAV.findIndex((item) => item.title === type);
+  if (!inputParam) return SORT_FILTER_NAV[index].defaultParam;
+  const params = SORT_FILTER_NAV[index].items.map((item) => item.param);
+  return params.includes(inputParam.toUpperCase())
+    ? inputParam.toUpperCase()
+    : SORT_FILTER_NAV[index].defaultParam;
 };
+
+export function filterWords(type, words) {
+  switch (type) {
+    case "LOCAL":
+      return words.filter((wd) => wd.indexedDB);
+    default:
+      return words;
+  }
+}
+
+export function sortWord(type, words) {
+  switch (type) {
+    case "Z_A":
+      return sortByDesc(words);
+    case "DATE_ASC":
+      return sortByDateAsc(words);
+    case "DATE_DESC":
+      return sortByDateDesc(words);
+    default:
+      return sortByAsc(words);
+  }
+}
+
+export function sortByAsc(data) {
+  const words = [...data].sort((a, b) => {
+    const first = a.name.toLowerCase();
+    const second = b.name.toLowerCase();
+    return first > second ? 1 : -1;
+  });
+  return words;
+}
+
+export function sortByDesc(data) {
+  const words = [...data].sort((a, b) => {
+    const first = a.name.toLowerCase();
+    const second = b.name.toLowerCase();
+    return first > second ? -1 : 1;
+  });
+  return words;
+}
+
+export function sortByDateAsc(data) {
+  const words = [...data].sort((a, b) => {
+    const first = a.createdBy ? a.createdBy : 0;
+    const last = b.createdBy ? b.createdBy : 0;
+    return first - last;
+  });
+  return words;
+}
+
+export function sortByDateDesc(data) {
+  const words = [...data].sort((a, b) => {
+    const first = a.createdBy ? a.createdBy : 0;
+    const last = b.createdBy ? b.createdBy : 0;
+    return last - first;
+  });
+  return words;
+}

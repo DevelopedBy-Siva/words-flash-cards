@@ -1,12 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { useSearchParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { MdArrowDropDown } from "react-icons/md";
 import { TiTick } from "react-icons/ti";
 
-import { filterLocal } from "../../redux/actions/Words_Actions";
-import { SORT_FILTER_NAV } from "../../utils/Words";
+import { getSortFilterType, SORT_FILTER_NAV } from "../../utils/Words";
 
 export default function WordFilterSortNav() {
   const dropdownRef = useRef([]);
@@ -14,14 +12,6 @@ export default function WordFilterSortNav() {
   const [active, setActive] = useState(null);
 
   const [searchParams, setSearchParam] = useSearchParams();
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (searchParams.get("filter").toLowerCase() === "local") {
-      dispatch(filterLocal());
-    }
-  }, [searchParams]);
 
   useEffect(() => {
     if (!active) return document.removeEventListener("click", handleClick);
@@ -48,17 +38,7 @@ export default function WordFilterSortNav() {
     setActive(title);
   }
 
-  function activeNav() {
-    const index = SORT_FILTER_NAV.findIndex((i) => i.title === active);
-    const param = searchParams.get(active);
-    if (param) {
-      const found = SORT_FILTER_NAV[index].items.findIndex(
-        (i) => i.param === param.toUpperCase()
-      );
-      if (found) return param.toUpperCase();
-    }
-    return SORT_FILTER_NAV[index].defaultParam;
-  }
+  const activeNav = () => getSortFilterType(active, searchParams.get(active));
 
   return (
     <Conatiner>

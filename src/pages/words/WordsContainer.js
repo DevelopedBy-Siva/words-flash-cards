@@ -3,21 +3,28 @@ import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
 import { HiComputerDesktop } from "react-icons/hi2";
+import { useSearchParams } from "react-router-dom";
 
 import WordDetails from "./WordDetails";
 import FontSize from "../../assets/styles/FontSizes.json";
-import { getWords } from "../../redux/reducer/Words";
+import { initialiseWords } from "../../redux/reducer/Words";
+import { getWords } from "../../redux/selectors/Words";
 
 export default function WordsContainer() {
   const [selected, setSelected] = useState(null);
   const toggleModal = (id = null) => setSelected(id);
 
-  const { words } = useSelector((state) => state.words);
-
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getWords());
+    dispatch(initialiseWords());
   }, [dispatch]);
+
+  const [searchParams] = useSearchParams();
+
+  const filterParam = searchParams.get("filter");
+  const sortParam = searchParams.get("sort");
+
+  const words = useSelector((state) => getWords(state, filterParam, sortParam));
 
   return (
     <Container>
