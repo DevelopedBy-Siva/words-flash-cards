@@ -9,50 +9,76 @@ import WordDetails from "./WordDetails";
 import FontSize from "../../assets/styles/FontSizes.json";
 import { initialiseWords } from "../../redux/reducer/Words";
 import { getWords } from "../../redux/selectors/Words";
+import { WORDS_PER_PAGE } from "../../assets/constants";
+import Pagination from "./Pagination";
 
 export default function WordsContainer() {
   const [selected, setSelected] = useState(null);
-  const toggleModal = (id = null) => setSelected(id);
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(initialiseWords());
   }, [dispatch]);
 
-  const [searchParams] = useSearchParams();
+  const toggleModal = (id = null) => setSelected(id);
+
+  const [searchParams, setSearchParam] = useSearchParams();
 
   const filterParam = searchParams.get("filter");
   const sortParam = searchParams.get("sort");
 
+  const getPageNumber = () => {
+    const value = searchParams.get("page");
+    if (!value || value < 1) return 0;
+    return value - 1;
+  };
+
   const words = useSelector((state) => getWords(state, filterParam, sortParam));
+
+  const pagesVisited = getPageNumber() * WORDS_PER_PAGE;
+  const displayWords = words.slice(pagesVisited, pagesVisited + WORDS_PER_PAGE);
 
   return (
     <Container>
-      {words.map((wd, index) => (
-        <Box
-          whileHover={{
-            scale: 1.05,
-            transition: { duration: 0.5 },
-          }}
-          onClick={() => toggleModal({ ...wd, id: `box_${index}` })}
-          layoutId={`box_${index}`}
-          key={index}
-        >
-          <Content>
-            {wd.indexedDB ? <LocalIconCustom /> : ""}
-            <Word>{wd.name}</Word>
-          </Content>
-        </Box>
-      ))}
-      <AnimatePresence>
-        {selected && <WordDetails details={selected} close={toggleModal} />}
-      </AnimatePresence>
+      <BoxContainer>
+        {displayWords.map((wd, index) => (
+          <Box
+            whileHover={{
+              scale: 1.05,
+              transition: { duration: 0.5 },
+            }}
+            onClick={() => toggleModal({ ...wd, id: `box_${index}` })}
+            layoutId={`box_${index}`}
+            key={index}
+          >
+            <Content>
+              {wd.indexedDB ? <LocalIconCustom /> : ""}
+              <Word>{wd.name}</Word>
+            </Content>
+          </Box>
+        ))}
+        <AnimatePresence>
+          {selected && <WordDetails details={selected} close={toggleModal} />}
+        </AnimatePresence>
+      </BoxContainer>
+      <Pagination
+        totalWords={words.length}
+        pageNumber={searchParams}
+        setPageNumber={setSearchParam}
+      />
     </Container>
   );
 }
 
 const Container = styled.div`
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const BoxContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
