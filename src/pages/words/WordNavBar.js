@@ -4,17 +4,19 @@ import { AnimatePresence, motion } from "framer-motion";
 import { BiSearch } from "react-icons/bi";
 import { BsPlusLg } from "react-icons/bs";
 import { IoCloseSharp } from "react-icons/io5";
+import { MdOutlineBackup } from "react-icons/md";
 
 import NewWord from "./NewWord";
+import Backup from "./Backup";
 
 export default function WordNavBar() {
   const searchInputRef = useRef(null);
 
   const [addBtnActive, setAddBtnActive] = useState(null);
+  const [backupActive, setBackupActive] = useState(null);
+
   const [searchInput, setSearchInput] = useState("");
   const [searchActive, setSearchActive] = useState(false);
-
-  const toggleAddWord = (opt = null) => setAddBtnActive(opt);
 
   function handleWordInputChange(e) {
     const value = e.target.value;
@@ -26,7 +28,10 @@ export default function WordNavBar() {
   }
 
   useEffect(() => {
-    if (searchInputRef.current) searchInputRef.current.focus();
+    let timeout;
+    if (searchInputRef.current)
+      timeout = setTimeout(() => searchInputRef.current.focus(), 400);
+    return () => clearTimeout(timeout);
   }, [searchActive]);
 
   return (
@@ -58,13 +63,15 @@ export default function WordNavBar() {
           {searchActive ? <IoCloseSharp /> : <BiSearch />}
         </SearchBtn>
       </SearchBox>
-      <NewBtn onClick={() => toggleAddWord(true)}>
+      <BackupBtn onClick={() => setBackupActive(true)}>
+        <MdOutlineBackup />
+      </BackupBtn>
+      <NewBtn onClick={() => setAddBtnActive(true)}>
         <BsPlusLg />
         <NewBtnLabel>New</NewBtnLabel>
       </NewBtn>
-      <AnimatePresence>
-        {addBtnActive && <NewWord close={toggleAddWord} />}
-      </AnimatePresence>
+      <Backup backupActive={backupActive} setBackupActive={setBackupActive} />
+      <NewWord addBtnActive={addBtnActive} setAddBtnActive={setAddBtnActive} />
     </Container>
   );
 }
@@ -131,4 +138,20 @@ const SearchInputBox = styled(motion.input)`
   color: ${(props) => props.theme.text.dull};
   font-size: 0.8rem;
   float: left;
+`;
+
+const BackupBtn = styled.button`
+  color: ${(props) => props.theme.text.dull};
+  border: 1px solid ${(props) => props.theme.button.dull};
+  padding: 0 7px;
+  border-radius: 5px;
+  height: 30px;
+  outline: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.3rem;
+  margin-left: 10px;
 `;

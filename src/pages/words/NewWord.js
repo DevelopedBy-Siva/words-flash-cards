@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { toast } from "react-toastify";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 
 import Modal from "../../components/modal";
@@ -11,7 +11,7 @@ import { addWordToDb } from "../../db";
 import { addWord } from "../../redux/actions/Words_Actions";
 import IndexedDbWarning from "./IndexedDbWarning";
 
-export default function NewWord({ close }) {
+export default function NewWord({ addBtnActive, setAddBtnActive, close }) {
   const wordInputRef = useRef(null);
   const addBtnRef = useRef(null);
 
@@ -20,6 +20,8 @@ export default function NewWord({ close }) {
     data: null,
     loading: false,
   });
+
+  const closeModal = () => setAddBtnActive(null);
 
   const { words } = useSelector((state) => state.words);
   const dispatch = useDispatch();
@@ -73,42 +75,48 @@ export default function NewWord({ close }) {
   }
 
   return (
-    <Modal layoutAnimation={ContainerAnimation} close={close}>
-      <Container>
-        <Title>Add New Word</Title>
-        <IndexedDbWarning
-          sub={false}
-          msg="New words will be stored in the browser database. So, clearing the browser data will remove the words permanently."
-        />
-        <Form onSubmit={searchWord}>
-          <WordInput
-            ref={wordInputRef}
-            value={wordInput}
-            onChange={handleWordInputChange}
-            type="text"
-            spellCheck="false"
-            inputMode="search"
-            disabled={word.loading}
-          />
-          <InputSearchBtn type="submit" disabled={word.loading}>
-            {word.loading ? <LoadingSpinner size="25" center /> : "Search"}
-          </InputSearchBtn>
-        </Form>
-        {word.data ? (
-          <DetailsContainer>
-            <Details>
-              <FoundWord>{word.data.name}</FoundWord>
-              <FoundWordMeaning>{word.data.meaning}</FoundWordMeaning>
-            </Details>
-            <AddBtn ref={addBtnRef} onClick={addNewWord}>
-              Add
-            </AddBtn>
-          </DetailsContainer>
-        ) : (
-          ""
-        )}
-      </Container>
-    </Modal>
+    <AnimatePresence>
+      {addBtnActive ? (
+        <Modal layoutAnimation={ContainerAnimation} close={closeModal}>
+          <Container>
+            <Title>Add New Word</Title>
+            <IndexedDbWarning
+              sub={false}
+              msg="New words will be stored in the browser database. So, clearing the browser data will remove the words permanently."
+            />
+            <Form onSubmit={searchWord}>
+              <WordInput
+                ref={wordInputRef}
+                value={wordInput}
+                onChange={handleWordInputChange}
+                type="text"
+                spellCheck="false"
+                inputMode="search"
+                disabled={word.loading}
+              />
+              <InputSearchBtn type="submit" disabled={word.loading}>
+                {word.loading ? <LoadingSpinner size="25" center /> : "Search"}
+              </InputSearchBtn>
+            </Form>
+            {word.data ? (
+              <DetailsContainer>
+                <Details>
+                  <FoundWord>{word.data.name}</FoundWord>
+                  <FoundWordMeaning>{word.data.meaning}</FoundWordMeaning>
+                </Details>
+                <AddBtn ref={addBtnRef} onClick={addNewWord}>
+                  Add
+                </AddBtn>
+              </DetailsContainer>
+            ) : (
+              ""
+            )}
+          </Container>
+        </Modal>
+      ) : (
+        ""
+      )}
+    </AnimatePresence>
   );
 }
 
