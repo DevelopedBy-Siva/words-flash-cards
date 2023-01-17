@@ -31,14 +31,14 @@ const reducer = (state = initialState, action) => {
       });
       return { ...state, words: updateWords };
     case LOAD_NEW_WORDS:
-      if (!payload || payload.length == 0) return { ...state };
+      if (!payload || payload.length === 0) return { ...state };
 
       const newLoad = [...state.words];
       [...payload].forEach((item) => {
         const index = state.words.findIndex(
           (wd) => wd.name.toLowerCase() === item.name.toLowerCase()
         );
-        if (index == -1) newLoad.push(item);
+        if (index === -1) newLoad.push(item);
       });
       return {
         ...state,

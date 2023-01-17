@@ -167,6 +167,7 @@ const TextArea = styled(TextareaAutosize)`
     props.active && `1px solid ${props.theme.border.default}`};
   overflow: hidden;
   line-height: 1.4rem;
+  opacity: 1;
 `;
 
 const WordMeaning = styled(TextArea)`
@@ -193,6 +194,7 @@ const WordExample = styled(TextArea)`
   font-weight: 300;
   font-style: italic;
   color: ${(props) => props.theme.text.dull};
+  opacity: 1;
 
   &::placeholder {
     color: ${(props) => props.theme.text.dull};
