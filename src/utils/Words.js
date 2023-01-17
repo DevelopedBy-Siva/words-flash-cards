@@ -1,6 +1,11 @@
 import _ from "lodash";
+import CryptoJS from "crypto-js";
+import { saveAs } from "file-saver";
 import { IoFilterSharp } from "react-icons/io5";
 import { BiSort } from "react-icons/bi";
+
+import { addAllWordsToDb, getWordsFromDb } from "../db";
+import { toast } from "react-toastify";
 
 export const SORT_FILTER_NAV = [
   {
@@ -91,3 +96,38 @@ const sortByDateAsc = (data) =>
 
 const sortByDateDesc = (data) =>
   _.orderBy(data, [(val) => val.createdAt], ["desc"]);
+
+const SECRET_KEY = process.env.REACT_APP_SECRET_KEY;
+
+export async function encryptAndDownload() {
+  try {
+    const data = await getWordsFromDb();
+    if (!data || data.length === 0) {
+      toast.info("No words found in the browser storage");
+      return false;
+    }
+    const ciphertext = CryptoJS.AES.encrypt(
+      JSON.stringify(data),
+      SECRET_KEY
+    ).toString();
+
+    const backupFile = new File([ciphertext], {
+      type: "text/plain;charset=utf-8",
+    });
+    saveAs(backupFile, "flashcards__backup.bytes");
+  } catch (ex) {
+    toast.error("Something went wrong. Failed to generate backup file");
+  }
+}
+
+export async function decryptAndAddToDb(data) {
+  try {
+    const bytes = CryptoJS.AES.decrypt(data, SECRET_KEY);
+    const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
+    await addAllWordsToDb(decryptedData);
+    return decryptedData;
+  } catch (ex) {
+    toast.error("Malformed data. Failed to import file.");
+    return false;
+  }
+}

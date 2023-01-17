@@ -11,7 +11,7 @@ import { addWordToDb } from "../../db";
 import { addWord } from "../../redux/actions/Words_Actions";
 import IndexedDbWarning from "./IndexedDbWarning";
 
-export default function NewWord({ addBtnActive, setAddBtnActive, close }) {
+export default function NewWord({ addBtnActive, setAddBtnActive }) {
   const wordInputRef = useRef(null);
   const addBtnRef = useRef(null);
 
@@ -66,7 +66,7 @@ export default function NewWord({ addBtnActive, setAddBtnActive, close }) {
       .then(() => {
         dispatch(addWord(data));
         toast.success("Word successfully saved to Local Database");
-        close();
+        closeModal();
       })
       .catch(() => {
         addBtnRef.current.disabled = false;

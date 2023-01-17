@@ -2,6 +2,7 @@ import { getWordsFromDb } from "../../db";
 import {
   ADD_NEW_WORD,
   FETCH_WORDS,
+  LOAD_NEW_WORDS,
   UPDATE_WORD,
 } from "../actions/Words_ActionTypes";
 import { fetchWords } from "../actions/Words_Actions";
@@ -29,6 +30,20 @@ const reducer = (state = initialState, action) => {
         return wd;
       });
       return { ...state, words: updateWords };
+    case LOAD_NEW_WORDS:
+      if (!payload || payload.length == 0) return { ...state };
+
+      const newLoad = [...state.words];
+      [...payload].forEach((item) => {
+        const index = state.words.findIndex(
+          (wd) => wd.name.toLowerCase() === item.name.toLowerCase()
+        );
+        if (index == -1) newLoad.push(item);
+      });
+      return {
+        ...state,
+        words: newLoad,
+      };
     default:
       return state;
   }

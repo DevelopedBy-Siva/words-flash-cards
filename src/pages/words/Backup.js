@@ -1,16 +1,58 @@
-import { AnimatePresence } from "framer-motion";
-import React from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { toast } from "react-toastify";
 
+import LoadingSpinner from "../../components/loader";
 import Modal from "../../components/modal";
+import { loadNewWords } from "../../redux/actions/Words_Actions";
+import { decryptAndAddToDb, encryptAndDownload } from "../../utils/Words";
 
 export default function Backup({ backupActive, setBackupActive }) {
+  const chooseFileRef = useRef(null);
+
+  const [uploadProgress, setUploadProgress] = useState(false);
+  const [downloadProgress, setDownloadProgress] = useState(false);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const closeModal = () => {
-    const proceed = window.confirm(
-      "Operation is in progress. Do you want to still close it?"
-    );
-    if (!proceed) return;
+    if (downloadProgress || uploadProgress) {
+      const proceed = window.confirm(
+        "Operation is in progress. Do you want to still close it?"
+      );
+      if (!proceed) return;
+    }
     setBackupActive(null);
+  };
+
+  const downloadBackup = async () => {
+    setDownloadProgress(true);
+    await encryptAndDownload();
+    setDownloadProgress(false);
+  };
+
+  const openFile = () => chooseFileRef.current.click();
+
+  const uploadFile = async (e) => {
+    setUploadProgress(true);
+    const file = e.target.files[0];
+    const fileReader = new FileReader();
+    fileReader.onload = async (e) => {
+      const content = e.target.result;
+      const data = await decryptAndAddToDb(content);
+      if (data) {
+        dispatch(loadNewWords(data));
+        toast.success("Words imported successfully");
+        navigate("/words?filter=local");
+        closeModal();
+      }
+      setUploadProgress(false);
+    };
+    fileReader.readAsText(file, "UTF-8");
   };
 
   return (
@@ -26,7 +68,18 @@ export default function Backup({ backupActive, setBackupActive }) {
                   # Cannot import a invalid or tampered backup file
                 </NoteTxt>
               </Contain>
-              <BackupBtn>Import</BackupBtn>
+              <BackupBtn
+                onClick={openFile}
+                onChange={uploadFile}
+                disabled={uploadProgress}
+              >
+                <ChooseFile ref={chooseFileRef} type="file" accept=".bytes" />
+                {uploadProgress ? (
+                  <LoadingSpinner center size="22" />
+                ) : (
+                  "Import"
+                )}
+              </BackupBtn>
             </BackupBox>
             <BackupBox>
               <Contain>
@@ -36,7 +89,13 @@ export default function Backup({ backupActive, setBackupActive }) {
                   it unreadable
                 </NoteTxt>
               </Contain>
-              <BackupBtn>Download</BackupBtn>
+              <BackupBtn disabled={downloadProgress} onClick={downloadBackup}>
+                {downloadProgress ? (
+                  <LoadingSpinner center size="22" />
+                ) : (
+                  "Download"
+                )}
+              </BackupBtn>
             </BackupBox>
           </Container>
         </Modal>
@@ -90,15 +149,22 @@ const NoteTxt = styled.span`
 
 const BackupBtn = styled.button`
   flex-shrink: 0;
-  padding: 8px;
+  padding: 0 8px;
   border-radius: 5px;
   border: none;
   font-size: 0.7rem;
   cursor: pointer;
   margin-left: 10px;
   width: 70px;
+  height: 30px;
   color: ${(props) => props.theme.text.light};
   background: ${(props) => props.theme.button.blue};
+  position: relative;
+  overflow: hidden;
+`;
+
+const ChooseFile = styled.input`
+  display: none;
 `;
 
 const ContainerAnimation = {

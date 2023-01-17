@@ -6,7 +6,12 @@ db.version(1).stores({
 });
 
 export const addWordToDb = async (word) => {
+  delete word["id"];
   return await db.words.put(word);
+};
+
+export const addAllWordsToDb = async (word) => {
+  return await db.words.bulkPut(word);
 };
 
 export const getWordsFromDb = async () => {
