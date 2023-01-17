@@ -1,5 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
+import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { BiSearch } from "react-icons/bi";
 import { BsPlusLg } from "react-icons/bs";
@@ -14,7 +15,15 @@ export default function WordNavBar() {
   const [addBtnActive, setAddBtnActive] = useState(null);
   const [backupActive, setBackupActive] = useState(null);
 
-  const [searchInput, setSearchInput] = useState("");
+  const [searchParam, setSearchParams] = useSearchParams();
+  const search = searchParam.get("search");
+
+  const [searchInput, setSearchInput] = useState(search ? search : "");
+
+  useEffect(() => {
+    searchParam.set("search", searchInput);
+    setSearchParams(searchParam);
+  }, [searchInput, searchParam, setSearchParams]);
 
   function handleWordInputChange(e) {
     const value = e.target.value;

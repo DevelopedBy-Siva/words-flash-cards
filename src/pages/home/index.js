@@ -16,7 +16,9 @@ export default function Home() {
           {isNewUser ? "Welcome !" : "Welcome Back !"}
         </WelcomeBackMsg>
         <BoxContainer>
-          <BoxLink to="/words?filter=ALL&sort=A_Z&page=1">Words</BoxLink>
+          <BoxLink to="/words?filter=ALL&sort=A_Z&page=1&search=">
+            Words
+          </BoxLink>
           <BoxLink to="/quiz">Take quiz</BoxLink>
           <BoxLink to="/history">History</BoxLink>
         </BoxContainer>

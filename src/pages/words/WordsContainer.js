@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { AnimatePresence, motion } from "framer-motion";
@@ -11,6 +11,7 @@ import { initialiseWords } from "../../redux/reducer/Words";
 import { getWords } from "../../redux/selectors/Words";
 import { WORDS_PER_PAGE } from "../../assets/constants";
 import Pagination from "./Pagination";
+import { searchFilter } from "../../utils/Words";
 
 export default function WordsContainer() {
   const [selected, setSelected] = useState(null);
@@ -26,27 +27,34 @@ export default function WordsContainer() {
 
   const filterParam = searchParams.get("filter");
   const sortParam = searchParams.get("sort");
+  const search = searchParams.get("search");
 
-  const getPageNumber = () => {
+  const getPageNumber = (pageCount) => {
     const value = searchParams.get("page");
-    if (!value || value < 1) return 0;
+    if (!value || value < 1 || value > pageCount) return 0;
     return value - 1;
   };
 
-  const words = useSelector((state) => getWords(state, filterParam, sortParam));
+  const allWords = useSelector((state) => state.words);
 
-  const pagesVisited = getPageNumber() * WORDS_PER_PAGE;
+  const sorted_filtered = useMemo(
+    () => getWords(allWords, filterParam, sortParam),
+    [allWords, filterParam, sortParam]
+  );
+  const words = useMemo(
+    () => searchFilter(sorted_filtered, search),
+    [search, sorted_filtered]
+  );
+
+  const pageCount = Math.ceil(words.length / WORDS_PER_PAGE);
+  const pagesVisited = getPageNumber(pageCount) * WORDS_PER_PAGE;
   const displayWords = words.slice(pagesVisited, pagesVisited + WORDS_PER_PAGE);
-
   return (
     <Container>
       <BoxContainer>
         {displayWords.map((wd, index) => (
           <Box
-            whileHover={{
-              scale: 1.05,
-              transition: { duration: 0.5 },
-            }}
+            whileHover={{ ...boxHoverAnim }}
             onClick={() => toggleModal({ ...wd, id: `box_${index}` })}
             layoutId={`box_${index}`}
             key={index}
@@ -62,7 +70,7 @@ export default function WordsContainer() {
         </AnimatePresence>
       </BoxContainer>
       <Pagination
-        totalWords={words.length}
+        pageCount={pageCount}
         pageNumber={searchParams}
         setPageNumber={setSearchParam}
       />
@@ -70,6 +78,10 @@ export default function WordsContainer() {
   );
 }
 
+const boxHoverAnim = {
+  scale: 1.05,
+  transition: { duration: 0.5 },
+};
 const Container = styled.div`
   flex: 1;
   display: flex;
@@ -112,7 +124,7 @@ const LocalIconCustom = styled(HiComputerDesktop)`
   color: ${(props) => props.theme.text.light};
   top: 0;
   right: 0;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
 `;
 
 const Word = styled.h2`

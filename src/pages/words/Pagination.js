@@ -3,21 +3,22 @@ import ReactPaginate from "react-paginate";
 import styled from "styled-components";
 import { GrFormNext } from "react-icons/gr";
 
-import { WORDS_PER_PAGE } from "../../assets/constants";
-
-export default function Pagination({ totalWords, pageNumber, setPageNumber }) {
+export default function Pagination({ pageCount, pageNumber, setPageNumber }) {
   const onPageChange = ({ selected }) => {
     pageNumber.set("page", selected + 1);
     setPageNumber(pageNumber);
   };
 
-  const pageCount = Math.ceil(totalWords / WORDS_PER_PAGE);
   return (
     <PaginateContainer
       previousLabel={<PaginateBtn isNxt={false} />}
       nextLabel={<PaginateBtn />}
       pageCount={pageCount}
       onPageChange={onPageChange}
+      renderOnZeroPageCount={null}
+      activeLinkClassName="active-page-btn"
+      nextClassName="next-page-btn"
+      previousClassName="prev-page-btn"
     />
   );
 }
@@ -25,7 +26,7 @@ export default function Pagination({ totalWords, pageNumber, setPageNumber }) {
 function PaginateBtn({ isNxt = true }) {
   return (
     <NxtBckContainer isNxt={isNxt ? 1 : 0}>
-      <GrFormNext style={{ color: "red" }} />
+      <GrFormNext style={{ color: "white" }} />
     </NxtBckContainer>
   );
 }
@@ -39,6 +40,44 @@ const PaginateContainer = styled(ReactPaginate)`
   list-style-type: none;
   position: relative;
   width: 95%;
+
+  a {
+    box-sizing: border-box;
+    margin: 0 8px;
+    width: 40px;
+    height: 28px;
+    display: block;
+    text-align: center;
+    font-size: 0.75rem;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 6px;
+    border: 1px solid ${(props) => props.theme.border.default};
+    color: ${(props) => props.theme.text.dull};
+    background-color: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+  }
+
+  .active-page-btn {
+    background-color: ${(props) => props.theme.button.default};
+    color: ${(props) => props.theme.text.default};
+  }
+
+  li {
+    color: red !important;
+  }
+
+  .next-page-btn {
+    color: red !important;
+  }
+
+  .prev-page-btn {
+  }
 `;
 
 const NxtBckContainer = styled.button`
@@ -46,9 +85,9 @@ const NxtBckContainer = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1.4rem;
   color: white;
-  border-radius: 50%;
-  background: ${(props) => props.theme.button.dull};
   border: none;
+  background: none;
+  font-size: 1.4rem;
+  pointer-events: none;
 `;

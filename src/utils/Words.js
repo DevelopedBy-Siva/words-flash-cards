@@ -97,6 +97,14 @@ const sortByDateAsc = (data) =>
 const sortByDateDesc = (data) =>
   _.orderBy(data, [(val) => val.createdAt], ["desc"]);
 
+export const searchFilter = (data, search) => {
+  if (!search || search.length === 0) return data;
+  const words = data.filter((item) =>
+    item.name.toLowerCase().startsWith(search.toLowerCase())
+  );
+  return words;
+};
+
 const SECRET_KEY = process.env.REACT_APP_SECRET_KEY;
 
 export async function encryptAndDownload() {
