@@ -12,6 +12,7 @@ import { getWords } from "../../redux/selectors/Words";
 import { WORDS_PER_PAGE } from "../../assets/constants";
 import Pagination from "./Pagination";
 import { searchFilter } from "../../utils/Words";
+import Indicators from "./Indicators";
 
 export default function WordsContainer() {
   const [selected, setSelected] = useState(null);
@@ -35,11 +36,12 @@ export default function WordsContainer() {
     return value - 1;
   };
 
-  const allWords = useSelector((state) => state.words);
+  const wordsLoading = useSelector((state) => state.words.loading);
 
+  const wordsStore = useSelector((state) => state.words.words);
   const sorted_filtered = useMemo(
-    () => getWords(allWords, filterParam, sortParam),
-    [allWords, filterParam, sortParam]
+    () => getWords(wordsStore, filterParam, sortParam),
+    [wordsStore, filterParam, sortParam]
   );
   const words = useMemo(
     () => searchFilter(sorted_filtered, search),
@@ -49,7 +51,12 @@ export default function WordsContainer() {
   const pageCount = Math.ceil(words.length / WORDS_PER_PAGE);
   const pagesVisited = getPageNumber(pageCount) * WORDS_PER_PAGE;
   const displayWords = words.slice(pagesVisited, pagesVisited + WORDS_PER_PAGE);
-  return (
+
+  return wordsLoading ? (
+    <Indicators loading />
+  ) : displayWords.length === 0 ? (
+    <Indicators />
+  ) : (
     <Container>
       <BoxContainer>
         {displayWords.map((wd, index) => (

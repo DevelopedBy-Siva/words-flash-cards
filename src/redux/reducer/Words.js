@@ -16,7 +16,7 @@ const reducer = (state = initialState, action) => {
   const { payload, type } = action;
   switch (type) {
     case FETCH_WORDS:
-      return { ...state, words: payload };
+      return { ...state, words: payload, loading: false };
     case ADD_NEW_WORD:
       const newWords = [...state.words, payload];
       return { ...state, words: newWords };
