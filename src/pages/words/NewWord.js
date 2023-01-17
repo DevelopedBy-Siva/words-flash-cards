@@ -93,6 +93,7 @@ export default function NewWord({ addBtnActive, setAddBtnActive, close }) {
                 spellCheck="false"
                 inputMode="search"
                 disabled={word.loading}
+                placeholder="Enter the word here..."
               />
               <InputSearchBtn type="submit" disabled={word.loading}>
                 {word.loading ? <LoadingSpinner size="25" center /> : "Search"}
@@ -152,6 +153,11 @@ const WordInput = styled.input`
   font-size: 1rem;
   background: none;
   color: ${(props) => props.theme.text.dull};
+
+  &::placeholder {
+    font-size: 0.9rem;
+    text-transform: none;
+  }
 `;
 
 const InputSearchBtn = styled.button`

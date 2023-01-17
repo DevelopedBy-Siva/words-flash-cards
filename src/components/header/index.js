@@ -40,7 +40,6 @@ const SubHeading = styled.span`
 
 const BackLink = styled(Link)`
   border: none;
-  outline: none;
   background: none;
   color: ${(props) => props.theme.text.light};
   display: flex;

@@ -76,7 +76,6 @@ const BoxLink = styled(Link)`
   text-transform: uppercase;
   cursor: pointer;
   border: none;
-  outline: none;
   display: flex;
   justify-content: center;
   align-items: center;

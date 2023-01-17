@@ -10,7 +10,7 @@ import { WORDS_WARNING } from "../../assets/constants";
 export default function IndexedDbWarning({ msg, sub = true }) {
   const [close, setClose] = useState(false);
 
-  const show = sessionStorage.getItem(WORDS_WARNING);
+  const show = sub && sessionStorage.getItem(WORDS_WARNING);
 
   const closeWarning = () => {
     setClose(true);
