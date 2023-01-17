@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
 import { HiComputerDesktop } from "react-icons/hi2";
 import { AiOutlineClose } from "react-icons/ai";
+import { MdOutlineBackup } from "react-icons/md";
 
 import Wrapper from "../../components/wrapper";
 import { WORDS_WARNING } from "../../assets/constants";
@@ -47,14 +48,21 @@ export default function IndexedDbWarning({ msg, sub = true }) {
 function DefaultWarningMsg() {
   return (
     <WarningTxt>
-      The words marked with &#39;
-      <HiComputerDesktop />
-      &#39; are stored in the browser database and clearing the browser data
-      will permanently remove these words. So, please make sure to get the
-      backup file before clearing the browser data.
+      The words marked with
+      <HiComputerDesktop style={{ ...iconStyle }} />
+      are stored in the browser database and clearing the browser data will
+      permanently remove these words. So, please make sure to get the backup
+      file before clearing the browser data. Click on
+      <MdOutlineBackup style={{ ...iconStyle }} />
+      for backup options.
     </WarningTxt>
   );
 }
+
+const iconStyle = {
+  margin: "0 8px",
+  fontSize: "1.1rem",
+};
 
 const Container = styled(motion.div)`
   width: ${(props) => (props.cover ? "90%" : "100%")};
