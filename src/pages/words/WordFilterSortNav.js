@@ -80,6 +80,7 @@ function DropDown({
   searchParams,
 }) {
   function updateSearchParam(param) {
+    if (searchParams.get(active) === param) return;
     searchParams.set(active, param);
     searchParams.set("page", 1);
     updateParams(searchParams);
