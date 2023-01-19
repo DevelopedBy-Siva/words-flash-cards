@@ -11,6 +11,7 @@ export default function Pagination({ currentPage, pageCount }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const changePage = (page) => {
+    if (page === currentPage) return;
     searchParams.set("page", page);
     setSearchParams(searchParams);
     scroll.scrollToTop(options);
