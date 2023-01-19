@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { useSearchParams } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -20,11 +20,6 @@ export default function WordNavBar() {
 
   const [searchInput, setSearchInput] = useState(search ? search : "");
 
-  useEffect(() => {
-    searchParam.set("search", searchInput);
-    setSearchParams(searchParam);
-  }, [searchInput, searchParam, setSearchParams]);
-
   function handleWordInputChange(e) {
     const value = e.target.value;
     if (value.length > 0) {
@@ -32,6 +27,9 @@ export default function WordNavBar() {
       if (!regex.test(value)) return;
     }
     setSearchInput(value);
+    searchParam.set("search", value);
+    setSearchParams(searchParam);
+    searchParam.set("page", 1);
   }
 
   return (

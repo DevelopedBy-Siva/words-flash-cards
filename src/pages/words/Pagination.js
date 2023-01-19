@@ -7,6 +7,7 @@ import { MdArrowBackIosNew } from "react-icons/md";
 const scroll = Scroll.animateScroll;
 const options = { duration: 500 };
 
+const MAX_NEIGHBOURS = 3;
 export default function Pagination({ currentPage, pageCount }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -32,7 +33,28 @@ export default function Pagination({ currentPage, pageCount }) {
     changePage(page);
   };
 
+  const generatePages = () => {
+    const selectedPage = currentPage - 1;
+    let BEGIN = selectedPage - 1;
+    let END;
+
+    if (pageCount <= MAX_NEIGHBOURS + 1) {
+      BEGIN = 0;
+      END = pageCount;
+    } else {
+      if (selectedPage <= 1) BEGIN = 0;
+      if (BEGIN + MAX_NEIGHBOURS >= pageCount)
+        BEGIN = pageCount - MAX_NEIGHBOURS;
+    }
+
+    if (!END) END = BEGIN + MAX_NEIGHBOURS;
+
+    const TOTAL_PAGES = Array.from(Array(pageCount).keys());
+    return TOTAL_PAGES.slice(BEGIN, END).map((i) => i + 1);
+  };
+
   if (pageCount <= 1) return "";
+
   return (
     <Container>
       <NextBack
@@ -41,8 +63,7 @@ export default function Pagination({ currentPage, pageCount }) {
         onClick={onBack}
         isBack={true}
       />
-      {Array.from(Array(pageCount)).map((_, index) => {
-        const pageNo = index + 1;
+      {generatePages().map((pageNo) => {
         return (
           <Page
             active={pageNo === currentPage ? 1 : 0}
