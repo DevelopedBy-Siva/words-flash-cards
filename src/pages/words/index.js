@@ -2,10 +2,10 @@ import React from "react";
 
 import Wrapper from "../../components/wrapper";
 import Header from "../../components/header";
-import WordsContainer from "./WordsContainer";
 import WordNavBar from "./WordNavBar";
 import WordFilterSortNav from "./WordFilterSortNav";
 import IndexedDbWarning from "./IndexedDbWarning";
+import WordsWrapper from "./WordsWrapper";
 
 export default function Words() {
   return (
@@ -21,7 +21,7 @@ export default function Words() {
       </Wrapper>
       <IndexedDbWarning />
       <Wrapper contain spaceAround grow>
-        <WordsContainer />
+        <WordsWrapper />
       </Wrapper>
     </Wrapper>
   );

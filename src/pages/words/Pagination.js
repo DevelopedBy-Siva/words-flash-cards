@@ -1,93 +1,117 @@
 import React from "react";
-import ReactPaginate from "react-paginate";
 import styled from "styled-components";
-import { GrFormNext } from "react-icons/gr";
+import Scroll from "react-scroll";
+import { useSearchParams } from "react-router-dom";
+import { MdArrowBackIosNew } from "react-icons/md";
 
-export default function Pagination({ pageCount, pageNumber, setPageNumber }) {
-  const onPageChange = ({ selected }) => {
-    pageNumber.set("page", selected + 1);
-    setPageNumber(pageNumber);
+const scroll = Scroll.animateScroll;
+const options = { duration: 500 };
+
+export default function Pagination({ currentPage, pageCount }) {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const changePage = (page) => {
+    searchParams.set("page", page);
+    setSearchParams(searchParams);
+    scroll.scrollToTop(options);
   };
 
+  const disableNext = currentPage === pageCount;
+  const disableBack = currentPage === 1;
+
+  const onNext = () => {
+    if (disableNext) return;
+    const page = currentPage + 1;
+    changePage(page);
+  };
+
+  const onBack = () => {
+    if (disableBack) return;
+    const page = currentPage - 1;
+    changePage(page);
+  };
+
+  if (pageCount <= 1) return "";
   return (
-    <PaginateContainer
-      previousLabel={<PaginateBtn isNxt={false} />}
-      nextLabel={<PaginateBtn />}
-      pageCount={pageCount}
-      onPageChange={onPageChange}
-      renderOnZeroPageCount={null}
-      activeLinkClassName="active-page-btn"
-      nextClassName="next-page-btn"
-      previousClassName="prev-page-btn"
-    />
+    <Container>
+      <NextBack
+        handleClick={onBack}
+        disable={disableBack}
+        onClick={onBack}
+        isBack={true}
+      />
+      {Array.from(Array(pageCount)).map((_, index) => {
+        const pageNo = index + 1;
+        return (
+          <Page
+            active={pageNo === currentPage ? 1 : 0}
+            onClick={() => changePage(pageNo)}
+            key={pageNo}
+          >
+            {pageNo}
+          </Page>
+        );
+      })}
+      <NextBack handleClick={onNext} disable={disableNext} />
+    </Container>
   );
 }
 
-function PaginateBtn({ isNxt = true }) {
+function NextBack({ disable, handleClick, isBack = false }) {
   return (
-    <NxtBckContainer isNxt={isNxt ? 1 : 0}>
-      <GrFormNext style={{ color: "white" }} />
+    <NxtBckContainer
+      onClick={handleClick}
+      className={`next-back ${disable ? "disable-pagination-btn" : ""}`}
+      isBack={isBack ? 1 : 0}
+    >
+      <MdArrowBackIosNew />
     </NxtBckContainer>
   );
 }
 
-const PaginateContainer = styled(ReactPaginate)`
-  align-items: center;
+const Container = styled.ul`
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  height: 50px;
   justify-content: center;
-  list-style-type: none;
-  position: relative;
-  width: 95%;
-
-  a {
-    box-sizing: border-box;
-    margin: 0 8px;
-    width: 40px;
-    height: 28px;
-    display: block;
-    text-align: center;
-    font-size: 0.75rem;
-    font-family: inherit;
-    font-weight: 600;
-    cursor: pointer;
-    border-radius: 6px;
-    border: 1px solid ${(props) => props.theme.border.default};
-    color: ${(props) => props.theme.text.dull};
-    background-color: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-  }
-
-  .active-page-btn {
-    background-color: ${(props) => props.theme.button.default};
-    color: ${(props) => props.theme.text.default};
-  }
-
-  li {
-    color: red !important;
-  }
-
-  .next-page-btn {
-    color: red !important;
-  }
-
-  .prev-page-btn {
-  }
+  align-items: center;
+  padding: 6px 8px;
+  margin: 10px 0 48px 0;
 `;
 
-const NxtBckContainer = styled.button`
-  transform: ${(props) => (props.isNxt ? "rotate(0deg)" : "rotate(-180deg)")};
+const Page = styled.li`
+  list-style: none;
+  width: 36px;
+  height: 36px;
+  padding: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  border: none;
+  text-align: center;
+  font-size: 0.8rem;
+  margin: 0 5px;
+  color: ${(props) =>
+    props.active ? props.theme.text.default : props.theme.text.dull};
+  background-color: ${(props) =>
+    props.active ? props.theme.button.default : "none"};
+  border-radius: 50%;
+  cursor: pointer;
+  user-select: none;
+`;
+
+const NxtBckContainer = styled.li`
+  transform: ${(props) => (props.isBack ? "rotate(0deg)" : "rotate(-180deg)")};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${(props) => props.theme.text.dull};
   background: none;
-  font-size: 1.4rem;
-  pointer-events: none;
+  font-size: 1.2rem;
+  list-style: none;
+  margin: 0 15px;
+  cursor: pointer;
+
+  &.disable-pagination-btn {
+    color: ${(props) => props.theme.button.dull};
+    cursor: not-allowed;
+  }
 `;

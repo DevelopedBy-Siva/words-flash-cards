@@ -1,47 +1,40 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState, useMemo } from "react";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { HiComputerDesktop } from "react-icons/hi2";
-import { useSearchParams } from "react-router-dom";
 
 import WordDetails from "./WordDetails";
 import FontSize from "../../assets/styles/FontSizes.json";
-import { initialiseWords } from "../../redux/reducer/Words";
+import Pagination from "./Pagination";
 import { getWords } from "../../redux/selectors/Words";
 import { WORDS_PER_PAGE } from "../../assets/constants";
-import Pagination from "./Pagination";
 import { searchFilter } from "../../utils/Words";
 import Indicators from "./Indicators";
 
 export default function WordsContainer() {
   const [selected, setSelected] = useState(null);
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(initialiseWords());
-  }, [dispatch]);
-
   const toggleModal = (id = null) => setSelected(id);
 
-  const [searchParams, setSearchParam] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
-  const filterParam = searchParams.get("filter");
-  const sortParam = searchParams.get("sort");
+  const filter = searchParams.get("filter");
+  const sort = searchParams.get("sort");
   const search = searchParams.get("search");
 
-  const getPageNumber = (pageCount) => {
+  const getPageNumber = () => {
     const value = searchParams.get("page");
-    if (!value || value < 1 || value > pageCount) return 0;
+    if (!value || value < 1) return 0;
     return value - 1;
   };
 
-  const wordsLoading = useSelector((state) => state.words.loading);
-
   const wordsStore = useSelector((state) => state.words.words);
+
   const sorted_filtered = useMemo(
-    () => getWords(wordsStore, filterParam, sortParam),
-    [wordsStore, filterParam, sortParam]
+    () => getWords(wordsStore, filter, sort),
+    [wordsStore, filter, sort]
   );
   const words = useMemo(
     () => searchFilter(sorted_filtered, search),
@@ -49,14 +42,12 @@ export default function WordsContainer() {
   );
 
   const pageCount = Math.ceil(words.length / WORDS_PER_PAGE);
-  const pagesVisited = getPageNumber(pageCount) * WORDS_PER_PAGE;
+  const pagesVisited = getPageNumber() * WORDS_PER_PAGE;
   const displayWords = words.slice(pagesVisited, pagesVisited + WORDS_PER_PAGE);
 
-  return wordsLoading ? (
-    <Indicators loading />
-  ) : displayWords.length === 0 ? (
-    <Indicators />
-  ) : (
+  if (displayWords.length === 0) return <Indicators />;
+
+  return (
     <Container>
       <BoxContainer>
         {displayWords.map((wd, index) => (
@@ -76,11 +67,7 @@ export default function WordsContainer() {
           {selected && <WordDetails details={selected} close={toggleModal} />}
         </AnimatePresence>
       </BoxContainer>
-      <Pagination
-        pageCount={pageCount}
-        pageNumber={searchParams}
-        setPageNumber={setSearchParam}
-      />
+      <Pagination currentPage={getPageNumber() + 1} pageCount={pageCount} />
     </Container>
   );
 }

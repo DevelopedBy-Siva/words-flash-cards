@@ -14,7 +14,9 @@ export default function Indicators({ loading }) {
   return (
     <AnimationContainer>
       <ViewContainer>{View}</ViewContainer>
-      <IndicatorText>{loading ? "Loading..." : "Not found..."}</IndicatorText>
+      <IndicatorText>
+        {loading ? "Loading..." : "No words found..."}
+      </IndicatorText>
     </AnimationContainer>
   );
 }
