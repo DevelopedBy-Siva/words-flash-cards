@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Procrastination",
+    "meaning": "To delay thing",
+    "example": "Ram procrastinated his homework and missed the date of submission",
+    "createdAt": ""
+  },
+  {
+    "name": "Broadly",
+    "meaning": "In general and without considering minor details.",
+    "example": "Broadly speaking, I agree with you",
+    "createdAt": ""
+  },
+  {
+    "name": "Comprehensive",
+    "meaning": "Covering completely & including everything that is necessary",
+    "example": "We offer you a comprehensive training in all aspects of the business",
+    "createdAt": ""
+  },
+  {
+    "name": "Dire",
+    "meaning": "Extremely serious or urgent",
+    "example": "Misuse of drugs can have dire consequences",
+    "createdAt": ""
+  },
+  {
+    "name": "Endeavour",
+    "meaning": "An attempt to achieve a goal",
+    "example": "An endeavour to reduce serious injury",
+    "createdAt": ""
+  },
+  {
+    "name": "Incorporate",
+    "meaning": "To include or integrate into something that’s already existing",
+    "example": "The area was successfully incorporated as part of the city",
+    "createdAt": ""
+  },
+  {
+    "name": "Solvent",
+    "meaning": "Having enough money to pay all the money that is owed to other people",
+    "example": "Many insurance companies are under pressure to increase premiums to stay solvent",
+    "createdAt": ""
+  },
+  {
+    "name": "Subsume",
+    "meaning": "To include something or someone as part of a larger group",
+    "example": "Soldiers from many different countries have been subsumed into the United Nations peace-keeping force",
+    "createdAt": ""
+  },
+  {
+    "name": "Unpropitious",
+    "meaning": "Not favorable or Not likely to have or produce a good result",
+    "example": "The candidate’s unpropitious speak is unlikely to win him any votes",
+    "createdAt": ""
+  }
+]
