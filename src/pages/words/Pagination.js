@@ -7,8 +7,7 @@ import { MdArrowBackIosNew } from "react-icons/md";
 const scroll = Scroll.animateScroll;
 const options = { duration: 500 };
 
-const MAX_NEIGHBOURS = 3;
-export default function Pagination({ currentPage, pageCount }) {
+export default function Pagination({ currentPage, pageCount, max = 3 }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const changePage = (page) => {
@@ -33,28 +32,44 @@ export default function Pagination({ currentPage, pageCount }) {
     changePage(page);
   };
 
-  const generatePages = () => {
-    const selectedPage = currentPage - 1;
-    let BEGIN = selectedPage - 1;
-    let END;
+  const pageNumbers = () => {
+    const half = Math.floor(max / 2);
+    let to = max;
+    if (currentPage + half >= pageCount) to = pageCount;
+    else if (currentPage > half) to = currentPage + half;
 
-    if (pageCount <= MAX_NEIGHBOURS + 1) {
-      BEGIN = 0;
-      END = pageCount;
-    } else {
-      if (selectedPage <= 1) BEGIN = 0;
-      if (BEGIN + MAX_NEIGHBOURS >= pageCount)
-        BEGIN = pageCount - MAX_NEIGHBOURS;
-    }
+    let from = Math.max(to - max, 0);
+    return Array.from(
+      { length: Math.min(pageCount, max) },
+      (_, i) => i + 1 + from
+    );
+  };
 
-    if (!END) END = BEGIN + MAX_NEIGHBOURS;
+  const showStart = () => {
+    if (pageNumbers()[0] === 1) return "";
+    return (
+      <React.Fragment>
+        <Page onClick={() => changePage(1)} className="start-end">
+          1
+        </Page>
+        <PageBreak>...</PageBreak>
+      </React.Fragment>
+    );
+  };
 
-    const TOTAL_PAGES = Array.from(Array(pageCount).keys());
-    return TOTAL_PAGES.slice(BEGIN, END).map((i) => i + 1);
+  const showLast = () => {
+    if (pageNumbers().slice(-1)[0] === pageCount) return "";
+    return (
+      <React.Fragment>
+        <PageBreak>...</PageBreak>
+        <Page onClick={() => changePage(pageCount)} className="start-end">
+          {pageCount}
+        </Page>
+      </React.Fragment>
+    );
   };
 
   if (pageCount <= 1) return "";
-
   return (
     <Container>
       <NextBack
@@ -63,7 +78,8 @@ export default function Pagination({ currentPage, pageCount }) {
         onClick={onBack}
         isBack={true}
       />
-      {generatePages().map((pageNo) => {
+      {showStart()}
+      {pageNumbers().map((pageNo) => {
         return (
           <Page
             active={pageNo === currentPage ? 1 : 0}
@@ -74,6 +90,7 @@ export default function Pagination({ currentPage, pageCount }) {
           </Page>
         );
       })}
+      {showLast()}
       <NextBack handleClick={onNext} disable={disableNext} />
     </Container>
   );
@@ -102,15 +119,15 @@ const Container = styled.ul`
 
 const Page = styled.li`
   list-style: none;
-  width: 36px;
-  height: 36px;
-  padding: 6px;
+  width: 34px;
+  height: 34px;
+  padding: 2px;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   font-size: 0.8rem;
-  margin: 0 5px;
+  margin: 0 3px;
   color: ${(props) =>
     props.active ? props.theme.text.default : props.theme.text.dull};
   background-color: ${(props) =>
@@ -118,6 +135,10 @@ const Page = styled.li`
   border-radius: 50%;
   cursor: pointer;
   user-select: none;
+
+  &.start-end {
+    margin: 0;
+  }
 `;
 
 const NxtBckContainer = styled.li`
@@ -136,4 +157,13 @@ const NxtBckContainer = styled.li`
     color: ${(props) => props.theme.button.dull};
     cursor: not-allowed;
   }
+`;
+
+const PageBreak = styled(Page)`
+  font-size: 1.3rem;
+  margin: 0;
+  letter-spacing: 1px;
+  cursor: auto;
+  width: auto;
+  border-radius: 0;
 `;

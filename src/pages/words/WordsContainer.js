@@ -67,7 +67,11 @@ export default function WordsContainer() {
           {selected && <WordDetails details={selected} close={toggleModal} />}
         </AnimatePresence>
       </BoxContainer>
-      <Pagination currentPage={getPageNumber() + 1} pageCount={pageCount} />
+      <Pagination
+        currentPage={getPageNumber() + 1}
+        pageCount={pageCount}
+        max={3}
+      />
     </Container>
   );
 }
