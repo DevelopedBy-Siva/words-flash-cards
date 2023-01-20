@@ -1,122 +1,56 @@
 [
   {
-    "name": "1.Procrastination",
-    "meaning": "1.To delay thing",
-    "example": "1.Ram Procrastinated his homework and missed the date of submission",
+    "name": "Procrastination",
+    "meaning": "To delay thing",
+    "example": "Ram procrastinated his homework and missed the date of submission",
     "createdAt": ""
   },
   {
-    "name": "7.Procrastination",
-    "meaning": "7.To delay thing",
-    "example": "7.Ram Procrastinated his homework and missed the date of submission",
+    "name": "Broadly",
+    "meaning": "In general and without considering minor details.",
+    "example": "Broadly speaking, I agree with you",
     "createdAt": ""
   },
   {
-    "name": "3.Procrastination",
-    "meaning": "3.To delay thing",
-    "example": "3.Ram Procrastinated his homework and missed the date of submission",
+    "name": "Comprehensive",
+    "meaning": "Covering completely & including everything that is necessary",
+    "example": "We offer you a comprehensive training in all aspects of the business",
     "createdAt": ""
   },
   {
-    "name": "4.Procrastination",
-    "meaning": "4.To delay thing",
-    "example": "4.Ram Procrastinated his homework and missed the date of submission",
+    "name": "Dire",
+    "meaning": "Extremely serious or urgent",
+    "example": "Misuse of drugs can have dire consequences",
     "createdAt": ""
   },
   {
-    "name": "5.Procrastination",
-    "meaning": "5.To delay thing",
-    "example": "5.Ram Procrastinated his homework and missed the date of submission",
+    "name": "Endeavour",
+    "meaning": "An attempt to achieve a goal",
+    "example": "An endeavour to reduce serious injury",
     "createdAt": ""
   },
   {
-    "name": "6.Procrastination",
-    "meaning": "6.To delay thing",
-    "example": "6.Ram Procrastinated his homework and missed the date of submission",
+    "name": "Incorporate",
+    "meaning": "To include or integrate into something that’s already existing",
+    "example": "The area was successfully incorporated as part of the city",
     "createdAt": ""
   },
   {
-    "name": "2.Procrastination",
-    "meaning": "2.To delay thing",
-    "example": "2.Ram Procrastinated his homework and missed the date of submission",
+    "name": "Solvent",
+    "meaning": "Having enough money to pay all the money that is owed to other people",
+    "example": "Many insurance companies are under pressure to increase premiums to stay solvent",
     "createdAt": ""
   },
   {
-    "name": "8.Procrastination",
-    "meaning": "8.To delay thing",
-    "example": "8.Ram Procrastinated his homework and missed the date of submission",
+    "name": "Subsume",
+    "meaning": "To include something or someone as part of a larger group",
+    "example": "Soldiers from many different countries have been subsumed into the United Nations peace-keeping force",
     "createdAt": ""
   },
   {
-    "name": "9.Procrastination",
-    "meaning": "9.To delay thing",
-    "example": "9.Ram Procrastinated his homework and missed the date of submission",
-    "createdAt": ""
-  },
-  {
-    "name": "10.Procrastination",
-    "meaning": "10.To delay thing",
-    "example": "10.Ram Procrastinated his homework and missed the date of submission",
-    "createdAt": ""
-  },
-  {
-    "name": "11.Procrastination",
-    "meaning": "11.To delay thing",
-    "example": "11.Ram Procrastinated his homework and missed the date of submission",
-    "createdAt": ""
-  },
-  {
-    "name": "12.Procrastination",
-    "meaning": "12.To delay thing",
-    "example": "12.Ram Procrastinated his homework and missed the date of submission",
-    "createdAt": ""
-  },
-  {
-    "name": "13.Procrastination",
-    "meaning": "13.To delay thing",
-    "example": "13.Ram Procrastinated his homework and missed the date of submission",
-    "createdAt": ""
-  },
-  {
-    "name": "14.Procrastination",
-    "meaning": "14.To delay thing",
-    "example": "14.Ram Procrastinated his homework and missed the date of submission",
-    "createdAt": ""
-  },
-  {
-    "name": "15.Procrastination",
-    "meaning": "15.To delay thing",
-    "example": "15.Ram Procrastinated his homework and missed the date of submission",
-    "createdAt": ""
-  },
-  {
-    "name": "16.Procrastination",
-    "meaning": "16.To delay thing",
-    "example": "16.Ram Procrastinated his homework and missed the date of submission",
-    "createdAt": ""
-  },
-  {
-    "name": "17.Procrastination",
-    "meaning": "17.To delay thing",
-    "example": "17.Ram Procrastinated his homework and missed the date of submission",
-    "createdAt": ""
-  },
-  {
-    "name": "18.Procrastination",
-    "meaning": "18.To delay thing",
-    "example": "18.Ram Procrastinated his homework and missed the date of submission",
-    "createdAt": ""
-  },
-  {
-    "name": "19.Procrastination",
-    "meaning": "19.To delay thing",
-    "example": "19.Ram Procrastinated his homework and missed the date of submission",
-    "createdAt": ""
-  },
-  {
-    "name": "20.Procrastination",
-    "meaning": "20.To delay thing",
-    "example": "20.Ram Procrastinated his homework and missed the date of submission",
+    "name": "Unpropitious",
+    "meaning": "Not favorable or Not likely to have or produce a good result",
+    "example": "The candidate’s unpropitious speak is unlikely to win him any votes",
     "createdAt": ""
   }
 ]
