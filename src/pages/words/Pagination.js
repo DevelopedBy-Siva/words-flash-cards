@@ -49,22 +49,19 @@ export default function Pagination({ currentPage, pageCount, max = 3 }) {
     if (pageNumbers()[0] === 1) return "";
     return (
       <React.Fragment>
-        <Page onClick={() => changePage(1)} className="start-end">
-          1
-        </Page>
-        <PageBreak>...</PageBreak>
+        <Page onClick={() => changePage(1)}>1</Page>
+        {pageNumbers()[0] > 2 ? <PageBreak>...</PageBreak> : ""}
       </React.Fragment>
     );
   };
 
   const showLast = () => {
-    if (pageNumbers().slice(-1)[0] === pageCount) return "";
+    const count = pageNumbers().slice(-1)[0];
+    if (count === pageCount) return "";
     return (
       <React.Fragment>
-        <PageBreak>...</PageBreak>
-        <Page onClick={() => changePage(pageCount)} className="start-end">
-          {pageCount}
-        </Page>
+        {count !== pageCount - 1 ? <PageBreak>...</PageBreak> : ""}
+        <Page onClick={() => changePage(pageCount)}>{pageCount}</Page>
       </React.Fragment>
     );
   };
@@ -135,10 +132,6 @@ const Page = styled.li`
   border-radius: 50%;
   cursor: pointer;
   user-select: none;
-
-  &.start-end {
-    margin: 0;
-  }
 `;
 
 const NxtBckContainer = styled.li`
