@@ -17,3 +17,8 @@ export const addAllWordsToDb = async (word) => {
 export const getWordsFromDb = async () => {
   return await db.words.toArray();
 };
+
+export const deleteWordFromDb = async (key) => {
+  key = key.toLowerCase();
+  return await db.words.delete(key);
+};

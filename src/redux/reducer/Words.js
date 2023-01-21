@@ -1,6 +1,7 @@
 import { getWordsFromDb } from "../../db";
 import {
   ADD_NEW_WORD,
+  DELETE_WORD,
   FETCH_WORDS,
   LOAD_NEW_WORDS,
   TRIGGER_LOADING,
@@ -50,6 +51,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         words: newLoad,
       };
+    case DELETE_WORD:
+      const afterDelete = state.words.filter(
+        (wd) => wd.name.toLowerCase() !== payload.toLowerCase()
+      );
+      return { ...state, words: [...afterDelete] };
     default:
       return state;
   }
