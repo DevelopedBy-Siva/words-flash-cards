@@ -5,10 +5,16 @@ export default function LoadingSpinner({
   size = "25",
   thick = "2px",
   center = false,
+  top = false,
 }) {
   const ringSize = size - 5;
   return (
-    <Container size={size} className={center ? "spinner-center" : ""}>
+    <Container
+      size={size}
+      className={`${center ? "spinner-center" : ""} ${
+        top ? "spinner-top-center" : ""
+      }`}
+    >
       <Ring size={ringSize} thick={thick} />
       <Ring size={ringSize} thick={thick} />
       <Ring size={ringSize} thick={thick} />
@@ -27,6 +33,11 @@ const Container = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+
+  &.spinner-top-center {
+    top: 10%;
+    transform: translate(-50%, 0%);
   }
 `;
 
