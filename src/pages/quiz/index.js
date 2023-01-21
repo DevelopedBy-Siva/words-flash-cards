@@ -1,23 +1,18 @@
 import React, { lazy, Suspense, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 import Wrapper from "../../components/wrapper";
 import Header from "../../components/header";
 import QuizFormContainer from "./QuizFormContainer";
 import QuizNavContainer from "./QuizNavContainer";
-import { useDispatch, useSelector } from "react-redux";
 import { initialiseWords } from "../../redux/reducer/Words";
 
 const QnAnsContainer = lazy(() => import("./QnAnsContainer"));
 
 export default function Quiz() {
-  const [proceed, setProceed] = useState(false);
-  const [formInput, setFormInput] = useState({
-    value: "",
-    latestWords: false,
-  });
+  const [quizQn, setQuizQn] = useState(null);
 
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(initialiseWords());
   }, [dispatch]);
@@ -27,20 +22,14 @@ export default function Quiz() {
   return (
     <Wrapper stretch>
       <Wrapper contain spaceAround>
-        <Header name="Quiz" />
+        <Header name="Quiz" confirmBack={!quizQn ? false : true} />
       </Wrapper>
-      <QuizNavContainer totalWords={words.length} proceed={proceed} />
-      {!proceed ? (
-        <QuizFormContainer
-          formInput={formInput}
-          setFormInput={setFormInput}
-          proceed={proceed}
-          setProceed={setProceed}
-          totalWords={words.length}
-        />
+      <QuizNavContainer totalWords={words.length} />
+      {!quizQn ? (
+        <QuizFormContainer words={words} setQuizQn={setQuizQn} />
       ) : (
         <Suspense>
-          <QnAnsContainer formInput={formInput} />
+          <QnAnsContainer quizQn={quizQn} setQuizQn={setQuizQn} />
         </Suspense>
       )}
     </Wrapper>

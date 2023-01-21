@@ -1,56 +1,28 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
 
 import Wrapper from "../../components/wrapper";
-import {
-  generateInitialQuestion,
-  setChoice,
-} from "../../redux/actions/Questions_Actions";
 import { optionNumber } from "../../utils/QuizGenerator";
 
-export default function QnAnsContainer({ formInput }) {
-  const [active, setActive] = useState(null);
-
+export default function QnAnsContainer({ quizQn, setQuizQn }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const { question } = useSelector((state) => state.questions);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(generateInitialQuestion(formInput));
-  }, [formInput, dispatch]);
-
-  function setMyChoice(index) {
-    setActive(index);
-    dispatch(setChoice(index));
-  }
+  const { currentQn, qns } = quizQn;
+  const { name, options } = qns[currentQn];
 
   return (
     <Wrapper contain spaceAround grow>
-      {question.length > 0 ? (
-        <QuestionContainer>
-          <WordName>{question[question.length - 1].word}</WordName>
-          {question[question.length - 1].options.map((opt, index) => (
-            <Options
-              active={active}
-              onClick={() => setMyChoice(index)}
-              key={index}
-              index={index}
-            >
-              <OptionsNumber index={index} active={active}>
-                {optionNumber(index)}
-              </OptionsNumber>
-              {opt}
-            </Options>
-          ))}
-        </QuestionContainer>
-      ) : (
-        ""
-      )}
+      <QuestionContainer>
+        <WordName>{name}</WordName>
+        {options.map((opt, index) => (
+          <Options key={index} index={index}>
+            <OptionsNumber index={index}>{optionNumber(index)}</OptionsNumber>
+            {opt}
+          </Options>
+        ))}
+      </QuestionContainer>
     </Wrapper>
   );
 }

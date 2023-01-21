@@ -3,28 +3,11 @@ import styled from "styled-components";
 
 import Wrapper from "../../components/wrapper";
 import FontSize from "../../assets/styles/FontSizes.json";
-import { useDispatch, useSelector } from "react-redux";
-import { generateNextQuestion } from "../../redux/actions/Questions_Actions";
 
 export default function QuizNavContainer({ totalWords, proceed }) {
-  const dispatch = useDispatch();
-
-  const { question } = useSelector((state) => state.questions);
-
-  function isBtnDisabled() {
-    if (question[question.length].myChoice === null) return true;
-    return false;
-  }
-
-  function nextQuestion() {
-    dispatch(generateNextQuestion());
-  }
-
   return (
     <Wrapper contain spaceAround border right={!proceed}>
-      {!proceed
-        ? QuizFormNavContainer(totalWords)
-        : QnAnsNavContainer(nextQuestion, isBtnDisabled)}
+      {!proceed ? QuizFormNavContainer(totalWords) : QnAnsNavContainer()}
     </Wrapper>
   );
 }
@@ -38,13 +21,11 @@ function QuizFormNavContainer(totalWords) {
   );
 }
 
-function QnAnsNavContainer(nextQuestion, isBtnDisabled) {
+function QnAnsNavContainer() {
   return (
     <QnAnsNav>
       <QnAnsNavQnTrack>2 &#47; 20</QnAnsNavQnTrack>
-      <QnAnsNavBtn disabled={isBtnDisabled()} onClick={nextQuestion}>
-        Next
-      </QnAnsNavBtn>
+      <QnAnsNavBtn>Next</QnAnsNavBtn>
     </QnAnsNav>
   );
 }

@@ -1,25 +1,28 @@
-import React, { useEffect, useRef } from "react";
+import React, { memo, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import { toast } from "react-toastify";
 
+import Loader from "../../components/loader";
 import Wrapper from "../../components/wrapper";
 import FontSize from "../../assets/styles/FontSizes.json";
+import { quizGenerator } from "../../utils/QuizGenerator";
 
-export default function QuizFormContainer({
-  formInput,
-  setFormInput,
-  proceed,
-  setProceed,
-  totalWords,
+const QuizFormContainer = memo(function QuizFormContainer({
+  words,
+  setQuizQn,
 }) {
   const inputRef = useRef(null);
   const checkBoxRef = useRef(null);
+
+  const [quizInput, setQuizInput] = useState("");
+  const [proceed, setProceed] = useState(false);
 
   useEffect(() => {
     if (inputRef.current) inputRef.current.focus();
   }, []);
 
   function validateInput(val) {
-    if (val <= 0 || val > totalWords) {
+    if (val <= 0 || val > words.length) {
       inputRef.current.style.borderColor = "#E24339";
       inputRef.current.style.color = "#E24339";
       return false;
@@ -34,17 +37,21 @@ export default function QuizFormContainer({
     let parsedVal = parseInt(val).toString();
     if (isNaN(parsedVal)) parsedVal = "";
     validateInput(parsedVal);
-    setFormInput({ ...formInput, value: parsedVal });
+    setQuizInput(parsedVal);
   }
 
   function startQuiz(e) {
     e.preventDefault();
-    if (!validateInput(formInput.value)) {
-      return;
-    }
-    const latestWords = checkBoxRef.current.checked;
-    setFormInput({ ...formInput, latestWords });
+    if (!validateInput(quizInput)) return;
     setProceed(true);
+    const latestWords = checkBoxRef.current.checked;
+    try {
+      const questions = quizGenerator(quizInput, latestWords, words);
+      setQuizQn({ currentQn: 0, qns: [...questions] });
+    } catch (ex) {
+      toast.error("Something went wrong. Try after sometime");
+      setProceed(false);
+    }
   }
 
   return (
@@ -53,7 +60,7 @@ export default function QuizFormContainer({
         <InputLabel>Enter the number of words for the test</InputLabel>
         <InputBox
           ref={inputRef}
-          value={formInput.value}
+          value={quizInput}
           onChange={handleInputChange}
           placeholder="0"
           inputMode="numeric"
@@ -65,14 +72,14 @@ export default function QuizFormContainer({
           <CheckBox type="checkbox" ref={checkBoxRef} disabled={proceed} />
           <CheckBoxLabel>Includes words from the local database</CheckBoxLabel>
         </CheckBoxContainer>
-
         <StartBtn type="submit" disabled={proceed}>
-          Start
+          {!proceed ? "Start" : <Loader center />}
         </StartBtn>
       </QuizForm>
     </Wrapper>
   );
-}
+});
+export default QuizFormContainer;
 
 const QuizForm = styled.form`
   text-align: center;
@@ -135,9 +142,15 @@ const StartBtn = styled.button`
   padding: 8px 4px;
   border-radius: 5px;
   width: 80px;
+  height: 34px;
   cursor: pointer;
   color: ${(props) => props.theme.text.light};
   background: ${(props) => props.theme.button.green};
   letter-spacing: 1px;
   font-size: ${FontSize.QUIZ.QZ_FORM_BTN};
+  position: relative;
+
+  &:disabled {
+    cursor: progress;
+  }
 `;

@@ -1,19 +1,27 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { BiArrowBack } from "react-icons/bi";
 
 import FontSize from "../../assets/styles/FontSizes.json";
 
-export default function Header({ name, sub }) {
+export default function Header({ name, confirmBack = false }) {
+  const navigate = useNavigate();
+
+  function goBack() {
+    if (confirmBack) {
+      const dontGo = window.confirm("Quiz is in progress. Still wanna leave?");
+      if (!dontGo) return;
+    }
+    return navigate("/");
+  }
+
   return (
     <Container>
-      <BackLink to="/" replace>
+      <BackLink onClick={goBack}>
         <BiArrowBack />
       </BackLink>
-      <Heading>
-        {name} {sub && <SubHeading>&#40;{sub}&#41;</SubHeading>}
-      </Heading>
+      <Heading>{name}</Heading>
     </Container>
   );
 }
@@ -32,13 +40,7 @@ const Heading = styled.h1`
   font-weight: 400;
 `;
 
-const SubHeading = styled.span`
-  font-size: ${FontSize.HEADER.SUB_HEAD};
-  letter-spacing: 1px;
-  font-weight: 300;
-`;
-
-const BackLink = styled(Link)`
+const BackLink = styled.button`
   border: none;
   background: none;
   color: ${(props) => props.theme.text.light};
