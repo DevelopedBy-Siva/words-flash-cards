@@ -25,7 +25,7 @@ export default function QuizFormContainer({
       return false;
     }
     inputRef.current.style.borderColor = "#2E2E2E";
-    inputRef.current.style.color = "#2E2E2E";
+    inputRef.current.style.color = "#FFF";
     return true;
   }
 
@@ -63,7 +63,7 @@ export default function QuizFormContainer({
         />
         <CheckBoxContainer>
           <CheckBox type="checkbox" ref={checkBoxRef} disabled={proceed} />
-          <CheckBoxLabel>Includes words that are added lately</CheckBoxLabel>
+          <CheckBoxLabel>Includes words from the local database</CheckBoxLabel>
         </CheckBoxContainer>
 
         <StartBtn type="submit" disabled={proceed}>
@@ -103,7 +103,7 @@ const InputBox = styled.input`
   letter-spacing: 2px;
   background: none;
   border: ${(props) => `1px solid ${props.theme.text.default}`};
-  color: ${(props) => props.theme.text.dull};
+  color: ${(props) => props.theme.text.light};
 `;
 
 const CheckBoxContainer = styled.div`
