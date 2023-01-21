@@ -19,7 +19,7 @@ export default function QnAnsContainer({ quizQn, setQuizQn }) {
         {options.map((opt, index) => (
           <Options key={index} index={index}>
             <OptionsNumber index={index}>{optionNumber(index)}</OptionsNumber>
-            {opt}
+            <OptionValue>{opt}</OptionValue>
           </Options>
         ))}
       </QuestionContainer>
@@ -67,7 +67,7 @@ const OptionsNumber = styled.span`
   border-radius: 50%;
   text-transform: uppercase;
   font-weight: 700;
-  transition: all 0.2s ease-in;
+  flex-shrink: 0;
 `;
 
 const Options = styled.button`
@@ -84,18 +84,15 @@ const Options = styled.button`
       : props.theme.text.default};
   width: 100%;
   max-width: 700px;
-  height: 55px;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
   border-radius: 5px;
-  padding: 4px 8px;
+  padding: 12px 18px;
   font-size: 0.9rem;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
-  text-transform: capitalize;
+`;
 
-  transition: all 0.2s ease-in;
-
-  &:hover {
-    transform: scale(0.98);
-  }
+const OptionValue = styled.p`
+  text-align: justify;
 `;

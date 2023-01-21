@@ -4,10 +4,10 @@ import styled from "styled-components";
 import Wrapper from "../../components/wrapper";
 import FontSize from "../../assets/styles/FontSizes.json";
 
-export default function QuizNavContainer({ totalWords, proceed }) {
+export default function QuizNavContainer({ totalWords, quizQn }) {
   return (
-    <Wrapper contain spaceAround border right={!proceed}>
-      {!proceed ? QuizFormNavContainer(totalWords) : QnAnsNavContainer()}
+    <Wrapper contain spaceAround border right={!quizQn}>
+      {!quizQn ? QuizFormNavContainer(totalWords) : QnAnsNavContainer(quizQn)}
     </Wrapper>
   );
 }
@@ -21,11 +21,19 @@ function QuizFormNavContainer(totalWords) {
   );
 }
 
-function QnAnsNavContainer() {
+function QnAnsNavContainer(quizQns) {
+  const currentQn = quizQns.currentQn + 1;
+  const max = quizQns.qns.length;
   return (
     <QnAnsNav>
-      <QnAnsNavQnTrack>2 &#47; 20</QnAnsNavQnTrack>
-      <QnAnsNavBtn>Next</QnAnsNavBtn>
+      <QnAnsNavQnTrack>
+        {currentQn} &#47; {max}
+      </QnAnsNavQnTrack>
+      {currentQn !== max ? (
+        <QnAnsNavNextBtn>Next</QnAnsNavNextBtn>
+      ) : (
+        <QnAnsNavFinishBtn>Finish</QnAnsNavFinishBtn>
+      )}
     </QnAnsNav>
   );
 }
@@ -58,14 +66,21 @@ const QnAnsNavBtn = styled.button`
   background: none;
   outline: none;
   border: none;
-  background: ${(props) => props.theme.button.green};
   color: ${(props) => props.theme.text.light};
-  padding: 6px 10px;
+  padding: 8px;
+  width: 80px;
   border-radius: 4px;
   letter-spacing: 1px;
   font-size: ${FontSize.QUIZ.QN_NAV_BTN};
   cursor: pointer;
   margin-left: auto;
+`;
+
+const QnAnsNavNextBtn = styled(QnAnsNavBtn)`
+  background: ${(props) => props.theme.button.green};
+`;
+const QnAnsNavFinishBtn = styled(QnAnsNavBtn)`
+  background: ${(props) => props.theme.button.blue};
 `;
 
 const QnAnsNavQnTrack = styled.span`
