@@ -8,7 +8,7 @@ export default function Toast() {
   return (
     <CustomToast
       position="top-center"
-      autoClose={5000}
+      autoClose={4000}
       hideProgressBar
       newestOnTop={false}
       closeOnClick
