@@ -3,9 +3,10 @@ import {
   ADD_NEW_WORD,
   FETCH_WORDS,
   LOAD_NEW_WORDS,
+  TRIGGER_LOADING,
   UPDATE_WORD,
 } from "../actions/Words_ActionTypes";
-import { fetchWords } from "../actions/Words_Actions";
+import { fetchWords, triggerLoading } from "../actions/Words_Actions";
 
 const initialState = {
   loading: true,
@@ -15,6 +16,11 @@ const initialState = {
 const reducer = (state = initialState, action) => {
   const { payload, type } = action;
   switch (type) {
+    case TRIGGER_LOADING:
+      return {
+        ...state,
+        loading: payload,
+      };
     case FETCH_WORDS:
       return { ...state, words: payload, loading: false };
     case ADD_NEW_WORD:
@@ -52,6 +58,7 @@ export default reducer;
 
 export function initialiseWords() {
   return async (dispatch) => {
+    dispatch(triggerLoading(true));
     const data = await import("../../assets/data/words.json").then(
       ({ default: myData }) => myData
     );
