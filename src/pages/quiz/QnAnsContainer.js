@@ -10,15 +10,31 @@ export default function QnAnsContainer({ quizQn, setQuizQn }) {
   }, []);
 
   const { currentQn, qns } = quizQn;
-  const { name, options } = qns[currentQn];
+  const { name, options, myChoice, status, answer } = qns[currentQn];
+
+  function handleMyChoice(ansIndex) {
+    if (status !== null) return;
+    const newQuizQn = [...qns];
+    newQuizQn[currentQn].myChoice = ansIndex;
+    setQuizQn({ ...quizQn, qns: [...newQuizQn] });
+  }
 
   return (
     <Wrapper contain spaceAround grow>
       <QuestionContainer>
         <WordName>{name}</WordName>
         {options.map((opt, index) => (
-          <Options key={index} index={index}>
-            <OptionsNumber index={index}>{optionNumber(index)}</OptionsNumber>
+          <Options
+            onClick={() => handleMyChoice(index)}
+            key={index}
+            index={index}
+            active={myChoice === index}
+            disabled={status !== null ? true : false}
+            className={`${myChoice !== index ? "option-not-active" : ""}`}
+          >
+            <OptionsNumber active={myChoice === index} index={index}>
+              {optionNumber(index)}
+            </OptionsNumber>
             <OptionValue>{opt}</OptionValue>
           </Options>
         ))}
@@ -52,13 +68,11 @@ const WordName = styled.h1`
 const OptionsNumber = styled.span`
   margin-right: 15px;
   background-color: ${(props) =>
-    props.active === props.index
+    props.active
       ? props.theme.background.quiz.default
       : props.theme.background.application};
   color: ${(props) =>
-    props.active === props.index
-      ? props.theme.text.default
-      : props.theme.text.light};
+    props.active ? props.theme.text.default : props.theme.text.light};
   width: 30px;
   height: 30px;
   display: flex;
@@ -75,13 +89,11 @@ const Options = styled.button`
   outline: none;
   cursor: pointer;
   background: ${(props) =>
-    props.active === props.index
+    props.active
       ? props.theme.background.quiz.selected
       : props.theme.background.quiz.default};
   color: ${(props) =>
-    props.active === props.index
-      ? props.theme.text.light
-      : props.theme.text.default};
+    props.active ? props.theme.text.light : props.theme.text.default};
   width: 100%;
   max-width: 700px;
   margin-bottom: 15px;
@@ -91,6 +103,24 @@ const Options = styled.button`
   flex-shrink: 0;
   display: flex;
   align-items: center;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &.option-not-active:hover:enabled {
+    background: #d2e5f7;
+  }
+
+  &.choice-correct {
+    background: ${(props) => props.theme.button.green};
+    color: ${(props) => props.theme.text.light};
+  }
+
+  &.choice-wrong {
+    background: ${(props) => props.theme.button.red};
+    color: ${(props) => props.theme.text.light};
+  }
 `;
 
 const OptionValue = styled.p`

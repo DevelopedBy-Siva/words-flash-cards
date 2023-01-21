@@ -24,7 +24,11 @@ export default function Quiz() {
       <Wrapper contain spaceAround>
         <Header name="Quiz" confirmBack={!quizQn ? false : true} />
       </Wrapper>
-      <QuizNavContainer totalWords={words.length} quizQn={quizQn} />
+      <QuizNavContainer
+        totalWords={words.length}
+        quizQn={quizQn}
+        setQuizQns={setQuizQn}
+      />
       {!quizQn ? (
         <QuizFormContainer words={words} setQuizQn={setQuizQn} />
       ) : (

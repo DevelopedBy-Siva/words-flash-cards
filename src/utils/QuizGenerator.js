@@ -43,7 +43,7 @@ export const questionObject = (words, index) => {
     answer: null,
     options: [],
     myChoice: null,
-    status: false,
+    status: null,
   };
 
   /*
