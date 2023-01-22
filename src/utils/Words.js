@@ -3,9 +3,9 @@ import CryptoJS from "crypto-js";
 import { saveAs } from "file-saver";
 import { IoFilterSharp } from "react-icons/io5";
 import { BiSort } from "react-icons/bi";
+import { toast } from "react-toastify";
 
 import { addAllWordsToDb, getWordsFromDb } from "../db";
-import { toast } from "react-toastify";
 
 export const SORT_FILTER_NAV = [
   {
@@ -109,6 +109,9 @@ const SECRET_KEY = process.env.REACT_APP_SECRET_KEY;
 
 export async function encryptAndDownload() {
   try {
+    if (!SECRET_KEY || SECRET_KEY.length === 0)
+      throw Error("Secret key not configured");
+
     const data = await getWordsFromDb();
     if (!data || data.length === 0) {
       toast.info("No words found in the browser storage");
@@ -130,6 +133,9 @@ export async function encryptAndDownload() {
 
 export async function decryptAndAddToDb(data) {
   try {
+    if (!SECRET_KEY || SECRET_KEY.length === 0)
+      throw Error("Secret key not configured");
+
     const bytes = CryptoJS.AES.decrypt(data, SECRET_KEY);
     const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
     await addAllWordsToDb(decryptedData);

@@ -10,7 +10,7 @@ export default function History() {
   useEffect(() => {
     alert("Feature not yet implemented. Planned for next release");
     navigate("/");
-  }, []);
+  }, [navigate]);
 
   return (
     <Wrapper stretch>
