@@ -19,6 +19,10 @@ export default function QnAnsContainer({ quizQn, setQuizQn }) {
     setQuizQn({ ...quizQn, qns: [...newQuizQn] });
   }
 
+  const myChoiceStatusClassName =
+    status === true ? "choice-correct" : status === false ? "choice-wrong" : "";
+  const correctChoiceStatusClassName = status === false ? answer : null;
+
   return (
     <Wrapper contain spaceAround grow>
       <QuestionContainer>
@@ -30,7 +34,11 @@ export default function QnAnsContainer({ quizQn, setQuizQn }) {
             index={index}
             active={myChoice === index}
             disabled={status !== null ? true : false}
-            className={`${myChoice !== index ? "option-not-active" : ""}`}
+            className={`${myChoice !== index ? "option-not-active" : ""} ${
+              myChoice === index ? myChoiceStatusClassName : ""
+            } ${
+              index === correctChoiceStatusClassName ? "choice-correct" : ""
+            }`}
           >
             <OptionsNumber active={myChoice === index} index={index}>
               {optionNumber(index)}
