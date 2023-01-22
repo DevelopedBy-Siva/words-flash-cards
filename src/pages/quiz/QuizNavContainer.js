@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 
 import Wrapper from "../../components/wrapper";
 import FontSize from "../../assets/styles/FontSizes.json";
+import { addToHistory } from "../../db";
 
 export default function QuizNavContainer({ totalWords, quizQn, setQuizQns }) {
   return (
@@ -47,7 +48,7 @@ function QnAnsNavContainer({ quizQns, setQuizQns }) {
     setQuizQns({ ...quizQns, currentQn: currentQn + 1 });
   }
 
-  function finishQuiz() {
+  async function finishQuiz() {
     finishBtn.current.disabled = true;
     try {
       const qns = [...quizQns.qns];
@@ -60,6 +61,13 @@ function QnAnsNavContainer({ quizQns, setQuizQns }) {
         if (qn.status === false) result.wrongWords.push(qn.name);
       });
       result.score = max - result.wrongWords.length;
+
+      await addToHistory(result).catch(() =>
+        toast.error(
+          "Something went wrong. Failed to save score to the history."
+        )
+      );
+
       return navigate("/score", { state: { ...result } });
     } catch (ex) {
       toast.error("Something went wrong. Failed to generate score.");
