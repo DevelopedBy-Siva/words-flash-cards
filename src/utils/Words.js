@@ -105,11 +105,15 @@ export const searchFilter = (data, search) => {
   return words;
 };
 
-const SECRET_KEY = process.env.REACT_APP_SECRET_KEY;
+const SECRET_KEY = process.env.REACT_APP_SECRET_KEY
+  ? process.env.REACT_APP_SECRET_KEY
+  : "";
+
+const IS_PROD = process.env.NODE_ENV === "production" ? true : false;
 
 export async function encryptAndDownload() {
   try {
-    if (!SECRET_KEY || SECRET_KEY.length === 0)
+    if (IS_PROD && SECRET_KEY.length === 0)
       throw Error("Secret key not configured");
 
     const data = await getWordsFromDb();
@@ -133,7 +137,7 @@ export async function encryptAndDownload() {
 
 export async function decryptAndAddToDb(data) {
   try {
-    if (!SECRET_KEY || SECRET_KEY.length === 0)
+    if (IS_PROD && SECRET_KEY.length === 0)
       throw Error("Secret key not configured");
 
     const bytes = CryptoJS.AES.decrypt(data, SECRET_KEY);
