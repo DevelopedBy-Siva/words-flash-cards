@@ -6,6 +6,7 @@ import { BiSort } from "react-icons/bi";
 import { toast } from "react-toastify";
 
 import { addAllWordsToDb, getWordsFromDb } from "../db";
+import { CRYPTO_KEY } from "../assets/constants";
 
 export const SORT_FILTER_NAV = [
   {
@@ -105,17 +106,8 @@ export const searchFilter = (data, search) => {
   return words;
 };
 
-const SECRET_KEY = process.env.REACT_APP_SECRET_KEY
-  ? process.env.REACT_APP_SECRET_KEY
-  : "";
-
-const IS_PROD = process.env.NODE_ENV === "production" ? true : false;
-
 export async function encryptAndDownload() {
   try {
-    if (IS_PROD && SECRET_KEY.length === 0)
-      throw Error("Secret key not configured");
-
     const data = await getWordsFromDb();
     if (!data || data.length === 0) {
       toast.info("No words found in the browser storage");
@@ -123,7 +115,7 @@ export async function encryptAndDownload() {
     }
     const ciphertext = CryptoJS.AES.encrypt(
       JSON.stringify(data),
-      SECRET_KEY
+      CRYPTO_KEY
     ).toString();
 
     const backupFile = new File([ciphertext], {
@@ -137,10 +129,7 @@ export async function encryptAndDownload() {
 
 export async function decryptAndAddToDb(data) {
   try {
-    if (IS_PROD && SECRET_KEY.length === 0)
-      throw Error("Secret key not configured");
-
-    const bytes = CryptoJS.AES.decrypt(data, SECRET_KEY);
+    const bytes = CryptoJS.AES.decrypt(data, CRYPTO_KEY);
     const decryptedData = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
     await addAllWordsToDb(decryptedData);
     return decryptedData;
