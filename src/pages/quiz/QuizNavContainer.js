@@ -36,6 +36,10 @@ function QnAnsNavContainer({ quizQns, setQuizQns }) {
     setQuizQns({ ...quizQns, qns: [...newQuizQn] });
   }
 
+  function nextQuestion() {
+    setQuizQns({ ...quizQns, currentQn: currentQn + 1 });
+  }
+
   return (
     <QnAnsNav>
       <QnAnsNavQnTrack>
@@ -44,7 +48,7 @@ function QnAnsNavContainer({ quizQns, setQuizQns }) {
       {status === null ? (
         <QnAnsNavSubmitBtn onClick={submitAnswer}>Submit</QnAnsNavSubmitBtn>
       ) : currentQn + 1 !== max ? (
-        <QnAnsNavNextBtn>Next</QnAnsNavNextBtn>
+        <QnAnsNavNextBtn onClick={nextQuestion}>Next</QnAnsNavNextBtn>
       ) : (
         <QnAnsNavFinishBtn>Finish</QnAnsNavFinishBtn>
       )}
