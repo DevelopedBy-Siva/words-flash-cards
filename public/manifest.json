@@ -1,9 +1,15 @@
 {
   "short_name": "Words Flash Cards",
   "name": "Words Flash Cards",
-  "icons": [],
-  "start_url": ".",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "types": "image/x-icon"
+    }
+  ],
+  "start_url": "https://words-flash-cardz.web.app/",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "background_color": "#0D1117"
 }

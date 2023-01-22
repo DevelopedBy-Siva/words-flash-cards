@@ -5,7 +5,7 @@ export const dark = {
     grey: "#e7e7e7",
     overlay: "rgba(13, 17, 23, 0.9)",
     quiz: {
-      selected: "#FFB11A",
+      selected: "#0083FD",
       default: "#FFFFFF",
     },
   },
@@ -34,6 +34,7 @@ export const dark = {
     red: "#E24339",
     blue: "#0083FD",
     app: "#0D1117",
+    yellow: "#E6A317",
   },
   border: {
     default: "rgba(240,246,252,0.1)",

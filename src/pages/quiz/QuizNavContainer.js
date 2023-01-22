@@ -1,35 +1,25 @@
 import React from "react";
 import styled from "styled-components";
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import Wrapper from "../../components/wrapper";
 import FontSize from "../../assets/styles/FontSizes.json";
-import { useDispatch, useSelector } from "react-redux";
-import { generateNextQuestion } from "../../redux/actions/Questions_Actions";
 
-export default function QuizNavContainer({ totalWords, proceed }) {
-  const dispatch = useDispatch();
-
-  const { question } = useSelector((state) => state.questions);
-
-  function isBtnDisabled() {
-    if (question[question.length].myChoice === null) return true;
-    return false;
-  }
-
-  function nextQuestion() {
-    dispatch(generateNextQuestion());
-  }
-
+export default function QuizNavContainer({ totalWords, quizQn, setQuizQns }) {
   return (
-    <Wrapper contain spaceAround border right={!proceed}>
-      {!proceed
-        ? QuizFormNavContainer(totalWords)
-        : QnAnsNavContainer(nextQuestion, isBtnDisabled)}
+    <Wrapper contain spaceAround border right={!quizQn}>
+      {!quizQn ? (
+        <QuizFormNavContainer totalWords={totalWords} />
+      ) : (
+        <QnAnsNavContainer quizQns={quizQn} setQuizQns={setQuizQns} />
+      )}
     </Wrapper>
   );
 }
 
-function QuizFormNavContainer(totalWords) {
+function QuizFormNavContainer({ totalWords }) {
   return (
     <QuizFormNav>
       <AvailableWordsHead>Available Words:</AvailableWordsHead>
@@ -38,13 +28,59 @@ function QuizFormNavContainer(totalWords) {
   );
 }
 
-function QnAnsNavContainer(nextQuestion, isBtnDisabled) {
+function QnAnsNavContainer({ quizQns, setQuizQns }) {
+  const finishBtn = useRef(null);
+
+  const navigate = useNavigate();
+
+  const currentQn = quizQns.currentQn;
+  const max = quizQns.qns.length;
+  const { status, myChoice, answer } = quizQns.qns[currentQn];
+
+  function submitAnswer() {
+    const newQuizQn = [...quizQns.qns];
+    newQuizQn[currentQn].status = myChoice === answer;
+    setQuizQns({ ...quizQns, qns: [...newQuizQn] });
+  }
+
+  function nextQuestion() {
+    setQuizQns({ ...quizQns, currentQn: currentQn + 1 });
+  }
+
+  function finishQuiz() {
+    finishBtn.current.disabled = true;
+    try {
+      const qns = [...quizQns.qns];
+      const result = {
+        wrongWords: [],
+        total: max,
+        score: 0,
+      };
+      qns.forEach((qn) => {
+        if (qn.status === false) result.wrongWords.push(qn.name);
+      });
+      result.score = max - result.wrongWords.length;
+      return navigate("/score", { state: { ...result } });
+    } catch (ex) {
+      toast.error("Something went wrong. Failed to generate score.");
+      return navigate("/");
+    }
+  }
+
   return (
     <QnAnsNav>
-      <QnAnsNavQnTrack>2 &#47; 20</QnAnsNavQnTrack>
-      <QnAnsNavBtn disabled={isBtnDisabled()} onClick={nextQuestion}>
-        Next
-      </QnAnsNavBtn>
+      <QnAnsNavQnTrack>
+        {currentQn + 1} &#47; {max}
+      </QnAnsNavQnTrack>
+      {status === null ? (
+        <QnAnsNavSubmitBtn onClick={submitAnswer}>Submit</QnAnsNavSubmitBtn>
+      ) : currentQn + 1 !== max ? (
+        <QnAnsNavNextBtn onClick={nextQuestion}>Next</QnAnsNavNextBtn>
+      ) : (
+        <QnAnsNavFinishBtn ref={finishBtn} onClick={finishQuiz}>
+          Finish
+        </QnAnsNavFinishBtn>
+      )}
     </QnAnsNav>
   );
 }
@@ -77,14 +113,29 @@ const QnAnsNavBtn = styled.button`
   background: none;
   outline: none;
   border: none;
-  background: ${(props) => props.theme.button.green};
   color: ${(props) => props.theme.text.light};
-  padding: 6px 10px;
+  padding: 8px 4px;
+  width: 70px;
   border-radius: 4px;
   letter-spacing: 1px;
   font-size: ${FontSize.QUIZ.QN_NAV_BTN};
   cursor: pointer;
   margin-left: auto;
+`;
+
+const QnAnsNavSubmitBtn = styled(QnAnsNavBtn)`
+  background: ${(props) => props.theme.button.blue};
+`;
+
+const QnAnsNavNextBtn = styled(QnAnsNavBtn)`
+  background: ${(props) => props.theme.button.yellow};
+`;
+const QnAnsNavFinishBtn = styled(QnAnsNavBtn)`
+  background: ${(props) => props.theme.button.green};
+
+  &:disabled {
+    cursor: wait;
+  }
 `;
 
 const QnAnsNavQnTrack = styled.span`

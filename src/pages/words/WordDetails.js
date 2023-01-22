@@ -8,12 +8,13 @@ import { toast } from "react-toastify";
 
 import FontSize from "../../assets/styles/FontSizes.json";
 import Modal from "../../components/modal";
-import { addWordToDb } from "../../db";
-import { updateWord } from "../../redux/actions/Words_Actions";
+import { addWordToDb, deleteWordFromDb } from "../../db";
+import { deleteWord, updateWord } from "../../redux/actions/Words_Actions";
 
 const msg = new SpeechSynthesisUtterance();
 export default function WordDetails({ close, details }) {
   const saveBtn = useRef(null);
+  const deleteBtn = useRef(null);
 
   const [edit, setEdit] = useState(0);
   const [data, setData] = useState({
@@ -61,6 +62,20 @@ export default function WordDetails({ close, details }) {
       });
   };
 
+  const removeWord = async () => {
+    deleteBtn.current.disabled = true;
+    await deleteWordFromDb(details.name)
+      .then(() => {
+        dispatch(deleteWord(details.name));
+        toast.success("Word deleted successfully");
+        close();
+      })
+      .catch(() => {
+        toast.error("Something went wrong. Failed to delete the word");
+        deleteBtn.current.disabled = false;
+      });
+  };
+
   return (
     <Modal id={details.id} close={close}>
       <Container>
@@ -96,13 +111,18 @@ export default function WordDetails({ close, details }) {
               Save
             </SaveBtn>
           ) : (
-            <EditBtn
-              onClick={() => {
-                setEdit(1);
-              }}
-            >
-              Edit
-            </EditBtn>
+            <>
+              <EditBtn
+                onClick={() => {
+                  setEdit(1);
+                }}
+              >
+                Edit
+              </EditBtn>
+              <DeleteBtn ref={deleteBtn} onClick={removeWord}>
+                Delete
+              </DeleteBtn>
+            </>
           )
         ) : (
           ""
@@ -229,6 +249,18 @@ const SaveBtn = styled(LocalBtn)`
   border: 1px solid ${(props) => props.theme.button.green};
   background: ${(props) => props.theme.button.green};
   color: ${(props) => props.theme.text.light};
+
+  &:disabled {
+    cursor: wait;
+  }
+`;
+
+const DeleteBtn = styled(LocalBtn)`
+  top: 10px;
+  left: 50px;
+  border: 1px solid ${(props) => props.theme.border.default};
+  background: none;
+  color: ${(props) => props.theme.text.dull};
 
   &:disabled {
     cursor: wait;

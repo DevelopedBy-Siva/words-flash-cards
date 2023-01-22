@@ -3,7 +3,16 @@ import {
   UPDATE_WORD,
   FETCH_WORDS,
   LOAD_NEW_WORDS,
+  TRIGGER_LOADING,
+  DELETE_WORD,
 } from "./Words_ActionTypes";
+
+export function triggerLoading(payload) {
+  return {
+    type: TRIGGER_LOADING,
+    payload,
+  };
+}
 
 export function fetchWords(payload) {
   return {
@@ -29,6 +38,13 @@ export function updateWord(payload) {
 export function loadNewWords(payload) {
   return {
     type: LOAD_NEW_WORDS,
+    payload,
+  };
+}
+
+export function deleteWord(payload) {
+  return {
+    type: DELETE_WORD,
     payload,
   };
 }

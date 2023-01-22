@@ -1,56 +1,52 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
 
 import Wrapper from "../../components/wrapper";
-import {
-  generateInitialQuestion,
-  setChoice,
-} from "../../redux/actions/Questions_Actions";
 import { optionNumber } from "../../utils/QuizGenerator";
 
-export default function QnAnsContainer({ formInput }) {
-  const [active, setActive] = useState(null);
-
+export default function QnAnsContainer({ quizQn, setQuizQn }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const { question } = useSelector((state) => state.questions);
+  const { currentQn, qns } = quizQn;
+  const { name, options, myChoice, status, answer } = qns[currentQn];
 
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(generateInitialQuestion(formInput));
-  }, [formInput, dispatch]);
-
-  function setMyChoice(index) {
-    setActive(index);
-    dispatch(setChoice(index));
+  function handleMyChoice(ansIndex) {
+    if (status !== null) return;
+    const newQuizQn = [...qns];
+    newQuizQn[currentQn].myChoice = ansIndex;
+    setQuizQn({ ...quizQn, qns: [...newQuizQn] });
   }
+
+  const myChoiceStatusClassName =
+    status === true ? "choice-correct" : status === false ? "choice-wrong" : "";
+  const correctChoiceStatusClassName = status === false ? answer : null;
 
   return (
     <Wrapper contain spaceAround grow>
-      {question.length > 0 ? (
-        <QuestionContainer>
-          <WordName>{question[question.length - 1].word}</WordName>
-          {question[question.length - 1].options.map((opt, index) => (
-            <Options
-              active={active}
-              onClick={() => setMyChoice(index)}
-              key={index}
-              index={index}
-            >
-              <OptionsNumber index={index} active={active}>
-                {optionNumber(index)}
-              </OptionsNumber>
-              {opt}
-            </Options>
-          ))}
-        </QuestionContainer>
-      ) : (
-        ""
-      )}
+      <QuestionContainer>
+        <WordName>{name}</WordName>
+        {options.map((opt, index) => (
+          <Options
+            onClick={() => handleMyChoice(index)}
+            key={index}
+            index={index}
+            active={myChoice === index}
+            disabled={status !== null ? true : false}
+            className={`${myChoice !== index ? "option-not-active" : ""} ${
+              myChoice === index ? myChoiceStatusClassName : ""
+            } ${
+              index === correctChoiceStatusClassName ? "choice-correct" : ""
+            }`}
+          >
+            <OptionsNumber active={myChoice === index} index={index}>
+              {optionNumber(index)}
+            </OptionsNumber>
+            <OptionValue>{opt}</OptionValue>
+          </Options>
+        ))}
+      </QuestionContainer>
     </Wrapper>
   );
 }
@@ -80,13 +76,11 @@ const WordName = styled.h1`
 const OptionsNumber = styled.span`
   margin-right: 15px;
   background-color: ${(props) =>
-    props.active === props.index
+    props.active
       ? props.theme.background.quiz.default
       : props.theme.background.application};
   color: ${(props) =>
-    props.active === props.index
-      ? props.theme.text.default
-      : props.theme.text.light};
+    props.active ? props.theme.text.default : props.theme.text.light};
   width: 30px;
   height: 30px;
   display: flex;
@@ -95,7 +89,7 @@ const OptionsNumber = styled.span`
   border-radius: 50%;
   text-transform: uppercase;
   font-weight: 700;
-  transition: all 0.2s ease-in;
+  flex-shrink: 0;
 `;
 
 const Options = styled.button`
@@ -103,27 +97,40 @@ const Options = styled.button`
   outline: none;
   cursor: pointer;
   background: ${(props) =>
-    props.active === props.index
+    props.active
       ? props.theme.background.quiz.selected
       : props.theme.background.quiz.default};
   color: ${(props) =>
-    props.active === props.index
-      ? props.theme.text.light
-      : props.theme.text.default};
+    props.active ? props.theme.text.light : props.theme.text.default};
   width: 100%;
   max-width: 700px;
-  height: 55px;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
   border-radius: 5px;
-  padding: 4px 8px;
+  padding: 12px 18px;
   font-size: 0.9rem;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
-  text-transform: capitalize;
 
-  transition: all 0.2s ease-in;
-
-  &:hover {
-    transform: scale(0.98);
+  &:disabled {
+    cursor: not-allowed;
   }
+
+  &.option-not-active:hover:enabled {
+    background: #d2e5f7;
+  }
+
+  &.choice-correct {
+    background: ${(props) => props.theme.button.green};
+    color: ${(props) => props.theme.text.light};
+  }
+
+  &.choice-wrong {
+    background: ${(props) => props.theme.button.red};
+    color: ${(props) => props.theme.text.light};
+  }
+`;
+
+const OptionValue = styled.p`
+  text-align: justify;
 `;

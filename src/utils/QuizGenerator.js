@@ -1,5 +1,3 @@
-import words from "../assets/data/words.json";
-
 /**
  * Generate random unique numbers within a range
  */
@@ -13,7 +11,7 @@ export const randomUnique = (count, min, max, ignoredIndex = null) => {
   return [...nums];
 };
 
-export const questionOptions = (ignoredIndex, answer) => {
+export const questionOptions = (ignoredIndex, answer, words) => {
   /*
      Get 3 Random indexes within a range for the option field
     */
@@ -38,20 +36,20 @@ export const questionOptions = (ignoredIndex, answer) => {
   };
 };
 
-export const questionObject = (index) => {
-  const { word, meaning } = words[index];
+export const questionObject = (words, index) => {
+  const { name, meaning } = words[index];
   const question = {
-    word,
+    name,
     answer: null,
     options: [],
     myChoice: null,
-    status: true,
+    status: null,
   };
 
   /*
      Get 3 Random indexes within a range for the option field
     */
-  const { answer_index, options } = questionOptions(index, meaning);
+  const { answer_index, options } = questionOptions(index, meaning, words);
   question.options = [...options];
   question.answer = answer_index;
   return question;
@@ -71,3 +69,22 @@ export const optionNumber = (index) => {
       return "";
   }
 };
+
+export function quizGenerator(count, latestWords, words) {
+  const total_words = words.length;
+  if (total_words < 4) return (window.location = "/");
+
+  let range = [0, total_words];
+  if (latestWords) range = [total_words - count, total_words];
+
+  if (range[1] - range[0] < count) return (window.location = "/quiz");
+
+  const indexes = randomUnique(count, ...range);
+  let questions = [];
+  indexes.forEach((index) => {
+    const obj = questionObject(words, index);
+    questions.push(obj);
+  });
+
+  return questions;
+}

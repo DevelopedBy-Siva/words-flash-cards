@@ -5,7 +5,7 @@ import styled from "styled-components";
 import FontSize from "../../assets/styles/FontSizes.json";
 import { isUsernameValid } from "../../utils/Validate";
 import { createUser } from "../../utils/User";
-import Spinner from "../../components/loader/Spinner";
+import Loader from "../../components/loader";
 import Wrapper from "../../components/wrapper";
 
 export default function Container() {
@@ -67,10 +67,10 @@ export default function Container() {
             ref={inputRef}
             user={name}
           />
-          {name.error && <Error>{name.error}</Error>}
+          {name.error ? <Error>{name.error}</Error> : ""}
         </InputContainer>
       </Content>
-      {name.loading && <Spinner top="20px" left="50%" size={2} />}
+      {name.loading ? <Loader center top size="30" /> : ""}
     </Wrapper>
   );
 }
