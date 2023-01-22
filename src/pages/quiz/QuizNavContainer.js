@@ -1,5 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 import Wrapper from "../../components/wrapper";
 import FontSize from "../../assets/styles/FontSizes.json";
@@ -26,6 +29,10 @@ function QuizFormNavContainer({ totalWords }) {
 }
 
 function QnAnsNavContainer({ quizQns, setQuizQns }) {
+  const finishBtn = useRef(null);
+
+  const navigate = useNavigate();
+
   const currentQn = quizQns.currentQn;
   const max = quizQns.qns.length;
   const { status, myChoice, answer } = quizQns.qns[currentQn];
@@ -40,6 +47,26 @@ function QnAnsNavContainer({ quizQns, setQuizQns }) {
     setQuizQns({ ...quizQns, currentQn: currentQn + 1 });
   }
 
+  function finishQuiz() {
+    finishBtn.current.disabled = true;
+    try {
+      const qns = [...quizQns.qns];
+      const result = {
+        wrongWords: [],
+        total: max,
+        score: 0,
+      };
+      qns.forEach((qn) => {
+        if (qn.status === false) result.wrongWords.push(qn.name);
+      });
+      result.score = max - result.wrongWords.length;
+      return navigate("/score", { state: { ...result } });
+    } catch (ex) {
+      toast.error("Something went wrong. Failed to generate score.");
+      return navigate("/");
+    }
+  }
+
   return (
     <QnAnsNav>
       <QnAnsNavQnTrack>
@@ -50,7 +77,9 @@ function QnAnsNavContainer({ quizQns, setQuizQns }) {
       ) : currentQn + 1 !== max ? (
         <QnAnsNavNextBtn onClick={nextQuestion}>Next</QnAnsNavNextBtn>
       ) : (
-        <QnAnsNavFinishBtn>Finish</QnAnsNavFinishBtn>
+        <QnAnsNavFinishBtn ref={finishBtn} onClick={finishQuiz}>
+          Finish
+        </QnAnsNavFinishBtn>
       )}
     </QnAnsNav>
   );
@@ -103,6 +132,10 @@ const QnAnsNavNextBtn = styled(QnAnsNavBtn)`
 `;
 const QnAnsNavFinishBtn = styled(QnAnsNavBtn)`
   background: ${(props) => props.theme.button.green};
+
+  &:disabled {
+    cursor: wait;
+  }
 `;
 
 const QnAnsNavQnTrack = styled.span`

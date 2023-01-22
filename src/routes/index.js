@@ -7,7 +7,7 @@ const Words = lazy(() => import("../pages/words"));
 const Quiz = lazy(() => import("../pages/quiz"));
 const History = lazy(() => import("../pages/history"));
 const Whoru = lazy(() => import("../pages/whoru"));
-const Result = lazy(() => import("../pages/result"));
+const Score = lazy(() => import("../pages/score"));
 
 export default function RouteContainer() {
   return (
@@ -17,7 +17,7 @@ export default function RouteContainer() {
           <Route path="/" element={<Home />} />
           <Route path="/words" element={<Words />} />
           <Route path="/quiz" element={<Quiz />} />
-          <Route path="/result" element={<Result />} />
+          <Route path="/score" element={<Score />} />
           <Route path="/history" element={<History />} />
         </Route>
         <Route path="/whoru" element={<Whoru />} />
