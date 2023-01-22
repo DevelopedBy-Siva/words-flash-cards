@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
+import { TiTick } from "react-icons/ti";
+import { FaGreaterThan } from "react-icons/fa";
 
 import Wrapper from "../../components/wrapper";
 
@@ -25,12 +27,20 @@ export default function ScoreContainer({ myScore }) {
           {score} &#47; {total}
         </Score>
         <ScoreBreakupContainer>
-          <ScoreBreakup label="correct" value={score} />
-          <ScoreBreakup label="wrong" value={wrongWords.length} />
+          <ScoreBreakup label="correct" value={score}>
+            <TiTickCustom />
+          </ScoreBreakup>
+          <ScoreBreakup label="wrong" value={wrongWords.length}>
+            <IoCloseCustom className="breakup-wrong-ico" />
+          </ScoreBreakup>
         </ScoreBreakupContainer>
         {sliceIntoChunks().length > 0 ? (
           <React.Fragment>
-            <WrongWordsTitle>&#60; Wrong Words &#62;</WrongWordsTitle>
+            <WrongWordsTitle>
+              <FaGreaterThanCustom className="less-than" />
+              Wrong Words
+              <FaGreaterThanCustom />
+            </WrongWordsTitle>
             <WrongWordContainer>
               {sliceIntoChunks().map((chunk, chunkIndex) => (
                 <WrongWordsSubContainer key={chunkIndex}>
@@ -54,10 +64,13 @@ export default function ScoreContainer({ myScore }) {
   );
 }
 
-function ScoreBreakup({ label, value }) {
+function ScoreBreakup({ label, value, children }) {
   return (
     <Breakup>
-      <BreakupLabel>{label}</BreakupLabel>
+      <LabelContainer>
+        {children}
+        <BreakupLabel>{label}</BreakupLabel>
+      </LabelContainer>
       <BreakupValue>{value}</BreakupValue>
     </Breakup>
   );
@@ -72,7 +85,7 @@ const Container = styled.div`
 `;
 
 const Score = styled.div`
-  padding: 5px;
+  padding: 4px;
   width: 210px;
   height: 210px;
   text-align: center;
@@ -83,7 +96,8 @@ const Score = styled.div`
   justify-content: center;
   align-items: center;
   user-select: none;
-  font-size: 1.7rem;
+  font-size: 2rem;
+  font-weight: 700;
   margin: auto;
 
   &.failed {
@@ -103,6 +117,9 @@ const Breakup = styled.div`
   justify-content: space-between;
   padding: 18px;
   color: ${(props) => props.theme.text.light};
+  font-size: 0.9rem;
+  font-weight: 300;
+  user-select: none;
 `;
 
 const BreakupLabel = styled.span`
@@ -119,8 +136,11 @@ const WrongWordsTitle = styled.h4`
   font-weight: 400;
   text-align: center;
   color: ${(props) => props.theme.text.dull};
-  margin: 15px auto 30px auto;
+  margin: 10px auto 30px auto;
   user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const WrongWordContainer = styled.div`
@@ -167,6 +187,32 @@ const WdLink = styled(Link)`
 `;
 
 const IoCloseCustom = styled(IoClose)`
-  margin-right: 5px;
-  color: red;
+  margin-right: 4px;
+  color: ${(props) => props.theme.button.red};
+
+  &.breakup-wrong-ico {
+    font-size: 1.2rem;
+    margin-right: 8px;
+  }
+`;
+
+const TiTickCustom = styled(TiTick)`
+  margin-right: 8px;
+  color: ${(props) => props.theme.button.green};
+  font-size: 1.2rem;
+`;
+
+const LabelContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const FaGreaterThanCustom = styled(FaGreaterThan)`
+  font-size: 1.1rem;
+  margin-left: 6px;
+  &.less-than {
+    transform: rotate(180deg);
+    margin-right: 6px;
+    margin-left: 0;
+  }
 `;
