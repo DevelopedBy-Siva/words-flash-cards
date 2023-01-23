@@ -1,10 +1,10 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useTable } from "react-table";
-
-import { TABLE_COLUMN } from "../../utils/History";
-import { getHistory } from "../../db";
 import { toast } from "react-toastify";
+import { FiPlus } from "react-icons/fi";
+
+import Wrapper from "../../components/wrapper";
+import { getHistory } from "../../db";
 
 export default function HistoryContainer() {
   const [history, setHistory] = useState({
@@ -14,7 +14,12 @@ export default function HistoryContainer() {
 
   useEffect(() => {
     getHistory()
-      .then((data) => {
+      .then((response) => {
+        let data = [...response];
+        data.forEach((i) => {
+          const iso = new Date(i.timestamp).toISOString();
+          i.timestamp = iso.substring(0, 10);
+        });
         setHistory({ loading: false, data });
       })
       .catch(() => {
@@ -22,56 +27,52 @@ export default function HistoryContainer() {
       });
   }, []);
 
-  const columns = useMemo(() => TABLE_COLUMN, []);
-  const data = useMemo(() => history.data, [history.data]);
-
-  const table = useTable({
-    columns,
-    data,
-  });
-
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    table;
+  const getScore = (score) => {
+    score = score ? score : "";
+    const split = score.split(":");
+    return {
+      myScore: split[0],
+      total: split[1],
+    };
+  };
 
   return (
-    <Container>
-      <HistoryTable {...getTableProps()}>
+    <Wrapper contain spaceAround grow>
+      <HistoryTable>
         <THead>
-          {headerGroups.map((headerGroup) => (
-            <TR {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((col) => (
-                <TH {...col.getHeaderProps()}>{col.render("Header")}</TH>
-              ))}
-            </TR>
-          ))}
+          <TR>
+            <TH className="collapse-btn" />
+            <TH>Date</TH>
+            <TH>Score</TH>
+          </TR>
         </THead>
-        <TBody {...getTableBodyProps()}>
-          {rows.map((row) => {
-            prepareRow(row);
+        <TBody>
+          {history.data.map((data, index) => {
+            const { myScore, total } = getScore(data.score);
             return (
-              <TR {...row.getRowProps()}>
-                {row.cells.map((cell) => (
-                  <TD {...cell.getCellProps()}>{cell.render("Cell")}</TD>
-                ))}
+              <TR key={index}>
+                <TD>
+                  <CollapseBtn>
+                    <FiPlus />
+                  </CollapseBtn>
+                </TD>
+                <TD>{data.timestamp}</TD>
+                <TD>
+                  {myScore} &#47; {total}
+                </TD>
               </TR>
             );
           })}
         </TBody>
       </HistoryTable>
-    </Container>
+    </Wrapper>
   );
 }
 
-const Container = styled.div`
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-`;
-
 const HistoryTable = styled.table`
-  border-collapse: collapse;
   margin-top: 30px;
   width: 100%;
+  border-collapse: collapse;
 `;
 
 const THead = styled.thead``;
@@ -83,14 +84,37 @@ const TR = styled.tr``;
 const TH = styled.th`
   letter-spacing: 1px;
   background-color: ${(props) => props.theme.background.white};
-  padding: 12px 4px;
+  padding: 15px 4px;
   font-weight: 500;
   text-transform: capitalize;
   color: ${(props) => props.theme.text.default};
   font-size: 0.9rem;
-  border: 1px solid ${(props) => props.theme.border.default};
+
+  &.collapse-btn {
+    width: 38px;
+  }
 `;
 
 const TD = styled.td`
-  border: 1px solid ${(props) => props.theme.border.default};
+  padding: 14px 2px;
+  color: ${(props) => props.theme.text.light};
+  font-size: 0.9rem;
+  font-weight: 300;
+  text-align: center;
+`;
+
+const CollapseBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  background: none;
+  border: none;
+  border: none;
+  height: 20px;
+  border-radius: 4px;
+  margin: auto;
+  display: block;
+  color: ${(props) => props.theme.text.light};
+  cursor: pointer;
 `;
