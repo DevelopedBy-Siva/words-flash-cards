@@ -2,7 +2,7 @@ import React from "react";
 
 import Wrapper from "../../components/wrapper";
 import Header from "../../components/header";
-import HistoryContainer from "./HistoryContainer";
+import HistoryWrapper from "./HistoryWrapper";
 
 export default function History() {
   return (
@@ -10,7 +10,7 @@ export default function History() {
       <Wrapper contain spaceAround>
         <Header name="History" />
       </Wrapper>
-      <HistoryContainer />
+      <HistoryWrapper />
     </Wrapper>
   );
 }
