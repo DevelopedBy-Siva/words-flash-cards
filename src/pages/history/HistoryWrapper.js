@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import moment from "moment";
 import { toast } from "react-toastify";
 
 import HistoryTable from "./HistoryTable";
@@ -21,8 +22,8 @@ export default function HistoryWrapper() {
       .then((response) => {
         let data = [...response];
         data.forEach((i) => {
-          const iso = new Date(i.timestamp).toISOString();
-          i.timestamp = iso.substring(0, 10);
+          const datetime = moment(i.timestamp).format("MMMM Do YYYY, h:mm a");
+          i.timestamp = datetime;
         });
         setHistory({ loading: false, data });
       })

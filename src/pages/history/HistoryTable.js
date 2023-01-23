@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { FiPlus, FiMinus } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
 
 import Wrapper from "../../components/wrapper";
 import Loader from "../../components/loader";
-import { Link } from "react-router-dom";
 
 export default function HistoryTable({ isLoading, toDisplay }) {
   return (
@@ -125,7 +125,7 @@ function HistoryContent({ data }) {
 const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
-  table-layout: fixed;
+  table-layout: auto;
 `;
 
 const THead = styled.thead``;
@@ -159,7 +159,7 @@ const TD = styled.td`
   position: relative;
 
   :first-child {
-    width: 200px;
+    width: 80px;
   }
 
   :nth-child(2) {
