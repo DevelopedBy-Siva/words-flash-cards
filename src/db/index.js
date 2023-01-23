@@ -34,13 +34,6 @@ export const addToHistory = async (data) => {
   return await db.history.put(result);
 };
 
-export const getHistory = async (page = 1) => {
-  const limit = 10;
-  const toSkip = (page - 1) * limit;
-  return await db.history
-    .orderBy("timestamp")
-    .reverse()
-    .offset(toSkip)
-    .limit(limit)
-    .toArray();
+export const getHistory = async () => {
+  return await db.history.orderBy("timestamp").reverse().toArray();
 };

@@ -1,42 +1,77 @@
 import React from "react";
 import styled from "styled-components";
-import { MdOutlineArrowBackIos } from "react-icons/md";
 
 import Wrapper from "../../components/wrapper";
 
-export default function Navigation() {
+export default function Navigation({
+  totalPages,
+  currentPage,
+  setCurrentPage,
+}) {
+  const isBackDisabled = currentPage === 0;
+  const isNextDisabled = currentPage === totalPages - 1;
+
+  function onBack() {
+    if (isBackDisabled) return;
+    setCurrentPage(currentPage - 1);
+  }
+
+  function onNext() {
+    if (isNextDisabled) return;
+    setCurrentPage(currentPage + 1);
+  }
+
   return (
-    <Wrapper contain spaceAround right>
-      <ButtonContainer>
-        <NavBtn>
-          <MdOutlineArrowBackIos />
+    <Wrapper contain spaceAround>
+      <Container>
+        <NavBtn onClick={onBack} disabled={isBackDisabled}>
+          Previous
         </NavBtn>
-        <NavBtn className="next-btn">
-          <MdOutlineArrowBackIos />
+        <PageTrack>
+          Page {currentPage + 1} of {totalPages}
+        </PageTrack>
+        <NavBtn onClick={onNext} disabled={isNextDisabled}>
+          Next
         </NavBtn>
-      </ButtonContainer>
+      </Container>
     </Wrapper>
   );
 }
 
-const ButtonContainer = styled.div`
+const Container = styled.div`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const PageTrack = styled.span`
+  display: block;
+  text-align: center;
+  color: ${(props) => props.theme.text.dull};
+  font-size: 0.75rem;
 `;
 
 const NavBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4px 8px;
+  padding: 6px;
+  width: 70px;
   cursor: pointer;
-  font-size: 0.85rem;
-  color: ${(props) => props.theme.text.default};
-  background: ${(props) => props.theme.background.white};
-  border: none;
+  font-size: 0.7rem;
+  color: ${(props) => props.theme.text.light};
+  background: ${(props) => props.theme.button.blue};
+  border: 1px solid ${(props) => props.theme.border.default};
   border-radius: 4px;
 
   &.next-btn {
     transform: rotate(180deg);
     margin-left: 5px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background: none;
+    color: ${(props) => props.theme.text.default};
   }
 `;
