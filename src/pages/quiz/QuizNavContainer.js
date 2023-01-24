@@ -39,6 +39,7 @@ function QnAnsNavContainer({ quizQns, setQuizQns }) {
   const { status, myChoice, answer } = quizQns.qns[currentQn];
 
   function submitAnswer() {
+    if (myChoice === null) return;
     const newQuizQn = [...quizQns.qns];
     newQuizQn[currentQn].status = myChoice === answer;
     setQuizQns({ ...quizQns, qns: [...newQuizQn] });
@@ -81,7 +82,12 @@ function QnAnsNavContainer({ quizQns, setQuizQns }) {
         {currentQn + 1} &#47; {max}
       </QnAnsNavQnTrack>
       {status === null ? (
-        <QnAnsNavSubmitBtn onClick={submitAnswer}>Submit</QnAnsNavSubmitBtn>
+        <QnAnsNavSubmitBtn
+          disabled={myChoice === null ? true : false}
+          onClick={submitAnswer}
+        >
+          Submit
+        </QnAnsNavSubmitBtn>
       ) : currentQn + 1 !== max ? (
         <QnAnsNavNextBtn onClick={nextQuestion}>Next</QnAnsNavNextBtn>
       ) : (
@@ -133,6 +139,10 @@ const QnAnsNavBtn = styled.button`
 
 const QnAnsNavSubmitBtn = styled(QnAnsNavBtn)`
   background: ${(props) => props.theme.button.blue};
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;
 
 const QnAnsNavNextBtn = styled(QnAnsNavBtn)`
