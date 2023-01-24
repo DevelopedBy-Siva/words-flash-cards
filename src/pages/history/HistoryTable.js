@@ -78,12 +78,17 @@ function HistoryContent({ data }) {
     return res;
   }
 
+  const noWrongWords = data.wrongWords.length === 0;
+
   return (
     <React.Fragment>
       <TR>
         <TD>
-          <CollapseBtn onClick={() => setOpen(!open)}>
-            {!open ? <FiPlus /> : <FiMinus />}
+          <CollapseBtn
+            className={noWrongWords ? "no-pointer" : ""}
+            onClick={() => setOpen(!open)}
+          >
+            {noWrongWords ? <FiMinus /> : !open ? <FiPlus /> : <FiMinus />}
           </CollapseBtn>
         </TD>
         <TD>{data.timestamp}</TD>
@@ -185,6 +190,10 @@ const CollapseBtn = styled.button`
   display: block;
   color: ${(props) => props.theme.text.light};
   cursor: pointer;
+
+  &.no-pointer {
+    cursor: auto;
+  }
 `;
 
 const NoDataFound = styled.h2`
