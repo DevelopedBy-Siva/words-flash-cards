@@ -5,6 +5,7 @@ import Wrapper from "../../components/wrapper";
 import Header from "../../components/header";
 import QuizFormContainer from "./QuizFormContainer";
 import QuizNavContainer from "./QuizNavContainer";
+import LoadingSpinner from "../../components/loader";
 
 const QnAnsContainer = lazy(() => import("./QnAnsContainer"));
 
@@ -25,7 +26,7 @@ export default function Quiz() {
       {!quizQn ? (
         <QuizFormContainer words={words} setQuizQn={setQuizQn} />
       ) : (
-        <Suspense>
+        <Suspense fallback={<LoadingSpinner size={50} center />}>
           <QnAnsContainer quizQn={quizQn} setQuizQn={setQuizQn} />
         </Suspense>
       )}
