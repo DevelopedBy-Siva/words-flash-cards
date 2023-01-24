@@ -1,22 +1,15 @@
-import React, { lazy, Suspense, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { lazy, Suspense, useState } from "react";
+import { useSelector } from "react-redux";
 
 import Wrapper from "../../components/wrapper";
 import Header from "../../components/header";
 import QuizFormContainer from "./QuizFormContainer";
 import QuizNavContainer from "./QuizNavContainer";
-import { initialiseWords } from "../../redux/reducer/Words";
 
 const QnAnsContainer = lazy(() => import("./QnAnsContainer"));
 
 export default function Quiz() {
   const [quizQn, setQuizQn] = useState(null);
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(initialiseWords());
-  }, [dispatch]);
-
   const words = useSelector((state) => state.words.words);
 
   return (
