@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FiPlus, FiMinus } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
 
 import Wrapper from "../../components/wrapper";
 import Loader from "../../components/loader";
+import { CollapsableVariants, TBodyVariants } from "./AnimationVariants";
 
-export default function HistoryTable({ isLoading, toDisplay }) {
+export default function HistoryTable({ currentPage, isLoading, toDisplay }) {
   return (
     <Wrapper contain spaceAround grow>
       <Table>
@@ -18,39 +20,33 @@ export default function HistoryTable({ isLoading, toDisplay }) {
             <TH>Score</TH>
           </TR>
         </THead>
-        <TBody>
-          {isLoading ? (
-            <HistoryLoader />
-          ) : toDisplay.length === 0 ? (
-            <EmptyHistory />
-          ) : (
-            toDisplay.map((data, index) => {
-              return <HistoryContent data={data} key={index} />;
-            })
-          )}
-        </TBody>
+        <AnimatePresence mode="wait">
+          <TBody
+            key={currentPage}
+            variants={TBodyVariants}
+            initial="hidden"
+            animate="show"
+            exit="exit"
+          >
+            {isLoading ? (
+              <HistoryLoader />
+            ) : toDisplay.length === 0 ? (
+              <EmptyHistory />
+            ) : (
+              toDisplay.map((data, index) => {
+                return (
+                  <HistoryContent
+                    key={index}
+                    currentPage={currentPage}
+                    data={data}
+                  />
+                );
+              })
+            )}
+          </TBody>
+        </AnimatePresence>
       </Table>
     </Wrapper>
-  );
-}
-
-function HistoryLoader() {
-  return (
-    <TR>
-      <TD className="history-ui-msgs" colSpan={3}>
-        <Loader center />
-      </TD>
-    </TR>
-  );
-}
-
-function EmptyHistory() {
-  return (
-    <TR>
-      <TD className="history-ui-msgs" colSpan={3}>
-        <NoDataFound>No previous quiz records found.</NoDataFound>
-      </TD>
-    </TR>
   );
 }
 
@@ -96,46 +92,71 @@ function HistoryContent({ data }) {
           {myScore} &#47; {total}
         </TD>
       </TR>
-      {open ? (
-        <TR>
-          <TD colSpan={3}>
-            <WrongWordsWrapper>
-              {sliceIntoChunks().map((chunk, index) => (
-                <WrongWordsContainer key={index}>
-                  {chunk.map((wd, index) => (
-                    <WrongWordContainer key={index}>
-                      <IoCloseCustom />
-                      <WrongWord>
-                        <WrongWordLink
-                          target="_blank"
-                          to={`/words?search=${wd}`}
-                        >
-                          {wd}
-                        </WrongWordLink>
-                      </WrongWord>
-                    </WrongWordContainer>
-                  ))}
-                </WrongWordsContainer>
-              ))}
-            </WrongWordsWrapper>
-          </TD>
-        </TR>
-      ) : (
-        ""
-      )}
+      <TR>
+        <TD className="collapsable" colSpan={3}>
+          <AnimatePresence>
+            {open && (
+              <WrongWordsWrapper
+                variants={CollapsableVariants}
+                initial="hidden"
+                animate="show"
+                exit="exit"
+                key="indddd"
+              >
+                {sliceIntoChunks().map((chunk, index) => (
+                  <WrongWordsContainer key={index}>
+                    {chunk.map((wd, index) => (
+                      <WrongWordContainer key={index}>
+                        <IoCloseCustom />
+                        <WrongWord>
+                          <WrongWordLink
+                            target="_blank"
+                            to={`/words?search=${wd}`}
+                          >
+                            {wd}
+                          </WrongWordLink>
+                        </WrongWord>
+                      </WrongWordContainer>
+                    ))}
+                  </WrongWordsContainer>
+                ))}
+              </WrongWordsWrapper>
+            )}
+          </AnimatePresence>
+        </TD>
+      </TR>
     </React.Fragment>
+  );
+}
+
+function HistoryLoader() {
+  return (
+    <TR>
+      <TD className="history-ui-msgs" colSpan={3}>
+        <Loader center />
+      </TD>
+    </TR>
+  );
+}
+
+function EmptyHistory() {
+  return (
+    <TR>
+      <TD className="history-ui-msgs" colSpan={3}>
+        <NoDataFound>No previous quiz records found.</NoDataFound>
+      </TD>
+    </TR>
   );
 }
 
 const Table = styled.table`
   width: 100%;
   border-collapse: collapse;
-  table-layout: auto;
 `;
 
 const THead = styled.thead``;
 
-const TBody = styled.tbody``;
+const TBody = styled(motion.tbody)``;
 
 const TR = styled.tr``;
 
@@ -155,19 +176,25 @@ const TH = styled.th`
 `;
 
 const TD = styled.td`
-  padding: 2px;
   color: ${(props) => props.theme.text.dull};
   font-size: 0.8rem;
   font-weight: 400;
   letter-spacing: 1px;
-  height: 70px;
   position: relative;
+  border: none;
 
-  :first-child {
+  &:not(.collapsable) {
+    height: 70px;
+    padding: 2px;
+    background: none;
+    border-bottom: 1px solid ${(props) => props.theme.border.default};
+  }
+
+  &:first-child {
     width: 80px;
   }
 
-  :nth-child(2) {
+  &:nth-child(2) {
     width: 80%;
   }
 
@@ -205,12 +232,13 @@ const NoDataFound = styled.h2`
   letter-spacing: 1px;
 `;
 
-const WrongWordsWrapper = styled.div`
+const WrongWordsWrapper = styled(motion.div)`
   width: 100%;
   display: flex;
   overflow-x: auto;
-  padding: 5px;
   justify-content: center;
+  overflow: hidden;
+  background: #11161d;
 `;
 
 const WrongWordsContainer = styled.ul`
@@ -219,7 +247,7 @@ const WrongWordsContainer = styled.ul`
 `;
 
 const WrongWordContainer = styled.div`
-  margin: 6px 0;
+  margin: 10px 0;
   display: flex;
   align-items: center;
   font-style: italic;
