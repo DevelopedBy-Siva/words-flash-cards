@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 import Wrapper from "../../components/wrapper";
 import { optionNumber } from "../../utils/QuizGenerator";
@@ -25,8 +26,18 @@ export default function QnAnsContainer({ quizQn, setQuizQn }) {
 
   return (
     <Wrapper contain spaceAround grow>
-      <QuestionContainer>
-        <WordName>{name}</WordName>
+      <QuestionContainer
+        key={currentQn}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <WordName
+          initial={{ y: -60 }}
+          animate={{ y: 0 }}
+          transition={{ duration: 0.2 }}
+        >
+          {name}
+        </WordName>
         {options.map((opt, index) => (
           <Options
             onClick={() => handleMyChoice(index)}
@@ -39,6 +50,8 @@ export default function QnAnsContainer({ quizQn, setQuizQn }) {
             } ${
               index === correctChoiceStatusClassName ? "choice-correct" : ""
             }`}
+            initial={{ y: 60 }}
+            animate={{ y: 0 }}
           >
             <OptionsNumber active={myChoice === index} index={index}>
               {optionNumber(index)}
@@ -51,14 +64,14 @@ export default function QnAnsContainer({ quizQn, setQuizQn }) {
   );
 }
 
-const QuestionContainer = styled.div`
+const QuestionContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 `;
 
-const WordName = styled.h1`
+const WordName = styled(motion.h1)`
   color: ${(props) => props.theme.text.light};
   margin: 42px 0;
   letter-spacing: 2px;
@@ -92,7 +105,7 @@ const OptionsNumber = styled.span`
   flex-shrink: 0;
 `;
 
-const Options = styled.button`
+const Options = styled(motion.button)`
   border: none;
   outline: none;
   cursor: pointer;

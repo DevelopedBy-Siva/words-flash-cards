@@ -1,7 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { IoClose } from "react-icons/io5";
+import { TiTick } from "react-icons/ti";
+import { FaGreaterThan } from "react-icons/fa";
 
 import Wrapper from "../../components/wrapper";
 
@@ -21,17 +24,38 @@ export default function ScoreContainer({ myScore }) {
   return (
     <Wrapper contain spaceAround grow>
       <Container>
-        <Score className={score >= total / 2 ? "" : "failed"}>
+        <Score
+          initial={{ scale: 1.4 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className={score >= total / 2 ? "" : "failed"}
+        >
           {score} &#47; {total}
         </Score>
         <ScoreBreakupContainer>
-          <ScoreBreakup label="correct" value={score} />
-          <ScoreBreakup label="wrong" value={wrongWords.length} />
+          <ScoreBreakup label="correct" value={score}>
+            <TiTickCustom />
+          </ScoreBreakup>
+          <ScoreBreakup label="wrong" value={wrongWords.length}>
+            <IoCloseCustom className="breakup-wrong-ico" />
+          </ScoreBreakup>
         </ScoreBreakupContainer>
         {sliceIntoChunks().length > 0 ? (
           <React.Fragment>
-            <WrongWordsTitle>&#60; Wrong Words &#62;</WrongWordsTitle>
-            <WrongWordContainer>
+            <WrongWordsTitle
+              initial={{ opacity: 0, y: "30" }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.4 }}
+            >
+              <FaGreaterThanCustom className="less-than" />
+              Wrong Words
+              <FaGreaterThanCustom />
+            </WrongWordsTitle>
+            <WrongWordContainer
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.3 }}
+            >
               {sliceIntoChunks().map((chunk, chunkIndex) => (
                 <WrongWordsSubContainer key={chunkIndex}>
                   {chunk.map((wd, wdIndex) => (
@@ -54,11 +78,24 @@ export default function ScoreContainer({ myScore }) {
   );
 }
 
-function ScoreBreakup({ label, value }) {
+function ScoreBreakup({ label, value, children }) {
   return (
     <Breakup>
-      <BreakupLabel>{label}</BreakupLabel>
-      <BreakupValue>{value}</BreakupValue>
+      <LabelContainer
+        initial={{ opacity: 0, x: "-50" }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+      >
+        {children}
+        <BreakupLabel>{label}</BreakupLabel>
+      </LabelContainer>
+      <BreakupValue
+        initial={{ opacity: 0, x: "50" }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.2, duration: 0.6 }}
+      >
+        {value}
+      </BreakupValue>
     </Breakup>
   );
 }
@@ -71,8 +108,8 @@ const Container = styled.div`
   margin-top: 20px;
 `;
 
-const Score = styled.div`
-  padding: 5px;
+const Score = styled(motion.div)`
+  padding: 4px;
   width: 210px;
   height: 210px;
   text-align: center;
@@ -83,7 +120,8 @@ const Score = styled.div`
   justify-content: center;
   align-items: center;
   user-select: none;
-  font-size: 1.7rem;
+  font-size: 2rem;
+  font-weight: 700;
   margin: auto;
 
   &.failed {
@@ -91,7 +129,7 @@ const Score = styled.div`
   }
 `;
 
-const ScoreBreakupContainer = styled.div`
+const ScoreBreakupContainer = styled(motion.div)`
   width: 100%;
   max-width: 500px;
   margin: 50px auto;
@@ -103,27 +141,33 @@ const Breakup = styled.div`
   justify-content: space-between;
   padding: 18px;
   color: ${(props) => props.theme.text.light};
+  font-size: 0.9rem;
+  font-weight: 300;
+  user-select: none;
 `;
 
-const BreakupLabel = styled.span`
+const BreakupLabel = styled(motion.span)`
   text-transform: capitalize;
   letter-spacing: 1px;
 `;
 
-const BreakupValue = styled.span`
+const BreakupValue = styled(motion.span)`
   letter-spacing: 1px;
 `;
 
-const WrongWordsTitle = styled.h4`
+const WrongWordsTitle = styled(motion.h4)`
   font-size: 0.9rem;
   font-weight: 400;
   text-align: center;
   color: ${(props) => props.theme.text.dull};
-  margin: 15px auto 30px auto;
+  margin: 10px auto 20px auto;
   user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
-const WrongWordContainer = styled.div`
+const WrongWordContainer = styled(motion.div)`
   max-width: 500px;
   margin: auto;
   display: flex;
@@ -167,6 +211,32 @@ const WdLink = styled(Link)`
 `;
 
 const IoCloseCustom = styled(IoClose)`
-  margin-right: 5px;
-  color: red;
+  margin-right: 4px;
+  color: ${(props) => props.theme.button.red};
+
+  &.breakup-wrong-ico {
+    font-size: 1.2rem;
+    margin-right: 8px;
+  }
+`;
+
+const TiTickCustom = styled(TiTick)`
+  margin-right: 8px;
+  color: ${(props) => props.theme.button.green};
+  font-size: 1.2rem;
+`;
+
+const LabelContainer = styled(motion.div)`
+  display: flex;
+  align-items: center;
+`;
+
+const FaGreaterThanCustom = styled(FaGreaterThan)`
+  font-size: 1.1rem;
+  margin-left: 6px;
+  &.less-than {
+    transform: rotate(180deg);
+    margin-right: 6px;
+    margin-left: 0;
+  }
 `;

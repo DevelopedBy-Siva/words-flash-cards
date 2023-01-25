@@ -1,8 +1,9 @@
 import { Dexie } from "dexie";
 
 const db = new Dexie("WordsFlashCards");
-db.version(1).stores({
+db.version(2).stores({
   words: "name,meaning,example,indexedDB,createdAt",
+  history: "timestamp,score,wrongWords",
 });
 
 export const addWordToDb = async (word) => {
@@ -21,4 +22,18 @@ export const getWordsFromDb = async () => {
 export const deleteWordFromDb = async (key) => {
   key = key.toLowerCase();
   return await db.words.delete(key);
+};
+
+export const addToHistory = async (data) => {
+  const { wrongWords, total, score } = data;
+  const result = {
+    timestamp: Date.now(),
+    score: `${score}:${total}`,
+    wrongWords,
+  };
+  return await db.history.put(result);
+};
+
+export const getHistory = async () => {
+  return await db.history.orderBy("timestamp").reverse().toArray();
 };

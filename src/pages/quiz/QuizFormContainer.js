@@ -6,6 +6,7 @@ import Loader from "../../components/loader";
 import Wrapper from "../../components/wrapper";
 import FontSize from "../../assets/styles/FontSizes.json";
 import { quizGenerator } from "../../utils/QuizGenerator";
+import { useSelector } from "react-redux";
 
 const QuizFormContainer = memo(function QuizFormContainer({
   words,
@@ -16,6 +17,8 @@ const QuizFormContainer = memo(function QuizFormContainer({
 
   const [quizInput, setQuizInput] = useState("");
   const [proceed, setProceed] = useState(false);
+
+  const isInitialising = useSelector((state) => state.words.loading);
 
   useEffect(() => {
     if (inputRef.current) inputRef.current.focus();
@@ -54,6 +57,8 @@ const QuizFormContainer = memo(function QuizFormContainer({
     }
   }
 
+  const isDisabled = isInitialising || proceed;
+
   return (
     <Wrapper contain spaceAround grow center>
       <QuizForm onSubmit={startQuiz}>
@@ -66,14 +71,14 @@ const QuizFormContainer = memo(function QuizFormContainer({
           inputMode="numeric"
           spellCheck="false"
           type="text"
-          disabled={proceed}
+          disabled={isDisabled}
         />
         <CheckBoxContainer>
-          <CheckBox type="checkbox" ref={checkBoxRef} disabled={proceed} />
+          <CheckBox type="checkbox" ref={checkBoxRef} disabled={isDisabled} />
           <CheckBoxLabel>Includes words from the local database</CheckBoxLabel>
         </CheckBoxContainer>
-        <StartBtn type="submit" disabled={proceed}>
-          {!proceed ? "Start" : <Loader center />}
+        <StartBtn type="submit" disabled={isDisabled}>
+          {!isDisabled ? "Start" : <Loader center />}
         </StartBtn>
       </QuizForm>
     </Wrapper>

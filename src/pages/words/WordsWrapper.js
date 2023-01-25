@@ -1,24 +1,16 @@
-import React, { lazy, Suspense, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { lazy, Suspense } from "react";
+import { useSelector } from "react-redux";
 
-import { initialiseWords } from "../../redux/reducer/Words";
 import Indicators from "./Indicators";
 
 const WordsContainer = lazy(() => import("./WordsContainer"));
 
 export default function WordsWrapper() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(initialiseWords());
-  }, [dispatch]);
-
   const initializing = useSelector((state) => state.words.loading);
 
-  return initializing ? (
-    <Indicators loading />
-  ) : (
-    <Suspense>
+  if (initializing) return <Indicators loading />;
+  return (
+    <Suspense fallback={<Indicators loading />}>
       <WordsContainer />
     </Suspense>
   );

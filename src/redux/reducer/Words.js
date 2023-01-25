@@ -62,7 +62,7 @@ const reducer = (state = initialState, action) => {
 };
 export default reducer;
 
-export function initialiseWords() {
+function getAllWords() {
   return async (dispatch) => {
     dispatch(triggerLoading(true));
     const data = await import("../../assets/data/words.json").then(
@@ -72,4 +72,8 @@ export function initialiseWords() {
     const combine = data.concat(fromDB);
     dispatch(fetchWords(combine));
   };
+}
+
+export function initialiseWords(dispatch) {
+  dispatch(getAllWords());
 }

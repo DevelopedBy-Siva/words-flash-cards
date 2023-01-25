@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 
 import Wrapper from "../../components/wrapper";
 import FontSize from "../../assets/styles/FontSizes.json";
+import { addToHistory } from "../../db";
 
 export default function QuizNavContainer({ totalWords, quizQn, setQuizQns }) {
   return (
@@ -38,6 +39,7 @@ function QnAnsNavContainer({ quizQns, setQuizQns }) {
   const { status, myChoice, answer } = quizQns.qns[currentQn];
 
   function submitAnswer() {
+    if (myChoice === null) return;
     const newQuizQn = [...quizQns.qns];
     newQuizQn[currentQn].status = myChoice === answer;
     setQuizQns({ ...quizQns, qns: [...newQuizQn] });
@@ -47,7 +49,7 @@ function QnAnsNavContainer({ quizQns, setQuizQns }) {
     setQuizQns({ ...quizQns, currentQn: currentQn + 1 });
   }
 
-  function finishQuiz() {
+  async function finishQuiz() {
     finishBtn.current.disabled = true;
     try {
       const qns = [...quizQns.qns];
@@ -60,6 +62,13 @@ function QnAnsNavContainer({ quizQns, setQuizQns }) {
         if (qn.status === false) result.wrongWords.push(qn.name);
       });
       result.score = max - result.wrongWords.length;
+
+      await addToHistory(result).catch(() =>
+        toast.error(
+          "Something went wrong. Failed to save score to the history."
+        )
+      );
+
       return navigate("/score", { state: { ...result } });
     } catch (ex) {
       toast.error("Something went wrong. Failed to generate score.");
@@ -73,7 +82,12 @@ function QnAnsNavContainer({ quizQns, setQuizQns }) {
         {currentQn + 1} &#47; {max}
       </QnAnsNavQnTrack>
       {status === null ? (
-        <QnAnsNavSubmitBtn onClick={submitAnswer}>Submit</QnAnsNavSubmitBtn>
+        <QnAnsNavSubmitBtn
+          disabled={myChoice === null ? true : false}
+          onClick={submitAnswer}
+        >
+          Submit
+        </QnAnsNavSubmitBtn>
       ) : currentQn + 1 !== max ? (
         <QnAnsNavNextBtn onClick={nextQuestion}>Next</QnAnsNavNextBtn>
       ) : (
@@ -125,6 +139,10 @@ const QnAnsNavBtn = styled.button`
 
 const QnAnsNavSubmitBtn = styled(QnAnsNavBtn)`
   background: ${(props) => props.theme.button.blue};
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;
 
 const QnAnsNavNextBtn = styled(QnAnsNavBtn)`
