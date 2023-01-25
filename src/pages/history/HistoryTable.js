@@ -200,6 +200,7 @@ const TD = styled.td`
 
   &.history-ui-msgs {
     height: 100px;
+    border-bottom: none;
   }
 `;
 
@@ -209,7 +210,6 @@ const CollapseBtn = styled.button`
   align-items: center;
   font-size: 1.2rem;
   background: none;
-  border: none;
   border: none;
   height: 20px;
   border-radius: 4px;
