@@ -191,11 +191,11 @@ const TD = styled.td`
   }
 
   &:first-child {
-    width: 80px;
+    width: 10%;
   }
 
   &:nth-child(2) {
-    width: 80%;
+    width: 78%;
   }
 
   &.history-ui-msgs {
