@@ -235,7 +235,7 @@ const NoDataFound = styled.h2`
 const WrongWordsWrapper = styled(motion.div)`
   width: 100%;
   display: flex;
-  overflow-x: auto;
+  flex-wrap: wrap;
   justify-content: center;
   overflow: hidden;
   background: #11161d;
