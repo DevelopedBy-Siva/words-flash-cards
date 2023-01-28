@@ -52,5 +52,71 @@
     "meaning": "Not favorable or Not likely to have or produce a good result",
     "example": "The candidate’s unpropitious speak is unlikely to win him any votes",
     "createdAt": ""
+  },
+  {
+    "name": "Recession",
+    "meaning": "A period of temporary economic decline during which trade and industrial activity are reduced",
+    "example": "The country is in the depths of a recession",
+    "createdAt": ""
+  },
+  {
+    "name": "Dearth",
+    "meaning": "A scarcity or lack of something",
+    "example": "There is a dearth of evidence",
+    "createdAt": ""
+  },
+  {
+    "name": "Inevitable",
+    "meaning": "Unavoidable",
+    "example": "War was inevitable",
+    "createdAt": ""
+  },
+  {
+    "name": "Venture",
+    "meaning": "A risky or daring journey",
+    "example": "We ventured out into the woods",
+    "createdAt": ""
+  },
+  {
+    "name": "Contemporary",
+    "meaning": "Existing or happening now",
+    "example": "Was he a contemporary of Shakespeare's?",
+    "createdAt": ""
+  },
+  {
+    "name": "Subtle",
+    "meaning": "So small or precise as to be difficult to analyse or describe",
+    "example": "There is a subtle difference between these two plans",
+    "createdAt": ""
+  },
+  {
+    "name": "Impregnable",
+    "meaning": "unable to be captured or broken into",
+    "example": "The fortress is impregnable",
+    "createdAt": ""
+  },
+  {
+    "name": "Insidious",
+    "meaning": "Proceeding in a gradual, subtle way, but with very harmful effects",
+    "example": "Sexual harassment is a serious and insidious problem",
+    "createdAt": ""
+  },
+  {
+    "name": "Cataclysm",
+    "meaning": "A large-scale and violent event",
+    "example": "A cataclysmic earthquake",
+    "createdAt": ""
+  },
+  {
+    "name": "Corroborate",
+    "meaning": "Make more certain",
+    "example": "The theory has been corroborated by recent studies",
+    "createdAt": ""
+  },
+  {
+    "name": "Juxtapose",
+    "meaning": "To place two concepts or objects next to or near each other, thereby highlighting their differences and similarities",
+    "example": "Juxtapose two opposing views about the phenomenon",
+    "createdAt": ""
   }
 ]
