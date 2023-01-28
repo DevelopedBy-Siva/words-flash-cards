@@ -37,10 +37,11 @@ export const questionOptions = (ignoredIndex, answer, words) => {
 };
 
 export const questionObject = (words, index) => {
-  const { name, meaning } = words[index];
+  const { name, meaning, example } = words[index];
   const question = {
     name,
     answer: null,
+    answerExample: example,
     options: [],
     myChoice: null,
     status: null,
