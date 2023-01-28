@@ -11,7 +11,8 @@ export default function QnAnsContainer({ quizQn, setQuizQn }) {
   }, []);
 
   const { currentQn, qns } = quizQn;
-  const { name, options, myChoice, status, answer } = qns[currentQn];
+  const { name, options, myChoice, status, answer, answerExample } =
+    qns[currentQn];
 
   function handleMyChoice(ansIndex) {
     if (status !== null) return;
@@ -56,7 +57,19 @@ export default function QnAnsContainer({ quizQn, setQuizQn }) {
             <OptionsNumber active={myChoice === index} index={index}>
               {optionNumber(index)}
             </OptionsNumber>
-            <OptionValue>{opt}</OptionValue>
+            <OptionValue>
+              <OptionChoice>{opt}</OptionChoice>
+              {status != null && answer === index ? (
+                <OptionExample
+                  initial={{ height: 0 }}
+                  animate={{ height: "auto" }}
+                >
+                  "{answerExample}"
+                </OptionExample>
+              ) : (
+                ""
+              )}
+            </OptionValue>
           </Options>
         ))}
       </QuestionContainer>
@@ -144,6 +157,15 @@ const Options = styled(motion.button)`
   }
 `;
 
-const OptionValue = styled.p`
+const OptionValue = styled.div``;
+
+const OptionChoice = styled.p`
   text-align: justify;
+`;
+
+const OptionExample = styled(motion.p)`
+  text-align: justify;
+  font-size: 0.8rem;
+  font-style: italic;
+  margin-top: 6px;
 `;
