@@ -1,122 +1,128 @@
 [
   {
     "name": "Procrastination",
-    "meaning": "To delay thing",
+    "meaning": "The action of delaying or postponing something",
     "example": "Ram procrastinated his homework and missed the date of submission",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Broadly",
     "meaning": "In general and without considering minor details.",
     "example": "Broadly speaking, I agree with you",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Comprehensive",
     "meaning": "Covering completely & including everything that is necessary",
     "example": "We offer you a comprehensive training in all aspects of the business",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Dire",
     "meaning": "Extremely serious or urgent",
     "example": "Misuse of drugs can have dire consequences",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Endeavour",
     "meaning": "An attempt to achieve a goal",
     "example": "An endeavour to reduce serious injury",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Incorporate",
     "meaning": "To include or integrate into something that’s already existing",
     "example": "The area was successfully incorporated as part of the city",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Solvent",
     "meaning": "Having enough money to pay all the money that is owed to other people",
     "example": "Many insurance companies are under pressure to increase premiums to stay solvent",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Subsume",
     "meaning": "To include something or someone as part of a larger group",
     "example": "Soldiers from many different countries have been subsumed into the United Nations peace-keeping force",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Unpropitious",
     "meaning": "Not favorable or Not likely to have or produce a good result",
     "example": "The candidate’s unpropitious speak is unlikely to win him any votes",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Recession",
     "meaning": "A period of temporary economic decline during which trade and industrial activity are reduced",
     "example": "The country is in the depths of a recession",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Dearth",
     "meaning": "A scarcity or lack of something",
     "example": "There is a dearth of evidence",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Inevitable",
     "meaning": "Unavoidable",
     "example": "War was inevitable",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Venture",
     "meaning": "A risky or daring journey",
     "example": "We ventured out into the woods",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Contemporary",
     "meaning": "Existing or happening now",
     "example": "Was he a contemporary of Shakespeare's?",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Subtle",
     "meaning": "So small or precise as to be difficult to analyse or describe",
     "example": "There is a subtle difference between these two plans",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Impregnable",
     "meaning": "unable to be captured or broken into",
     "example": "The fortress is impregnable",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Insidious",
     "meaning": "Proceeding in a gradual, subtle way, but with very harmful effects",
     "example": "Sexual harassment is a serious and insidious problem",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Cataclysm",
     "meaning": "A large-scale and violent event",
     "example": "A cataclysmic earthquake",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Corroborate",
     "meaning": "Make more certain",
     "example": "The theory has been corroborated by recent studies",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Juxtapose",
     "meaning": "To place two concepts or objects next to or near each other, thereby highlighting their differences and similarities",
     "example": "Juxtapose two opposing views about the phenomenon",
-    "createdAt": ""
+    "createdAt": "1676708864224"
+  },
+    {
+    "name": "Abate",
+    "meaning": "To decrease or reduce",
+    "example": "NASA announced that it would delay the launch of the manned spacecraft until the radiation from the solar flares abated",
+    "createdAt": "1676709106101"
   }
 ]
