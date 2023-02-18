@@ -44,6 +44,7 @@ export default function WordDetails({ close, details }) {
 
   const saveWord = async () => {
     saveBtn.current.disabled = true;
+    toast.dismiss();
     const word = {
       ...details,
       meaning: data.meaning,
@@ -64,6 +65,7 @@ export default function WordDetails({ close, details }) {
 
   const removeWord = async () => {
     deleteBtn.current.disabled = true;
+    toast.dismiss();
     await deleteWordFromDb(details.name)
       .then(() => {
         dispatch(deleteWord(details.name));
