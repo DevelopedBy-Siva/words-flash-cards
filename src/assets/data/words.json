@@ -131,10 +131,40 @@
     "example": "In United states, fandom is evenly apportioned among different sports",
     "createdAt": "1677340929325"
   },
-    {
+  {
     "name": "Abscond",
     "meaning": "Leave secretly",
     "example": "Paul barber absconded with 2 million dollars",
     "createdAt": "1677341073611"
+  },
+  {
+    "name": "Delusion",
+    "meaning": "False belief or perception that is not based on reality or evidence",
+    "example": "John's delusion that he is a superhero often leads him to take unnecessary risks and put himself in danger",
+    "createdAt": "1677410453205"
+  },
+  {
+    "name": "Cognitive",
+    "meaning": "It relates to the ability to understand and process information",
+    "example": "The cognitive abilities of children develop rapidly during the first few years of life",
+    "createdAt": "1677411213776"
+  },
+  {
+    "name": "Dementia",
+    "meaning": "It is used to describe a decline in cognitive function, such as memory loss, language difficulties, and impaired judgment",
+    "example": "My grandmother suffers from dementia and has trouble remembering who her family members are",
+    "createdAt": "1677411722032"
+  },
+  {
+    "name": "Catastrophe",
+    "meaning": "It refers to a sudden and widespread disaster or misfortune that causes great damage or suffering",
+    "example": "The earthquake that struck the city last night was a catastrophic event that destroyed many buildings and claimed numerous lives",
+    "createdAt": "1677411743558"
+  },
+  {
+    "name": "Hysteria",
+    "meaning": "It refers to a state of uncontrollable emotion, often characterized by anxiety, fear, or panic",
+    "example": "The news of the virus outbreak caused widespread hysteria, with people rushing to buy supplies and stock up on food",
+    "createdAt": "1677413279937"
   }
 ]
