@@ -1,122 +1,170 @@
 [
   {
     "name": "Procrastination",
-    "meaning": "To delay thing",
+    "meaning": "The action of delaying or postponing something",
     "example": "Ram procrastinated his homework and missed the date of submission",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Broadly",
     "meaning": "In general and without considering minor details.",
     "example": "Broadly speaking, I agree with you",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Comprehensive",
     "meaning": "Covering completely & including everything that is necessary",
     "example": "We offer you a comprehensive training in all aspects of the business",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Dire",
     "meaning": "Extremely serious or urgent",
     "example": "Misuse of drugs can have dire consequences",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Endeavour",
     "meaning": "An attempt to achieve a goal",
     "example": "An endeavour to reduce serious injury",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Incorporate",
     "meaning": "To include or integrate into something that’s already existing",
     "example": "The area was successfully incorporated as part of the city",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Solvent",
     "meaning": "Having enough money to pay all the money that is owed to other people",
     "example": "Many insurance companies are under pressure to increase premiums to stay solvent",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Subsume",
     "meaning": "To include something or someone as part of a larger group",
     "example": "Soldiers from many different countries have been subsumed into the United Nations peace-keeping force",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Unpropitious",
     "meaning": "Not favorable or Not likely to have or produce a good result",
     "example": "The candidate’s unpropitious speak is unlikely to win him any votes",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Recession",
     "meaning": "A period of temporary economic decline during which trade and industrial activity are reduced",
     "example": "The country is in the depths of a recession",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Dearth",
     "meaning": "A scarcity or lack of something",
     "example": "There is a dearth of evidence",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Inevitable",
     "meaning": "Unavoidable",
     "example": "War was inevitable",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Venture",
     "meaning": "A risky or daring journey",
     "example": "We ventured out into the woods",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Contemporary",
     "meaning": "Existing or happening now",
     "example": "Was he a contemporary of Shakespeare's?",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Subtle",
     "meaning": "So small or precise as to be difficult to analyse or describe",
     "example": "There is a subtle difference between these two plans",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Impregnable",
     "meaning": "unable to be captured or broken into",
     "example": "The fortress is impregnable",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Insidious",
     "meaning": "Proceeding in a gradual, subtle way, but with very harmful effects",
     "example": "Sexual harassment is a serious and insidious problem",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Cataclysm",
     "meaning": "A large-scale and violent event",
     "example": "A cataclysmic earthquake",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Corroborate",
     "meaning": "Make more certain",
     "example": "The theory has been corroborated by recent studies",
-    "createdAt": ""
+    "createdAt": "1676708864224"
   },
   {
     "name": "Juxtapose",
     "meaning": "To place two concepts or objects next to or near each other, thereby highlighting their differences and similarities",
     "example": "Juxtapose two opposing views about the phenomenon",
-    "createdAt": ""
+    "createdAt": "1676708864224"
+  },
+    {
+    "name": "Abate",
+    "meaning": "To decrease or reduce",
+    "example": "NASA announced that it would delay the launch of the manned spacecraft until the radiation from the solar flares abated",
+    "createdAt": "1676709106101"
+  },
+  {
+    "name": "Apportioned",
+    "meaning": "Divide up or share out",
+    "example": "In United states, fandom is evenly apportioned among different sports",
+    "createdAt": "1677340929325"
+  },
+  {
+    "name": "Abscond",
+    "meaning": "Leave secretly",
+    "example": "Paul barber absconded with 2 million dollars",
+    "createdAt": "1677341073611"
+  },
+  {
+    "name": "Delusion",
+    "meaning": "False belief or perception that is not based on reality or evidence",
+    "example": "John's delusion that he is a superhero often leads him to take unnecessary risks and put himself in danger",
+    "createdAt": "1677410453205"
+  },
+  {
+    "name": "Cognitive",
+    "meaning": "It relates to the ability to understand and process information",
+    "example": "The cognitive abilities of children develop rapidly during the first few years of life",
+    "createdAt": "1677411213776"
+  },
+  {
+    "name": "Dementia",
+    "meaning": "It is used to describe a decline in cognitive function, such as memory loss, language difficulties, and impaired judgment",
+    "example": "My grandmother suffers from dementia and has trouble remembering who her family members are",
+    "createdAt": "1677411722032"
+  },
+  {
+    "name": "Catastrophe",
+    "meaning": "It refers to a sudden and widespread disaster or misfortune that causes great damage or suffering",
+    "example": "The earthquake that struck the city last night was a catastrophic event that destroyed many buildings and claimed numerous lives",
+    "createdAt": "1677411743558"
+  },
+  {
+    "name": "Hysteria",
+    "meaning": "It refers to a state of uncontrollable emotion, often characterized by anxiety, fear, or panic",
+    "example": "The news of the virus outbreak caused widespread hysteria, with people rushing to buy supplies and stock up on food",
+    "createdAt": "1677413279937"
   }
 ]
