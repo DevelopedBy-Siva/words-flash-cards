@@ -75,7 +75,7 @@ const QuizFormContainer = memo(function QuizFormContainer({
         />
         <CheckBoxContainer>
           <CheckBox type="checkbox" ref={checkBoxRef} disabled={isDisabled} />
-          <CheckBoxLabel>Includes words from the local database</CheckBoxLabel>
+          <CheckBoxLabel>Include recently added words</CheckBoxLabel>
         </CheckBoxContainer>
         <StartBtn type="submit" disabled={isDisabled}>
           {!isDisabled ? "Start" : <Loader center />}
