@@ -166,5 +166,11 @@
     "meaning": "It refers to a state of uncontrollable emotion, often characterized by anxiety, fear, or panic",
     "example": "The news of the virus outbreak caused widespread hysteria, with people rushing to buy supplies and stock up on food",
     "createdAt": "1677413279937"
+  },
+  {
+    "name": "Paradox",
+    "meaning": "A statement that seems to go against common sense but may still be true",
+    "example": "The enemy of my enemy is my friend",
+    "createdAt": "1677855669858"
   }
 ]
