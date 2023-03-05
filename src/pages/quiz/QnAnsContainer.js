@@ -160,7 +160,8 @@ const Options = styled(motion.button)`
 const OptionValue = styled.div``;
 
 const OptionChoice = styled.p`
-  text-align: justify;
+  text-align: left;
+  line-height: 1.2rem;
 `;
 
 const OptionExample = styled(motion.p)`
