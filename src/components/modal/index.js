@@ -1,17 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import FocusLock from "react-focus-lock";
 import { motion } from "framer-motion";
 import { IoMdClose } from "react-icons/io";
 
 export default function Modal({ id, close, layoutAnimation = {}, children }) {
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+  }, []);
+
+  function handleClose() {
+    close();
+    document.body.style.overflow = "auto";
+  }
+
   return (
     <FocusLock>
       <Container>
-        <Overlay {...OverlayAnimation} onClick={() => close()} />
+        <Overlay {...OverlayAnimation} onClick={handleClose} />
         <ContentWrapper layoutId={id} {...layoutAnimation}>
           <Content {...ContentAnimation}>{children}</Content>
-          <CloseBtn onClick={() => close()}>
+          <CloseBtn onClick={handleClose}>
             <IoMdCloseCustom />
           </CloseBtn>
         </ContentWrapper>
@@ -49,6 +58,25 @@ const ContentWrapper = styled(motion.div)`
   background: ${(props) => props.theme.button.dull};
   margin: auto;
   border-radius: 15px;
+  overflow-y: auto;
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: ${(props) => props.theme.background.application};
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #454d5a;
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #545c69;
+  }
 `;
 
 const Content = styled(motion.div)`
