@@ -28,8 +28,8 @@ export default function WordNavBar() {
     }
     setSearchInput(value);
     searchParam.set("search", value);
-    setSearchParams(searchParam);
     searchParam.set("page", 1);
+    setSearchParams(searchParam);
   }
 
   return (
