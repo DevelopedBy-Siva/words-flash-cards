@@ -232,5 +232,35 @@
     "meaning": "It means something that is unimportant, or insignificant",
     "example": "The teacher reminded the students not to waste time on trivial details but to focus on the main ideas",
     "createdAt": "1678026319180"
+  },
+  {
+    "name": "Deceptive",
+    "meaning": "It refers to something that is misleading or lie",
+    "example": "The advertisement was found to be deceptive, as it exaggerated the benefits of the product",
+    "createdAt": "1678049669034"
+  },
+  {
+    "name": "Impediment",
+    "meaning": "It refers to obstacles or barriers that prevent or hinder progress or movement",
+    "example": "The lack of funding was the biggest impediment to the success of the project",
+    "createdAt": "1678049972097"
+  },
+  {
+    "name": "Counterfeit",
+    "meaning": "A fraudulent imitation of something",
+    "example": "The cops caught 2 million dollars of counterfeit currency from Paul Barber",
+    "createdAt": "1678050099460"
+  },
+  {
+    "name": "Exploit",
+    "meaning": "To take advantage of something in an unfair way, or to make use of a resource or opportunity skilfully",
+    "example": "The athlete was able to exploit the opponent's weaknesses to win the match",
+    "createdAt": "1678050731190"
+  },
+  {
+    "name": "Woo",
+    "meaning": "Efforts to impress or try to gain the favor, affection, or support of someone",
+    "example": "The politician tried to woo voters with promises of tax cuts and job creation",
+    "createdAt": "1678050879452"
   }
 ]
