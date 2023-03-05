@@ -90,9 +90,9 @@ const WordName = styled(motion.h1)`
   letter-spacing: 2px;
   font-size: 2.2rem;
   text-transform: capitalize;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  word-wrap: break-word;
+  width: 100%;
+  text-align: center;
 
   @media screen and (max-width: 800px) {
     font-size: 1.6rem;
