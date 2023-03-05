@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { AnimatePresence, motion } from "framer-motion";
 import { HiComputerDesktop } from "react-icons/hi2";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose, AiFillCaretRight } from "react-icons/ai";
 import { MdOutlineBackup } from "react-icons/md";
 
 import Wrapper from "../../components/wrapper";
 import { WORDS_WARNING } from "../../assets/constants";
 
-export default function IndexedDbWarning({ msg, sub = true }) {
+export default function IndexedDbWarning({ msg = [], sub = true }) {
   const [close, setClose] = useState(false);
 
   const show = sub && sessionStorage.getItem(WORDS_WARNING);
@@ -32,7 +32,20 @@ export default function IndexedDbWarning({ msg, sub = true }) {
             cover={sub ? 1 : 0}
           >
             <NoteTxt>Note:</NoteTxt>
-            {msg ? <WarningTxt>{msg}</WarningTxt> : <DefaultWarningMsg />}
+            <WarningWrapper>
+              {!msg || msg.length === 0 ? (
+                <DefaultWarningMsg />
+              ) : (
+                msg.map((i, index) => (
+                  <TextWrapper key={index}>
+                    {msg.length > 1 && <WarningTxtBullet />}
+                    <WarningTxt showAsList={msg && msg.length > 1 ? 1 : 0}>
+                      {i}
+                    </WarningTxt>
+                  </TextWrapper>
+                ))
+              )}
+            </WarningWrapper>
             <CloseBtn onClick={closeWarning}>
               <AiOutlineClose />
             </CloseBtn>
@@ -87,12 +100,27 @@ const NoteTxt = styled.span`
   border-bottom: 1px solid ${(props) => props.theme.text.dull};
 `;
 
-const WarningTxt = styled.span`
+const WarningWrapper = styled.ul``;
+
+const TextWrapper = styled.div`
+  display: flex;
+  align-items: baseline;
+`;
+
+const WarningTxtBullet = styled(AiFillCaretRight)`
+  flex-shrink: 0;
+  margin-right: 5px;
+  font-size: 0.7rem;
+  transform: translateY(1px);
+`;
+
+const WarningTxt = styled.li`
   margin-top: 10px;
   display: block;
   font-weight: 300;
   font-size: 0.9rem;
   line-height: 1.2rem;
+  list-style: none;
 `;
 
 const CloseBtn = styled.button`
