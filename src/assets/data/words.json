@@ -172,5 +172,65 @@
     "meaning": "A statement that seems to go against common sense but may still be true",
     "example": "The enemy of my enemy is my friend",
     "createdAt": "1677855669858"
+  },
+  {
+    "name": "Propaganda",
+    "meaning": "It refers to information, ideas, or opinions that are deliberately spread in order to influence public",
+    "example": "The film was criticized for being nothing more than a piece of propaganda, promoting an ideology without an accuracy",
+    "createdAt": "1678024009388"
+  },
+  {
+    "name": "Seldom",
+    "meaning": "It implies that something happens only on rare occasions or is not a common occurrence",
+    "example": "Despite his busy schedule, Jack seldom misses a workout at the gym",
+    "createdAt": "1678024188587"
+  },
+  {
+    "name": "Susceptible",
+    "meaning": "It means being easily influenced or affected by something",
+    "example": "Children are more susceptible to illnesses than adults because their immune systems are not fully developed",
+    "createdAt": "1678024430671"
+  },
+  {
+    "name": "Irksome",
+    "meaning": "It means annoying, irritating, or causing discomfort",
+    "example": "The irksome smell of cigarette smoke in the restaurant ruined our dining experience",
+    "createdAt": "1678024831748"
+  },
+  {
+    "name": "Gratify",
+    "meaning": "It means to please or satisfy someone by fulfilling their desires, wishes or expectations",
+    "example": "The teacher was gratified by the students' excellent performance in the final exams",
+    "createdAt": "1678024998996"
+  },
+  {
+    "name": "Obscure",
+    "meaning": "It means something that is difficult to understand, unclear, or not well known",
+    "example": "The movie was criticized heavily by critics for its obscure plot and confusing narrative structure",
+    "createdAt": "1678025164988"
+  },
+  {
+    "name": "Morbid",
+    "meaning": "It refers to something that is related to or characteristic of disease, illness, death, or unpleasant events",
+    "example": "The old abandoned hospital had a morbid atmosphere that sent shivers down my spine",
+    "createdAt": "1678025837926"
+  },
+  {
+    "name": "Daunting",
+    "meaning": "It means something that appears difficult, challenging, or intimidating, to the point of making someone feel discouraged or overwhelmed",
+    "example": "The amount of work required to complete the project was daunting, but they managed to finish it on time",
+    "createdAt": "1678026041300"
+  },
+  {
+    "name": "Intimidate",
+    "meaning": "It means to make someone feel afraid",
+    "example": "The witness was afraid to testify in court because she had been intimidated by the defendant's supporters",
+    "createdAt": "1678026216598"
+  },
+  {
+    "name": "Trivial",
+    "meaning": "It means something that is unimportant, or insignificant",
+    "example": "The teacher reminded the students not to waste time on trivial details but to focus on the main ideas",
+    "createdAt": "1678026319180"
   }
 ]
