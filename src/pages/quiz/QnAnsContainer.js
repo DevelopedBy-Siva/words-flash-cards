@@ -165,7 +165,7 @@ const OptionChoice = styled.p`
 `;
 
 const OptionExample = styled(motion.p)`
-  text-align: justify;
+  text-align: left;
   font-size: 0.8rem;
   font-style: italic;
   margin-top: 6px;
