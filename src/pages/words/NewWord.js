@@ -240,6 +240,10 @@ const WordInput = styled.input`
     font-size: 0.9rem;
     text-transform: none;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 `;
 
 const ApiError = styled.span`
@@ -282,6 +286,10 @@ const InputSearchBtn = styled.button`
   position: relative;
   width: 80px;
   height: 32px;
+
+  &:disabled {
+    cursor: wait;
+  }
 `;
 
 const DetailsContainer = styled(motion.div)`
