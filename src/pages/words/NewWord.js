@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { toast } from "react-toastify";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 
 import Modal from "../../components/modal";
@@ -11,7 +11,7 @@ import { addWordToDb } from "../../db";
 import { addWord } from "../../redux/actions/Words_Actions";
 import IndexedDbWarning from "./IndexedDbWarning";
 
-export default function NewWord({ addBtnActive, setAddBtnActive }) {
+export default function NewWord({ setAddBtnActive }) {
   const wordInputRef = useRef(null);
   const addBtnRef = useRef(null);
 
@@ -19,7 +19,10 @@ export default function NewWord({ addBtnActive, setAddBtnActive }) {
   const [word, setWord] = useState({
     data: null,
     loading: false,
+    error: null,
   });
+
+  const [stillAdd, setStillAdd] = useState(null);
 
   const closeModal = () => setAddBtnActive(null);
 
@@ -38,11 +41,14 @@ export default function NewWord({ addBtnActive, setAddBtnActive }) {
   async function searchWord(e) {
     e.preventDefault();
     if (wordInput.length === 0) return;
-
-    setWord({ data: null, loading: true });
+    setWord({ data: null, error: null, loading: true });
     await searchDictionary(wordInput)
       .then((data) => setWord({ data, loading: false }))
-      .catch(() => setWord({ data: null, loading: false }));
+      .catch((err) => {
+        let error = 500;
+        if (err && err.code === 404) error = 404;
+        setWord({ data: null, loading: false, error });
+      });
   }
 
   async function addNewWord() {
@@ -75,52 +81,56 @@ export default function NewWord({ addBtnActive, setAddBtnActive }) {
   }
 
   return (
-    <AnimatePresence>
-      {addBtnActive ? (
-        <Modal layoutAnimation={ContainerAnimation} close={closeModal}>
-          <Container>
-            <Title>Add New Word</Title>
-            <IndexedDbWarning
-              sub={false}
-              msg={[
-                "New words will be stored in the browser database. So, clearing the browser data will remove the words permanently.",
-                "Words stored in the browser database can be edited from the words page.",
-              ]}
-            />
-            <Form onSubmit={searchWord}>
-              <WordInput
-                ref={wordInputRef}
-                value={wordInput}
-                onChange={handleWordInputChange}
-                type="text"
-                spellCheck="false"
-                inputMode="search"
-                disabled={word.loading}
-                placeholder="Enter the word here..."
-              />
-              <InputSearchBtn type="submit" disabled={word.loading}>
-                {word.loading ? <LoadingSpinner size="25" center /> : "Search"}
-              </InputSearchBtn>
-            </Form>
-            {word.data ? (
-              <DetailsContainer>
-                <Details>
-                  <FoundWord>{word.data.name}</FoundWord>
-                  <FoundWordMeaning>{word.data.meaning}</FoundWordMeaning>
-                </Details>
-                <AddBtn ref={addBtnRef} onClick={addNewWord}>
-                  Add
-                </AddBtn>
-              </DetailsContainer>
-            ) : (
-              ""
-            )}
-          </Container>
-        </Modal>
-      ) : (
-        ""
-      )}
-    </AnimatePresence>
+    <Modal layoutAnimation={ContainerAnimation} close={closeModal}>
+      <Container>
+        <Title>Add New Word</Title>
+        <IndexedDbWarning
+          sub={false}
+          msg={[
+            "New words will be stored in the browser database. So, clearing the browser data will remove the words permanently.",
+            "Words stored in the browser database can be edited from the words page.",
+          ]}
+        />
+        <Form onSubmit={searchWord}>
+          <WordInput
+            ref={wordInputRef}
+            value={wordInput}
+            onChange={handleWordInputChange}
+            type="text"
+            spellCheck="false"
+            inputMode="search"
+            disabled={word.loading}
+            placeholder="Enter the word here..."
+          />
+          {word.error && (
+            <ApiError>
+              {word.error === 404
+                ? "Failed to find the word from the Dictionary API. "
+                : "Something went wrong with the Dictionary API. "}
+              <ApiErrorContinue type="button">
+                Still wish to add?
+              </ApiErrorContinue>
+            </ApiError>
+          )}
+          <InputSearchBtn type="submit" disabled={word.loading}>
+            {word.loading ? <LoadingSpinner size="25" center /> : "Search"}
+          </InputSearchBtn>
+        </Form>
+        {word.data ? (
+          <DetailsContainer>
+            <Details>
+              <FoundWord>{word.data.name}</FoundWord>
+              <FoundWordMeaning>{word.data.meaning}</FoundWordMeaning>
+            </Details>
+            <AddBtn ref={addBtnRef} onClick={addNewWord}>
+              Add
+            </AddBtn>
+          </DetailsContainer>
+        ) : (
+          ""
+        )}
+      </Container>
+    </Modal>
   );
 }
 
@@ -161,6 +171,29 @@ const WordInput = styled.input`
     font-size: 0.9rem;
     text-transform: none;
   }
+`;
+
+const ApiError = styled.span`
+  display: block;
+  color: ${(props) => props.theme.text.dull};
+  font-size: 0.7rem;
+  margin-top: 12px;
+  margin: 15px 0 15px 4px;
+  letter-spacing: 1px;
+  font-weight: 300;
+`;
+
+const ApiErrorContinue = styled.button`
+  display: inline-block;
+  border: none;
+  background: none;
+  outline: none;
+  color: ${(props) => props.theme.text.light};
+  letter-spacing: 1px;
+  font-size: 0.7rem;
+  border-bottom: 1px solid ${(props) => props.theme.text.light};
+  cursor: pointer;
+  font-weight: 300;
 `;
 
 const InputSearchBtn = styled.button`

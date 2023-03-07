@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { useSearchParams } from "react-router-dom";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { BiSearch } from "react-icons/bi";
 import { BsPlusLg } from "react-icons/bs";
 import { MdOutlineBackup } from "react-icons/md";
@@ -53,8 +53,10 @@ export default function WordNavBar() {
         <BsPlusLg />
         <NewBtnLabel>New</NewBtnLabel>
       </NewBtn>
-      <Backup backupActive={backupActive} setBackupActive={setBackupActive} />
-      <NewWord addBtnActive={addBtnActive} setAddBtnActive={setAddBtnActive} />
+      <AnimatePresence>
+        {backupActive && <Backup setBackupActive={setBackupActive} />}
+        {addBtnActive && <NewWord setAddBtnActive={setAddBtnActive} />}
+      </AnimatePresence>
     </Container>
   );
 }

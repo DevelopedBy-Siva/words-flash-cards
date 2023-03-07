@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 
@@ -10,7 +9,7 @@ import Modal from "../../components/modal";
 import { loadNewWords } from "../../redux/actions/Words_Actions";
 import { decryptAndAddToDb, encryptAndDownload } from "../../utils/Words";
 
-export default function Backup({ backupActive, setBackupActive }) {
+export default function Backup({ setBackupActive }) {
   const chooseFileRef = useRef(null);
 
   const [uploadProgress, setUploadProgress] = useState(false);
@@ -56,53 +55,41 @@ export default function Backup({ backupActive, setBackupActive }) {
   };
 
   return (
-    <AnimatePresence>
-      {backupActive ? (
-        <Modal layoutAnimation={ContainerAnimation} close={closeModal}>
-          <Container>
-            <Title>Backup</Title>
-            <BackupBox>
-              <Contain>
-                <SubTitle>Import backup file</SubTitle>
-                <NoteTxt>
-                  # Cannot import a invalid or tampered backup file
-                </NoteTxt>
-              </Contain>
-              <BackupBtn
-                onClick={openFile}
-                onChange={uploadFile}
-                disabled={uploadProgress}
-              >
-                <ChooseFile ref={chooseFileRef} type="file" accept=".bytes" />
-                {uploadProgress ? (
-                  <LoadingSpinner center size="22" />
-                ) : (
-                  "Import"
-                )}
-              </BackupBtn>
-            </BackupBox>
-            <BackupBox>
-              <Contain>
-                <SubTitle>Download the backup file</SubTitle>
-                <NoteTxt>
-                  # The backup file is encoded and tampering the file will make
-                  it unreadable
-                </NoteTxt>
-              </Contain>
-              <BackupBtn disabled={downloadProgress} onClick={downloadBackup}>
-                {downloadProgress ? (
-                  <LoadingSpinner center size="22" />
-                ) : (
-                  "Download"
-                )}
-              </BackupBtn>
-            </BackupBox>
-          </Container>
-        </Modal>
-      ) : (
-        ""
-      )}
-    </AnimatePresence>
+    <Modal layoutAnimation={ContainerAnimation} close={closeModal}>
+      <Container>
+        <Title>Backup</Title>
+        <BackupBox>
+          <Contain>
+            <SubTitle>Import backup file</SubTitle>
+            <NoteTxt># Cannot import a invalid or tampered backup file</NoteTxt>
+          </Contain>
+          <BackupBtn
+            onClick={openFile}
+            onChange={uploadFile}
+            disabled={uploadProgress}
+          >
+            <ChooseFile ref={chooseFileRef} type="file" accept=".bytes" />
+            {uploadProgress ? <LoadingSpinner center size="22" /> : "Import"}
+          </BackupBtn>
+        </BackupBox>
+        <BackupBox>
+          <Contain>
+            <SubTitle>Download the backup file</SubTitle>
+            <NoteTxt>
+              # The backup file is encoded and tampering the file will make it
+              unreadable
+            </NoteTxt>
+          </Contain>
+          <BackupBtn disabled={downloadProgress} onClick={downloadBackup}>
+            {downloadProgress ? (
+              <LoadingSpinner center size="22" />
+            ) : (
+              "Download"
+            )}
+          </BackupBtn>
+        </BackupBox>
+      </Container>
+    </Modal>
   );
 }
 
