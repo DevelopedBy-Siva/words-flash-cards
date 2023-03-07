@@ -41,6 +41,9 @@ const CustomToast = styled(ToastContainer)`
   .Toastify__toast--success {
     background-color: #2d9d41;
   }
+  .Toastify__toast--warning {
+    background-color: #c5a421;
+  }
   .Toastify__toast-body {
     div:last-child {
       margin-left: 6px;

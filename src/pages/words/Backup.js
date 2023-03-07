@@ -26,6 +26,7 @@ export default function Backup({ setBackupActive }) {
       if (!proceed) return;
     }
     setBackupActive(null);
+    document.body.style.overflow = "auto";
   };
 
   const downloadBackup = async () => {

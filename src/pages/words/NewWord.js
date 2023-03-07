@@ -24,7 +24,10 @@ export default function NewWord({ setAddBtnActive }) {
     error: null,
   });
 
-  const closeModal = () => setAddBtnActive(null);
+  const closeModal = () => {
+    setAddBtnActive(null);
+    document.body.style.overflow = "auto";
+  };
 
   const { words } = useSelector((state) => state.words);
   const dispatch = useDispatch();
@@ -114,7 +117,6 @@ export default function NewWord({ setAddBtnActive }) {
     enable_disable_formBtns(true);
 
     const { data } = word;
-    console.log(data);
     const isFound = words.findIndex(
       (item) => item.name.toLowerCase() === data.name.toLowerCase()
     );
