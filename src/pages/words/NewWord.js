@@ -145,8 +145,9 @@ export default function NewWord({ setAddBtnActive }) {
         <IndexedDbWarning
           sub={false}
           msg={[
-            "New words will be stored in the browser database. So, clearing the browser data will remove the words permanently.",
-            "Words stored in the browser database can be edited from the words page.",
+            "New words will be stored in the browser database, and clearing browser data will permanently remove them",
+            "The application is using an inconsistent Dictionary API. Therefore, if any error occurs, you can still add the word. After adding the word, please ensure that you provide its meaning and an example for a better Quiz experience",
+            "Words stored in the browser database can be edited from the words page",
           ]}
         />
         <Form onSubmit={searchWord}>
