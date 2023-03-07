@@ -262,5 +262,71 @@
     "meaning": "Efforts to impress or try to gain the favor, affection, or support of someone",
     "example": "The politician tried to woo voters with promises of tax cuts and job creation",
     "createdAt": "1678050879452"
+  },
+  {
+    "name": "Candid",
+    "meaning": "Honest and straightforward",
+    "example": "The candidate's answers during the interview were candid",
+    "createdAt": "1678172826485"
+  },
+  {
+    "name": "Patent",
+    "meaning": "Obvious or clear",
+    "example": "It was patent to everyone that she was lying",
+    "createdAt": "1678173279743"
+  },
+  {
+    "name": "Painstaking",
+    "meaning": "It describes something that is done with great care, effort, and attention",
+    "example": "The artist's masterpiece was the product of years of painstaking effort and dedication",
+    "createdAt": "1678173415671"
+  },
+  {
+    "name": "Discrepancy",
+    "meaning": "Difference or inconsistency between two or more things",
+    "example": "There was a discrepancy between the witness's testimony and the physical evidence found at the crime scene",
+    "createdAt": "1678173661654"
+  },
+  {
+    "name": "Improbable",
+    "meaning": "It describes something that is unlikely or not probable to happen or be true",
+    "example": "It seems improbable that the small startup company will be able to compete with the industry giants",
+    "createdAt": "1678173950493"
+  },
+  {
+    "name": "Arcane",
+    "meaning": "Obscure",
+    "example": "The computer program relied on an arcane set of commands that only a few understands",
+    "createdAt": "1678174240423"
+  },
+  {
+    "name": "Erstwhile",
+    "meaning": "Former or previous",
+    "example": "The company's erstwhile CEO had retired years ago and was now living a quiet life on a farm",
+    "createdAt": "1678174376676"
+  },
+  {
+    "name": "Surrogate",
+    "meaning": "Substitute or replacement",
+    "example": "The team's captain was injured during the game, so a surrogate was brought in to take his place",
+    "createdAt": "1678174522151"
+  },
+  {
+    "name": "Facetious",
+    "meaning": "Treating serious issues with inappropriate humor or flippant sarcasm",
+    "example": "The comedian made a facetious remark about the pandemic during his stand-up routine, which some audience members found insensitive",
+    "createdAt": "1678174829001"
+  },
+  {
+    "name": "Pervasive",
+    "meaning": "Widespread",
+    "example": "The pervasive use of plastic has led to environmental pollution on a global scale",
+    "createdAt": "1678175144810"
+  },
+  {
+    "name": "Cosmopolitan",
+    "meaning": "Sophisticated or containing people and things from many different parts of the world",
+    "example": "Immigration transformed the city into a cosmopolitan metropolis",
+    "createdAt": "1678175292906"
   }
 ]
