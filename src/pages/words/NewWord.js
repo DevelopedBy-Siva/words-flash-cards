@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { toast } from "react-toastify";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
 
 import Modal from "../../components/modal";
@@ -11,17 +11,23 @@ import { addWordToDb } from "../../db";
 import { addWord } from "../../redux/actions/Words_Actions";
 import IndexedDbWarning from "./IndexedDbWarning";
 
-export default function NewWord({ addBtnActive, setAddBtnActive }) {
+export default function NewWord({ setAddBtnActive }) {
   const wordInputRef = useRef(null);
   const addBtnRef = useRef(null);
+  const stillContinueRef = useRef(null);
+  const wordSearchBtnRef = useRef(null);
 
   const [wordInput, setWordInput] = useState("");
   const [word, setWord] = useState({
     data: null,
     loading: false,
+    error: null,
   });
 
-  const closeModal = () => setAddBtnActive(null);
+  const closeModal = () => {
+    setAddBtnActive(null);
+    document.body.style.overflow = "auto";
+  };
 
   const { words } = useSelector((state) => state.words);
   const dispatch = useDispatch();
@@ -33,33 +39,93 @@ export default function NewWord({ addBtnActive, setAddBtnActive }) {
       if (!regex.test(value)) return;
     }
     setWordInput(value.toLowerCase());
+    setWord({ ...word, error: null });
   }
 
   async function searchWord(e) {
     e.preventDefault();
     if (wordInput.length === 0) return;
-
-    setWord({ data: null, loading: true });
+    setWord({ data: null, error: null, loading: true });
     await searchDictionary(wordInput)
       .then((data) => setWord({ data, loading: false }))
-      .catch(() => setWord({ data: null, loading: false }));
+      .catch((err) => {
+        let status = 500;
+        if (err && err.code === 404) status = 404;
+        setWord({
+          data: null,
+          loading: false,
+          error: {
+            word: wordInput.trim().toLocaleLowerCase(),
+            status,
+          },
+        });
+      });
+  }
+
+  function enable_disable_formBtns(val = false) {
+    if (stillContinueRef && stillContinueRef.current)
+      stillContinueRef.current.disabled = val;
+
+    if (addBtnRef && addBtnRef.current) addBtnRef.current.disabled = val;
+
+    if (wordSearchBtnRef && wordSearchBtnRef.current)
+      wordSearchBtnRef.current.disabled = val;
+
+    if (wordInputRef && wordInputRef.current)
+      wordInputRef.current.disabled = val;
+  }
+
+  async function stillAddWord() {
+    toast.dismiss();
+    const { error } = word;
+    if (!error.word) return;
+
+    enable_disable_formBtns(true);
+
+    const isFound = words.findIndex(
+      (item) => item.name.toLowerCase() === error.word
+    );
+    if (isFound !== -1) {
+      enable_disable_formBtns(false);
+      toast.warn("Word already added. Try another word");
+      return;
+    }
+    let data = {
+      name: error.word,
+      meaning: undefined,
+      example: undefined,
+      createdAt: Date.now(),
+      indexedDB: true,
+    };
+
+    await addWordToDb(data)
+      .then(() => {
+        dispatch(addWord(data));
+        toast.success(
+          "Word successfully saved to Local Database. Open the word & do add the meaning and example"
+        );
+        closeModal();
+      })
+      .catch(() => {
+        enable_disable_formBtns(false);
+        toast.error("Something went wrong. Failed to save the word");
+      });
   }
 
   async function addNewWord() {
     toast.dismiss();
-    addBtnRef.current.disabled = true;
+    enable_disable_formBtns(true);
 
     const { data } = word;
     const isFound = words.findIndex(
       (item) => item.name.toLowerCase() === data.name.toLowerCase()
     );
     if (isFound !== -1) {
-      addBtnRef.current.disabled = false;
+      enable_disable_formBtns(false);
       toast.warn("Word already added. Try another word");
       return;
     }
 
-    addBtnRef.current.disabled = true;
     data["createdAt"] = Date.now();
     data["indexedDB"] = true;
     await addWordToDb(data)
@@ -69,58 +135,71 @@ export default function NewWord({ addBtnActive, setAddBtnActive }) {
         closeModal();
       })
       .catch(() => {
-        addBtnRef.current.disabled = false;
+        enable_disable_formBtns(false);
         toast.error("Something went wrong. Failed to save the word");
       });
   }
 
   return (
-    <AnimatePresence>
-      {addBtnActive ? (
-        <Modal layoutAnimation={ContainerAnimation} close={closeModal}>
-          <Container>
-            <Title>Add New Word</Title>
-            <IndexedDbWarning
-              sub={false}
-              msg={[
-                "New words will be stored in the browser database. So, clearing the browser data will remove the words permanently.",
-                "Words stored in the browser database can be edited from the words page.",
-              ]}
-            />
-            <Form onSubmit={searchWord}>
-              <WordInput
-                ref={wordInputRef}
-                value={wordInput}
-                onChange={handleWordInputChange}
-                type="text"
-                spellCheck="false"
-                inputMode="search"
-                disabled={word.loading}
-                placeholder="Enter the word here..."
-              />
-              <InputSearchBtn type="submit" disabled={word.loading}>
-                {word.loading ? <LoadingSpinner size="25" center /> : "Search"}
-              </InputSearchBtn>
-            </Form>
-            {word.data ? (
-              <DetailsContainer>
-                <Details>
-                  <FoundWord>{word.data.name}</FoundWord>
-                  <FoundWordMeaning>{word.data.meaning}</FoundWordMeaning>
-                </Details>
-                <AddBtn ref={addBtnRef} onClick={addNewWord}>
-                  Add
-                </AddBtn>
-              </DetailsContainer>
-            ) : (
-              ""
-            )}
-          </Container>
-        </Modal>
-      ) : (
-        ""
-      )}
-    </AnimatePresence>
+    <Modal layoutAnimation={ContainerAnimation} close={closeModal}>
+      <Container>
+        <Title>Add New Word</Title>
+        <IndexedDbWarning
+          sub={false}
+          msg={[
+            "New words will be stored in the browser database, and clearing browser data will permanently remove them",
+            "The application is using an inconsistent Dictionary API. Therefore, if any error occurs, you can still add the word. After adding the word, please ensure that you provide its meaning and an example for a better Quiz experience",
+            "Words stored in the browser database can be edited from the words page",
+          ]}
+        />
+        <Form onSubmit={searchWord}>
+          <WordInput
+            ref={wordInputRef}
+            value={wordInput}
+            onChange={handleWordInputChange}
+            type="text"
+            spellCheck="false"
+            inputMode="search"
+            disabled={word.loading}
+            placeholder="Enter the word here..."
+          />
+          {word.error && (
+            <ApiError>
+              {word.error.status === 404
+                ? "Failed to find the word from the Dictionary. "
+                : "Something went wrong with the Dictionary. "}
+              <ApiErrorContinue
+                ref={stillContinueRef}
+                type="button"
+                onClick={stillAddWord}
+              >
+                Still wish to add?
+              </ApiErrorContinue>
+            </ApiError>
+          )}
+          <InputSearchBtn
+            ref={wordSearchBtnRef}
+            type="submit"
+            disabled={word.loading}
+          >
+            {word.loading ? <LoadingSpinner size="25" center /> : "Search"}
+          </InputSearchBtn>
+        </Form>
+        {word.data ? (
+          <DetailsContainer>
+            <Details>
+              <FoundWord>{word.data.name}</FoundWord>
+              <FoundWordMeaning>{word.data.meaning}</FoundWordMeaning>
+            </Details>
+            <AddBtn ref={addBtnRef} onClick={addNewWord}>
+              Add
+            </AddBtn>
+          </DetailsContainer>
+        ) : (
+          ""
+        )}
+      </Container>
+    </Modal>
   );
 }
 
@@ -161,6 +240,37 @@ const WordInput = styled.input`
     font-size: 0.9rem;
     text-transform: none;
   }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+`;
+
+const ApiError = styled.span`
+  display: block;
+  color: ${(props) => props.theme.text.dull};
+  font-size: 0.7rem;
+  margin-top: 12px;
+  margin: 15px 0 15px 4px;
+  letter-spacing: 1px;
+  font-weight: 300;
+`;
+
+const ApiErrorContinue = styled.button`
+  display: inline-block;
+  border: none;
+  background: none;
+  outline: none;
+  color: ${(props) => props.theme.text.light};
+  letter-spacing: 1px;
+  font-size: 0.7rem;
+  border-bottom: 1px solid ${(props) => props.theme.text.light};
+  cursor: pointer;
+  font-weight: 300;
+
+  &:disabled {
+    cursor: wait;
+  }
 `;
 
 const InputSearchBtn = styled.button`
@@ -176,6 +286,10 @@ const InputSearchBtn = styled.button`
   position: relative;
   width: 80px;
   height: 32px;
+
+  &:disabled {
+    cursor: wait;
+  }
 `;
 
 const DetailsContainer = styled(motion.div)`

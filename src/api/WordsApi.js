@@ -14,10 +14,14 @@ export async function searchDictionary(word) {
     })
     .catch((err) => {
       const { response } = err;
-      if (response && response.status === 404)
-        toast.info("Sorry, word not found");
-      else toast.error("Sorry, something went wrong. Please try again later");
-
-      return null;
+      if (response && response.status === 404) {
+        toast.info("Sorry, Word not found in Dictionary");
+        const error = { code: 404 };
+        throw error;
+      } else {
+        toast.error("Sorry, something went wrong. Please try again later");
+        const error = { code: 500 };
+        throw error;
+      }
     });
 }
