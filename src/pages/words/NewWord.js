@@ -14,6 +14,8 @@ import IndexedDbWarning from "./IndexedDbWarning";
 export default function NewWord({ setAddBtnActive }) {
   const wordInputRef = useRef(null);
   const addBtnRef = useRef(null);
+  const stillContinueRef = useRef(null);
+  const wordSearchBtnRef = useRef(null);
 
   const [wordInput, setWordInput] = useState("");
   const [word, setWord] = useState({
@@ -21,8 +23,6 @@ export default function NewWord({ setAddBtnActive }) {
     loading: false,
     error: null,
   });
-
-  const [stillAdd, setStillAdd] = useState(null);
 
   const closeModal = () => setAddBtnActive(null);
 
@@ -36,6 +36,7 @@ export default function NewWord({ setAddBtnActive }) {
       if (!regex.test(value)) return;
     }
     setWordInput(value.toLowerCase());
+    setWord({ ...word, error: null });
   }
 
   async function searchWord(e) {
@@ -45,27 +46,84 @@ export default function NewWord({ setAddBtnActive }) {
     await searchDictionary(wordInput)
       .then((data) => setWord({ data, loading: false }))
       .catch((err) => {
-        let error = 500;
-        if (err && err.code === 404) error = 404;
-        setWord({ data: null, loading: false, error });
+        let status = 500;
+        if (err && err.code === 404) status = 404;
+        setWord({
+          data: null,
+          loading: false,
+          error: {
+            word: wordInput.trim().toLocaleLowerCase(),
+            status,
+          },
+        });
+      });
+  }
+
+  function enable_disable_formBtns(val = false) {
+    if (stillContinueRef && stillContinueRef.current)
+      stillContinueRef.current.disabled = val;
+
+    if (addBtnRef && addBtnRef.current) addBtnRef.current.disabled = val;
+
+    if (wordSearchBtnRef && wordSearchBtnRef.current)
+      wordSearchBtnRef.current.disabled = val;
+
+    if (wordInputRef && wordInputRef.current)
+      wordInputRef.current.disabled = val;
+  }
+
+  async function stillAddWord() {
+    toast.dismiss();
+    const { error } = word;
+    if (!error.word) return;
+
+    enable_disable_formBtns(true);
+
+    const isFound = words.findIndex(
+      (item) => item.name.toLowerCase() === error.word
+    );
+    if (isFound !== -1) {
+      enable_disable_formBtns(false);
+      toast.warn("Word already added. Try another word");
+      return;
+    }
+    let data = {
+      name: error.word,
+      meaning: undefined,
+      example: undefined,
+      createdAt: Date.now(),
+      indexedDB: true,
+    };
+
+    await addWordToDb(data)
+      .then(() => {
+        dispatch(addWord(data));
+        toast.success(
+          "Word successfully saved to Local Database. Open the word & do add the meaning and example"
+        );
+        closeModal();
+      })
+      .catch(() => {
+        enable_disable_formBtns(false);
+        toast.error("Something went wrong. Failed to save the word");
       });
   }
 
   async function addNewWord() {
     toast.dismiss();
-    addBtnRef.current.disabled = true;
+    enable_disable_formBtns(true);
 
     const { data } = word;
+    console.log(data);
     const isFound = words.findIndex(
       (item) => item.name.toLowerCase() === data.name.toLowerCase()
     );
     if (isFound !== -1) {
-      addBtnRef.current.disabled = false;
+      enable_disable_formBtns(false);
       toast.warn("Word already added. Try another word");
       return;
     }
 
-    addBtnRef.current.disabled = true;
     data["createdAt"] = Date.now();
     data["indexedDB"] = true;
     await addWordToDb(data)
@@ -75,7 +133,7 @@ export default function NewWord({ setAddBtnActive }) {
         closeModal();
       })
       .catch(() => {
-        addBtnRef.current.disabled = false;
+        enable_disable_formBtns(false);
         toast.error("Something went wrong. Failed to save the word");
       });
   }
@@ -104,15 +162,23 @@ export default function NewWord({ setAddBtnActive }) {
           />
           {word.error && (
             <ApiError>
-              {word.error === 404
-                ? "Failed to find the word from the Dictionary API. "
-                : "Something went wrong with the Dictionary API. "}
-              <ApiErrorContinue type="button">
+              {word.error.status === 404
+                ? "Failed to find the word from the Dictionary. "
+                : "Something went wrong with the Dictionary. "}
+              <ApiErrorContinue
+                ref={stillContinueRef}
+                type="button"
+                onClick={stillAddWord}
+              >
                 Still wish to add?
               </ApiErrorContinue>
             </ApiError>
           )}
-          <InputSearchBtn type="submit" disabled={word.loading}>
+          <InputSearchBtn
+            ref={wordSearchBtnRef}
+            type="submit"
+            disabled={word.loading}
+          >
             {word.loading ? <LoadingSpinner size="25" center /> : "Search"}
           </InputSearchBtn>
         </Form>
@@ -194,6 +260,10 @@ const ApiErrorContinue = styled.button`
   border-bottom: 1px solid ${(props) => props.theme.text.light};
   cursor: pointer;
   font-weight: 300;
+
+  &:disabled {
+    cursor: wait;
+  }
 `;
 
 const InputSearchBtn = styled.button`

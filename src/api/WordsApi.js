@@ -15,7 +15,7 @@ export async function searchDictionary(word) {
     .catch((err) => {
       const { response } = err;
       if (response && response.status === 404) {
-        toast.info("Sorry, Word not found in Dictionary API");
+        toast.info("Sorry, Word not found in Dictionary");
         const error = { code: 404 };
         throw error;
       } else {
