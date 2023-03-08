@@ -16,7 +16,10 @@ import Indicators from "./Indicators";
 export default function WordsContainer() {
   const [selected, setSelected] = useState(null);
 
-  const toggleModal = (id = null) => setSelected(id);
+  const toggleModal = (id = null) => {
+    setSelected(id);
+    document.body.style.overflow = "auto";
+  }
 
   const [searchParams] = useSearchParams();
 
