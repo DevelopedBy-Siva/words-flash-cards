@@ -7,12 +7,10 @@ import { IoMdClose } from "react-icons/io";
 export default function Modal({ id, close, layoutAnimation = {}, children }) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
+    return () => (document.body.style.overflow = "auto");
   }, []);
 
-  function handleClose() {
-    close();
-    document.body.style.overflow = "auto";
-  }
+  const handleClose = () => close();
 
   return (
     <FocusLock>
