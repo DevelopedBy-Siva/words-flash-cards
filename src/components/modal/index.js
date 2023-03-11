@@ -29,7 +29,7 @@ export default function Modal({ id, close, layoutAnimation = {}, children }) {
 
 const Container = styled.div`
   position: fixed;
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   top: 0;
   left: 0;
@@ -51,7 +51,7 @@ const Overlay = styled(motion.div)`
 const ContentWrapper = styled(motion.div)`
   width: 95%;
   max-width: 700px;
-  max-height: 98%;
+  max-height: 95%;
   position: absolute;
   background: ${(props) => props.theme.button.dull};
   margin: auto;
