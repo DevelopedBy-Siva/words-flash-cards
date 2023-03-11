@@ -7,12 +7,10 @@ import { IoMdClose } from "react-icons/io";
 export default function Modal({ id, close, layoutAnimation = {}, children }) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
+    return () => (document.body.style.overflow = "auto");
   }, []);
 
-  function handleClose() {
-    close();
-    document.body.style.overflow = "auto";
-  }
+  const handleClose = () => close();
 
   return (
     <FocusLock>
@@ -31,7 +29,7 @@ export default function Modal({ id, close, layoutAnimation = {}, children }) {
 
 const Container = styled.div`
   position: fixed;
-  height: 100vh;
+  height: 100dvh;
   width: 100vw;
   top: 0;
   left: 0;
@@ -53,7 +51,7 @@ const Overlay = styled(motion.div)`
 const ContentWrapper = styled(motion.div)`
   width: 95%;
   max-width: 700px;
-  max-height: 98%;
+  max-height: 95%;
   position: absolute;
   background: ${(props) => props.theme.button.dull};
   margin: auto;
