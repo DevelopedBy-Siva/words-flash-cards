@@ -328,5 +328,29 @@
     "meaning": "Sophisticated or containing people and things from many different parts of the world",
     "example": "Immigration transformed the city into a cosmopolitan metropolis",
     "createdAt": "1678175292906"
+  },
+  {
+    "name": "Abdicate",
+    "meaning": "To give up a position, right, or power",
+    "example": "The king decided to abdicate and pass the crown to her son",
+    "createdAt": "1678954338506"
+  },
+  {
+    "name": "Aberrant",
+    "meaning": "Deviating from what's normal or expected",
+    "example": "The scientist noticed an aberrant result in the experiment",
+    "createdAt": "1678954382326"
+  },
+  {
+    "name": "Abeyance",
+    "meaning": "Temporary suppression, suspension or inactivity",
+    "example": "The project was put in abeyance until the funding is received",
+    "createdAt": "1678954427483"
+  },
+  {
+    "name": "Abjure",
+    "meaning": "To reject or abandon formally",
+    "example": "The former gang member decided to abjure his affiliation and start a new life",
+    "createdAt": "1678954478019"
   }
 ]
