@@ -69,7 +69,16 @@ function getAllWords() {
       ({ default: myData }) => myData
     );
     const fromDB = await getWordsFromDb().catch(() => []);
-    const combine = data.concat(fromDB);
+    let toDisplay = [...data];
+    // If duplicate words, then prioritize Local DB over words.json file
+    fromDB.forEach((item) => {
+      toDisplay = toDisplay.filter(
+        (ele) =>
+          (ele.name && ele.name.trim().toLowerCase()) !==
+          (item.name && item.name.trim().toLowerCase())
+      );
+    });
+    const combine = toDisplay.concat(fromDB);
     dispatch(fetchWords(combine));
   };
 }
