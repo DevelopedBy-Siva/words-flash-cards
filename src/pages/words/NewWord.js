@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { toast } from "react-toastify";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 
 import Modal from "../../components/modal";
 import LoadingSpinner from "../../components/loader/";
@@ -23,6 +24,8 @@ export default function NewWord({ setAddBtnActive }) {
     loading: false,
     error: null,
   });
+
+  const [searchParam, setSearchParams] = useSearchParams();
 
   const closeModal = () => {
     setAddBtnActive(null);
@@ -76,22 +79,24 @@ export default function NewWord({ setAddBtnActive }) {
   }
 
   async function stillAddWord() {
-    toast.dismiss();
     const { error } = word;
-    if (!error.word) return;
-
+    if (!error.word || error.word.length === 0) return;
+    toast.dismiss();
     enable_disable_formBtns(true);
 
-    const isFound = words.findIndex(
-      (item) => item.name.toLowerCase() === error.word
-    );
+    const newWord = error.word.trim().toLowerCase();
+    const isFound = words.findIndex((item) => {
+      if ((item.name && item.name.trim().toLowerCase()) === newWord)
+        return true;
+      return false;
+    });
     if (isFound !== -1) {
       enable_disable_formBtns(false);
       toast.warn("Word already added. Try another word");
       return;
     }
     let data = {
-      name: error.word,
+      name: newWord,
       meaning: undefined,
       example: undefined,
       createdAt: Date.now(),
@@ -102,9 +107,12 @@ export default function NewWord({ setAddBtnActive }) {
       .then(() => {
         dispatch(addWord(data));
         toast.success(
-          "Word successfully saved to Local Database. Open the word & do add the meaning and example"
+          "Word successfully saved to Local Database. Open the word & add the meaning and example"
         );
         closeModal();
+        searchParam.set("search", newWord);
+        searchParam.set("page", 1);
+        setSearchParams(searchParam);
       })
       .catch(() => {
         enable_disable_formBtns(false);
@@ -113,26 +121,34 @@ export default function NewWord({ setAddBtnActive }) {
   }
 
   async function addNewWord() {
+    const { data } = word;
+    if (!data.name || data.name.length === 0) return;
     toast.dismiss();
     enable_disable_formBtns(true);
 
-    const { data } = word;
-    const isFound = words.findIndex(
-      (item) => item.name.toLowerCase() === data.name.toLowerCase()
-    );
+    const newWord = data.name.trim().toLowerCase();
+    const isFound = words.findIndex((item) => {
+      if (item.name && item.name.trim().toLowerCase() === newWord) return true;
+      return false;
+    });
     if (isFound !== -1) {
       enable_disable_formBtns(false);
       toast.warn("Word already added. Try another word");
       return;
     }
 
+    data["name"] = newWord;
     data["createdAt"] = Date.now();
     data["indexedDB"] = true;
+
     await addWordToDb(data)
       .then(() => {
         dispatch(addWord(data));
         toast.success("Word successfully saved to Local Database");
         closeModal();
+        searchParam.set("search", newWord);
+        searchParam.set("page", 1);
+        setSearchParams(searchParam);
       })
       .catch(() => {
         enable_disable_formBtns(false);
@@ -254,6 +270,7 @@ const ApiError = styled.span`
   margin: 15px 0 15px 4px;
   letter-spacing: 1px;
   font-weight: 300;
+  line-height: 20px;
 `;
 
 const ApiErrorContinue = styled.button`

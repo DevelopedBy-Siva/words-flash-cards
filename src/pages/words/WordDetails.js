@@ -102,7 +102,7 @@ export default function WordDetails({ close, details }) {
             disabled={!edit}
             onChange={(e) => handleInputChange(e, "example")}
             value={data.example}
-            placeholder="## Sorry! No meaning found. Please add it."
+            placeholder="## Sorry! No example found. Please add it."
             onKeyDown={disableEnter}
             maxLength={200}
           />
