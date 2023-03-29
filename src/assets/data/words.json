@@ -358,5 +358,17 @@
     "meaning": "A person who enjoys time alone",
     "example": "She is an introvert and prefers spending her weekends reading at home rather than going out with friends",
     "createdAt": "1679248346074"
+  },
+  {
+    "name": "Hypocrisy",
+    "meaning": "It involves saying or doing one thing but believing or doing the opposite",
+    "example": "The CEO's public statements about social responsibility were exposed as hypocrisy when found out that the company had been engaging in unethical business practices",
+    "createdAt": "1680082342807"
+  },
+  {
+    "name": "Appetite",
+    "meaning": "A desire for food or drinks",
+    "example": "The doctor advised her to eat smaller portions to help control her appetite and lose weight",
+    "createdAt": "1680083109882"
   }
 ]
