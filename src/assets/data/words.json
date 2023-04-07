@@ -370,5 +370,23 @@
     "meaning": "A desire for food or drinks",
     "example": "The doctor advised her to eat smaller portions to help control her appetite and lose weight",
     "createdAt": "1680083109882"
+  },
+  {
+    "name": "Obsolete",
+    "meaning": "Something that is no longer in use, or is outdated",
+    "example": "The old computer that I found in my garage is completely obsolete and can't even run modern software",
+    "createdAt": "1680856532410"
+  },
+  {
+    "name": "Mediocre",
+    "meaning": "Something that is average or of only moderate quality, neither very good nor very bad",
+    "example": "The food at the restaurant was mediocre; it wasn't terrible, but it also wasn't amazing",
+    "createdAt": "1680856716200"
+  },
+  {
+    "name": "Deemed",
+    "meaning": "To be judged or considered in a particular way",
+    "example": "The proposal was deemed to be too risky and was rejected by the board",
+    "createdAt": "1680856835852"
   }
 ]
