@@ -352,5 +352,59 @@
     "meaning": "To reject or abandon formally",
     "example": "The former gang member decided to abjure his affiliation and start a new life",
     "createdAt": "1678954478019"
+  },
+  {
+    "name": "Introvert",
+    "meaning": "A person who enjoys time alone",
+    "example": "She is an introvert and prefers spending her weekends reading at home rather than going out with friends",
+    "createdAt": "1679248346074"
+  },
+  {
+    "name": "Hypocrisy",
+    "meaning": "It involves saying or doing one thing but believing or doing the opposite",
+    "example": "The CEO's public statements about social responsibility were exposed as hypocrisy when found out that the company had been engaging in unethical business practices",
+    "createdAt": "1680082342807"
+  },
+  {
+    "name": "Appetite",
+    "meaning": "A desire for food or drinks",
+    "example": "The doctor advised her to eat smaller portions to help control her appetite and lose weight",
+    "createdAt": "1680083109882"
+  },
+  {
+    "name": "Obsolete",
+    "meaning": "Something that is no longer in use, or is outdated",
+    "example": "The old computer that I found in my garage is completely obsolete and can't even run modern software",
+    "createdAt": "1680856532410"
+  },
+  {
+    "name": "Mediocre",
+    "meaning": "Something that is average or of only moderate quality, neither very good nor very bad",
+    "example": "The food at the restaurant was mediocre; it wasn't terrible, but it also wasn't amazing",
+    "createdAt": "1680856716200"
+  },
+  {
+    "name": "Deemed",
+    "meaning": "To be judged or considered in a particular way",
+    "example": "The proposal was deemed to be too risky and was rejected by the board",
+    "createdAt": "1680856835852"
+  },
+  {
+    "name": "Abject",
+    "meaning": "Hopeless, miserable, pitiful",
+    "example": "The team's performance was abject, with no signs of improvement throughout the game",
+    "createdAt": "1680955238910"
+  },
+  {
+    "name": "Abscission",
+    "meaning": "The act of cutting, or natural separation of leaves from plants",
+    "example": "The abscission of the leaves from the trees in autumn is a beautiful natural process",
+    "createdAt": "1680955460579"
+  },
+  {
+    "name": "Abstinence",
+    "meaning": "Giving up certain pleasure",
+    "example": "His abstinence from junk food and soda helped him lose weight",
+    "createdAt": "1680956001348"
   }
 ]
