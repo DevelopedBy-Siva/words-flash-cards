@@ -388,5 +388,23 @@
     "meaning": "To be judged or considered in a particular way",
     "example": "The proposal was deemed to be too risky and was rejected by the board",
     "createdAt": "1680856835852"
+  },
+  {
+    "name": "Abject",
+    "meaning": "Hopeless, miserable, pitiful",
+    "example": "The team's performance was abject, with no signs of improvement throughout the game",
+    "createdAt": "1680955238910"
+  },
+  {
+    "name": "Abscission",
+    "meaning": "The act of cutting, or natural separation of leaves from plants",
+    "example": "The abscission of the leaves from the trees in autumn is a beautiful natural process",
+    "createdAt": "1680955460579"
+  },
+  {
+    "name": "Abstinence",
+    "meaning": "Giving up certain pleasure",
+    "example": "His abstinence from junk food and soda helped him lose weight",
+    "createdAt": "1680956001348"
   }
 ]
