@@ -412,5 +412,47 @@
     "meaning": "Who follows moderate appetite, or a self-disciplined life style",
     "example": "Despite being at a party, she remained abstemious and only drank water",
     "createdAt": "1680957553209"
+  },
+  {
+    "name": "Pseudo",
+    "meaning": "Not genuine",
+    "example": "The internet is full of pseudo-scientific claims that have no basis in reality",
+    "createdAt": "1682633396505"
+  },
+  {
+    "name": "Atrocity",
+    "meaning": "Extremely cruel, violent act",
+    "example": "The government was accused of committing atrocities against its own people, including torture and extrajudicial killings",
+    "createdAt": "1682634065617"
+  },
+  {
+    "name": "Anomaly",
+    "meaning": "Something that deviates from what is expected, or normal",
+    "example": "The security team detected an anomaly in the network traffic that indicated a potential cyberattack",
+    "createdAt": "1682634288131"
+  },
+  {
+    "name": "Genocide",
+    "meaning": "Deliberately killing of a large number of people from a particular nation or group with the aim of destroying that nation or group",
+    "example": "The survivors of the genocide bravely shared their stories in order to prevent it from happening again",
+    "createdAt": "1682634715342"
+  },
+  {
+    "name": "Lucid",
+    "meaning": "Something that is clear and easy to understand",
+    "example": "The teacher's explanations were so lucid that the students could easily grasp the concepts",
+    "createdAt": "1682635281775"
+  },
+  {
+    "name": "Prodigal",
+    "meaning": "Refers to a person who is wasteful or reckless with their resources",
+    "example": "The company's prodigal spending habits led to its eventual bankruptcy",
+    "createdAt": "1682635434755"
+  },
+  {
+    "name": "Opaque",
+    "meaning": "Something that is difficult to understand",
+    "example": "The scientist's explanation of the concept was so opaque that even her colleagues had trouble following it",
+    "createdAt": "1682635740915"
   }
 ]
