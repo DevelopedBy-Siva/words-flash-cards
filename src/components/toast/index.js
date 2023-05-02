@@ -23,19 +23,20 @@ export default function Toast() {
 
 const CustomToast = styled(ToastContainer)`
   .Toastify__toast {
-    width: 90%;
+    width: fit-content;
+    max-width: 280px;
+    min-width: 0;
     min-height: 48px !important;
-    font-size: ${FontSize.TOAST.MAIN_FONT};
     font-family: "Roboto", sans-serif;
-    border-radius: 10px;
-    margin: auto;
+    border-radius: 5px;
+    margin: auto 5px;
     margin-top: 1.4rem;
     text-align: left;
     justify-content: center !important;
     letter-spacing: 1px;
     font-size: 0.68rem;
-    line-height: 16px;
     font-weight: 300;
+    padding: 6px 8px;
   }
 
   .Toastify__toast--success {
@@ -46,7 +47,9 @@ const CustomToast = styled(ToastContainer)`
   }
   .Toastify__toast-body {
     div:last-child {
-      margin-left: 6px;
+      font-size: ${FontSize.TOAST.MAIN_FONT};
+      line-height: 18px;
+      padding: 0 8px 0 4px;
     }
   }
 `;
