@@ -159,7 +159,7 @@ export default function Backup({ setBackupActive }) {
             ) : showJson.error ? (
               <JsonError>Sorry. Failed to generate JSON</JsonError>
             ) : (
-              <JSONView>
+              <JSONViewWrapper>
                 {showJson.data.length !== 0 && (
                   <CopyButton disabled={copied}>
                     {!copied ? (
@@ -169,19 +169,21 @@ export default function Backup({ setBackupActive }) {
                     )}
                   </CopyButton>
                 )}
-                <JSONPretty
-                  style={{
-                    fontSize: "0.8rem",
-                  }}
-                  theme={{
-                    value: "color:#a6e22e;",
-                  }}
-                  space={2}
-                  data={showJson.data}
-                  keyStyle="color:#4BB8F1"
-                  mainStyle="color:white;padding:1em;background:none;border-radius:5px"
-                />
-              </JSONView>
+                <JSONView>
+                  <JSONPretty
+                    style={{
+                      fontSize: "0.8rem",
+                    }}
+                    theme={{
+                      value: "color:#a6e22e;",
+                    }}
+                    space={2}
+                    data={showJson.data}
+                    keyStyle="color:#4BB8F1"
+                    mainStyle="color:white;padding:1em;background:none;border-radius:5px"
+                  />
+                </JSONView>
+              </JSONViewWrapper>
             ))}
         </BackupBox>
       </Container>
@@ -192,6 +194,10 @@ export default function Backup({ setBackupActive }) {
 const Container = styled.div`
   .__json-string__ {
     color: #ce9178 !important;
+  }
+
+  .__json-pretty__ {
+    overflow: unset;
   }
 `;
 
@@ -221,8 +227,9 @@ const CopyButton = styled.button`
   border: none;
   outline: none;
   position: absolute;
-  top: 10px;
+  top: 30px;
   right: 10px;
+  z-index: 9;
   background: none;
   display: flex;
   justify-content: center;
@@ -243,11 +250,37 @@ const CopyButton = styled.button`
   }
 `;
 
+const JSONViewWrapper = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+`;
+
 const JSONView = styled.div`
   width: 100%;
   margin-top: 20px;
-  background: ${(props) => props.theme.background.light};
+  background: #273746;
   position: relative;
+  overflow-x: auto;
+  border-radius: 5px;
+
+  ::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: ${(props) => props.theme.button.dull};
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #454d5a;
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #545c69;
+  }
 `;
 
 const JsonLoading = styled.p`
