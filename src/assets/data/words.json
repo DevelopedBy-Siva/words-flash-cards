@@ -454,5 +454,365 @@
     "meaning": "Something that is difficult to understand",
     "example": "The scientist's explanation of the concept was so opaque that even her colleagues had trouble following it",
     "createdAt": "1682635740915"
+  },
+  {
+    "name": "abysmal",
+    "meaning": "Very bad",
+    "example": "The team's performance in the last game was abysmal; they lost by a score of 10-0",
+    "createdAt": "1682941051938"
+  },
+  {
+    "name": "accretion",
+    "meaning": "A growth, or accumulation of something over time (the context is more of Scientific)",
+    "example": "The accretion of dust and gas particles over millions of years eventually formed the planets in our solar system",
+    "createdAt": "1683031553646"
+  },
+  {
+    "name": "accrue",
+    "meaning": "A growth, or accumulation of something over time (the context is more of Financial)",
+    "example": "The interest on my savings account accrues at a rate of 2% per year",
+    "createdAt": "1682942076950"
+  },
+  {
+    "name": "adamant",
+    "meaning": "Uncompromising",
+    "example": "Despite his parents' objections, John remained adamant that he would pursue a career in the arts",
+    "createdAt": "1682941229589"
+  },
+  {
+    "name": "adjunct",
+    "meaning": "Something added, attached, or joined",
+    "example": "Yoga can be an effective adjunct therapy for reducing stress and anxiety",
+    "createdAt": "1682942677965"
+  },
+  {
+    "name": "admonish",
+    "meaning": "To warn",
+    "example": "The teacher admonished the student for talking during class",
+    "createdAt": "1682943035983"
+  },
+  {
+    "name": "adulterate",
+    "meaning": "To corrupt or make impure",
+    "example": "The food company was fined for adulterating their products with cheap fillers",
+    "createdAt": "1682943742055"
+  },
+  {
+    "name": "aesthetic",
+    "meaning": "Relating to art or beauty",
+    "example": "The artist's work was praised for its originality and its strong sense of aesthetics",
+    "createdAt": "1682943920285"
+  },
+  {
+    "name": "affinity",
+    "meaning": "Liking for someone or something",
+    "example": "I have a strong affinity for animals and love spending time with my pets",
+    "createdAt": "1682944108123"
+  },
+  {
+    "name": "aggrandize",
+    "meaning": "To make larger or greater; Exaggerating",
+    "example": "The politician's speeches were filled with attempts to aggrandize himself and his accomplishments",
+    "createdAt": "1683060741088"
+  },
+  {
+    "name": "aggregate",
+    "meaning": "Collecting different elements into a single entity",
+    "example": "The aggregate total of the donations raised for the charity was $100,000",
+    "createdAt": "1683060156327"
+  },
+  {
+    "name": "alacrity",
+    "meaning": "Cheerful readiness or willingness to do something",
+    "example": "She responded to the invitation with alacrity, eager to attend the party",
+    "createdAt": "1683060541193"
+  },
+  {
+    "name": "alchemy",
+    "meaning": "Process of transforming",
+    "example": "The artist's use of color and texture in her paintings is a form of alchemy, transforming raw materials into works of art",
+    "createdAt": "1683060307561"
+  },
+  {
+    "name": "allay",
+    "meaning": "To lessen or ease",
+    "example": "The doctor's reassurances helped allay the patient's fears about the upcoming surgery",
+    "createdAt": "1683059822994"
+  },
+  {
+    "name": "alleviate",
+    "meaning": "To reduce or relieve the severity or intensity of something",
+    "example": "The pain medication helped to alleviate her chronic back pain",
+    "createdAt": "1683060062210"
+  },
+  {
+    "name": "alloy",
+    "meaning": "Mixture of two or more metals",
+    "example": "Titanium alloys are commonly used in aerospace and medical applications for their strength and corrosion resistance",
+    "createdAt": "1683059710822"
+  },
+  {
+    "name": "allure",
+    "meaning": "Being attractive, fascinating, or tempting",
+    "example": "The high salary offered by the company was an allure for many job seekers",
+    "createdAt": "1683059535221"
+  },
+  {
+    "name": "amalgamate",
+    "meaning": "To combine two or more things to a single unit",
+    "example": "The two companies decided to amalgamate in order to increase their market share",
+    "createdAt": "1683059425550"
+  },
+  {
+    "name": "ambiguous",
+    "meaning": "Unclear or open to different interpretations",
+    "example": "The message in the novel was intentionally ambiguous, leaving the reader to draw their own conclusions",
+    "createdAt": "1683059213704"
+  },
+  {
+    "name": "amiable",
+    "meaning": "A person who is friendly, pleasant, and easy to get along with",
+    "example": "The salesperson was so amiable and charming that I couldn't resist buying the product she was selling",
+    "createdAt": "1683022890414"
+  },
+  {
+    "name": "anachronism",
+    "meaning": "Something that is old-fashioned or belonging to a different era",
+    "example": "The use of a typewriter in a modern office would be considered an anachronism",
+    "createdAt": "1683024269087"
+  },
+  {
+    "name": "analogous",
+    "meaning": "Something that is similar or comparable in certain respects, but not identical",
+    "example": "The wings of a bat are analogous to the wings of a bird, as they both serve the purpose of flight, but are structurally different",
+    "createdAt": "1682946380804"
+  },
+  {
+    "name": "archaic",
+    "meaning": "Something that is old-fashioned, outdated, or no longer in use",
+    "example": "The archaic farming practices of the past are no longer sustainable in the modern world",
+    "createdAt": "1683024416521"
+  },
+  {
+    "name": "audacity",
+    "meaning": "Boldness, daring, or fearlessness",
+    "example": "Despite the risks involved, the group of activists showed incredible audacity in standing up to the corrupt government and demanding change",
+    "createdAt": "1683022297528"
+  },
+  {
+    "name": "autonomous",
+    "meaning": "Independent",
+    "example": "The car has autonomous features that allow it to drive itself on the highway",
+    "createdAt": "1682948201942"
+  },
+  {
+    "name": "belittle",
+    "meaning": "To make someone or something seem unimportant, insignificant, or inferior",
+    "example": "The coach belittled the player in front of the entire team, causing him to lose confidence and motivation",
+    "createdAt": "1682946208230"
+  },
+  {
+    "name": "censor",
+    "meaning": "To examine and suppress or remove parts of something that is considered objectionable or offensive",
+    "example": "The government censored the news report to remove any criticism of their policies",
+    "createdAt": "1682946505555"
+  },
+  {
+    "name": "chauvinism",
+    "meaning": "Excessive patriotism, or belief in the superiority of one's own group or gender",
+    "example": "His chauvinistic attitude towards women was seen as offensive and outdated",
+    "createdAt": "1682947760092"
+  },
+  {
+    "name": "cohesive",
+    "meaning": "United or sticking together",
+    "example": "The team worked together so well that their play was incredibly cohesive, making it difficult for their opponents to break through their defense",
+    "createdAt": "1682946593182"
+  },
+  {
+    "name": "complementary",
+    "meaning": "Something that completes or enhances something else",
+    "example": "The new software is complementary to the existing system, providing additional functionality and ease of use",
+    "createdAt": "1682947666024"
+  },
+  {
+    "name": "constraint",
+    "meaning": "Limitation or restriction on something",
+    "example": "The budget constraints meant that we had to cut back on staff and resources",
+    "createdAt": "1682944470959"
+  },
+  {
+    "name": "delegate",
+    "meaning": "To entrust or assign a task, responsibility, or authority to someone else",
+    "example": "The manager delegated the task of organizing the company picnic to a team of employees",
+    "createdAt": "1683023164309"
+  },
+  {
+    "name": "diligent",
+    "meaning": "Someone who is hardworking, persistent, and careful in their work or duties",
+    "example": "The student was diligent in her studies, and spent many hours each day working on her assignments and preparing for exams",
+    "createdAt": "1683022988732"
+  },
+  {
+    "name": "egotist",
+    "meaning": "Who is excessively self-centered and focused on themselves, and never show consideration for others",
+    "example": "The CEO was known for his egotism, taking credit for the company's successes and blaming others for its failures",
+    "createdAt": "1682947093654"
+  },
+  {
+    "name": "embellish",
+    "meaning": "To decorate or enhance something by adding additional details or feature",
+    "example": "The politician was accused of embellishing his record to make himself appear more qualified for the job",
+    "createdAt": "1683023417950"
+  },
+  {
+    "name": "embryonic",
+    "meaning": "Undeveloped",
+    "example": "The new technology is still in its embryonic stage, and it will take years of research and development before it can be used",
+    "createdAt": "1682947375956"
+  },
+  {
+    "name": "extrapolate",
+    "meaning": "Making predictions or drawing conclusions based on the available evidence",
+    "example": "Based on the current trends, we can extrapolate that sales will continue to increase over the next quarter",
+    "createdAt": "1683023629395"
+  },
+  {
+    "name": "fatigue",
+    "meaning": "Extreme tiredness resulting from mental or physical exertion or illness",
+    "example": "After running a marathon, he felt a deep sense of fatigue in his muscles and bones",
+    "createdAt": "1682945114847"
+  },
+  {
+    "name": "hectic",
+    "meaning": "Very busy and filled with activity",
+    "example": "The office was always hectic during the end of the financial year",
+    "createdAt": "1682951312905"
+  },
+  {
+    "name": "irrefutable",
+    "meaning": "Undeniable",
+    "example": "The DNA evidence was irrefutable proof of the suspect's guilt in the crime",
+    "createdAt": "1682944724560"
+  },
+  {
+    "name": "jovial",
+    "meaning": "Cheerful, good-humoured , and merry",
+    "example": "The family enjoyed a jovial dinner together, sharing stories and jokes",
+    "createdAt": "1683024613089"
+  },
+  {
+    "name": "laborious",
+    "meaning": "Something that requires a lot of effort, time, or work to be completed",
+    "example": "The construction of the building was a laborious process that took several years to complete",
+    "createdAt": "1682944588892"
+  },
+  {
+    "name": "lethargic",
+    "meaning": "Laziness, lack of energy, or weary",
+    "example": "After staying up all night studying, she felt lethargic and could barely keep her eyes open",
+    "createdAt": "1682944981796"
+  },
+  {
+    "name": "malleable",
+    "meaning": "Something that can be easily shaped or molded without breaking or cracking",
+    "example": "The candidate's views on certain issues appeared to be malleable, changing depending on the audience",
+    "createdAt": "1683021984435"
+  },
+  {
+    "name": "melancholy",
+    "meaning": "A feeling of sadness or depression",
+    "example": "The music had a melancholy tone, evoking feelings of sadness and nostalgia",
+    "createdAt": "1683023718184"
+  },
+  {
+    "name": "mesmerise",
+    "meaning": "To hypnotize or fascinate someone",
+    "example": "The singer's performance was so captivating that it mesmerized the audience",
+    "createdAt": "1682948028577"
+  },
+  {
+    "name": "mundane",
+    "meaning": "Very ordinary and therefore not interesting",
+    "example": "The office worker's mundane job involved a lot of paperwork and data entry",
+    "createdAt": "1683024823703"
+  },
+  {
+    "name": "obese",
+    "meaning": "Extremely overweight",
+    "example": "The doctor advised the patient to lose weight since being obese increases the risk of developing various health issues",
+    "createdAt": "1682940653668"
+  },
+  {
+    "name": "paragon",
+    "meaning": "A person or thing that is considered a model or perfect example",
+    "example": "He was a paragon of honesty, and was admired by everyone who knew him",
+    "createdAt": "1683023971147"
+  },
+  {
+    "name": "pinnacle",
+    "meaning": "\nThe highest point of something, such as a mountain, a career, or an achievement",
+    "example": "Winning an Academy Award is often seen as the pinnacle of an actor's career",
+    "createdAt": "1682947514431"
+  },
+  {
+    "name": "pretentious",
+    "meaning": "Trying too hard to impress others and suggests a lack of authenticity or sincerity",
+    "example": "He was often mocked for his pretentious clothing and accessories, which he wore in an attempt to show off his wealth and status",
+    "createdAt": "1682944326457"
+  },
+  {
+    "name": "retract",
+    "meaning": "To withdraw, cancel, or take back",
+    "example": "The politician was forced to retract his statement after it was proven to be false",
+    "createdAt": "1683023918916"
+  },
+  {
+    "name": "robust",
+    "meaning": "Strong and healthy, or sturdy and durable",
+    "example": "The athlete's robust physique was a result of years of training and exercise",
+    "createdAt": "1683024687562"
+  },
+  {
+    "name": "serene",
+    "meaning": "Peace or calm",
+    "example": "The ocean was calm and serene, with the sun setting behind the horizon and casting a warm glow over the water",
+    "createdAt": "1682946977174"
+  },
+  {
+    "name": "sluggish",
+    "meaning": "Something that moves or operates slowly or with little energy",
+    "example": "She felt sluggish and unmotivated after eating a heavy meal",
+    "createdAt": "1682945192198"
+  },
+  {
+    "name": "stipend",
+    "meaning": "A fixed amount of money that is paid regularly to someone, typically as a salary or allowance",
+    "example": "Graduate students often receive a stipend to cover tuition and living expenses while they pursue their studies",
+    "createdAt": "1683022536579"
+  },
+  {
+    "name": "summit",
+    "meaning": "The highest point or peak of a mountain, or a meeting between leaders or officials of different countries or organizations",
+    "example": "The climbers finally reached the summit of Mount Everest after weeks of climbing",
+    "createdAt": "1682946050662"
+  },
+  {
+    "name": "tarnish",
+    "meaning": "To become dull",
+    "example": "The scandal tarnished his reputation",
+    "createdAt": "1683022766280"
+  },
+  {
+    "name": "tenacious",
+    "meaning": "Refusing to give up",
+    "example": "Despite facing numerous setbacks and obstacles, the athlete remained tenacious and refused to give up on his dream of winning the gold medal",
+    "createdAt": "1682946841251"
+  },
+  {
+    "name": "unprecedented",
+    "meaning": "Something that is completely new, unexpected, or groundbreaking",
+    "example": "The COVID-19 pandemic has brought unprecedented challenges to the healthcare system and the global economy",
+    "createdAt": "1683023258178"
   }
 ]
