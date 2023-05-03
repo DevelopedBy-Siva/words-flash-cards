@@ -93,7 +93,7 @@ export default function QnAnsContainer({ quizQn, setQuizQn }) {
         </QuestionContainer>
       </Wrapper>
       <MuteContainer>
-        <MuteBtn mute={mute ? 1 : 0} onClick={() => setMute(!mute)}>
+        <MuteBtn onClick={() => setMute(!mute)}>
           {!mute ? (
             <IoMdVolumeHigh className="icon" />
           ) : (
