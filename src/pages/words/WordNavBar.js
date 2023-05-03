@@ -4,6 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import { BiSearch } from "react-icons/bi";
 import { BsPlusLg } from "react-icons/bs";
+import { IoClose } from "react-icons/io5";
 import { MdOutlineBackup } from "react-icons/md";
 
 import NewWord from "./NewWord";
@@ -36,6 +37,12 @@ export default function WordNavBar() {
     setSearchParams(searchParam);
   }
 
+  function reinitialiseSearch() {
+    searchParam.set("search", "");
+    searchParam.set("page", 1);
+    setSearchParams(searchParam);
+  }
+
   return (
     <Container>
       <SearchBox onClick={() => searchInputRef.current.focus()}>
@@ -49,6 +56,9 @@ export default function WordNavBar() {
           value={searchInput}
           onChange={handleWordInputChange}
         />
+        {search && (
+          <IoClose onClick={reinitialiseSearch} className="close-icon" />
+        )}
       </SearchBox>
       <BackupBtn onClick={() => setBackupActive(true)}>
         <MdOutlineBackup />
@@ -107,6 +117,12 @@ const SearchBox = styled(motion.div)`
   color: ${(props) => props.theme.text.dull};
   font-size: 1.2rem;
   cursor: text;
+
+  .close-icon {
+    font-size: 1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
 `;
 
 const SearchInputBox = styled(motion.input)`

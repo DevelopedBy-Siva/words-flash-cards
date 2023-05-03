@@ -253,7 +253,8 @@ const WordInput = styled.input`
   color: ${(props) => props.theme.text.dull};
 
   &::placeholder {
-    font-size: 0.9rem;
+    font-weight: 300;
+    font-size: 0.8rem;
     text-transform: none;
   }
 
