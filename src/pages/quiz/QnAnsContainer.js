@@ -1,18 +1,35 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { IoMdVolumeHigh, IoMdVolumeOff } from "react-icons/io";
 
 import Wrapper from "../../components/wrapper";
 import { optionNumber } from "../../utils/QuizGenerator";
 
+const speechSynthesis = new SpeechSynthesisUtterance();
 export default function QnAnsContainer({ quizQn, setQuizQn }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+  const [mute, setMute] = useState(false);
+
   const { currentQn, qns } = quizQn;
   const { name, options, myChoice, status, answer, answerExample } =
     qns[currentQn];
+
+  useEffect(() => {
+    if (mute) return;
+    speechSynthesis.text = name;
+    const timeout = setTimeout(
+      () => window.speechSynthesis.speak(speechSynthesis),
+      1000
+    );
+    return () => {
+      window.speechSynthesis.cancel();
+      clearTimeout(timeout);
+    };
+  }, [name, mute]);
 
   function handleMyChoice(ansIndex) {
     if (status !== null) return;
@@ -26,62 +43,109 @@ export default function QnAnsContainer({ quizQn, setQuizQn }) {
   const correctChoiceStatusClassName = status === false ? answer : null;
 
   return (
-    <Wrapper contain spaceAround grow>
-      <QuestionContainer
-        key={currentQn}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
-        <WordName
-          initial={{ y: -60 }}
-          animate={{ y: 0 }}
-          transition={{ duration: 0.2 }}
+    <React.Fragment>
+      <Wrapper contain spaceAround grow>
+        <QuestionContainer
+          key={currentQn}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
         >
-          {name}
-        </WordName>
-        {options.map((opt, index) => (
-          <Options
-            onClick={() => handleMyChoice(index)}
-            key={index}
-            index={index}
-            active={myChoice === index}
-            disabled={status !== null ? true : false}
-            className={`${myChoice !== index ? "option-not-active" : ""} ${
-              myChoice === index ? myChoiceStatusClassName : ""
-            } ${
-              index === correctChoiceStatusClassName ? "choice-correct" : ""
-            }`}
-            initial={{ y: 60 }}
+          <WordName
+            initial={{ y: -60 }}
             animate={{ y: 0 }}
+            transition={{ duration: 0.2 }}
           >
-            <OptionsNumber active={myChoice === index} index={index}>
-              {optionNumber(index)}
-            </OptionsNumber>
-            <OptionValue>
-              <OptionChoice>{opt}</OptionChoice>
-              {status != null && answer === index ? (
-                <OptionExample
-                  initial={{ height: 0 }}
-                  animate={{ height: "auto" }}
-                >
-                  "{answerExample}"
-                </OptionExample>
-              ) : (
-                ""
-              )}
-            </OptionValue>
-          </Options>
-        ))}
-      </QuestionContainer>
-    </Wrapper>
+            {name}
+          </WordName>
+          {options.map((opt, index) => (
+            <Options
+              onClick={() => handleMyChoice(index)}
+              key={index}
+              index={index}
+              active={myChoice === index ? 1 : 0}
+              disabled={status !== null ? true : false}
+              className={`${myChoice !== index ? "option-not-active" : ""} ${
+                myChoice === index ? myChoiceStatusClassName : ""
+              } ${
+                index === correctChoiceStatusClassName ? "choice-correct" : ""
+              }`}
+              initial={{ y: 60 }}
+              animate={{ y: 0 }}
+            >
+              <OptionsNumber active={myChoice === index ? 1 : 0} index={index}>
+                {optionNumber(index)}
+              </OptionsNumber>
+              <OptionValue>
+                <OptionChoice>{opt}</OptionChoice>
+                {status != null && answer === index ? (
+                  <OptionExample
+                    initial={{ height: 0 }}
+                    animate={{ height: "auto" }}
+                  >
+                    "{answerExample}"
+                  </OptionExample>
+                ) : (
+                  ""
+                )}
+              </OptionValue>
+            </Options>
+          ))}
+        </QuestionContainer>
+      </Wrapper>
+      <MuteContainer>
+        <MuteBtn mute={mute ? 1 : 0} onClick={() => setMute(!mute)}>
+          {!mute ? (
+            <IoMdVolumeHigh className="icon" />
+          ) : (
+            <IoMdVolumeOff className="icon" />
+          )}
+        </MuteBtn>
+      </MuteContainer>
+    </React.Fragment>
   );
 }
+
+const MuteContainer = styled.div`
+  width: 100%;
+  height: 70px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding: 0 2rem;
+`;
+
+const MuteBtn = styled.button`
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  padding: 5px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid #fff;
+  background: none;
+  color: #fff;
+
+  .icon {
+    transition: all 200ms ease-in-out;
+  }
+
+  :hover .icon {
+    transform: scale(1.1);
+  }
+`;
 
 const QuestionContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  flex: 1;
+  min-height: 0;
 `;
 
 const WordName = styled(motion.h1)`
