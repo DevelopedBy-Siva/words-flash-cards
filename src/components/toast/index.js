@@ -29,8 +29,7 @@ const CustomToast = styled(ToastContainer)`
     min-height: 48px !important;
     font-family: "Roboto", sans-serif;
     border-radius: 5px;
-    margin: auto 5px;
-    margin-top: 1.4rem;
+    margin: 1.4rem auto 0 auto;
     text-align: left;
     justify-content: center !important;
     letter-spacing: 1px;
