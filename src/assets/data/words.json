@@ -814,5 +814,275 @@
     "meaning": "Something that is completely new, unexpected, or groundbreaking",
     "example": "The COVID-19 pandemic has brought unprecedented challenges to the healthcare system and the global economy",
     "createdAt": "1683023258178"
+  },
+  {
+    "name": "abstain",
+    "meaning": "Withhold, or deliberately choose not to do something",
+    "example": "He decided to abstain from eating dessert to maintain a healthier diet",
+    "createdAt": "1683842302220"
+  },
+  {
+    "name": "antipathy",
+    "meaning": "A strong dislike, towards someone or something",
+    "example": "There was an immediate antipathy between the two rival teams on the field",
+    "createdAt": "1683843077500"
+  },
+  {
+    "name": "apathy",
+    "meaning": "Indifference or lack of interest about something",
+    "example": "The student's apathy towards studying resulted in poor academic performance",
+    "createdAt": "1683842170408"
+  },
+  {
+    "name": "apogee",
+    "meaning": "Highest point",
+    "example": "The spacecraft reached its apogee and began to descend back towards Earth",
+    "createdAt": "1683134028982"
+  },
+  {
+    "name": "appease",
+    "meaning": "To satisfy, or calm someone or a situation by meeting their demands",
+    "example": "He bought her favorite flowers to appease her after an argument",
+    "createdAt": "1683841848732"
+  },
+  {
+    "name": "arbitrary",
+    "meaning": "A choice, action, or decision is based on personal preference",
+    "example": "The judge's ruling appeared to be arbitrary, lacking a solid legal basis or logical justification",
+    "createdAt": "1683840666716"
+  },
+  {
+    "name": "artful",
+    "meaning": "Skilful or Cunning",
+    "example": "He devised an artful plan to exploit his opponents",
+    "createdAt": "1683839537729"
+  },
+  {
+    "name": "autocratic",
+    "meaning": "A form of government or leadership in which a single person or group has absolute power and control over others; Tyrannical ",
+    "example": "In an autocratic government, the ruling party has complete control over the legislative, executive, and judicial branches of government",
+    "createdAt": "1683233740669"
+  },
+  {
+    "name": "avert",
+    "meaning": "To prevent or avoid something undesirable from happening",
+    "example": "She managed to avert a car accident by changing direction at the last moment",
+    "createdAt": "1683839311980"
+  },
+  {
+    "name": "banish",
+    "meaning": "To send someone or something away or to exile them; Getting rid of something or eliminating it completely",
+    "example": "The king decided to banish the traitor from the kingdom forever",
+    "createdAt": "1683728196200"
+  },
+  {
+    "name": "bleak",
+    "meaning": "Hopelessness (context:- Situation); Empty or not attractive (context- Place)",
+    "example": "The future looked bleak for the company, with declining sales and mounting debt",
+    "createdAt": "1683132869081"
+  },
+  {
+    "name": "bolster",
+    "meaning": "To support, strengthen, or reinforce something or someone",
+    "example": "The government introduced new policies to bolster the economy and promote job growth",
+    "createdAt": "1683840808983"
+  },
+  {
+    "name": "chivalrous",
+    "meaning": "Very polite and kind toward women",
+    "example": "The chivalrous gentleman offered his umbrella to the woman caught in the rain",
+    "createdAt": "1683839694944"
+  },
+  {
+    "name": "colossal",
+    "meaning": "Extremely large scale",
+    "example": "The concert attracted a colossal crowd",
+    "createdAt": "1683840985753"
+  },
+  {
+    "name": "contentious",
+    "meaning": "Something that is likely to cause disagreement or argument",
+    "example": "The divorce proceedings became increasingly contentious, with both parties fighting over custody of their children and their shared assets",
+    "createdAt": "1683133648128"
+  },
+  {
+    "name": "crestfallen",
+    "meaning": "A state of extreme disappointment, or sadness",
+    "example": "After receiving the rejection letter, she felt crestfallen, as she had worked so hard on the application",
+    "createdAt": "1683840469349"
+  },
+  {
+    "name": "crystallize",
+    "meaning": "The process of making something clear, definite, or well-defined",
+    "example": "As the temperature dropped, the water molecules began to crystallize, forming beautiful ice crystals",
+    "createdAt": "1683731254353"
+  },
+  {
+    "name": "decry",
+    "meaning": "Publicly condemn or express strong disapproval of someone or something",
+    "example": "The coach decryed the behavior of his players, who had shown a lack of sportsmanship during the game",
+    "createdAt": "1683133126752"
+  },
+  {
+    "name": "deify",
+    "meaning": "Worship or regard as a god",
+    "example": "People deified the emperor",
+    "createdAt": "1683144141846"
+  },
+  {
+    "name": "deliberate",
+    "meaning": "To think about or discuss something very carefully",
+    "example": "She made a deliberate decision to take a year off from work to travel and explore new places",
+    "createdAt": "1683232374789"
+  },
+  {
+    "name": "detrimental",
+    "meaning": "Something that causes harm, damage, or has a negative impact on someone or something",
+    "example": "Smoking tobacco can be detrimental to your health.",
+    "createdAt": "1683841772223"
+  },
+  {
+    "name": "discreet",
+    "meaning": "Someone or something that is careful, cautious, and maintains confidentiality or secrecy",
+    "example": "As a lawyer, she was always discreet with her clients' confidential information",
+    "createdAt": "1683841491640"
+  },
+  {
+    "name": "dishearten",
+    "meaning": "It describes the act of discouraging or demoralising someone",
+    "example": "The negative feedback from the audience disheartened the young actress, but she resolved to work harder and prove her talent",
+    "createdAt": "1683836157506"
+  },
+  {
+    "name": "eccentric",
+    "meaning": "Unconventional, Peculiar, or deviates from the usual or expected norms or behaviours",
+    "example": "Despite his eccentric behavior, the old lady was loved and respected by the neighborhood for her kindness",
+    "createdAt": "1683837235013"
+  },
+  {
+    "name": "empathy",
+    "meaning": "The ability to understand and share the feelings of another",
+    "example": "She displayed empathy by listening attentively to her friend's struggles and offering words of support",
+    "createdAt": "1683836662992"
+  },
+  {
+    "name": "enthrall",
+    "meaning": "To captivate or fascinate someone, to hold their attention or interest completely",
+    "example": "The audience was completely enthralled by the magician's performance, as he made objects disappear and reappear before their very eyes",
+    "createdAt": "1683233810285"
+  },
+  {
+    "name": "equitable",
+    "meaning": "Fairness, justice, and equal treatment",
+    "example": "The company implemented an equitable salary structure to ensure that all employees are fairly compensated for their work",
+    "createdAt": "1683840178835"
+  },
+  {
+    "name": "equivocal",
+    "meaning": "Ambiguous",
+    "example": "The statement made by the suspect during interrogation was equivocal, requiring further investigation to uncover the truth",
+    "createdAt": "1683845257765"
+  },
+  {
+    "name": "euphoria",
+    "meaning": "A state of intense happiness, excitement, or joy",
+    "example": "Winning the championship filled the team with euphoria",
+    "createdAt": "1683841385620"
+  },
+  {
+    "name": "exemplar",
+    "meaning": "A perfect example or model",
+    "example": "The company's success story has become an exemplar for aspiring entrepreneurs in the industry",
+    "createdAt": "1683841182751"
+  },
+  {
+    "name": "futile",
+    "meaning": "Incapable of producing results; Pointlessness, or uselessness",
+    "example": "The workers' strike was deemed futile as the company remained unwilling to negotiate",
+    "createdAt": "1683837521699"
+  },
+  {
+    "name": "impeccable",
+    "meaning": "Perfect, without flaws or errors",
+    "example": "Her presentation was delivered with impeccable timing and clarity",
+    "createdAt": "1683841112105"
+  },
+  {
+    "name": "industrious",
+    "meaning": "Hard-working and persistent.",
+    "example": "She is an industrious student who consistently completes assignments ahead of time",
+    "createdAt": "1683841307972"
+  },
+  {
+    "name": "inferred",
+    "meaning": "To draw a conclusion or make an assumption based on the information",
+    "example": "Based on the tone of her voice, I inferred that she was upset about something",
+    "createdAt": "1683201822856"
+  },
+  {
+    "name": "jargon",
+    "meaning": "Special words or expressions used by a profession or group that are difficult for others to understand",
+    "example": "During the meeting, the engineers discussed their project using technical jargon that was unfamiliar to the marketing team",
+    "createdAt": "1683840595200"
+  },
+  {
+    "name": "meander",
+    "meaning": "Aimlessness or wander",
+    "example": "The conversation meandered from politics to sports to movies, covering a wide range of topics",
+    "createdAt": "1683132985255"
+  },
+  {
+    "name": "meteoric",
+    "meaning": "To describe a rapid, impressive, or dramatic rise or increase in something",
+    "example": "The company experienced meteoric growth, expanding its operations globally within a short span of time",
+    "createdAt": "1683840338432"
+  },
+  {
+    "name": "misconstrue",
+    "meaning": "To interpret, understand, or explain something incorrectly or inaccurately",
+    "example": "The comedian's joke was misconstrued as offensive, causing controversy and backlash",
+    "createdAt": "1683841649707"
+  },
+  {
+    "name": "modicum",
+    "meaning": "A small amount of something",
+    "example": "She showed a modicum of respect for her opponent, even though they were competing against each other",
+    "createdAt": "1683133404694"
+  },
+  {
+    "name": "oblique",
+    "meaning": "Indirect or not straightforward",
+    "example": "She made an oblique reference to the incident without directly addressing it",
+    "createdAt": "1683840264982"
+  },
+  {
+    "name": "pastoral",
+    "meaning": " Countryside, rural life",
+    "example": "The church was set in a pastoral location, surrounded by rolling hills and fields of wildflowers",
+    "createdAt": "1683133822808"
+  },
+  {
+    "name": "prevail",
+    "meaning": "To succeed, control, or influence",
+    "example": "In a close race, the candidate with the most votes will prevail and win the election",
+    "createdAt": "1683842579755"
+  },
+  {
+    "name": "pristine",
+    "meaning": "It conveys a sense of purity, cleanliness, and freshness",
+    "example": "The newly built house had pristine white walls and gleaming floors",
+    "createdAt": "1683837676133"
+  },
+  {
+    "name": "profuse",
+    "meaning": "Something that is abundant or excessive",
+    "example": "She was sweating profusely after running the marathon in the scorching heat",
+    "createdAt": "1683133482543"
+  },
+  {
+    "name": "transitory",
+    "meaning": "Lasting only a short time; temporary.",
+    "example": "Temporary, or not lasting for a long time.",
+    "createdAt": "1683842760097"
   }
 ]
