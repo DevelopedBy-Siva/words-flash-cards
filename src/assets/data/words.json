@@ -1084,5 +1084,479 @@
     "meaning": "Lasting only a short time; temporary.",
     "example": "Temporary, or not lasting for a long time.",
     "createdAt": "1683842760097"
+  },
+  {
+    "name": "abrogate",
+    "meaning": "Formally revoke a law or agreement",
+    "example": "The board voted to abrogate the policy, recognizing its negative impact on employee morale",
+    "createdAt": "1684672278470"
+  },
+  {
+    "name": "affluent",
+    "meaning": "Wealthy",
+    "example": "She comes from an affluent family and has never experienced financial hardship",
+    "createdAt": "1684763391113"
+  },
+  {
+    "name": "altruism",
+    "meaning": "Concern for others",
+    "example": "His decision to donate a significant portion of his earnings to charity reflects his altruistic nature",
+    "createdAt": "1684176520176"
+  },
+  {
+    "name": "anarchy",
+    "meaning": "Absence of government, or lack of hierarchical authority",
+    "example": "In the absence of a government, the country descended into anarchy, with widespread looting and violence",
+    "createdAt": "1684065551355"
+  },
+  {
+    "name": "animosity",
+    "meaning": "A strong dislike, or feeling hostile",
+    "example": "There has been a long history of animosity between the two rival gangs",
+    "createdAt": "1684687141387"
+  },
+  {
+    "name": "antiquated",
+    "meaning": "Old-fashioned, out of date",
+    "example": "The company still uses antiquated computer systems that are slow and inefficient",
+    "createdAt": "1684300777585"
+  },
+  {
+    "name": "appreciable",
+    "meaning": "Noticeable",
+    "example": "There was an appreciable increase in sales after the marketing campaign",
+    "createdAt": "1684349185855"
+  },
+  {
+    "name": "apprise",
+    "meaning": "Inform or notify someone",
+    "example": "Please apprise me of any changes to the schedule",
+    "createdAt": "1684065656004"
+  },
+  {
+    "name": "artless",
+    "meaning": "Skill-less, or genuine without any hidden motive",
+    "example": "The artless painting looked like it had been done by a child",
+    "createdAt": "1684064613870"
+  },
+  {
+    "name": "augment",
+    "meaning": "To increase, enlarge, or enhance something in size",
+    "example": "She decided to augment her income by taking on a part-time job",
+    "createdAt": "1684349106155"
+  },
+  {
+    "name": "avid",
+    "meaning": "Extremely enthusiastic, eager, or passionate about something",
+    "example": "He is an avid reader and can finish several books in a week",
+    "createdAt": "1684763209366"
+  },
+  {
+    "name": "benign",
+    "meaning": "Harmless",
+    "example": "The doctor assured the patient that the tumor was benign and not cancerous",
+    "createdAt": "1684686072799"
+  },
+  {
+    "name": "boorish",
+    "meaning": "Someone who behaves in a rude, insensitive, or uncultured manner",
+    "example": "His boorish behavior at the dinner party embarrassed everyone",
+    "createdAt": "1684064517358"
+  },
+  {
+    "name": "cerebral",
+    "meaning": "Relating to the brain or the intellect",
+    "example": "He is known for his cerebral approach to problem-solving, always relying on logic and analysis",
+    "createdAt": "1684763997015"
+  },
+  {
+    "name": "conundrum",
+    "meaning": "A confusing or difficult problem or situation",
+    "example": "The company found itself in a conundrum when its primary supplier suddenly went out of business",
+    "createdAt": "1684177726817"
+  },
+  {
+    "name": "conventional",
+    "meaning": "Traditional or ordinary",
+    "example": "He chose to pursue a conventional career path by becoming a lawyer",
+    "createdAt": "1684065151864"
+  },
+  {
+    "name": "convoluted",
+    "meaning": "Very complex",
+    "example": "The professor's explanation of the physics concept was so convoluted that the students struggled to grasp the fundamental principles",
+    "createdAt": "1684177876001"
+  },
+  {
+    "name": "cumbersome",
+    "meaning": "Difficult to carry or handle",
+    "example": "The antique furniture was beautiful but cumbersome to move due to its size and weight",
+    "createdAt": "1684767291002"
+  },
+  {
+    "name": "decorum",
+    "meaning": "Good manners, showing proper conduct, and maintaining a sense of dignity",
+    "example": "In a job interview, it is essential to dress appropriately and speak with decorum to make a good impression",
+    "createdAt": "1684064877964"
+  },
+  {
+    "name": "derivative",
+    "meaning": "Unoriginal, or something that is obtained from another source",
+    "example": "The movie received mixed reviews for its derivative plot and lack of originality",
+    "createdAt": "1684276438895"
+  },
+  {
+    "name": "diminutive",
+    "meaning": "Something that is small in size, stature, or significance",
+    "example": "The puppy was adorable with its diminutive size and playful nature",
+    "createdAt": "1684303808229"
+  },
+  {
+    "name": "discord",
+    "meaning": "Disagreement",
+    "example": "The team's poor communication resulted in discord and hindered their progress",
+    "createdAt": "1684686273288"
+  },
+  {
+    "name": "disingenuous",
+    "meaning": "Not sincere, or pretending to be honest",
+    "example": "His apology came across as disingenuous, as he didn't show any genuine remorse for his actions",
+    "createdAt": "1684766821043"
+  },
+  {
+    "name": "dissipate",
+    "meaning": "Disappear, or Waste",
+    "example": "She warned him not to dissipate his energy on unimportant tasks",
+    "createdAt": "1684275798964"
+  },
+  {
+    "name": "elitist",
+    "meaning": "Chauvinist",
+    "example": "The elitist art gallery only displayed works by established, high-profile artists",
+    "createdAt": "1684767008358"
+  },
+  {
+    "name": "empiricism",
+    "meaning": "The idea that all learning comes from only experience and observations",
+    "example": "The scientist relied on empiricism to gather data through experiments and observations",
+    "createdAt": "1684276243344"
+  },
+  {
+    "name": "enamored",
+    "meaning": "Strongly infatuated with or captivated by someone or something",
+    "example": "The child was enamored by the beautiful butterflies fluttering in the garden",
+    "createdAt": "1684177101333"
+  },
+  {
+    "name": "enumerate",
+    "meaning": "Mention one by one",
+    "example": "He was asked to enumerate his qualifications during the job interview",
+    "createdAt": "1684349475149"
+  },
+  {
+    "name": "eponym",
+    "meaning": "A name derived from other name",
+    "example": "The city of Paris is an eponym derived from the name of its founding tribe, the Parisii",
+    "createdAt": "1684671013551"
+  },
+  {
+    "name": "err",
+    "meaning": "To make a mistake",
+    "example": "I apologize for my mistake. I erred in my calculations",
+    "createdAt": "1684275336253"
+  },
+  {
+    "name": "erratic",
+    "meaning": "Unpredictable, inconsistent, or irregular",
+    "example": "The stock market showed erratic fluctuations throughout the day, making it difficult to predict trends",
+    "createdAt": "1684300614555"
+  },
+  {
+    "name": "evasive",
+    "meaning": "Avoiding commitment or self-revelation, especially by responding only indirectly.",
+    "example": "His evasive behavior raised suspicions that he was hiding something",
+    "createdAt": "1684349265286"
+  },
+  {
+    "name": "evenhanded",
+    "meaning": "Fair, or unbiased",
+    "example": "The judge demonstrated an evenhanded approach in delivering justice",
+    "createdAt": "1684350303415"
+  },
+  {
+    "name": "excruciating",
+    "meaning": "Very painful",
+    "example": "The athlete experienced excruciating pain after injuring his knee during the game",
+    "createdAt": "1684350728548"
+  },
+  {
+    "name": "exorbitant",
+    "meaning": "Excessive, or unreasonably high",
+    "example": "The hotel charges exorbitant prices during peak tourist season",
+    "createdAt": "1684349711243"
+  },
+  {
+    "name": "feasible",
+    "meaning": "Something that can be done, or achieved",
+    "example": "The project manager presented a detailed plan outlining the steps and resources required to make the project feasible",
+    "createdAt": "1684177434592"
+  },
+  {
+    "name": "frugal",
+    "meaning": "Economical with their money and resources",
+    "example": "She leads a frugal lifestyle, always searching for the best deals and avoiding unnecessary expenses",
+    "createdAt": "1684176689333"
+  },
+  {
+    "name": "glean",
+    "meaning": "Gather or collect",
+    "example": "He spent hours browsing online forums to glean advice on how to fix his computer",
+    "createdAt": "1684670386443"
+  },
+  {
+    "name": "hamper",
+    "meaning": "An obstacle that slows down , or restrict something",
+    "example": "The heavy rain hampered our plans to go hiking in the mountains",
+    "createdAt": "1684686389985"
+  },
+  {
+    "name": "hoodwink",
+    "meaning": "To deceive or trick someone",
+    "example": "The scam artist tried to hoodwink innocent people into giving away their personal information",
+    "createdAt": "1684350233424"
+  },
+  {
+    "name": "iconoclastic",
+    "meaning": "Someone or something that challenges or undermines established traditions, beliefs, or norms",
+    "example": "The film's iconoclastic portrayal of a religious figure generated controversy and debate",
+    "createdAt": "1684176368359"
+  },
+  {
+    "name": "imbibe",
+    "meaning": "Absorb ideas",
+    "example": "The students gathered in the library to imbibe knowledge from their textbooks",
+    "createdAt": "1684763309784"
+  },
+  {
+    "name": "impending",
+    "meaning": "About to happen or occur in the near future",
+    "example": "The dark clouds and thunder signaled the impending storm",
+    "createdAt": "1684686122451"
+  },
+  {
+    "name": "impervious",
+    "meaning": "Unaffected or unable to be affected by something",
+    "example": "The fortress was built with thick, impervious walls to withstand attacks",
+    "createdAt": "1684350101442"
+  },
+  {
+    "name": "implicate",
+    "meaning": "To convey, suggest, or indicate that someone or something is involved in a particular action",
+    "example": "The document's contents strongly implicate the company in unethical practices",
+    "createdAt": "1684348558402"
+  },
+  {
+    "name": "inarticulate",
+    "meaning": "Unable to express thoughts, ideas, or feelings clearly",
+    "example": "Under the pressure of public speaking, he became inarticulate and struggled to find the right words",
+    "createdAt": "1684303947628"
+  },
+  {
+    "name": "insufferable",
+    "meaning": "Unbearable",
+    "example": "The heat in the room was insufferable, making it hard to breathe",
+    "createdAt": "1684348773305"
+  },
+  {
+    "name": "intermittent",
+    "meaning": "Something that occurs at irregular intervals",
+    "example": "The internet connection was intermittent, causing frustration and disruptions during the online meeting",
+    "createdAt": "1684300493907"
+  },
+  {
+    "name": "intimation",
+    "meaning": "Indirect hint or suggestion",
+    "example": "He gave me an intimation that she might resign from her position",
+    "createdAt": "1684349007977"
+  },
+  {
+    "name": "irrevocable",
+    "meaning": "Something that cannot be changed, or undone",
+    "example": "His resignation letter made his departure from the company irrevocable",
+    "createdAt": "1684275936968"
+  },
+  {
+    "name": "laudable",
+    "meaning": "Praiseworthy, or commendable",
+    "example": "The team's laudable performance led them to victory in the championship",
+    "createdAt": "1684762994700"
+  },
+  {
+    "name": "maladroit",
+    "meaning": "Clumsy, awkward, or lacking skill",
+    "example": "Her maladroit dance moves drew laughter from the audience",
+    "createdAt": "1684670347510"
+  },
+  {
+    "name": "malapropism",
+    "meaning": "Confusing similar words",
+    "example": "During her speech, she unintentionally used malapropisms, causing the audience to burst into laughter",
+    "createdAt": "1684670794850"
+  },
+  {
+    "name": "malevolent",
+    "meaning": "Evil-minded",
+    "example": "The villain in the story had a malevolent plan to destroy the city",
+    "createdAt": "1684350650050"
+  },
+  {
+    "name": "martial",
+    "meaning": "Relates to war, the military, or the armed forces",
+    "example": "He received martial training and joined the army.",
+    "createdAt": "1684300712377"
+  },
+  {
+    "name": "maverick",
+    "meaning": "An unorthodox or independent-minded person",
+    "example": "John is a maverick entrepreneur who always finds innovative ways to solve problems",
+    "createdAt": "1684065725718"
+  },
+  {
+    "name": "miser",
+    "meaning": "One who is cheap",
+    "example": "He was known as a miser who never spent money on anything other than absolute necessities",
+    "createdAt": "1684763529468"
+  },
+  {
+    "name": "misogynist",
+    "meaning": "A hater of women",
+    "example": "The film was criticized for promoting a misogynistic narrative",
+    "createdAt": "1684176184378"
+  },
+  {
+    "name": "nonchalant",
+    "meaning": "Calm and unconcerned",
+    "example": "His nonchalant response to the criticism surprised everyone",
+    "createdAt": "1684349938316"
+  },
+  {
+    "name": "obtuse",
+    "meaning": "Slow to learn",
+    "example": "Despite the clear explanation, he remained obtuse and couldn't understand the problem",
+    "createdAt": "1684763071729"
+  },
+  {
+    "name": "ornate",
+    "meaning": "Highly decorated, or embellished",
+    "example": "The crown was an ornate piece of jewelry",
+    "createdAt": "1684350817981"
+  },
+  {
+    "name": "palatable",
+    "meaning": "Pleasing, or acceptable",
+    "example": "The film had a palatable storyline and engaging characters that kept the audience entertained",
+    "createdAt": "1684306970766"
+  },
+  {
+    "name": "peculiar",
+    "meaning": "Strange",
+    "example": "She has a peculiar habit of collecting vintage teacups and displaying them on her walls",
+    "createdAt": "1684275111427"
+  },
+  {
+    "name": "peevish",
+    "meaning": "Easily annoyed or irritated",
+    "example": "She woke up in a peevish mood and snapped at everyone around her.",
+    "createdAt": "1684671416304"
+  },
+  {
+    "name": "pellucid",
+    "meaning": "Clear, or easily understood",
+    "example": "Her presentation was pellucid, making complex concepts easy to grasp",
+    "createdAt": "1684349556579"
+  },
+  {
+    "name": "placate",
+    "meaning": " To calm someone's anger",
+    "example": "She offered a sincere apology to placate her upset friend",
+    "createdAt": "1684766534983"
+  },
+  {
+    "name": "presumption",
+    "meaning": "Assumption",
+    "example": "The professor questioned the student's argument, stating that it was based on unfounded presumptions",
+    "createdAt": "1684349813258"
+  },
+  {
+    "name": "rash",
+    "meaning": "Reckless",
+    "example": "His rash behavior often landed him in trouble with authorities",
+    "createdAt": "1684350386447"
+  },
+  {
+    "name": "redress",
+    "meaning": "Correcting unfairness",
+    "example": "The company is taking immediate steps to redress the customer's complaint",
+    "createdAt": "1684672496940"
+  },
+  {
+    "name": "reservation",
+    "meaning": "Feeling of doubt, or hesitation",
+    "example": "She expressed reservations about the proposed changes to the project",
+    "createdAt": "1684306878092"
+  },
+  {
+    "name": "sanction",
+    "meaning": "To approve(context: Positive); To impose penalties, restrictions(context: Negative)",
+    "example": "The government issued sanctions against the company for violating environmental regulations",
+    "createdAt": "1684176919755"
+  },
+  {
+    "name": "schadenfreude",
+    "meaning": "Joy in others suffering",
+    "example": "He experienced a brief moment of schadenfreude upon learning that his coworker didn't get the promotion",
+    "createdAt": "1684670499851"
+  },
+  {
+    "name": "sporadic",
+    "meaning": "Something occurring at irregular intervals",
+    "example": "The town experienced sporadic power outages throughout the day due to the storm",
+    "createdAt": "1684177935016"
+  },
+  {
+    "name": "thrifty",
+    "meaning": "Frugal",
+    "example": "She is a thrifty shopper who always looks for sales and discounts",
+    "createdAt": "1684350524388"
+  },
+  {
+    "name": "thwart",
+    "meaning": "Prevent someone from accomplishing something",
+    "example": "The security measures in place helped thwart the attempted robbery",
+    "createdAt": "1684762774932"
+  },
+  {
+    "name": "unassailable",
+    "meaning": "Unable to be attacked, questioned",
+    "example": "His argument was supported by such strong evidence that it seemed unassailable",
+    "createdAt": "1684766708696"
+  },
+  {
+    "name": "unprepossessing",
+    "meaning": "Unimpressive or unremarkable",
+    "example": "The building's exterior was rather unprepossessing, but its interior was surprisingly elegant",
+    "createdAt": "1684672215902"
+  },
+  {
+    "name": "unviable",
+    "meaning": "Something that is not feasible or practical",
+    "example": "The proposed business model proved to be unviable due to high production costs",
+    "createdAt": "1684177417585"
+  },
+  {
+    "name": "zenith",
+    "meaning": "The highest point",
+    "example": "The company's success reached its zenith when it became the market leader",
+    "createdAt": "1684177183755"
   }
 ]
