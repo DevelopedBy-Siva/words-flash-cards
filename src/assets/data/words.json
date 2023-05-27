@@ -1558,5 +1558,251 @@
     "meaning": "The highest point",
     "example": "The company's success reached its zenith when it became the market leader",
     "createdAt": "1684177183755"
+  },
+  {
+    "name": "accolade",
+    "meaning": "High praise",
+    "example": "She received numerous accolades for her outstanding performance in the play",
+    "createdAt": "1684873877328"
+  },
+  {
+    "name": "ample",
+    "meaning": "Plentiful, or more than enough",
+    "example": "The hotel provided amply sized rooms with comfortable beds and spacious bathrooms",
+    "createdAt": "1684912957239"
+  },
+  {
+    "name": "assert",
+    "meaning": "To state or declare something confidently and forcefully",
+    "example": "She asserted her opinion during the meeting, explaining her reasons with conviction",
+    "createdAt": "1684875129457"
+  },
+  {
+    "name": "badger",
+    "meaning": "Repeatedly asking or annoying someone to do something",
+    "example": "The salesperson wouldn't stop badgering me to buy the product, even after I said I wasn't interested",
+    "createdAt": "1684912534481"
+  },
+  {
+    "name": "banality",
+    "meaning": "Lack of freshness, or cliche",
+    "example": "The movie was a disappointing collection of banal plotlines and predictable characters",
+    "createdAt": "1684874330019"
+  },
+  {
+    "name": "deceit",
+    "meaning": "To deceive, or trick",
+    "example": "The politician's campaign was marked by deceitful tactics and false promises",
+    "createdAt": "1684913893734"
+  },
+  {
+    "name": "decimation",
+    "meaning": "Complete destruction",
+    "example": "The decimation of the rainforest has had devastating effects on biodiversity",
+    "createdAt": "1684913802796"
+  },
+  {
+    "name": "demean",
+    "meaning": "To lower, or degrade",
+    "example": "He used his position of power to demean and belittle his subordinates",
+    "createdAt": "1684914089608"
+  },
+  {
+    "name": "docile",
+    "meaning": "Easily manageable, or obedient",
+    "example": "The dog was very docile and quickly learned commands during training",
+    "createdAt": "1684912374435"
+  },
+  {
+    "name": "doleful",
+    "meaning": "Melancholy",
+    "example": "She sang a doleful song that brought tears to the audience's eyes",
+    "createdAt": "1684874951970"
+  },
+  {
+    "name": "dupe",
+    "meaning": "A person who has been deceived or tricked",
+    "example": "She fell for the scam and became a dupe, losing a significant amount of money",
+    "createdAt": "1684874610378"
+  },
+  {
+    "name": "duplicity",
+    "meaning": "Deceit",
+    "example": "The company's CEO was known for his duplicity, often making promises he had no intention of keeping",
+    "createdAt": "1684913990895"
+  },
+  {
+    "name": "hail",
+    "meaning": "Celebrate something",
+    "example": "The new technology was hailed as a breakthrough in the field of medicine",
+    "createdAt": "1684913551411"
+  },
+  {
+    "name": "haphazard",
+    "meaning": "Lacking order, organization, or planning",
+    "example": "He packed his suitcase in a haphazard manner, throwing clothes and belongings in without any organization",
+    "createdAt": "1684913141387"
+  },
+  {
+    "name": "implausible",
+    "meaning": "Unbelievable or unlikely to happen",
+    "example": "The politician made an implausible promise during the campaign, raising doubts among the voters",
+    "createdAt": "1684913424566"
+  },
+  {
+    "name": "indecorous",
+    "meaning": "Impolite, or lack of decorum",
+    "example": "His indecorous jokes during the formal dinner offended many guests",
+    "createdAt": "1684874230478"
+  },
+  {
+    "name": "jocular",
+    "meaning": "Humorous",
+    "example": "The comedian's jocular performance had the audience roaring with laughter",
+    "createdAt": "1684874414590"
+  },
+  {
+    "name": "jubilant",
+    "meaning": "Overjoyed",
+    "example": "The team was jubilant after winning the championship",
+    "createdAt": "1684910131408"
+  },
+  {
+    "name": "maintain",
+    "meaning": "To preserve, or assert",
+    "example": "It is important to maintain a healthy diet and exercise regularly for physical well-being",
+    "createdAt": "1684882048519"
+  },
+  {
+    "name": "meticulous",
+    "meaning": "Very precise, careful & attention to details",
+    "example": "She is known for her meticulous approach to project management, ensuring every aspect is thoroughly planned and executed",
+    "createdAt": "1684912251019"
+  },
+  {
+    "name": "muted",
+    "meaning": "Softened",
+    "example": "She gave a muted response to the news of her promotion, not wanting to draw attention to herself",
+    "createdAt": "1684913359245"
+  },
+  {
+    "name": "pacify",
+    "meaning": "To calm, or bring peace",
+    "example": "The government implemented measures to pacify the protesting citizens and address their concerns",
+    "createdAt": "1684874539194"
+  },
+  {
+    "name": "perennial",
+    "meaning": "Everlasting",
+    "example": "The band's music has a timeless quality, making them a perennial favorite among music lovers",
+    "createdAt": "1684873520119"
+  },
+  {
+    "name": "perturb",
+    "meaning": "To disturb",
+    "example": "The loud noises from the construction site perturbed the residents, disrupting their peaceful environment",
+    "createdAt": "1684913033670"
+  },
+  {
+    "name": "pester",
+    "meaning": "To annoy or bother someone persistently",
+    "example": "The child kept pestering his parents for a new toy",
+    "createdAt": "1684912673806"
+  },
+  {
+    "name": "pith",
+    "meaning": "Most essential part",
+    "example": "In just a few pithy words, the author conveyed the entire theme of the novel",
+    "createdAt": "1684914321160"
+  },
+  {
+    "name": "ploy",
+    "meaning": "A cunning plan to take advantage",
+    "example": "She used a ploy to distract her opponent and gain an advantage in the game",
+    "createdAt": "1684873792874"
+  },
+  {
+    "name": "pragmatic",
+    "meaning": "A practical and realistic approach",
+    "example": "She took a pragmatic approach to the project, focusing on what would deliver the best outcomes within the given constraints",
+    "createdAt": "1684914589408"
+  },
+  {
+    "name": "precedent",
+    "meaning": "An earlier event or decision that serves as an example for future actions or judgments",
+    "example": "The judge considered the legal precedent in similar cases before making a ruling",
+    "createdAt": "1684913692710"
+  },
+  {
+    "name": "recapitulation",
+    "meaning": "Summarizing",
+    "example": "The professor provided a brief recapitulation of the lecture before concluding the class",
+    "createdAt": "1684874160256"
+  },
+  {
+    "name": "row",
+    "meaning": "A heated argument or dispute",
+    "example": "The siblings constantly rowed over trivial matters",
+    "createdAt": "1684874860232"
+  },
+  {
+    "name": "spartan",
+    "meaning": "Unconcerned with comfort",
+    "example": "The marathon runner maintained a spartan lifestyle, prioritizing training",
+    "createdAt": "1684873607338"
+  },
+  {
+    "name": "steadfast",
+    "meaning": "Unwavering, or firm",
+    "example": "She remained steadfast in her support for human rights, even in the face of opposition",
+    "createdAt": "1684912790366"
+  },
+  {
+    "name": "swindle",
+    "meaning": "To deceive, or cheat",
+    "example": "The fake charity organization swindled people by claiming to support a noble cause while pocketing the donations",
+    "createdAt": "1684874744403"
+  },
+  {
+    "name": "thoroughgoing",
+    "meaning": "Thoroughness, or completeness",
+    "example": "The company conducted a thoroughgoing analysis of its financial statements to identify areas of improvement",
+    "createdAt": "1684913241531"
+  },
+  {
+    "name": "truncate",
+    "meaning": "To shorten",
+    "example": "He had to truncate his speech due to time constraints",
+    "createdAt": "1684910453229"
+  },
+  {
+    "name": "undermine",
+    "meaning": "Weaken",
+    "example": "His constant criticism undermines her confidence and self-esteem",
+    "createdAt": "1684873718300"
+  },
+  {
+    "name": "unruly",
+    "meaning": "Wild, or uncontrollable",
+    "example": "The police gathered to contain the unruly mob",
+    "createdAt": "1684914194712"
+  },
+  {
+    "name": "veritable",
+    "meaning": "True, genuine, or authentic",
+    "example": "He is a veritable genius",
+    "createdAt": "1684910216628"
+  },
+  {
+    "name": "waver",
+    "meaning": "Uncertainty or lack of firmness",
+    "example": "She was wavering between two career options and couldn't decide which path to pursue",
+    "createdAt": "1684912874498"
+  },
+  {
+    "name": "whimsical",
+    "meaning": "Playful",
+    "example": "The children's book was filled with whimsical illustrations and fantastical characters",
+    "createdAt": "1684874027181"
   }
 ]
