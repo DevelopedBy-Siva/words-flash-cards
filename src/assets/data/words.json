@@ -1804,5 +1804,245 @@
     "meaning": "Playful",
     "example": "The children's book was filled with whimsical illustrations and fantastical characters",
     "createdAt": "1684874027181"
+  },
+  {
+    "name": "aboveboard",
+    "meaning": "Honest",
+    "example": "Fair and aboveHe insisted on running his campaign aboveboard, without engaging in any underhanded tactics",
+    "createdAt": "1685212796947"
+  },
+  {
+    "name": "aesthete",
+    "meaning": "Appreciator of beauty",
+    "example": "As an aesthete, she spends her weekends visiting art galleries and museums",
+    "createdAt": "1685211805905"
+  },
+  {
+    "name": "apposite",
+    "meaning": " Relevant, fitting, or appropriate",
+    "example": "The speaker's examples were apposite and helped clarify the complex concept",
+    "createdAt": "1685226054338"
+  },
+  {
+    "name": "atavism",
+    "meaning": "Throwback, or revival of a trait from a previous ancestral generation",
+    "example": "The love for hunting and gathering food in the wilderness seemed like an atavistic instinct that couldn't be suppressed",
+    "createdAt": "1685304049277"
+  },
+  {
+    "name": "begrudge",
+    "meaning": "Envy",
+    "example": "He begrudged his brother's new car and couldn't hide his jealousy",
+    "createdAt": "1685304981607"
+  },
+  {
+    "name": "behoove",
+    "meaning": "it is a duty or responsibility for someone to do something",
+    "example": "As a responsible citizen, it behooves you to vote in the upcoming election",
+    "createdAt": "1685225886955"
+  },
+  {
+    "name": "bridle",
+    "meaning": "To restrain or control one's emotions, or actions",
+    "example": "She tried to bridle her excitement upon hearing the good news",
+    "createdAt": "1685225179349"
+  },
+  {
+    "name": "circumscribe",
+    "meaning": "Restrict something within the limits",
+    "example": "The fence circumscribes the perimeter of the property",
+    "createdAt": "1685213105588"
+  },
+  {
+    "name": "conspicuous",
+    "meaning": "Obvious, stands out or easy to notice",
+    "example": "Her bright red hat made her quite conspicuous in the sea of people",
+    "createdAt": "1685304593141"
+  },
+  {
+    "name": "convivial",
+    "meaning": "Friendly",
+    "example": "He was known for his convivial nature and the ability to make everyone feel welcome",
+    "createdAt": "1685213151590"
+  },
+  {
+    "name": "deign",
+    "meaning": "To do something that one considers to be beneath one's dignity",
+    "example": "The CEO rarely deigns to attend meetings with lower-level employees",
+    "createdAt": "1685303281399"
+  },
+  {
+    "name": "demotic",
+    "meaning": "Language that is relatable, and easily understood by the general public",
+    "example": "The artist's paintings depicted scenes of everyday life in a demotic and relatable manner",
+    "createdAt": "1685273810992"
+  },
+  {
+    "name": "desiccated",
+    "meaning": " Loss of vitality, or freshness",
+    "example": "The desiccated corpse of the ancient mummy was carefully preserved in a museum",
+    "createdAt": "1685225562683"
+  },
+  {
+    "name": "disinterested",
+    "meaning": "Impartial or unbiased",
+    "example": "The judge remained disinterested throughout the trial",
+    "createdAt": "1685273987608"
+  },
+  {
+    "name": "dogmatic",
+    "meaning": "Opinionated, or having strong opinions and refuse to accept that they may be wrong",
+    "example": "The professor's lectures were often dogmatic, leaving little room for students to question or challenge ideas",
+    "createdAt": "1685303730033"
+  },
+  {
+    "name": "envy",
+    "meaning": "Longing desire for something that someone else possesses",
+    "example": "He secretly envied his coworker's natural talent for public speaking",
+    "createdAt": "1685304905826"
+  },
+  {
+    "name": "factitious",
+    "meaning": "Artificial",
+    "example": "The painting was revealed to be factitious, created by a forger rather than the renowned artist",
+    "createdAt": "1685211620355"
+  },
+  {
+    "name": "fastidious",
+    "meaning": "Meticulous",
+    "example": "She is known for her fastidious attention to detail, ensuring that every aspect of her work is flawless",
+    "createdAt": "1685212598134"
+  },
+  {
+    "name": "fussy",
+    "meaning": "Overly concerned with trivial matters ",
+    "example": "She can be quite fussy about the arrangement of furniture in her house",
+    "createdAt": "1685212530612"
+  },
+  {
+    "name": "goad",
+    "meaning": "Urges or encourage",
+    "example": "His friends goaded him into participating in the daring adventure",
+    "createdAt": "1685225814562"
+  },
+  {
+    "name": "guffaw",
+    "meaning": "Laugh loudly",
+    "example": "The comedian's joke was so funny that the entire audience erupted in guffaws",
+    "createdAt": "1685303459735"
+  },
+  {
+    "name": "ignoble",
+    "meaning": "Dishonourable",
+    "example": "The politician's ignoble behavior tarnished his reputation and undermined public trust",
+    "createdAt": "1685226116078"
+  },
+  {
+    "name": "immure",
+    "meaning": "Enclose or confine someone or something within a space",
+    "example": "The prisoners were immured in cramped cells, deprived of sunlight and fresh air",
+    "createdAt": "1685304507025"
+  },
+  {
+    "name": "implacable",
+    "meaning": "Unable to be calmed",
+    "example": "Despite numerous apologies, she remained implacable and refused to forgive him",
+    "createdAt": "1685225970223"
+  },
+  {
+    "name": "intrepid",
+    "meaning": "Fearless",
+    "example": "She showed her intrepid spirit by skydiving from an airplane",
+    "createdAt": "1685304681576"
+  },
+  {
+    "name": "lionize",
+    "meaning": "Celebrate, admire, or idolise",
+    "example": "The public started to lionize the actor after his outstanding performance in the critically acclaimed film",
+    "createdAt": "1685226236692"
+  },
+  {
+    "name": "magnanimous",
+    "meaning": "Generous, forgiving, and noble",
+    "example": "The team captain showed a magnanimous spirit by praising the opposing team's performance",
+    "createdAt": "1685303537102"
+  },
+  {
+    "name": "mollify",
+    "meaning": "To calm, or appease someone's anger",
+    "example": "He tried to mollify his upset friend by apologizing and promising to make things right",
+    "createdAt": "1685305232606"
+  },
+  {
+    "name": "moot",
+    "meaning": "Irrelevant",
+    "example": "The question of who would have won the race became moot when it was canceled due to bad weather",
+    "createdAt": "1685213183583"
+  },
+  {
+    "name": "probity",
+    "meaning": " Having strong moral principles and integrity",
+    "example": "The judge's reputation for probity and fairness made her highly respected in the legal community",
+    "createdAt": "1685305406992"
+  },
+  {
+    "name": "promulgate",
+    "meaning": "Officially make known",
+    "example": "The government will promulgate new regulations to address the issue of online privacy",
+    "createdAt": "1685212974062"
+  },
+  {
+    "name": "proselytize",
+    "meaning": "The act of attempting to convert someone to a particular religious, political, or ideological belief or system",
+    "example": "The missionaries went door to door, seeking to proselytize people to their faith",
+    "createdAt": "1685305320355"
+  },
+  {
+    "name": "pugnacious",
+    "meaning": "Eager to fight or argue",
+    "example": "The unruly student was known for their pugnacious behavior, often picking fights with classmates",
+    "createdAt": "1685304771970"
+  },
+  {
+    "name": "quip",
+    "meaning": "Witty or clever remark",
+    "example": "His quip about the situation had everyone laughing",
+    "createdAt": "1685212699544"
+  },
+  {
+    "name": "restrain",
+    "meaning": "Prevent, or keep in control",
+    "example": "The manager had to restrain the team's spending to stay within the budget",
+    "createdAt": "1685225447581"
+  },
+  {
+    "name": "unconscionable",
+    "meaning": "Unreasonable",
+    "example": "The landlord's demand for triple the rent was unconscionable",
+    "createdAt": "1685212870220"
+  },
+  {
+    "name": "unstinting",
+    "meaning": "Generous, or willingness to provide support, resources, etc",
+    "example": "She showed unstinting support for her friends, always being there for them in times of need",
+    "createdAt": "1685305073813"
+  },
+  {
+    "name": "vaunted",
+    "meaning": "Boasted about",
+    "example": "The company's vaunted product failed to deliver on its promises",
+    "createdAt": "1685225333575"
+  },
+  {
+    "name": "vitality",
+    "meaning": "The state of being strong, energetic, and full of life",
+    "example": "Regular exercise and a healthy diet contribute to maintaining physical vitality",
+    "createdAt": "1685225696174"
+  },
+  {
+    "name": "zeitgeist",
+    "meaning": "Trend of a particular time period",
+    "example": "The fashion industry often looks to the zeitgeist for inspiration in creating new trends",
+    "createdAt": "1685211690927"
   }
 ]
