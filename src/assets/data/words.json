@@ -2044,5 +2044,221 @@
     "meaning": "Trend of a particular time period",
     "example": "The fashion industry often looks to the zeitgeist for inspiration in creating new trends",
     "createdAt": "1685211690927"
+  },
+  {
+    "name": "ambivalence",
+    "meaning": "State of having mixed feelings",
+    "example": "He experienced ambivalence when it came to choosing between two equally appealing options",
+    "createdAt": "1685448848999"
+  },
+  {
+    "name": "ameliorate",
+    "meaning": "Make something bad better",
+    "example": "The company took steps to ameliorate customer complaints by providing better customer service and product quality",
+    "createdAt": "1685449081331"
+  },
+  {
+    "name": "apotheosis",
+    "meaning": "Pinnacle",
+    "example": "The grand finale of the concert was an apotheosis of musical talent and creativity.",
+    "createdAt": "1685364449844"
+  },
+  {
+    "name": "approbation",
+    "meaning": "Approval or praise",
+    "example": "The talented artist received widespread approbation for her stunning paintings",
+    "createdAt": "1685449247533"
+  },
+  {
+    "name": "appropriate",
+    "meaning": "Suitable, or take something for one's own use, typically without the owner's permission",
+    "example": "He decided to appropriate some of the company's funds for his personal use",
+    "createdAt": "1685449319057"
+  },
+  {
+    "name": "arduous",
+    "meaning": "Something that is difficult, or requires great effort",
+    "example": "After months of arduous training, the athletes were ready for the intense competition",
+    "createdAt": "1685449484831"
+  },
+  {
+    "name": "ascetic",
+    "meaning": "Characterized by self-discipline and abstinence",
+    "example": "The ascetic philosophy emphasized detachment from worldly desires and the pursuit of inner peace.",
+    "createdAt": "1685449950348"
+  },
+  {
+    "name": "aspersion",
+    "meaning": "Attack on the reputation or integrity of someone or something",
+    "example": "It is unfair to cast aspersions on her loyalty simply because she holds a different opinion",
+    "createdAt": "1685450100323"
+  },
+  {
+    "name": "assiduous",
+    "meaning": "Diligent, and hardworking",
+    "example": "The team's success can be attributed to their assiduous efforts in researching, planning, and executing their projects",
+    "createdAt": "1685450177998"
+  },
+  {
+    "name": "attenuate",
+    "meaning": "To make something thinner, weaker, or less potent",
+    "example": "The medication helped attenuate the symptoms of the illness, providing relief to the patient",
+    "createdAt": "1685450260343"
+  },
+  {
+    "name": "austere",
+    "meaning": "Very simple",
+    "example": "The office decor was kept austere, with minimalist furniture and neutral colors",
+    "createdAt": "1685450348848"
+  },
+  {
+    "name": "aver",
+    "meaning": "To assert or declare something with confidence or certainty",
+    "example": "The witness averred that she saw the defendant at the scene of the crime",
+    "createdAt": "1685450474515"
+  },
+  {
+    "name": "belie",
+    "meaning": "To give a false impression, or to hide the truth",
+    "example": "The gentle smile on her face belied the anger she was feeling",
+    "createdAt": "1685370515941"
+  },
+  {
+    "name": "beneficent",
+    "meaning": "Generous",
+    "example": "The wealthy philanthropist donated a significant amount of money to the hospital, demonstrating his beneficent nature",
+    "createdAt": "1685450531762"
+  },
+  {
+    "name": "besiege",
+    "meaning": "Surround and harass",
+    "example": "The army besieged the enemy fortress, cutting off their supplies and launching constant attacks",
+    "createdAt": "1685368917856"
+  },
+  {
+    "name": "besmirch",
+    "meaning": "The act of damaging someone's reputation",
+    "example": "It's unfair to besmirch someone's character without any evidence or proof",
+    "createdAt": "1685364711762"
+  },
+  {
+    "name": "bilious",
+    "meaning": "Grumpy",
+    "example": "He woke up in a bilious mood, snapping at everyone around him",
+    "createdAt": "1685369291145"
+  },
+  {
+    "name": "bombastic",
+    "meaning": "\nUsing words that are intended to impress people but do not sound sincere or do not express things very clearly",
+    "example": "The politician's bombastic speeches were filled with empty promises and exaggerated claims",
+    "createdAt": "1685450646595"
+  },
+  {
+    "name": "burgeon",
+    "meaning": "To grow, or expand rapidly",
+    "example": "The flowers in the garden began to burgeon with the arrival of spring",
+    "createdAt": "1685450970406"
+  },
+  {
+    "name": "burnish",
+    "meaning": "Polish",
+    "example": "The craftsman skillfully burnished the silverware, giving it a mirror-like finish",
+    "createdAt": "1685451081917"
+  },
+  {
+    "name": "buttress",
+    "meaning": "Providing support, reinforcement, or stability",
+    "example": "She sought additional evidence to buttress her argument",
+    "createdAt": "1685639177369"
+  },
+  {
+    "name": "cadaverous",
+    "meaning": "Corpse-like",
+    "example": "The old man had a cadaverous face, with sunken eyes and hollow cheeks",
+    "createdAt": "1685360907852"
+  },
+  {
+    "name": "cant",
+    "meaning": "insincere talk, or jargon",
+    "example": "I could tell she was canting when she praised my work but had actually criticized it behind my back",
+    "createdAt": "1685638931215"
+  },
+  {
+    "name": "conflate",
+    "meaning": "Mix together",
+    "example": "The news article conflated two separate incidents, creating a false narrative",
+    "createdAt": "1685369865404"
+  },
+  {
+    "name": "construe",
+    "meaning": " Interpret or understand",
+    "example": "I'm not sure how to construe her silence—does it mean she's upset or just lost in thought?",
+    "createdAt": "1685369097520"
+  },
+  {
+    "name": "dilemma",
+    "meaning": "A situation in which a difficult choice has to be made between two or more alternatives",
+    "example": "I'm facing a dilemma between accepting the job offer with higher pay or staying at my current job, which I enjoy",
+    "createdAt": "1685369799494"
+  },
+  {
+    "name": "dispensation",
+    "meaning": "Exemption, or permission",
+    "example": "The boss gave me a dispensation from attending the meeting due to my illness",
+    "createdAt": "1685364587858"
+  },
+  {
+    "name": "excoriate",
+    "meaning": "Criticise harshly",
+    "example": "The boss publicly excoriated the employee for their repeated mistakes in front of the entire team",
+    "createdAt": "1685361588259"
+  },
+  {
+    "name": "grumpy",
+    "meaning": "Who is easily annoyed, irritable, or in a bad mood",
+    "example": "The teacher's grumpy attitude affected the whole class, making the atmosphere tense",
+    "createdAt": "1685369299804"
+  },
+  {
+    "name": "jaundice",
+    "meaning": "Biased due to envy",
+    "example": "Shelly was jaundiced towards Oliva since she became the class president",
+    "createdAt": "1685364262395"
+  },
+  {
+    "name": "junta",
+    "meaning": "A small group, who seize power and establish a government",
+    "example": "After overthrowing the president, the military junta took control of the country",
+    "createdAt": "1685363999195"
+  },
+  {
+    "name": "perspicacious",
+    "meaning": "Very insightful, or ability to observe and understand situations or ideas accurately and readily",
+    "example": "The detective's perspicacious mind allowed her to solve the complex mystery in record time",
+    "createdAt": "1685363871832"
+  },
+  {
+    "name": "pompous",
+    "meaning": "Overly self-important, & arrogant",
+    "example": "She always spoke in a pompous manner, constantly boasting about her accomplishments",
+    "createdAt": "1685361176809"
+  },
+  {
+    "name": "pontificate",
+    "meaning": "Express one's opinions or judgments in an arrogant manner",
+    "example": "She was known for her tendency to pontificate during meetings, dominating the conversation with her strong opinions",
+    "createdAt": "1685360987205"
+  },
+  {
+    "name": "raconteur",
+    "meaning": "A storyteller",
+    "example": "At social gatherings, John always steals the spotlight as a talented raconteur, captivating everyone with his amusing tales",
+    "createdAt": "1685368771368"
+  },
+  {
+    "name": "supercilious",
+    "meaning": "Arrogantly superior",
+    "example": "The CEO's supercilious attitude towards his subordinates created a hostile work environment",
+    "createdAt": "1685369400585"
   }
 ]
