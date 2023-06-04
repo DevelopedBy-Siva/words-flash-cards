@@ -2260,5 +2260,143 @@
     "meaning": "Arrogantly superior",
     "example": "The CEO's supercilious attitude towards his subordinates created a hostile work environment",
     "createdAt": "1685369400585"
+  },
+  {
+    "name": "acerbic",
+    "meaning": "Harsh",
+    "example": "Most movie critics are acerbic towards summer blockbusters, often referring to them as garbage",
+    "createdAt": "1685723039663"
+  },
+  {
+    "name": "balk",
+    "meaning": "Refuse or, hesitate",
+    "example": "She balked at the idea of jumping off the high diving board due to her fear of heights",
+    "createdAt": "1685723858706"
+  },
+  {
+    "name": "checkered",
+    "meaning": "A situation or a person's past that is marked by a mixture of both favorable and unfavorable experiences or outcomes",
+    "example": "He has a checkered past, with a history of both successes and failures",
+    "createdAt": "1685724932791"
+  },
+  {
+    "name": "concise",
+    "meaning": "Giving a lot of information clearly and in a few words",
+    "example": "His presentation was concise, covering all the key points in just 10 minutes",
+    "createdAt": "1685722907709"
+  },
+  {
+    "name": "dabbler",
+    "meaning": "A person who engages in various activities or fields without fully committing to or specializing in any particular one",
+    "example": "He's a dabbler who tries out different hobbies but never sticks with any of them for long",
+    "createdAt": "1685724414134"
+  },
+  {
+    "name": "demur",
+    "meaning": "Raise objections or show reluctance",
+    "example": "When asked to work overtime, she demurred, citing prior commitments",
+    "createdAt": "1685713781555"
+  },
+  {
+    "name": "dilettante",
+    "meaning": "Dabbler",
+    "example": "The company hired a dilettante to design their logo, resulting in a lackluster and unprofessional design",
+    "createdAt": "1685724072359"
+  },
+  {
+    "name": "disabuse",
+    "meaning": "Free someone from a misconception or false belief",
+    "example": "The teacher worked hard to disabuse the students of their misconceptions about the scientific process",
+    "createdAt": "1685713699607"
+  },
+  {
+    "name": "emulate",
+    "meaning": "Match or surpass, typically by imitation",
+    "example": "Most rulers wished to emulate Alexander the Great",
+    "createdAt": "1685717595554"
+  },
+  {
+    "name": "errant",
+    "meaning": "Straying, or deviating from the correct or intended course",
+    "example": "The hiker took an errant path and ended up getting lost in the woods",
+    "createdAt": "1685724859374"
+  },
+  {
+    "name": "implicit",
+    "meaning": "Implied indirectly, without being directly expressed",
+    "example": "The speaker made implicit references to past events without explicitly mentioning them",
+    "createdAt": "1685714212024"
+  },
+  {
+    "name": "inert",
+    "meaning": "Lacking the ability or strength to move",
+    "example": "She lay inert in her bed",
+    "createdAt": "1685717295071"
+  },
+  {
+    "name": "jejune",
+    "meaning": "Boring, or Immature",
+    "example": "The movie was marketed as a gripping thriller, but it turned out to be a jejune and clichéd story",
+    "createdAt": "1685723745125"
+  },
+  {
+    "name": "limpid",
+    "meaning": "Clear, transparent, or easily understood",
+    "example": "The lake's limpid waters reflected the vibrant colors of the surrounding trees",
+    "createdAt": "1685717428605"
+  },
+  {
+    "name": "lugubrious",
+    "meaning": "Overly sad",
+    "example": "He had a lugubrious expression on his face as he delivered the bad news",
+    "createdAt": "1685725196274"
+  },
+  {
+    "name": "pithy",
+    "meaning": "Concise and meaningful.",
+    "example": "She has a talent for crafting pithy slogans that stick in people's minds",
+    "createdAt": "1685722958244"
+  },
+  {
+    "name": "plodding",
+    "meaning": "Slow-moving and unexciting",
+    "example": "The novel's plodding pace made it difficult to maintain interest in the story",
+    "createdAt": "1685724003643"
+  },
+  {
+    "name": "poignant",
+    "meaning": "Emotionally touching",
+    "example": "The film had a poignant ending that left everyone in tears",
+    "createdAt": "1685725251134"
+  },
+  {
+    "name": "staunch",
+    "meaning": "Loyal or unwavering",
+    "example": "Even in the face of criticism, she remained staunch in her beliefs and refused to compromise",
+    "createdAt": "1685723601239"
+  },
+  {
+    "name": "stray",
+    "meaning": "Wandering aimlessly",
+    "example": "Try not to stray too far from the marked trail while hiking",
+    "createdAt": "1685724837103"
+  },
+  {
+    "name": "superfluous",
+    "meaning": "More than necessary",
+    "example": "He included several superfluous details in his report, making it longer without providing any additional relevant information",
+    "createdAt": "1685723226091"
+  },
+  {
+    "name": "umbrage",
+    "meaning": "A feeling of anger or annoyance caused by something offensive.",
+    "example": "He expressed umbrage when his colleague received credit for his idea",
+    "createdAt": "1685723406041"
+  },
+  {
+    "name": "wanton",
+    "meaning": "Extreme and showing no care at all",
+    "example": "He engaged in wanton destruction, vandalizing property without reason",
+    "createdAt": "1685724479123"
   }
 ]
