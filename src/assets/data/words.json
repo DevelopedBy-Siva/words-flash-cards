@@ -2398,5 +2398,335 @@
     "meaning": "Extreme and showing no care at all",
     "example": "He engaged in wanton destruction, vandalizing property without reason",
     "createdAt": "1685724479123"
+  },
+  {
+    "name": "ascertain",
+    "meaning": "Gathering information or evidence to establish the truth or accuracy of something",
+    "example": "The scientists conducted experiments to ascertain the effects of the new drug on patients",
+    "createdAt": "1686122327245"
+  },
+  {
+    "name": "bald",
+    "meaning": "Straightforward, or lacking details",
+    "example": "The report was a bald summary of the findings without providing any supporting evidence",
+    "createdAt": "1686231907423"
+  },
+  {
+    "name": "capricious",
+    "meaning": "Sudden change in attitude or behaviour; unpredictable",
+    "example": "The movie star was capricious and difficult to please",
+    "createdAt": "1686230658281"
+  },
+  {
+    "name": "contradict",
+    "meaning": "To assert or express the opposite of something",
+    "example": "The scientific findings contradict the commonly held belief",
+    "createdAt": "1686035798396"
+  },
+  {
+    "name": "counterfactual",
+    "meaning": "Something that is contrary to the facts or reality",
+    "example": "In a counterfactual scenario, if I had won the lottery, I would have traveled the world",
+    "createdAt": "1686231063759"
+  },
+  {
+    "name": "didactic",
+    "meaning": "Intended to teach",
+    "example": "The film had a didactic message about the importance of environmental conservation",
+    "createdAt": "1686236209995"
+  },
+  {
+    "name": "elicit",
+    "meaning": "To draw out a response, information, or reaction from someone",
+    "example": "The comedian's jokes were designed to elicit laughter from the audience",
+    "createdAt": "1686122251218"
+  },
+  {
+    "name": "enervated",
+    "meaning": "Lack of energy",
+    "example": "After working long hours without a break, he felt completely enervated and could barely muster the energy to walk",
+    "createdAt": "1686235281973"
+  },
+  {
+    "name": "enigma",
+    "meaning": "Something or someone puzzling, or mysterious",
+    "example": "The disappearance of the ancient artifact remains an enigma to archaeologists",
+    "createdAt": "1686048037361"
+  },
+  {
+    "name": "eulogy",
+    "meaning": "A speech that praises someone, typically some who has recently died",
+    "example": "The community gathered to hear the eulogies for the beloved mayor, celebrating his dedication and achievements",
+    "createdAt": "1686048189880"
+  },
+  {
+    "name": "fallacious",
+    "meaning": "Not correct",
+    "example": "His argument was built on fallacious assumptions",
+    "createdAt": "1686231155561"
+  },
+  {
+    "name": "fickle",
+    "meaning": "Inconsistent",
+    "example": "She's known for her fickle nature, as her interests and hobbies change every few months",
+    "createdAt": "1686230433362"
+  },
+  {
+    "name": "flagging",
+    "meaning": " Becoming weak, tired",
+    "example": "The team's performance was flagging in the second half of the game",
+    "createdAt": "1686234975677"
+  },
+  {
+    "name": "fledgling",
+    "meaning": "Beginner",
+    "example": "The young bird took its first flight as a fledgling, flapping its wings nervously",
+    "createdAt": "1686235676350"
+  },
+  {
+    "name": "gullible",
+    "meaning": "Easily deceived or tricked",
+    "example": "She's so gullible that she falls for every online scam she encounters",
+    "createdAt": "1686049744106"
+  },
+  {
+    "name": "hale",
+    "meaning": "Being strong, healthy, and robust",
+    "example": "Even in his old age, he remained hale and hearty, with no signs of illness",
+    "createdAt": "1686235038940"
+  },
+  {
+    "name": "husband",
+    "meaning": "Manage or conserve resources carefully and efficiently",
+    "example": "They need to husband their savings to afford their dream vacation",
+    "createdAt": "1686229790194"
+  },
+  {
+    "name": "hypothesis",
+    "meaning": "An idea or explanation for something that is based on known facts but has not yet been proved",
+    "example": "The scientist formulated a hypothesis to explain the observed phenomenon",
+    "createdAt": "1686036034878"
+  },
+  {
+    "name": "insensible",
+    "meaning": "A state of being unaware, unresponsive, or lacking sensation",
+    "example": "The hiker was so focused on his surroundings that he remained insensible to the pain in his blistered feet",
+    "createdAt": "1686121398522"
+  },
+  {
+    "name": "lissome",
+    "meaning": "Flexible and graceful in movement",
+    "example": "The gymnast's lissome movements left the audience in awe of her agility and poise",
+    "createdAt": "1686235094475"
+  },
+  {
+    "name": "lithe",
+    "meaning": "Graceful, and flexible",
+    "example": "The gymnast showcased her incredible strength and lithe athleticism during her routine",
+    "createdAt": "1686235556554"
+  },
+  {
+    "name": "loathsome",
+    "meaning": "Disgusting",
+    "example": "The sight and smell of the garbage dump was truly loathsome",
+    "createdAt": "1686235168620"
+  },
+  {
+    "name": "medley",
+    "meaning": "Mixture",
+    "example": "The fashion show featured a medley of styles, showcasing both modern and vintage designs",
+    "createdAt": "1686233638545"
+  },
+  {
+    "name": "melange",
+    "meaning": "Mixture",
+    "example": "The artist created a melange of colors on the canvas, blending vibrant hues with subtle tones",
+    "createdAt": "1686233627779"
+  },
+  {
+    "name": "misanthrope",
+    "meaning": "One who hates the human race",
+    "example": "Sarah has become quite a misanthrope in her later years, preferring the company of her books over social gatherings",
+    "createdAt": "1686048284145"
+  },
+  {
+    "name": "mitigate",
+    "meaning": "To make something less severe, intense, or harmful",
+    "example": "Planting trees around the neighborhood can help mitigate the effects of air pollution",
+    "createdAt": "1686121650635"
+  },
+  {
+    "name": "novice",
+    "meaning": "A beginner",
+    "example": "The company hired a team of experts to train the novices and teach them the fundamentals of sale",
+    "createdAt": "1686235489062"
+  },
+  {
+    "name": "overt",
+    "meaning": "Done or shown openly",
+    "example": "The politician's overt support for the bill was evident in his public speeches",
+    "createdAt": "1686236132548"
+  },
+  {
+    "name": "paean",
+    "meaning": "A chant or song to celebrate or honor",
+    "example": "The crowd erupted in a joyous paean as their team scored the winning goal",
+    "createdAt": "1686236616005"
+  },
+  {
+    "name": "panacea",
+    "meaning": "A remedy or solution that is believed to cure all problems",
+    "example": "The new drug was hailed as a panacea for various health conditions, promising to provide relief for a wide range of symptoms",
+    "createdAt": "1686236916774"
+  },
+  {
+    "name": "paucity",
+    "meaning": "Dearth",
+    "example": "There is a paucity of job opportunities in the current economic climate",
+    "createdAt": "1686233729310"
+  },
+  {
+    "name": "peddle",
+    "meaning": "To sell or promote",
+    "example": "The company hired a team of salespeople to peddle their new product to potential customers",
+    "createdAt": "1686229521858"
+  },
+  {
+    "name": "philanthropic",
+    "meaning": "Promotes the welfare of others through charitable donations, or volunteer work",
+    "example": "The billionaire's philanthropic efforts have greatly impacted communities around the world",
+    "createdAt": "1686049373356"
+  },
+  {
+    "name": "pioneer",
+    "meaning": "A person who is one of the first people to do something",
+    "example": "Marie Curie was a pioneering scientist who made groundbreaking discoveries in the field of radioactivity",
+    "createdAt": "1686201333093"
+  },
+  {
+    "name": "polemic",
+    "meaning": "A piece of writing or a speech in which a person strongly attacks or defends a particular opinion, person, idea, or set of beliefs",
+    "example": "The professor delivered a polemic against the prevailing theories in the field, challenging their validity and offering alternative perspectives",
+    "createdAt": "1686236749850"
+  },
+  {
+    "name": "precipitate",
+    "meaning": "To make something happen suddenly and quickly",
+    "example": "His reckless actions precipitated a chain reaction of consequence",
+    "createdAt": "1686047746920"
+  },
+  {
+    "name": "qualified",
+    "meaning": "Meeting the standards, requirements, and training for a position",
+    "example": "She is a highly qualified candidate for the job, with a relevant degree and several years of experience",
+    "createdAt": "1686239298820"
+  },
+  {
+    "name": "recant",
+    "meaning": "To withdraw",
+    "example": "After being pressured by the authorities, the politician was forced to recant his controversial statement",
+    "createdAt": "1686239577112"
+  },
+  {
+    "name": "refute",
+    "meaning": "To prove something to be false",
+    "example": "The scientist was able to refute the theory by conducting rigorous experiments that contradicted its predictions",
+    "createdAt": "1686239803286"
+  },
+  {
+    "name": "relegate",
+    "meaning": "Assigning someone or something to a lower position",
+    "example": "After his poor performance, he was relegated to a bench role on the team",
+    "createdAt": "1686048009374"
+  },
+  {
+    "name": "rhetorical",
+    "meaning": "The effective use of language or speech for persuasion or communication",
+    "example": "The politician used a rhetorical question to engage the audience and make them think about the issue at hand.",
+    "createdAt": "1686236349745"
+  },
+  {
+    "name": "sage",
+    "meaning": "Wise, experienced, and knowledgeable",
+    "example": "The elderly man was regarded as a sage in the community, sought after for his wise advice and guidance",
+    "createdAt": "1686239091371"
+  },
+  {
+    "name": "skeptic",
+    "meaning": "A skeptic is a person who doesn't believe something is true unless they see evidence",
+    "example": "The detective approached the case with a skeptic's eye, considering all possible explanations and not jumping to conclusions",
+    "createdAt": "1686201646994"
+  },
+  {
+    "name": "specious",
+    "meaning": "Appears to be true, but is actually false",
+    "example": "The politician's specious promises during the campaign won over many voters, but failed to materialize once in office",
+    "createdAt": "1686239686684"
+  },
+  {
+    "name": "steward",
+    "meaning": "Who is responsible for managing and overseeing",
+    "example": "As the head steward of the hotel, she ensured that guests had a pleasant stay and addressed any concerns or requests",
+    "createdAt": "1686229674057"
+  },
+  {
+    "name": "stigma",
+    "meaning": "A mark of shame, disgrace, or social disapproval",
+    "example": "The transgender community has long fought against the stigma and discrimination they face on a daily basis",
+    "createdAt": "1686239464913"
+  },
+  {
+    "name": "tacit",
+    "meaning": "Implicit",
+    "example": "His silence was a tacit admission of guilt",
+    "createdAt": "1686236038962"
+  },
+  {
+    "name": "tirade",
+    "meaning": "A long, angry speech of criticism or accusation",
+    "example": "After receiving a low grade on his paper, the student went on a tirade, accusing the professor of unfairness and incompetence",
+    "createdAt": "1686236829513"
+  },
+  {
+    "name": "torpid",
+    "meaning": "Sluggishness",
+    "example": "The bear entered a torpid state during the winter months, hibernating in its den",
+    "createdAt": "1686235611374"
+  },
+  {
+    "name": "trite",
+    "meaning": "Cliche",
+    "example": "The movie's plot was trite and predictable, following the same formula as many other romantic comedies",
+    "createdAt": "1686231689604"
+  },
+  {
+    "name": "upend",
+    "meaning": "Upside down",
+    "example": "The unexpected turn of events upended the entire plan",
+    "createdAt": "1686229635389"
+  },
+  {
+    "name": "vacillating",
+    "meaning": "Wavering",
+    "example": "The committee's vacillating approach to the issue led to delays in making a decision",
+    "createdAt": "1686231108318"
+  },
+  {
+    "name": "verbose",
+    "meaning": "Someone who uses more words than necessary",
+    "example": "Instead of getting to the point, the politician's speech was filled with verbose and convoluted language",
+    "createdAt": "1686239197965"
+  },
+  {
+    "name": "viable",
+    "meaning": "Feasible",
+    "example": "The company presented a viable business plan that convinced investors to provide funding",
+    "createdAt": "1686122506030"
+  },
+  {
+    "name": "volatile",
+    "meaning": "Likely to change rapidly and unpredictably",
+    "example": "The stock market is highly volatile, with prices fluctuating dramatically from one day to the next",
+    "createdAt": "1686049553404"
   }
 ]
