@@ -2728,5 +2728,143 @@
     "meaning": "Likely to change rapidly and unpredictably",
     "example": "The stock market is highly volatile, with prices fluctuating dramatically from one day to the next",
     "createdAt": "1686049553404"
+  },
+  {
+    "name": "alibi",
+    "meaning": "Evidence or a statement that proves a person was elsewhere at the time a crime was committed",
+    "example": "The defendant presented multiple witnesses who testified to his alibi, proving that he was out of town when the robbery took place",
+    "createdAt": "1686408242648"
+  },
+  {
+    "name": "compendium",
+    "meaning": "A comprehensive collection of information on a particular subject.",
+    "example": "The encyclopedia is a comprehensive compendium of human history",
+    "createdAt": "1686392216262"
+  },
+  {
+    "name": "cosmology",
+    "meaning": "Study of the origin, structure, and evolution of the universe",
+    "example": "Cosmology is a branch of astronomy that seeks to understand the origins and composition of the universe",
+    "createdAt": "1686407235372"
+  },
+  {
+    "name": "craven",
+    "meaning": "A coward",
+    "example": "The craven soldier deserted his post during the battle, leaving his comrades behind",
+    "createdAt": "1686407731019"
+  },
+  {
+    "name": "discrete",
+    "meaning": "Distinct",
+    "example": "Each item in the collection is a discrete entity with its own unique characteristics",
+    "createdAt": "1686407881325"
+  },
+  {
+    "name": "homogeneous",
+    "meaning": "Uniform or consistent",
+    "example": "The solution should be mixed thoroughly until it becomes homogeneous, with no visible variations in color or texture",
+    "createdAt": "1686407444704"
+  },
+  {
+    "name": "impassive",
+    "meaning": "Lacking emotion",
+    "example": "Despite the tragic news, she remained impassive and didn't show any outward signs of distress",
+    "createdAt": "1686406449170"
+  },
+  {
+    "name": "indeterminate",
+    "meaning": "Not accurately determined",
+    "example": "The future of the project remains indeterminate, as there are still many variables to consider",
+    "createdAt": "1686406388172"
+  },
+  {
+    "name": "indifferent",
+    "meaning": "Lack of interest, or concern",
+    "example": "She was completely indifferent to the outcome of the game, as she had no interest in sports",
+    "createdAt": "1686400352114"
+  },
+  {
+    "name": "intrigue",
+    "meaning": "To interest or fascinate someone",
+    "example": "The unique painting style of the artist intrigued art critics and collectors alike",
+    "createdAt": "1686397946517"
+  },
+  {
+    "name": "laconic",
+    "meaning": "Describe using very few words",
+    "example": "His responses during the interview were laconic, providing just enough information without going into unnecessary details",
+    "createdAt": "1686406518068"
+  },
+  {
+    "name": "levity",
+    "meaning": "Lack of seriousness",
+    "example": "She approached the situation with levity, finding humor in even the most challenging circumstances",
+    "createdAt": "1686392442741"
+  },
+  {
+    "name": "oscillate",
+    "meaning": "Wavering ",
+    "example": "Her feelings for him oscillated between love and hate, never quite settling on one",
+    "createdAt": "1686406621933"
+  },
+  {
+    "name": "partisan",
+    "meaning": "One sided, or committed to a party, cause, or person",
+    "example": "The newspaper article was clearly written by a partisan journalist, favoring one side of the debate",
+    "createdAt": "1686406876006"
+  },
+  {
+    "name": "pathological",
+    "meaning": "Extreme deviation from the normal or expected",
+    "example": "The company's financial records revealed a pattern of pathological dishonesty and fraud",
+    "createdAt": "1686406989973"
+  },
+  {
+    "name": "piety",
+    "meaning": "Strong belief in a religion",
+    "example": "The elderly woman expressed her piety by attending daily prayers at the local mosque",
+    "createdAt": "1686406691346"
+  },
+  {
+    "name": "plasticity",
+    "meaning": "Adaptable",
+    "example": "Children have a higher level of plasticity, making it easier for them to learn new skills",
+    "createdAt": "1686407103079"
+  },
+  {
+    "name": "substantiate",
+    "meaning": "To provide evidence, support, or proof for something",
+    "example": "The scientist conducted experiments to substantiate her hypothesis",
+    "createdAt": "1686408136305"
+  },
+  {
+    "name": "tangential",
+    "meaning": "Diverging from the main subject",
+    "example": "Her comment was interesting but somewhat tangential to the overall conversation",
+    "createdAt": "1686407969042"
+  },
+  {
+    "name": "tractable",
+    "meaning": "Easily controlled or managed",
+    "example": "The dog is very tractable and responds well to training commands",
+    "createdAt": "1686408064662"
+  },
+  {
+    "name": "untenable",
+    "meaning": "Indefensible",
+    "example": "His argument was quickly proven untenable when presented with solid evidence to the contrary",
+    "createdAt": "1686392936812"
+  },
+  {
+    "name": "vapid",
+    "meaning": "Offering nothing that is stimulating or challenging, making it boring",
+    "example": "The novel had promising cover art, but its contents turned out to be vapid and uninspiring",
+    "createdAt": "1686392707665"
+  },
+  {
+    "name": "zealot",
+    "meaning": "A person who has very strong opinions about something, and tries to make other people have them too",
+    "example": "He was a religious zealot, tirelessly preaching and advocating for his faith",
+    "createdAt": "1686392600153"
   }
 ]
