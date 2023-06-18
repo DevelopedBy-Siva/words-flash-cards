@@ -3058,5 +3058,137 @@
     "meaning": "To destroy or damage something",
     "example": "A single error in the calculation can vitiate the entire experiment",
     "createdAt": "1686595616549"
+  },
+  {
+    "name": "astonish",
+    "meaning": "To surprise or impress someone greatly",
+    "example": "The magician's incredible trick left the audience astonished and speechless",
+    "createdAt": "1686815010773"
+  },
+  {
+    "name": "astound",
+    "meaning": "To greatly surprise or shock someone",
+    "example": "The students' scientific discovery astounded their teachers, as it challenged long-held theories in the field",
+    "createdAt": "1686816734634"
+  },
+  {
+    "name": "befriend",
+    "meaning": "To make friend by offering help or support",
+    "example": "She decided to befriend her new neighbor by inviting her over for coffee",
+    "createdAt": "1686814605510"
+  },
+  {
+    "name": "beguile",
+    "meaning": "To deceive or charm someone in a cunning or deceptive manner",
+    "example": "The magician's tricks beguiled the audience and left them in awe",
+    "createdAt": "1686814733821"
+  },
+  {
+    "name": "beholden",
+    "meaning": "Indebted to someone, typically due to a favor or kindness they have done for you",
+    "example": "The politician felt beholden to the voters who elected him and worked hard to fulfill their expectations",
+    "createdAt": "1686814801938"
+  },
+  {
+    "name": "chronology",
+    "meaning": "Arrangement or ordering of events in the order they occurred",
+    "example": "The detective used the chronology of phone calls to piece together the suspect's movements",
+    "createdAt": "1686745699955"
+  },
+  {
+    "name": "elate",
+    "meaning": "Great joy, happiness, or excitement",
+    "example": "Winning the championship elated the entire team",
+    "createdAt": "1686811737293"
+  },
+  {
+    "name": "explicit",
+    "meaning": "Something that is clearly and directly stated or expressed",
+    "example": "The instructions were explicit, outlining each step in detail",
+    "createdAt": "1686811498895"
+  },
+  {
+    "name": "factual",
+    "meaning": "Something that is based on facts",
+    "example": "Her argument was based on factual data and statistical analysis",
+    "createdAt": "1686811401809"
+  },
+  {
+    "name": "hector",
+    "meaning": "To intimidate",
+    "example": "The older boys hector the younger kids on the playground, making them feel scared and inferior",
+    "createdAt": "1687094128893"
+  },
+  {
+    "name": "inveigle",
+    "meaning": "Persuade",
+    "example": "The salesman tried to inveigle the customer into buying an expensive product by offering exaggerated promises and discounts",
+    "createdAt": "1687094215705"
+  },
+  {
+    "name": "perplexed",
+    "meaning": "Confused, or puzzled",
+    "example": "Sarah looked perplexed when she couldn't find her keys and couldn't remember where she had put them",
+    "createdAt": "1687092226631"
+  },
+  {
+    "name": "precarious",
+    "meaning": "Unstable, or potentially dangerous",
+    "example": "The hiker found himself in a precarious position when he lost his way and darkness began to fall",
+    "createdAt": "1687092381334"
+  },
+  {
+    "name": "presumptuous",
+    "meaning": "Showing too much confidence and not enough respect",
+    "example": "She had the presumptuousness to assume that she would automatically be given the promotion",
+    "createdAt": "1687092680284"
+  },
+  {
+    "name": "recondite",
+    "meaning": "Obscure",
+    "example": "The professor's lecture on quantum physics was filled with recondite concepts that left most of the students perplexed",
+    "createdAt": "1687092122144"
+  },
+  {
+    "name": "refractory",
+    "meaning": "Unmanageable",
+    "example": "The refractory child refused to obey his parents' instructions",
+    "createdAt": "1687092034506"
+  },
+  {
+    "name": "reproach",
+    "meaning": "To express disapproval or disappointment in one's actions",
+    "example": "She reproached him for his careless behavior",
+    "createdAt": "1687091869743"
+  },
+  {
+    "name": "supplement",
+    "meaning": "Something added to enhance",
+    "example": "I take vitamin supplements to ensure I'm getting all the necessary nutrients",
+    "createdAt": "1686807697227"
+  },
+  {
+    "name": "tactless",
+    "meaning": "Who lacks skills or sensitivity",
+    "example": "The boss's tactless remarks during the meeting offended several employees",
+    "createdAt": "1686811088275"
+  },
+  {
+    "name": "vindicate",
+    "meaning": "To clear someone from blame",
+    "example": "The evidence presented in court vindicated the defendant, proving their innocence",
+    "createdAt": "1686807514911"
+  },
+  {
+    "name": "wilful",
+    "meaning": "Intentional, or deliberate",
+    "example": "Despite the warnings, he made a wilful decision to go ahead with the risky investment",
+    "createdAt": "1686807412514"
+  },
+  {
+    "name": "witty",
+    "meaning": "Clever and humorous",
+    "example": "She always has a witty comeback for every situation",
+    "createdAt": "1686807334759"
   }
 ]
