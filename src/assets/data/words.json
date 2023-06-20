@@ -3190,5 +3190,191 @@
     "meaning": "Clever and humorous",
     "example": "She always has a witty comeback for every situation",
     "createdAt": "1686807334759"
+  },
+  {
+    "name": "acute",
+    "meaning": "Severe",
+    "example": "The region is experiencing an acute water shortage due to prolonged drought",
+    "createdAt": "1687269398728"
+  },
+  {
+    "name": "adroit",
+    "meaning": "Skillful",
+    "example": "The adroit surgeon successfully performed the complex procedure with precision and speed",
+    "createdAt": "1687269289364"
+  },
+  {
+    "name": "coda",
+    "meaning": "A concluding event, remark, or section",
+    "example": "His new novel is a kind of coda to his previous books",
+    "createdAt": "1687143511625"
+  },
+  {
+    "name": "delineate",
+    "meaning": "To describe",
+    "example": "The architect used a blueprint to delineate the exact dimensions and layout of the building",
+    "createdAt": "1687269768761"
+  },
+  {
+    "name": "dismiss",
+    "meaning": "Disregard, or reject",
+    "example": "The manager dismissed the proposal as impractical and unrealistic",
+    "createdAt": "1687270066908"
+  },
+  {
+    "name": "ideological",
+    "meaning": "Based on or relating to a particular set of ideas or beliefs",
+    "example": "The newspaper article criticized the government's decision, arguing that it was driven by ideological bias rather than practical considerations",
+    "createdAt": "1687159185065"
+  },
+  {
+    "name": "igneous",
+    "meaning": "Produced by fire",
+    "example": "The geothermal activity in the region is a result of the underlying igneous activity",
+    "createdAt": "1687158987904"
+  },
+  {
+    "name": "ingenuous",
+    "meaning": "Sincere",
+    "example": "She told her story with such ingenuousness that it was impossible not to believe her",
+    "createdAt": "1687269200501"
+  },
+  {
+    "name": "irresolute",
+    "meaning": "Lacking determination",
+    "example": "The team's performance suffered due to the coach's irresolute leadership and inability to make decisive changes",
+    "createdAt": "1687159277358"
+  },
+  {
+    "name": "obviate",
+    "meaning": "To eliminate or prevent",
+    "example": "The new software update includes several bug fixes that obviate the need for manual workarounds",
+    "createdAt": "1687271078700"
+  },
+  {
+    "name": "occlude",
+    "meaning": "To obstruct",
+    "example": "The fallen tree branches occlude the path, making it difficult for hikers to proceed",
+    "createdAt": "1687271291285"
+  },
+  {
+    "name": "officious",
+    "meaning": "Offering help or advice",
+    "example": "The officious neighbor always interferes in our affairs, offering unsolicited advice on how to run our household",
+    "createdAt": "1687271159066"
+  },
+  {
+    "name": "precursor",
+    "meaning": "Something that happened or existed before another thing",
+    "example": "The artist's early sketches were precursors to her later masterpieces",
+    "createdAt": "1687270319624"
+  },
+  {
+    "name": "prevaricate",
+    "meaning": "To deviate from the truth",
+    "example": "The politician was known to prevaricate when confronted with difficult questions during interviews",
+    "createdAt": "1687270620298"
+  },
+  {
+    "name": "propensity",
+    "meaning": "A strong natural tendency to do something",
+    "example": "The team's star player has a propensity for scoring goals in critical moments of the game",
+    "createdAt": "1687270658492"
+  },
+  {
+    "name": "prosaic",
+    "meaning": "Dull and lacking excitement",
+    "example": "The movie failed to capture the audience's attention with its prosaic plot and predictable storyline",
+    "createdAt": "1687143366106"
+  },
+  {
+    "name": "reverence",
+    "meaning": "Respect, admiration, or awe for someone",
+    "example": "The students greeted their teacher with reverence as they entered the classroom",
+    "createdAt": "1687157835871"
+  },
+  {
+    "name": "sabotage",
+    "meaning": "Deliberately destroy, damage, or obstruct ",
+    "example": "The labor union threatened to sabotage the production process if their demands were not met",
+    "createdAt": "1687268339740"
+  },
+  {
+    "name": "salubrious",
+    "meaning": "Healthy",
+    "example": "Eating a balanced diet and exercising regularly are essential for maintaining a salubrious lifestyle",
+    "createdAt": "1687158077978"
+  },
+  {
+    "name": "salutary",
+    "meaning": "Beneficial",
+    "example": "The feedback she received from her supervisor was salutary, as it helped her identify areas for improvement",
+    "createdAt": "1687157890289"
+  },
+  {
+    "name": "selfless",
+    "meaning": "Unselfish",
+    "example": "The selfless teacher stayed late every day to provide extra help to struggling students",
+    "createdAt": "1687269134010"
+  },
+  {
+    "name": "sensual",
+    "meaning": "Physically pleasing",
+    "example": "That massage was a very sensual experience!",
+    "createdAt": "1687158656930"
+  },
+  {
+    "name": "sensuous",
+    "meaning": "Providing pleasure or gratification to the senses",
+    "example": "The garden was filled with the sensuous fragrance of blooming flowers, enveloping visitors in a delightful scent",
+    "createdAt": "1687158777789"
+  },
+  {
+    "name": "shrewd",
+    "meaning": "Clever in their thinking and decision-making",
+    "example": "Despite his young age, the shrewd businessman was able to negotiate a favorable deal",
+    "createdAt": "1687268372486"
+  },
+  {
+    "name": "slack",
+    "meaning": "Loose",
+    "example": "The team's performance was affected by a slack defense",
+    "createdAt": "1687269528236"
+  },
+  {
+    "name": "stolid",
+    "meaning": "Impassive",
+    "example": "Despite the chaos and commotion around him, John remained stolid and composed",
+    "createdAt": "1687158186098"
+  },
+  {
+    "name": "supersede",
+    "meaning": "To overshadow",
+    "example": "The new digital technology has superseded the traditional analog system",
+    "createdAt": "1687158315456"
+  },
+  {
+    "name": "tortuous",
+    "meaning": "Full of twists and turns",
+    "example": "The author's writing style was admired for its rich, detailed, and somewhat tortuous descriptions",
+    "createdAt": "1687270968147"
+  },
+  {
+    "name": "venerate",
+    "meaning": "To honor or have great respect for a person or thing",
+    "example": "The people of the village venerate their local religious leader for his wisdom and guidance",
+    "createdAt": "1687158391703"
+  },
+  {
+    "name": "veracious",
+    "meaning": "Honest",
+    "example": "The book provides a veracious portrayal of life in a small town",
+    "createdAt": "1687270138806"
+  },
+  {
+    "name": "vituperative",
+    "meaning": "Harsh and abusive",
+    "example": "The online discussion quickly turned vituperative as participants exchanged insults and personal attacks",
+    "createdAt": "1687270199008"
   }
 ]
