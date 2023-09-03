@@ -3376,5 +3376,119 @@
     "meaning": "Harsh and abusive",
     "example": "The online discussion quickly turned vituperative as participants exchanged insults and personal attacks",
     "createdAt": "1687270199008"
+  },
+  {
+    "name": "chaotic",
+    "meaning": "Completely confused or disordered",
+    "example": "After he became famous, his life became even more chaotic",
+    "createdAt": "1688928530477"
+  },
+  {
+    "name": "confound",
+    "meaning": "Surprise or confusion",
+    "example": "The magician's trick confounded the audience, leaving them in awe and unable to explain how it was done",
+    "createdAt": "1687370212070"
+  },
+  {
+    "name": "dissemble",
+    "meaning": "To disguise or conceal something",
+    "example": "The politician tried to dissemble his true agenda by making vague promises and giving evasive answers",
+    "createdAt": "1687369691515"
+  },
+  {
+    "name": "disseminate",
+    "meaning": "The act of spreading or sharing information, knowledge, or ideas ",
+    "example": "Social media has become an effective tool to disseminate news and information quickly",
+    "createdAt": "1687369758729"
+  },
+  {
+    "name": "ebullient",
+    "meaning": "Full of energy",
+    "example": "The children were ebullient as they ran around the playground, laughing and playing games",
+    "createdAt": "1687369835259"
+  },
+  {
+    "name": "effete",
+    "meaning": "Weak",
+    "example": "The once-great empire had become effete and incapable of defending itself",
+    "createdAt": "1687370774637"
+  },
+  {
+    "name": "equanimity",
+    "meaning": "The state of being calm",
+    "example": "She faced the challenging interview questions with equanimity, answering confidently and thoughtfully",
+    "createdAt": "1687370941619"
+  },
+  {
+    "name": "extravagant",
+    "meaning": "Spending much more than is necessary",
+    "example": "He rarely used taxis, which he regarded as extravagant",
+    "createdAt": "1688928088929"
+  },
+  {
+    "name": "heterodox",
+    "meaning": "Beliefs, or opinions that deviate from the accepted",
+    "example": "The professor's heterodox theories challenged the established principles of the field and sparked lively debates among scholars",
+    "createdAt": "1687370311505"
+  },
+  {
+    "name": "histrionic",
+    "meaning": "Showing a lot of emotion in order to persuade others or attract attention",
+    "example": "The actor's histrionic performance captivated the audience with its intense emotions and dramatic delivery",
+    "createdAt": "1687370407335"
+  },
+  {
+    "name": "hyperbole",
+    "meaning": "Exaggerated statements or claims",
+    "example": "\"The suitcase weighed a ton!\" - This statement uses hyperbole to emphasize the heaviness of the suitcase",
+    "createdAt": "1687370527019"
+  },
+  {
+    "name": "idolatry",
+    "meaning": "The worship of idols",
+    "example": "The cult's leader exploited the idolatry of his followers, manipulating them for personal gain",
+    "createdAt": "1687370636551"
+  },
+  {
+    "name": "inchoate",
+    "meaning": "Embryonic",
+    "example": "The company's business plan was still inchoate, lacking detailed strategies and a clear direction",
+    "createdAt": "1687369945836"
+  },
+  {
+    "name": "indolent",
+    "meaning": "Lazy",
+    "example": "His indolent attitude hindered his progress in achieving his dreams, as he lacked the drive to take action",
+    "createdAt": "1687370713303"
+  },
+  {
+    "name": "lackluster",
+    "meaning": "Dull or unimpressive",
+    "example": "Despite the hype, the movie turned out to be quiet lackluster, failing to deliver on its promises",
+    "createdAt": "1693761904922"
+  },
+  {
+    "name": "malinger",
+    "meaning": "Pretending to be ill",
+    "example": "The student was caught malingering to skip school by pretending to have a stomach ache",
+    "createdAt": "1687370995842"
+  },
+  {
+    "name": "spendthrift",
+    "meaning": "Someone who spends money wastefully",
+    "example": "Despite having a modest income, Lisa's spendthrift nature led her to accumulate significant credit card debt",
+    "createdAt": "1688927852072"
+  },
+  {
+    "name": "stimulus",
+    "meaning": "Something that causes growth or activity",
+    "example": "Foreign investment has been a stimulus to the industry",
+    "createdAt": "1693777722034"
+  },
+  {
+    "name": "vivid",
+    "meaning": "Very clear and detailed",
+    "example": "Her vivid storytelling made it feel as if we were right there with her on that adventure",
+    "createdAt": "1693761677588"
   }
 ]
