@@ -3490,5 +3490,41 @@
     "meaning": "Very clear and detailed",
     "example": "Her vivid storytelling made it feel as if we were right there with her on that adventure",
     "createdAt": "1693761677588"
+  },
+  {
+    "name": "ally",
+    "meaning": "Someone who helps and supports someone else",
+    "example": "He is generally considered to be the prime minister's closest political ally",
+    "createdAt": "1693858889776"
+  },
+  {
+    "name": "brisk",
+    "meaning": "Active and energetic",
+    "example": "Business has been brisk lately",
+    "createdAt": "1693858756811"
+  },
+  {
+    "name": "clutter",
+    "meaning": "Untidy",
+    "example": "Sorry about the clutter in the kitchen",
+    "createdAt": "1693858683498"
+  },
+  {
+    "name": "entrench",
+    "meaning": "Established firmly so that it cannot be changed",
+    "example": "Computers are now an entrenched part of modern life",
+    "createdAt": "1693859757752"
+  },
+  {
+    "name": "rationalize",
+    "meaning": "To justify",
+    "example": "Management is thinking of ways to rationalize our system of production",
+    "createdAt": "1693858339780"
+  },
+  {
+    "name": "tangible",
+    "meaning": "Real",
+    "example": "We need tangible evidence if we're going to take legal action",
+    "createdAt": "1693859379053"
   }
 ]
