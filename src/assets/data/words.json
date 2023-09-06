@@ -3526,5 +3526,47 @@
     "meaning": "Real",
     "example": "We need tangible evidence if we're going to take legal action",
     "createdAt": "1693859379053"
+  },
+  {
+    "name": "allegiance",
+    "meaning": "Loyalty",
+    "example": "The soldier swore an oath of allegiance to defend his country at all costs",
+    "createdAt": "1694019415553"
+  },
+  {
+    "name": "dichotomy",
+    "meaning": "Division in two groups",
+    "example": "The dichotomy between good and evil is a common theme in many classic literature work",
+    "createdAt": "1694020809690"
+  },
+  {
+    "name": "embody",
+    "meaning": "To represent",
+    "example": "The statue in the town square embodies the town's pride in its rich history",
+    "createdAt": "1694019611002"
+  },
+  {
+    "name": "hassle",
+    "meaning": "Trouble",
+    "example": "I went through a lot of hassle to be the first to get a ticket.",
+    "createdAt": "1694019055718"
+  },
+  {
+    "name": "incongruent",
+    "meaning": "Incompatible",
+    "example": "Her knowledge of world politics was incongruent in someone so young.",
+    "createdAt": "1694019178878"
+  },
+  {
+    "name": "radical",
+    "meaning": "Something new and different",
+    "example": "Her radical ideas on education challenged the conventional methods",
+    "createdAt": "1694019705256"
+  },
+  {
+    "name": "slumber",
+    "meaning": "Sleep",
+    "example": "After a long day of hiking, he fell into a deep slumber as soon as he hit the bed.",
+    "createdAt": "1694019463246"
   }
 ]
